@@ -18,7 +18,5 @@ a Services expect a requirements.txt file in the root of projects.
 
 ## Acknowledgements
 
-Many thanks to Audrey Roy and Daniel Greenfeld for writing [Two Scoops of
-django: Best Practices for Django 1.5 https://django.2scoops.org/]. Any
-clumsiness in my project is my fault, not theirs. :)
+Many thanks to Audrey Roy and Daniel Greenfeld for writing [https://django.2scoops.org/ Two Scoops of django: Best Practices for Django 1.5]. Any clumsiness in my project is my fault, not theirs.
 
