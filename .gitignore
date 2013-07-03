@@ -8,3 +8,6 @@ pip-log.txt
 
 #pycharm
 .idea
+
+# sqlite db
+*.db
