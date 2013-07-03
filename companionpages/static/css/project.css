@@ -1,1 +1,9 @@
 /*! project specific CSS goes here. */
+.header_gradient {
+  background-color: #425143;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#425143), to(#2F3D2F)); /* Chrome, Safari 4+ */
+  background-image: -webkit-linear-gradient(top, #425143, #2F3D2F); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+  background-image:    -moz-linear-gradient(top, #425143, #2F3D2F); /* Firefox 3.6-15 */
+  background-image:      -o-linear-gradient(top, #425143, #2F3D2F); /* Opera 11.10-12.00 */
+  background-image:         linear-gradient(to bottom, #425143, #2F3D2F); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}

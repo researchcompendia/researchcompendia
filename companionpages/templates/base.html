@@ -29,20 +29,7 @@
         then move to project.css -->
         {% block extra_css %}
         <!-- 
-        #F4F4F4 background tan body color
         #7AC725 light green stuff
-
-        #425143 header green top
-        #2F3D2F header green bottom
-
-        .header_gradient {
-          background-color: #425143;
-          background-image: -webkit-gradient(linear, left top, left bottom, from(#425143), to(#2F3D2F)); /* Chrome, Safari 4+ */
-          background-image: -webkit-linear-gradient(top, #425143, #2F3D2F); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
-          background-image:    -moz-linear-gradient(top, #425143, #2F3D2F); /* Firefox 3.6-15 */
-          background-image:      -o-linear-gradient(top, #425143, #2F3D2F); /* Opera 11.10-12.00 */
-          background-image:         linear-gradient(to bottom, #425143, #2F3D2F); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
-        }
         #3CAD18 green text
         #7FC926 tab link
         -->
@@ -53,18 +40,24 @@
 
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container">
+      <div class="container header_gradient">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">rose</a>
+        <a class="brand" href="#">Rose Tyler</a>
         <div class="nav-collapse collapse">
           <ul class="nav pull-right">
+            <li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="divider"></li>
             <li>
               <form class="navbar-search">
                 <input type="text" class="search-query" placeholder="Search">
               </form>
+            </li>
             </li>
             <li class="divider"></li>
             <li><a href="#register">Register</a></li>
@@ -80,9 +73,9 @@
     <div clas="row-fluid">
 
       <div class="span3">
-        <div class="well sidebar-nav">
+          <!-- div -->
           <ul class="nav nav-list">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="divider"></li>
@@ -91,39 +84,59 @@
             <li class="divider"></li>
             <li><a href="#Help">Help/FAQ</a></li>
           </ul>
-        </div> <!-- /well sidebar-nav -->
+        <!--</div> /well sidebar-nav -->
       </div> <!-- /span3 -->
 
       <div class="span9">
 
         <div class="hero-unit">
-          <h1>{% block page_title %}The Doctor's Companions{% endblock page_title %}</h1>
+          <h1>{% block page_title %}The Companions{% endblock page_title %}</h1>
 
           {% block content %}
-          <p>Hello hello! Wikipsum wishful wizards want wands Pullipadam is a
-          village in Malappuram district in the state of Kerala, India. At the
-          2001 India census, Pullipadam had a population of 9214 with 4545
-          males and 4669 females. Canens Coordinates: 43°12′59″N
-          1°19′55″E﻿ / ﻿43.2164°N 1.3319°E﻿ / 43.2164; 1.3319
-          Canens is a commune in the Haute-Garonne department in southwestern
-          France. Very little is known of the medical organisations that
-          existed in the various Armies in this country in the ancient
-          times.</p>
+          <h2>Rise of the Cybermen</h2>
+
+          <p>Aw, you're all Mr. Grumpy Face today. Father Christmas. Santa
+          Claus. Or as I've always known him: Jeff. It's art! A statement on
+          modern society, 'Oh Ain't Modern Society Awful?'! Sorry, checking all
+          the water in this area; there's an escaped fish.</p> 
+
           {% endblock content %}
         </div> <!--/hero-unit -->
 
         <div class="row-fluid">
           <div class="span6">
-          <p>Wikipsum wishful wizards want wands OML (Outline Markup Language) is
-          an XML format for outlines. It was originally proposed by Ray
-          Grieselhuber. The specification is designed to build upon the
-          concepts found in OPML, with the goal of fixing some of its
-          limitations. OML has a structure similar to OPML. Its advocates claim
-          that although it is as simple and as flexible as OPML, its extension
-          mechanism is better than that of OPML. Instead of letting users add
-          attributes freely, OML introduces an <item> element (child element of
-          <outline>); instances of the <item> element may be added freely.</p>
-          </div> <!-- /span3 -->
+              <p>
+              The Queen turned angrily away from him, and said to the Knave 'Turn them over!'
+             </p>
+
+              <p>
+              The Knave did so, very carefully, with one foot.
+             </p>
+
+              <p>
+              'Get up!' said the Queen, in a shrill, loud voice, and the three
+              gardeners instantly jumped up, and began bowing to the King, the
+              Queen, the royal children, and everybody else.
+             </p>
+
+              <p>
+              'Leave off that!' screamed the Queen. 'You make me giddy.' And
+              then, turning to the rose-tree, she went on, 'What HAVE you been
+              doing here?'
+             </p>
+
+              <p>
+              'May it please your Majesty,' said Two, in a very humble tone,
+              going down on one knee as he spoke, 'we were trying—'
+             </p>
+
+              <p>
+              'I see!' said the Queen, who had meanwhile been examining the
+              roses. 'Off with their heads!' and the procession moved on, three
+              of the soldiers remaining behind to execute the unfortunate
+              gardeners, who ran to Alice for protection.
+             </p>
+          </div> <!-- /span6 -->
 
           <div class="span6">
           <p>Wikipsum wishful wizards want wands politician Harvey Magee Watterson
@@ -142,16 +155,36 @@
           1851. With his friend Pierce's election as President of the United
           States in 1853, the Washington Union became the "organ of the
           Administration.</p>
-          </div> <!-- /span3 -->
+          </div> <!-- /span6 -->
         </div> <!-- /row-fluid -->
-
+      </div> <!-- span9 -->
+        <footer>
+         footer?
+        </footer>
     </div> <!-- /row-fluid -->
-    <hr>
-
-    <footer>
-    <p>trouble's afoot</p>
-    </footer>
   </div> <!-- /container-fluid -->
+
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-inner">
+      <div class="container header_gradient">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">something something</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#privacy">Terms of Use</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+
 
 <!-- Le javascript
 ================================================== -->
