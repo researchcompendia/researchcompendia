@@ -40,7 +40,6 @@ ADMINS = (
 MANAGERS = ADMINS
 ########## END MANAGER CONFIGURATION
 
-
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
@@ -195,7 +194,13 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
+    'profiles',
+    'registration',
 )
+
+# Third party app settings
+ACCOUNT_ACTIVATION_DAYS = 2
+#AUTH_PROFILE_MODULE = 
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
