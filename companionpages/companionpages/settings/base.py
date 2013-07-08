@@ -1,8 +1,21 @@
 """Common settings and globals."""
 
-
+from os import environ
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
+
+# Normally you should not import ANYTHING from Django directly
+# into your settings, but ImproperlyConfigured is an exception.
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_setting(setting):
+    """ Get the environment setting or return exception """
+    try:
+        return environ[setting]
+    except KeyError:
+        error_msg = "Set the %s env variable" % setting
+        raise ImproperlyConfigured(error_msg)
+
 
 
 ########## PATH CONFIGURATION
@@ -107,8 +120,7 @@ STATICFILES_FINDERS = (
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-# Note: This key should only be used for development and testing.
-SECRET_KEY = r"z9bn&7ad*k-%dpq$o_sq+847b454jn7nn@^ozdriw(ls8(u6+m"
+SECRET_KEY = get_env_setting('SECRET_KEY')
 ########## END SECRET CONFIGURATION
 
 

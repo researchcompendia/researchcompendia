@@ -5,3 +5,4 @@ logutils==0.3.3
 South==0.7.6
 django-registration
 django-profiles
+psycopg2
