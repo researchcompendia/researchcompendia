@@ -24,15 +24,9 @@
 
   <!-- This file store project specific CSS -->
   <link href="{% static 'css/project.css' %}" rel="stylesheet">
-
   <!-- Use this to quickly test CSS changes in a template,
         then move to project.css -->
         {% block extra_css %}
-        <!-- 
-        #7AC725 light green stuff
-        #3CAD18 green text
-        #7FC926 tab link
-        -->
         {% endblock extra_css %}
 </head>
 
@@ -65,14 +59,14 @@
             <li><a href="#login">Sign in</a></li>
           </ul>
         </div><!--/.nav-collapse -->
-      </div>
-    </div>
-  </div>
+      </div><!--/container header_gradient -->
+    </div><!-- navbar-inner -->
+  </div><!--navbar navbar-fixed-top -->
 
   <div class="container-fluid">
     <div clas="row-fluid">
 
-      <div class="span3">
+      <div class="span2">
           <!-- div -->
           <ul class="nav nav-list">
             <li><a href="#">Home</a></li>
@@ -87,20 +81,16 @@
         <!--</div> /well sidebar-nav -->
       </div> <!-- /span3 -->
 
-      <div class="span9">
+      {% block content %}
+      <div class="span10">
 
         <div class="hero-unit">
-          <h1>{% block page_title %}The Companions{% endblock page_title %}</h1>
-
-          {% block content %}
+          <h1>{% block marketing_title %}The Companions{% endblock marketing_title %}</h1>
           <h2>Rise of the Cybermen</h2>
-
           <p>Aw, you're all Mr. Grumpy Face today. Father Christmas. Santa
           Claus. Or as I've always known him: Jeff. It's art! A statement on
           modern society, 'Oh Ain't Modern Society Awful?'! Sorry, checking all
           the water in this area; there's an escaped fish.</p> 
-
-          {% endblock content %}
         </div> <!--/hero-unit -->
 
         <div class="row-fluid">
@@ -157,10 +147,9 @@
           Administration.</p>
           </div> <!-- /span6 -->
         </div> <!-- /row-fluid -->
-      </div> <!-- span9 -->
-        <footer>
-         footer?
-        </footer>
+      </div> <!-- span10 -->
+      {% endblock content %}
+
     </div> <!-- /row-fluid -->
   </div> <!-- /container-fluid -->
 
@@ -184,7 +173,6 @@
       </div>
     </div>
   </div>
-
 
 <!-- Le javascript
 ================================================== -->
