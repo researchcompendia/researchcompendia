@@ -48,6 +48,7 @@ CACHES = {
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 INSTALLED_APPS += (
     'debug_toolbar',
+    'django.contrib.webdesign',
 )
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation

@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load webdesign %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,66 +87,24 @@
       <div class="span10">
 
         <div class="hero-unit">
-          <h1>{% block marketing_title %}The Companions{% endblock marketing_title %}</h1>
-          <h2>Rise of the Cybermen</h2>
-          <p>Aw, you're all Mr. Grumpy Face today. Father Christmas. Santa
-          Claus. Or as I've always known him: Jeff. It's art! A statement on
-          modern society, 'Oh Ain't Modern Society Awful?'! Sorry, checking all
-          the water in this area; there's an escaped fish.</p> 
+          <h1>{% block marketing_title %}{% lorem 2 w random  %}{% endblock marketing_title %}</h1>
+
+          <h2>{% lorem 4 w random %}</h2>
+          {% lorem %}
+
         </div> <!--/hero-unit -->
 
         <div class="row-fluid">
           <div class="span6">
-              <p>
-              The Queen turned angrily away from him, and said to the Knave 'Turn them over!'
-             </p>
 
-              <p>
-              The Knave did so, very carefully, with one foot.
-             </p>
+          {% lorem 3 p random %}
 
-              <p>
-              'Get up!' said the Queen, in a shrill, loud voice, and the three
-              gardeners instantly jumped up, and began bowing to the King, the
-              Queen, the royal children, and everybody else.
-             </p>
-
-              <p>
-              'Leave off that!' screamed the Queen. 'You make me giddy.' And
-              then, turning to the rose-tree, she went on, 'What HAVE you been
-              doing here?'
-             </p>
-
-              <p>
-              'May it please your Majesty,' said Two, in a very humble tone,
-              going down on one knee as he spoke, 'we were trying—'
-             </p>
-
-              <p>
-              'I see!' said the Queen, who had meanwhile been examining the
-              roses. 'Off with their heads!' and the procession moved on, three
-              of the soldiers remaining behind to execute the unfortunate
-              gardeners, who ran to Alice for protection.
-             </p>
           </div> <!-- /span6 -->
 
           <div class="span6">
-          <p>Wikipsum wishful wizards want wands politician Harvey Magee Watterson
-          (November 23, 1811 – October 1, 1891) was an American lawyer,
-          newspaper editor, and politician. Watterson was what his only child
-          Henry later described as an "undoubting Democrat of the schools of
-          Jefferson and Jackson", active in Tennessee politics at both the
-          state and federal level. Watterson was born in Bedford County,
-          Tennessee.</p>
 
-          <p>Watterson was sent by President John Tyler on a diplomatic mission to
-          Buenos Aires, where he remained for two years. From 1845 to 1847, he
-          was a member of the Tennessee Senate and served as speaker. The
-          editor and proprietor of the Nashville Union from 1847 to 1851,
-          Watterson was also the editor of the Washington Union starting in
-          1851. With his friend Pierce's election as President of the United
-          States in 1853, the Washington Union became the "organ of the
-          Administration.</p>
+          {% lorem 6 p random %}
+
           </div> <!-- /span6 -->
         </div> <!-- /row-fluid -->
       </div> <!-- span10 -->
