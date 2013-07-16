@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+<ul id="messagelist">
+    <p>The following required fields are missing:</p>
+    {% for error in form.errors %}
+    <li class="error">{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<h2>Edit profile for {{ user.first_name }} {{ user.last_name }} ({{user}})</h2>
+
+<form enctype="multipart/form-data" method="post" action="" style="margin-top:20px;">
+    {% csrf_token %}
+
+    {{form.city.label_tag}}
+    {{form.city}}
+
+<p><input class="button blue" type="submit" value="Update profile"/></p>
+
+<p>
+<a href="{% url 'profile_settings' %}" class="button small blue">Account settings</a>
+<a href="{% url 'account_del' %}" class="button small blue">Delete account</a>
+</p>
+
+</form>
+{% endblock content %}

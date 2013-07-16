@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} {{ user.first_name }} {{ user.last_name }}{% endblock %}
+
+{% block content %}
+
+{% ifequal user profile.user  %}
+<p>
+<a href="{% url 'profiles_edit_profile' %}" class="button blue">Edit my profile</a>
+<a href="{% url 'profile_settings' %}" class="button blue">Account settings</a>
+</p>
+{% endifequal %}
+
+{% if profile.city %}
+    {{ profile.city }} <br/>
+{% endif %}
+
+{% endblock content %}

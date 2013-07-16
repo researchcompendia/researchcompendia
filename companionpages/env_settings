@@ -1,0 +1,10 @@
+SECRET_KEY=''
+DEBUG = 'True'
+ADMINS = 'a@example.com'
+SITE_ID = 1
+#DATABASE database something url
+MAILGUN_ACCESS_KEY=''
+MAILGUN_SERVER_NAME=''
+#EMAIL_BACKEND='django_mailgun.MailgunBackend'
+AWS_ACCESS_KEY_ID=''
+AWS_SECRETE_ACCESS_KEY=''
