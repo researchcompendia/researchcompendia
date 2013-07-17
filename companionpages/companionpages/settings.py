@@ -13,12 +13,12 @@ path.append(DJANGO_ROOT)
 DEBUG = True if env.get('DEBUG', False) == 'True' else False
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = [(admin.split('@')[0], admin) for admin in env.get('ADMINS').split(',')]
+ADMINS = [(admin.split('@')[0], admin) for admin in env.get('ADMINS', 'tyler@starkravingsane.org').split(',')]
 MANAGERS = ADMINS
 
+# dj_database_url will pull from the DATABASE_URL environment variable
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:////' 
-        + normpath(join(DJANGO_ROOT, 'default.db')))
+        'default': dj_database_url.config(default='postgres://localhost:5432/tyler'),
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -45,7 +45,7 @@ USE_TZ = True
 EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 
 ######################## Third party app configurations ##
-DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'noreply@codersquid.com')
+DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'devtyler@codersquid.com')
 ENVELOPE_CONTACT_CHOICES = (
     ('',    u"Choose"),
     (10,    u"A general question regarding the website"),
