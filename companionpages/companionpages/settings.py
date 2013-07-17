@@ -82,7 +82,7 @@ ACCOUNT_ACTIVATION_DAYS = 2
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
-STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+#STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = 'http://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
