@@ -6,7 +6,9 @@ django-honeypot
 django-mailgun
 django-model-utils
 #django-profiles
--e hg+https://bitbucket.org/fcurella/django-profiles/commits/branch/views
+#-e hg+https://bitbucket.org/fcurella/django-profiles/commits/branch/views
+# heroku doesn't use hg
+https://bitbucket.org/fcurella/django-profiles/get/views.zip
 django-registration
 django-social-auth
 django-storages
