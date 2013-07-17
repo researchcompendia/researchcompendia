@@ -17,6 +17,9 @@ markdown
 psycopg2
 South==0.7.6
 
+# heroku
+django-toolbelt
+
 # development dependencies
 coverage==3.6
 django-extensions

@@ -142,6 +142,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'envelope',
+    'gunicorn',
     'honeypot',
     'profiles',
     'registration',
