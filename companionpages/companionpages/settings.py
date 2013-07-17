@@ -45,8 +45,7 @@ USE_TZ = True
 EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 
 ######################## Third party app configurations ##
-DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'DoNotReply@codersquid.com')
-ENVELOPE_EMAIL_RECIPIENTS = env.get('ENVELOPE_EMAIL_RECIPIENTS', DEFAULT_FROM_EMAIL)
+DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'noreply@codersquid.com')
 ENVELOPE_CONTACT_CHOICES = (
     ('',    u"Choose"),
     (10,    u"A general question regarding the website"),
@@ -67,6 +66,7 @@ MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
 
 # REST_FRAMEWORK = { }
 
+ACCOUNT_ACTIVATION_DAYS = 2
 ##################################
 
 

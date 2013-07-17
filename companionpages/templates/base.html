@@ -1,148 +1,27 @@
-{% load staticfiles %}
+{% extends 'layout.html' %}
 {% load webdesign %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>{% block title %}rose{% endblock title %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+{% block title %}Base{% endblock title %}
 
-  <!-- Le styles -->
-  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-  <style>
-    body {
-      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-    }
-  </style>
-  <link href="{% static 'css/bootstrap-responsive.min.css' %}" rel="stylesheet">
+{% block content %}
 
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+<div class="span10">
 
-  <!-- This file store project specific CSS -->
-  <link href="{% static 'css/project.css' %}" rel="stylesheet">
-  <!-- Use this to quickly test CSS changes in a template,
-        then move to project.css -->
-        {% block extra_css %}
-        {% endblock extra_css %}
-</head>
+  <div class="hero-unit">
+    <h1>{% block marketing_title %}{% lorem 2 w random  %}{% endblock marketing_title %}</h1>
+    <h2>{% lorem 4 w random %}</h2>
+    {% lorem %}
+  </div> <!--/hero-unit -->
 
-<body>
+<div class="row-fluid">
+  <div class="span6">
+    {% lorem 3 p random %}
+  </div> <!-- /span6 -->
+  <div class="span6">
+    {% lorem 6 p random %}
+  </div> <!-- /span6 -->
+</div> <!-- /row-fluid -->
 
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container header_gradient">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="#">Rose Tyler</a>
-        <div class="nav-collapse collapse">
-          <ul class="nav pull-right">
-            <li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="divider"></li>
-            <li>
-              <form class="navbar-search">
-                <input type="text" class="search-query" placeholder="Search">
-              </form>
-            </li>
-            </li>
-            <li class="divider"></li>
-            <li><a href="#register">Register</a></li>
-            <li class="divider"></li>
-            <li><a href="#login">Sign in</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div><!--/container header_gradient -->
-    </div><!-- navbar-inner -->
-  </div><!--navbar navbar-fixed-top -->
+</div> <!-- span10 -->
 
-  <div class="container-fluid">
-    <div clas="row-fluid">
-
-      <div class="span2">
-          <!-- div -->
-          <ul class="nav nav-list">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="divider"></li>
-            <li><a href="#Themes">Search by themes</a></li>
-            <li><a href="#Search">Search...</a></li>
-            <li class="divider"></li>
-            <li><a href="#Help">Help/FAQ</a></li>
-          </ul>
-        <!--</div> /well sidebar-nav -->
-      </div> <!-- /span3 -->
-
-      {% block content %}
-      <div class="span10">
-
-        <div class="hero-unit">
-          <h1>{% block marketing_title %}{% lorem 2 w random  %}{% endblock marketing_title %}</h1>
-
-          <h2>{% lorem 4 w random %}</h2>
-          {% lorem %}
-
-        </div> <!--/hero-unit -->
-
-        <div class="row-fluid">
-          <div class="span6">
-
-          {% lorem 3 p random %}
-
-          </div> <!-- /span6 -->
-
-          <div class="span6">
-
-          {% lorem 6 p random %}
-
-          </div> <!-- /span6 -->
-        </div> <!-- /row-fluid -->
-      </div> <!-- span10 -->
-      {% endblock content %}
-
-    </div> <!-- /row-fluid -->
-  </div> <!-- /container-fluid -->
-
-  <div class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="navbar-inner">
-      <div class="container header_gradient">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="#">something something</a>
-        <div class="nav-collapse collapse">
-          <ul class="nav pull-right">
-            <li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#privacy">Privacy Policy</a></li>
-            <li><a href="#privacy">Terms of Use</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-  </div>
-
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-<!-- place project specific Javascript in this file -->
-<script src="{% static 'js/project.js' %}"></script>
-
-{% block extra_js %}{% endblock extra_js %}
-</body>
-</html>
+{% endblock content %}
