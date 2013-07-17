@@ -152,7 +152,7 @@ THIRD_PARTY_APPS = (
     'profiles',
     'registration',
     #'rest_framework',
-    'south',
+    #'south',
     #'storages',
 )
 
