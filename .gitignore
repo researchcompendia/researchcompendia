@@ -2,6 +2,9 @@
 
 *.swp
 
+# collectstatic
+assets
+
 # virtualenv
 venv
 tyler
