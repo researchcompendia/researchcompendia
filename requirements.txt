@@ -1,29 +1,4 @@
-boto
-Django==1.5.1
-django-braces==1.0.0
-django-envelope
-django-honeypot
-django-mailgun
-django-model-utils==1.3.1
-#django-profiles
--e hg+https://bitbucket.org/fcurella/django-profiles/commits/branch/views
-django-registration
-django-social-auth
-django-storages
-djangorestframework
-django-filter
-logutils==0.3.3
-markdown
-psycopg2
-South==0.7.6
+-r requirements/base.txt
 
 # heroku
 django-toolbelt
-
-# development dependencies
-coverage==3.6
-django-extensions
-django-discover-runner==0.4
-django-debug-toolbar==0.9.4
-dj-database-url
-Sphinx==1.2b1

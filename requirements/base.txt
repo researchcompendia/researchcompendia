@@ -1,0 +1,18 @@
+boto
+Django
+django-braces
+django-envelope
+django-honeypot
+django-mailgun
+django-model-utils
+#django-profiles
+-e hg+https://bitbucket.org/fcurella/django-profiles/commits/branch/views
+django-registration
+django-social-auth
+django-storages
+djangorestframework
+django-filter
+logutils
+markdown
+psycopg2
+South

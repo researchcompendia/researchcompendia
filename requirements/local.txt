@@ -1,0 +1,7 @@
+# development dependencies
+coverage
+django-extensions
+django-discover-runner
+django-debug-toolbar
+dj-database-url
+Sphinx
