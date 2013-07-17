@@ -62,12 +62,14 @@ HONEYPOT_FIELD_NAME = 'relatedtopics2'
 MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
 MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
 
-#AWS_STORAGE_BUCKET_NAME = 'org.starkravingsane.testing'
-#AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID')
-#AWS_SECRETE_ACCESS_KEY= env.get('AWS_SECRETE_ACCESS_KEY')
-#AWS_HEADERS = {}
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'org.starkravingsane.testing')
+AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID')
+AWS_SECRETE_ACCESS_KEY= env.get('AWS_SECRET_ACCESS_KEY')
+AWS_HEADERS = {}
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#from S3 import CallingFormat
+#AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
 # REST_FRAMEWORK = { }
 
@@ -75,31 +77,25 @@ ACCOUNT_ACTIVATION_DAYS = 2
 ##################################
 
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/var/www/example.com/media/"
-MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/var/www/example.com/static/"
 STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
-
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
- 
-
+STATIC_URL = 'http://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+#STATIC_URL = '/static/'
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
+#MEDIA_URL = '/media/'
+MEDIA_URL = STATIC_URL + 'media/'
 # Additional locations of static files
 STATICFILES_DIRS = (
     normpath(join(SITE_ROOT, 'static')),
 )
-
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -107,6 +103,9 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
+
+
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = env.get('SECRET_KEY')
@@ -135,6 +134,8 @@ WSGI_APPLICATION = 'companionpages.wsgi.application'
 TEMPLATE_DIRS = (
     normpath(join(SITE_ROOT, 'templates')),
 )
+TEMPLATE_CONTEXT_PROCESSORS = (
+)
 
 DJANGO_APPS = (
     'django.contrib.auth',
@@ -155,7 +156,7 @@ THIRD_PARTY_APPS = (
     'registration',
     #'rest_framework',
     #'south',
-    #'storages',
+    'storages',
 )
 
 # Apps specific for this project go here.
