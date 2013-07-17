@@ -143,6 +143,8 @@ DJANGO_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # moving from debug app
+    'django.contrib.webdesign',
 )
 
 THIRD_PARTY_APPS = (
