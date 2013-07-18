@@ -1,3 +1,4 @@
+-r base.txt
 # development dependencies
 coverage
 django-extensions
