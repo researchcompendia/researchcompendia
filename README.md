@@ -1,10 +1,15 @@
 # tyler
 
-intro paragraph here
-
 I'm learning django best practices and following along with [Two Scoops of
 django: Best Practices for Django 1.5](https://django.2scoops.org/) and their
 recommended reading.
+
+I started out creating a skeleton of a project following their skel repo, but
+this has started to diverge. I decided to flatten the settings and use environment
+variables to get the effect of settings files for different environments.
+
+Since this is an open learning exercise, I've blogged about some of the process
+under the [django](http://codersquid.github.io/tag/django.html) tag.
 
 ## Working Environment
 
