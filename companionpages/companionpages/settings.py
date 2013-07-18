@@ -63,6 +63,7 @@ MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
 MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
 
 AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'org.starkravingsane.testing')
+S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY= env.get('AWS_SECRET_ACCESS_KEY')
 AWS_HEADERS = {}
@@ -85,7 +86,7 @@ ACCOUNT_ACTIVATION_DAYS = 2
 STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles'))
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = S3_URL
 #STATIC_URL = '/static/'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
