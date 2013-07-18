@@ -62,10 +62,10 @@ HONEYPOT_FIELD_NAME = 'relatedtopics2'
 MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
 MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
 
-AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'org.starkravingsane.testing')
+AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'org.starkravingsane.testing').strip("'")
 S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY= env.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID').strip("'")
+AWS_SECRET_ACCESS_KEY= env.get('AWS_SECRET_ACCESS_KEY').strip("'")
 AWS_HEADERS = {}
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
