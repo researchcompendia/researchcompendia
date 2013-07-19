@@ -7,6 +7,3 @@
   background-image:      -o-linear-gradient(top, #425143, #2F3D2F); /* Opera 11.10-12.00 */
   background-image:         linear-gradient(to bottom, #425143, #2F3D2F); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
 }
-body {
-  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-}
