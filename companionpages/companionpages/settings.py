@@ -46,10 +46,12 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+# email settings
 
+# default to console for backend
 EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 
-######################## Third party app configurations ##
+# django-envelope contact page settings
 DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'devtyler@codersquid.com')
 ENVELOPE_CONTACT_CHOICES = (
     ('',    u"Choose"),
@@ -57,25 +59,31 @@ ENVELOPE_CONTACT_CHOICES = (
     (20,    u"Something else"),
     (None,   u"Other"),
 )
-HONEYPOT_FIELD_NAME = 'relatedtopics2'
-
 MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
 MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
 
+# spam catching
+HONEYPOT_FIELD_NAME = 'relatedtopics2'
+
+# s3 amazon static file storage settings
 AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'starkravingsanermccompanion')
 S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+# WORKAROUND
+# I'm using strip("'") because heroku is inserting single quotes in heroku config settings
 AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID').strip("'")
 AWS_SECRET_ACCESS_KEY= env.get('AWS_SECRET_ACCESS_KEY').strip("'")
 AWS_HEADERS = {}
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = env.get('DEFAULT_FILE_STORAGE', 'django.core.files.storage.FileSystemStorage')
+# allow collectstatic automatically put your static files in your bucket
+STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
+
 #from S3 import CallingFormat
 #AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
 # REST_FRAMEWORK = { }
 
+# django-registration settings
 ACCOUNT_ACTIVATION_DAYS = 2
-##################################
 
 
 
@@ -87,6 +95,7 @@ STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles'))
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = S3_URL
+
 #STATIC_URL = '/static/'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
@@ -186,6 +195,8 @@ if DEBUG:
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
+    # use local files for static rather than amazon s3
+    STATIC_URL = '/static/'
 
 
 

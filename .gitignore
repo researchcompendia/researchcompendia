@@ -5,7 +5,7 @@
 .env
 
 # collectstatic
-assets
+staticfiles
 
 # virtualenv
 venv
