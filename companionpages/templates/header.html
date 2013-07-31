@@ -1,30 +1,32 @@
-  <div class="navbar navbar-inverse navbar-top">
-    <div class="navbar-inner">
-      <div class="container header_gradient">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="/">Rose Tyler</a>
-        <div class="nav-collapse collapse">
-          <ul class="nav pull-right">
-            <li>
-            <li><a href="/">Home</a></li>
-            <li class="disabled"><a href="#about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li class="divider"></li>
-            <li>
-              <form class="navbar-search">
-                <input type="text" class="search-query" placeholder="Search">
-              </form>
-            </li>
-            </li>
-            <li class="divider"></li>
-            <li><a href="/accounts/register">Register</a></li>
-            <li class="divider"></li>
-            <li class="disabled"><a href="#login">Sign in</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div><!--/container header_gradient -->
-    </div><!-- navbar-inner -->
-  </div><!--navbar navbar-fixed-top -->
+<div class="navbar navbar-inverse">
+  <div class="container">
+
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <a class="navbar-brand" href="/">RunMyLab</a>
+
+    <div class="nav-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav pull-right">
+        <li>
+        <li><a href="/">Home</a></li>
+        <li class="disabled"><a href="#about" class="navbar-link">About</a></li>
+        <li><a href="/contact" class="navbar-link">Contact</a></li>
+        <li class="divider"></li>
+        <li>
+          <form class="navbar-form">
+            <input type="text" class="search-query" placeholder="Search">
+           </form>
+        </li>
+        <li class="divider"></li>
+        <li><a href="/accounts/register" class="navbar-link">Register</a></li>
+        <li class="divider"></li>
+        <li class="disabled"><a href="#login" class="navbar-link">Sign in</a></li>
+      </ul>
+    </div><!--/.nav-collapse collapse navbar-responsive-collapse -->
+
+  </div><!--/container -->
+</div><!-- navbar -->
