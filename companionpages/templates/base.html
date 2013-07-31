@@ -1,27 +1,35 @@
 {% extends 'layout.html' %}
 {% load webdesign %}
 
-{% block title %}lorem ipsum base{% endblock title %}
+{% block title %}jumbotron base{% endblock title %}
 
 {% block content %}
 
-<div class="span10">
+<div class="container">
 
-  <div class="hero-unit">
+  <div class="jumbotron">
     <h1>{% block marketing_title %}{% lorem 2 w random  %}{% endblock marketing_title %}</h1>
     <h2>{% lorem 4 w random %}</h2>
     {% lorem %}
-  </div> <!--/hero-unit -->
+  </div>
 
-<div class="row-fluid">
-  <div class="span6">
-    {% lorem 3 p random %}
-  </div> <!-- /span6 -->
-  <div class="span6">
-    {% lorem 6 p random %}
-  </div> <!-- /span6 -->
-</div> <!-- /row-fluid -->
+  <div class="body-content">
 
-</div> <!-- span10 -->
+    <div class="row">
+      <div class="col-lg-4">
+      {% lorem 3 p random %}
+
+      {% lorem 3 p random %}
+      </div>
+
+      <div class="col-lg-4">
+        {% lorem 6 p random %}
+      </div>
+
+    </div>
+</div>
+
+</div>
+
 
 {% endblock content %}
