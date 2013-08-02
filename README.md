@@ -1,6 +1,7 @@
 # tyler
 
-![travis-ci status](https://travis-ci.org/codersquid/tyler.png?branch=master)
+![current build status](https://travis-ci.org/codersquid/tyler.png?branch=master)
+[build history](https://travis-ci.org/codersquid/tyler)
 
 This repo contains a skeleton Django project that is deployable on Heroku or on
 a local or remote machine. Static files are served locally in DEBUG mode or via
