@@ -2,18 +2,11 @@
 
 ![travis-ci status](https://travis-ci.org/codersquid/tyler.png?branch=master)
 
+This repo contains a skeleton Django project that is deployable on Heroku or on
+a local or remote machine. Static files are served locally in DEBUG mode or via
+S3 when deployed to Heroku and/or in non-DEBUG mode.
 
-I'm learning django best practices and following along with [Two Scoops of
-django: Best Practices for Django 1.5](https://django.2scoops.org/) and their
-recommended readings along with blogs I've found about hosting django on 
-Heroku..
-
-I started out creating a skeleton of a project following the 2scoops skel repo, but
-this has started to diverge. I decided to flatten the settings and use environment
-variables to get the effect of settings files for different environments.
-
-Since this is an open learning exercise, I've blogged about some of the process
-under the [django](http://codersquid.github.io/tag/django.html) tag.
+The Heroku instance is [RunMyAlpha](http://runmyalpha.herokuapp.com/). It only has one worker for now.
 
 ## Working Environment
 
@@ -23,20 +16,27 @@ To set up a working environment,
 * `cd tyler`
 * `virtualenv venv`
 * `source venv/bin/acivate`
+* `pip install -r requirements.txt`
 
-this will allow you to work locally.
+You will need to define these environment variables to run this locally.
 
-### Installation of Dependencies
-
-Depending on where you are installing dependencies:
-
-* In development:
-    * `pip install -r requirements/local.txt`
-* For production:
-    * `pip install -r requirements.txt`
-
+```
+export SECRET_KEY=''
+export DEBUG='True'
+export ADMINS=''
+export SITE_ID=1
+export DATABASE_URL=''
+export MAILGUN_ACCESS_KEY=''
+export MAILGUN_SERVER_NAME=''
+export EMAIL_BACKEND=''
+export AWS_ACCESS_KEY_ID=''
+export AWS_SECRET_ACCESS_KEY=''
+export AWS_STORAGE_BUCKET_NAME=''
+export DEFAULT_FROM_EMAIL=''
+export ENVELOPE_EMAIL_RECIPIENTS=''
+export PORT=8000
+```
 
 ## Acknowledgements
 
-Many thanks to Audrey Roy and Daniel Greenfeld for writing [Two Scoops of django: Best Practices for Django 1.5](https://django.2scoops.org/). Any clumsiness in my project is my fault, not theirs.
-list helpful 
+Many thanks to Audrey Roy and Daniel Greenfeld for writing [Two Scoops of django: Best Practices for Django 1.5](https://django.2scoops.org/). Many thanks to everyone who has posted helpful information on using Heroku with Django. Any clumsiness in my project is my fault, not theirs.
