@@ -1,1 +1,3 @@
-/*! project specific CSS goes here. */
+/*! body padding needed with fixed navbar */
+body { padding-top: 70px; }
+
