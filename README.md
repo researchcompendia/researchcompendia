@@ -1,13 +1,25 @@
 # tyler
 
+## Build Status
+
 ![current build status](https://travis-ci.org/codersquid/tyler.png?branch=master)
+
 [build history](https://travis-ci.org/codersquid/tyler)
+
+## Intro
 
 This repo contains a skeleton Django project that is deployable on Heroku or on
 a local or remote machine. Static files are served locally in DEBUG mode or via
 S3 when deployed to Heroku and/or in non-DEBUG mode.
 
 The Heroku instance is [RunMyAlpha](http://runmyalpha.herokuapp.com/). It only has one worker for now.
+
+
+I've set up a [trello](https://trello.com/b/8KC8wAye/rmc) board and have also
+created [issues](https://github.com/codersquid/tyler/issues) in the github tracker.
+I'm trying out both tools to see which is most useful, I may find a tool to link them up
+in case they both are. I wish there was a trello-like UI for the github tracker.
+
 
 ## Working Environment
 
