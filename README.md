@@ -20,6 +20,13 @@ created [issues](https://github.com/codersquid/tyler/issues) in the github track
 I'm trying out both tools to see which is most useful, I may find a tool to link them up
 in case they both are. I wish there was a trello-like UI for the github tracker.
 
+## Site Design
+
+This is entirely in flux. Right now there are two empty apps, `results` and `status`.
+There will be more, probably by the end of the day.
+
+* `results`: this will stay empty until we get to the point where we want to show history pages with the results of runs
+* `status`: this will stay empty until we get to the point where we want a site status page with status news, graphs, etc. actually, I should probably rip this out and make a static page and stick it on another webserver entirely? I'll figure that out.
 
 ## Working Environment
 
@@ -31,7 +38,7 @@ To set up a working environment,
 * `source venv/bin/acivate`
 * `pip install -r requirements.txt`
 
-You will need to define these environment variables to run this locally.
+You may need to define these environment variables to run this locally.
 
 ```
 export SECRET_KEY=''
