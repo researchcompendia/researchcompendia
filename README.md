@@ -22,11 +22,24 @@ in case they both are. I wish there was a trello-like UI for the github tracker.
 
 ## Site Design
 
-This is entirely in flux. Right now there are two empty apps, `results` and `status`.
-There will be more, probably by the end of the day.
+This is entirely in flux but I want to at least splat some links here
+
+#### custom apps
 
 * `results`: this will stay empty until we get to the point where we want to show history pages with the results of runs
 * `status`: this will stay empty until we get to the point where we want a site status page with status news, graphs, etc. actually, I should probably rip this out and make a static page and stick it on another webserver entirely? I'll figure that out.
+
+#### third party docs
+
+* [django-storages, s3](http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html) see also heroku docs on [django static assets](https://devcenter.heroku.com/articles/django-assets)
+* [django-profiles](https://bitbucket.org/ubernostrum/django-profiles)
+   * waiting on [pull request](https://bitbucket.org/ubernostrum/django-profiles/pull-request/6/replaced-profile_list-view-with-a-class/diff) which is why requirements point directly to fcurella's zip
+   * [blog post, slightly outdated but helpful](http://birdhouse.org/blog/2009/06/27/django-profiles/)
+* [django-registration](https://bitbucket.org/ubernostrum/django-registration) and a [blog post](http://www.michelepasin.org/blog/2011/01/14/setting-up-django-registration/)
+* [django-envelope](http://django-envelope.readthedocs.org/en/latest/index.html)
+* [boostrap](http://getbootstrap.com/)
+* my bookmarks tagged with [tyler](https://pinboard.in/u:sky/t:tyler/) that includes the above and more
+
 
 ## Working Environment
 
