@@ -12,6 +12,7 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <link href="{% static 'favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
   <link href="{% static 'css/project.css' %}" rel="stylesheet">
   {% block extra_css %}
   <!-- Use this to quickly test CSS changes in a template, then move to project.css -->
@@ -23,7 +24,9 @@
 {% include 'header.html' %}
 
 <div class="row">
-  <div class="col-lg-3">
+
+  {% block sidenav %}
+  <div class="col-lg-2">
     <ul class="nav">
       <li><a href="/">Home</a></li>
       <li class="disabled"><a href="#about">About</a></li>
@@ -31,8 +34,9 @@
       <li class="disabled"><a href="#Help">Help/FAQ</a></li>
     </ul>
   </div>
+  {% endblock sidenav %}
 
-  <div class="col-lg-9">
+  <div class="col-lg-10">
       {% block content %}
       {% endblock content %}
   </div>
@@ -47,6 +51,8 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 <script src="{% static 'js/project.js' %}"></script>
-{% block extra_js %}{% endblock extra_js %}
+{% block extra_js %}
+  <!-- Use this to quickly test js changes in a template, then move to project.js -->
+{% endblock extra_js %}
 </body>
 </html>
