@@ -31,6 +31,7 @@ This is entirely in flux but I want to at least splat some links here
 
 #### third party docs
 
+* [django-model-utils](https://django-model-utils.readthedocs.org/en/latest/)
 * [django-storages, s3](http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html) see also heroku docs on [django static assets](https://devcenter.heroku.com/articles/django-assets)
 * [django-profiles](https://bitbucket.org/ubernostrum/django-profiles)
    * waiting on [pull request](https://bitbucket.org/ubernostrum/django-profiles/pull-request/6/replaced-profile_list-view-with-a-class/diff) which is why requirements point directly to fcurella's zip
