@@ -1,7 +1,8 @@
 boto
 Django
 django-braces
-django-envelope
+#django-envelope
+-e git+https://github.com/zsiciarz/django-envelope.git#egg=django-envelope
 django-honeypot
 django-mailgun
 django-model-utils
