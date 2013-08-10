@@ -20,6 +20,8 @@ created [issues](https://github.com/codersquid/tyler/issues) in the github track
 I'm trying out both tools to see which is most useful, I may find a tool to link them up
 in case they both are. I wish there was a trello-like UI for the github tracker.
 
+(I'm starting not to like trello for tracking things. I like issue trackers more.)
+
 ## Site Design
 
 This is entirely in flux but I want to at least splat some links here
