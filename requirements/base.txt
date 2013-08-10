@@ -1,19 +1,18 @@
 boto
 Django
+dj-database-url
 django-braces
-#django-envelope
 -e git+https://github.com/zsiciarz/django-envelope.git#egg=django-envelope
 django-honeypot
 django-mailgun
 django-model-utils
-#django-profiles
-#-e hg+https://bitbucket.org/fcurella/django-profiles/commits/branch/views
 # heroku doesn't use hg
+#-e hg+https://bitbucket.org/fcurella/django-profiles/commits/branch/views
+# waiting for fcurella's pull request to get merged
 https://bitbucket.org/fcurella/django-profiles/get/views.zip
 django-registration
 django-social-auth
 django-storages
-djangorestframework
 django-filter
 logutils
 markdown

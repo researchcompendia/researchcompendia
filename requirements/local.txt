@@ -1,8 +1,8 @@
 -r base.txt
-# development dependencies
-coverage
+# local development dependencies
 django-extensions
 django-discover-runner
 django-debug-toolbar
-dj-database-url
+coverage
+mock
 Sphinx
