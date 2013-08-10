@@ -1,3 +1,8 @@
 /*! body padding needed with fixed navbar */
-body { padding-top: 70px; }
+body {
+  padding-top: 70px;
+}
 
+.rmc-navbar {
+  background-color: #008000;
+}
