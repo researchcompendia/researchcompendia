@@ -13,14 +13,17 @@ def create_profile(sender, **kwargs):
     if kwargs['created']:
         Member(user = kwargs['instance']).save()
 
-
 class Member(StatusModel, TimeStampedModel):
-    STATUS = Choices('active', 'inactive')
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
-    public_name = models.CharField(max_length=50)
-    website = models.URLField()
-    byline = models.CharField(max_length=100)
-    biography = models.TextField(max_length=400)
+    STATUS = Choices('active', 'inactive')
+    public_name = models.CharField(max_length=20)
+    website = models.URLField(blank=True)
+    byline = models.CharField(max_length=100, blank=True)
+    biography = models.TextField(max_length=400, blank=True)
+
+    def get_absolute_url(self):
+        return ('profiles_profile_detail', (), {'username': self.user.username})
+    get_absolute_url = models.permalink(get_absolute_url)
 
     def __unicode__(self):
         return self.public_name

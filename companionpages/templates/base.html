@@ -30,10 +30,13 @@
   {% block sidenav %}
   <div class="col-lg-2">
     <ul class="nav">
-      <li><a href="/">Home</a></li>
       <li class="disabled"><a href="#about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
       <li class="disabled"><a href="#Help">Help/FAQ</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="#">My Account</a></li>
+      <li><a href="#">Sites</a></li>
+      <li class="disabled"><a href="#">History</a></li>
+      {% endif %}
     </ul>
   </div>
   {% endblock sidenav %}
@@ -43,17 +46,22 @@
 
     <div class="container">
 
-    <h1>{% block marketing_title %}RunMyAlpha {% lorem 2 w random  %}{% endblock marketing_title %}</h1>
+      <h1>{% block marketing_title %}RunMyAlpha {% lorem 2 w random  %}{% endblock marketing_title %}</h1>
 
-    <h2>{% lorem 4 w random %}</h2>
+      <h2>{% lorem 4 w random %}</h2>
 
-    {% lorem p %}
+      {% lorem p %}
 
       <div class="body-content">
         <div class="row">
+
           <div class="col-lg-4">
-            {% lorem 3 p random %}
-            {% lorem 3 p random %}
+
+              <p>make a new view for this home page and then include
+              news/newsbriefs <em>with</em> recent_news_list in context</p>
+
+              {% include "news/newsbriefs.html" %}
+
           </div>
 
           <div class="col-lg-4">

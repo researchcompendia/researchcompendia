@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load tz %}
+
+{% block title %} Newsbriefs {% endblock %}
+
+{% block content %}
+
+{% if recent_news_list %}
+<h2>Newsbriefs</h2>
+  {% localtime on %}
+  <ul>
+    {% for news in recent_news_list %}
+    <li>
+    {{ news.publication_date|date:"SHORT_DATE_FORMAT" }}
+    {{ news.newsbrief }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endlocaltime %}
+{% endif %}
+
+{% endblock content %}

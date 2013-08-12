@@ -23,7 +23,8 @@ MANAGERS = ADMINS
 
 # dj_database_url will pull from the DATABASE_URL environment variable
 DATABASES = {
-        'default': dj_database_url.config(default='postgres://localhost:5432/tyler'),
+        #'default': dj_database_url.config(default='postgres://localhost:5432/tyler'),
+        'default': dj_database_url.config(default='sqlite:////' + SITE_ROOT + '/tyler.db'),
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -85,7 +86,8 @@ STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles
 # django-registration settings
 ACCOUNT_ACTIVATION_DAYS = 2
 
-
+# django-profiles
+AUTH_PROFILE_MODULE = 'members.Member'
 
 
 # Absolute path to the directory static files should be collected to.
@@ -161,7 +163,6 @@ DJANGO_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # moving from debug app
     'django.contrib.webdesign',
 )
 
@@ -171,14 +172,14 @@ THIRD_PARTY_APPS = (
     'honeypot',
     'profiles',
     'registration',
-    #'rest_framework',
-    #'south',
+    'south',
     'storages',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'results',
+    'members',
+    'news',
 )
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -196,6 +197,7 @@ if DEBUG:
     MIDDLEWARE_CLASSES += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
+    TEMPLATE_STRING_IF_INVALID = 'template_error'
     # use local files for static rather than amazon s3
     STATIC_URL = '/static/'
 

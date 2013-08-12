@@ -1,4 +1,4 @@
-<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar navbar-fixed-top navbar-inverse rmc-navbar">
   <div class="container">
 
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -12,20 +12,19 @@
     <div class="nav-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav pull-right">
         <li>
-        <li><a href="/">Home</a></li>
         <li class="disabled"><a href="#about" class="navbar-link">About</a></li>
         <li><a href="/contact" class="navbar-link">Contact</a></li>
         <li class="disabled"><a href="/help" class="navbar-link">Help</a></li>
         <li class="divider"></li>
-        <li>
-          <form class="navbar-form form-inline pull-right">
-            <input type="text" class="search-query" placeholder="Search">
-           </form>
+        {% if user.is_authenticated %}
+        <li><a href="#profile">Welcome, {{ user.username }}</a></li>
+        <li><a href="/accounts/logout" class="navbar-link">Logout</a>
         </li>
-        <li class="divider"></li>
+        {% else %}
         <li><a href="/accounts/register" class="navbar-link">Register</a></li>
-        <li class="divider"></li>
-        <li class="disabled"><a href="#login" class="navbar-link">Sign in</a></li>
+        <li><a href="/accounts/login" class="navbar-link">Login</a></li>
+        {% endif %}
+
       </ul>
     </div><!--/.nav-collapse collapse navbar-responsive-collapse -->
   </div><!--/container -->
