@@ -4,4 +4,4 @@ python:
 env:
 - DJANGO=1.5 DB=postgres
 install: pip install -q -r requirements/ci.txt --use-mirrors
-script: python manage.py test news
+script: python companionpages/manage.py test news
