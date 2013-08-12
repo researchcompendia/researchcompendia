@@ -55,20 +55,14 @@
       <div class="body-content">
         <div class="row">
 
+          {% if newsbriefs_list %}
           <div class="col-lg-4">
-
-            <p>make a new view for this home page and then include
-            news/newsbriefs <em>with</em> recent_news_list in context</p>
-
-            {% include "news/newsbriefs.html" %}
-
-            <p>{% lorem 10 w random %}</p>
-            <p>{% lorem 10 w random %}</p>
-            <p>{% lorem 10 w random %}</p>
-
+            {% include "news/newsbriefs.html" with recent_news_list=newsbriefs_list %}
           </div>
+          {% endif %}
 
           <div class="col-lg-4">
+            <h2>Article Companions</h2>
             <p>{% lorem 10 w random %}</p>
             <p>{% lorem 10 w random %}</p>
             <p>{% lorem 10 w random %}</p>

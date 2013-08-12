@@ -3,13 +3,8 @@
 {% if recent_news_list %}
 <h2>Newsbriefs</h2>
   {% localtime on %}
-  <ul>
-    {% for news in recent_news_list %}
-    <li>
-    {{ news.publication_date|date:"SHORT_DATE_FORMAT" }}
-    {{ news.newsbrief }}
-    </li>
-    {% endfor %}
-  </ul>
+  {% for news in recent_news_list %}
+    <p>{{ news.publication_date|date:"SHORT_DATE_FORMAT" }} {{ news.newsbrief|truncatewords:20 }}</p>
+  {% endfor %}
   {% endlocaltime %}
 {% endif %}
