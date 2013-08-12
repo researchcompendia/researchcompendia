@@ -157,6 +157,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 DJANGO_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -189,7 +190,6 @@ if DEBUG:
     INSTALLED_APPS += (
         'debug_toolbar',
         'django.contrib.webdesign',
-        'django.contrib.admin',
         'django.contrib.admindocs',
         'django_extensions',
     )
