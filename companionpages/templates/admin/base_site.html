@@ -1,10 +1,15 @@
 {% extends "admin/base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
-{% block title %}{{ title }} | {% trans 'RunMyLab site admin' %}{% endblock %}
+{% block extrahead %}
+<link href="{% static 'favicon.ico' %}" rel="shortcut icon" type="image/x-icon" />
+{% endblock %}
+
+{% block title %}{{ title }} | RunMyLab {% endblock %}
 
 {% block branding %}
-<h1 id="site-name">{% trans 'RunMyLab administration' %}</h1>
+<h1 id="site-name"><a href="{% url 'rmc_home' %}">RunMyLab</a> {% trans 'administration' %}</h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

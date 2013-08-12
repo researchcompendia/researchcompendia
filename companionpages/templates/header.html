@@ -10,21 +10,31 @@
     <a class="navbar-brand" href="{% url 'rmc_home' %}">RunMyLab</a>
 
     <div class="nav-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav pull-right">
+      <ul class="nav navbar-nav">
         <li>
-        <li class="disabled"><a href="#about" class="navbar-link">About</a></li>
+        <li><a href="#about" class="navbar-link">About</a></li>
         <li><a href="/contact" class="navbar-link">Contact</a></li>
-        <li class="disabled"><a href="/help" class="navbar-link">Help</a></li>
-        <li class="divider"></li>
+        <li><a href="/help" class="navbar-link">Help</a></li>
+      </ul>
+      <form class="navbar-form pull-left" action="">
+        <input class="form-control col-lg-8" type="text" placeholder="Search">
+      </form>
+      <ul class="nav navbar-nav pull-right">
         {% if user.is_authenticated %}
-        <li><a href="#profile">Welcome, {{ user.username }}</a></li>
-        <li><a href="/accounts/logout" class="navbar-link">Logout</a>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            {% firstof user.get_short_name user.get_username %}<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/accounts/logout">Logout</a></li>
+            {% if user.is_staff %}
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            {% endif %}
+          </ul>
         </li>
         {% else %}
-        <li><a href="/accounts/register" class="navbar-link">Register</a></li>
-        <li><a href="/accounts/login" class="navbar-link">Login</a></li>
+        <li><a href="/accounts/register">Register</a></li>
+        <li><a href="/accounts/login">Login</a></li>
         {% endif %}
-
       </ul>
     </div><!--/.nav-collapse collapse navbar-responsive-collapse -->
   </div><!--/container -->
