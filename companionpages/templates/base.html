@@ -30,8 +30,8 @@
   {% block sidenav %}
   <div class="col-lg-2">
     <ul class="nav">
-      <li class="disabled"><a href="#about">About</a></li>
-      <li class="disabled"><a href="#Help">Help/FAQ</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#Help">Help/FAQ</a></li>
       {% if user.is_authenticated %}
       <li><a href="#">My Account</a></li>
       <li><a href="#">Sites</a></li>
@@ -57,15 +57,22 @@
 
           <div class="col-lg-4">
 
-              <p>make a new view for this home page and then include
-              news/newsbriefs <em>with</em> recent_news_list in context</p>
+            <p>make a new view for this home page and then include
+            news/newsbriefs <em>with</em> recent_news_list in context</p>
 
-              {% include "news/newsbriefs.html" %}
+            {% include "news/newsbriefs.html" %}
+
+            <p>{% lorem 10 w random %}</p>
+            <p>{% lorem 10 w random %}</p>
+            <p>{% lorem 10 w random %}</p>
 
           </div>
 
           <div class="col-lg-4">
-            {% lorem 3 p random %}
+            <p>{% lorem 10 w random %}</p>
+            <p>{% lorem 10 w random %}</p>
+            <p>{% lorem 10 w random %}</p>
+            <p>{% lorem 10 w random %}</p>
           </div>
         </div>
       </div> <!-- /body-content -->
