@@ -3,7 +3,7 @@
 
 <html lang="en">
 <head>
-  <title>{% block title %}RunMyAlpha{% endblock title %}</title>
+  <title>{% block title %}{{ site_title }}{% endblock title %}</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,12 +41,12 @@
   </div>
   {% endblock sidenav %}
 
-  {% block content %}
   <div class="col-lg-10">
 
+  {% block content %}
     <div class="container">
 
-      <h1>{% block marketing_title %}RunMyAlpha {% lorem 2 w random  %}{% endblock marketing_title %}</h1>
+        <h1>{% block marketing_title %}{{ site_title }} {% lorem 2 w random  %}{% endblock marketing_title %}</h1>
 
       <h2>{% lorem 4 w random %}</h2>
 
@@ -58,6 +58,8 @@
           {% if newsbriefs_list %}
           <div class="col-lg-4">
             {% include "news/newsbriefs.html" with recent_news_list=newsbriefs_list %}
+
+            <a href="{% url 'rmc_news_list' %}">more <i class="icon-ellipsis-horizontal"></i></a>
           </div>
           {% endif %}
 
@@ -72,8 +74,8 @@
       </div> <!-- /body-content -->
 
     </div> <!-- /container -->
-  </div> <!-- /col-lg-10 -->
   {% endblock content %}
+  </div> <!-- /col-lg-10 -->
 
 </div> <!-- /row -->
 

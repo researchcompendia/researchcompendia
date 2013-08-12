@@ -1,12 +1,12 @@
 from os import environ as env
-from os.path import abspath, basename, dirname, join, normpath
+from os.path import abspath, dirname, join, normpath
 from sys import path
 import dj_database_url
 
 
 DJANGO_ROOT = dirname(abspath(__file__))
 SITE_ROOT = dirname(DJANGO_ROOT)
-SITE_NAME = basename(DJANGO_ROOT)
+SITE_TITLE = 'RunMyLab'
 
 path.append(DJANGO_ROOT)
 
@@ -200,6 +200,9 @@ if DEBUG:
     TEMPLATE_STRING_IF_INVALID = 'template_error'
     # use local files for static rather than amazon s3
     STATIC_URL = '/static/'
+    DEBUG_TOOLBAR_CONFIG = {
+        'INTERCEPT_REDIRECTS':False,
+    }
 
 
 

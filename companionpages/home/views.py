@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.utils import timezone
 from django.views.generic import TemplateView
 
@@ -9,4 +10,5 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['newsbriefs_list'] = News.objects.filter(publication_date__lte=timezone.now()).order_by('-publication_date')[:10]
+        context['site_title'] = settings.SITE_TITLE
         return context

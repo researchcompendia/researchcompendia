@@ -1,22 +1,17 @@
 {% extends 'base.html' %}
 {% load tz %}
 
-{% block title %} Newsbriefs {% endblock %}
+{% block title %} {{ site_title }} News {% endblock %}
 
 {% block content %}
 
+<p>This would be the blog page that is linked to from the briefs on the main page.
+this is a stub for now.</p>
+
 {% if recent_news_list %}
-<h2>Newsbriefs</h2>
-  {% localtime on %}
-  <ul>
-    {% for news in recent_news_list %}
-    <li>
-    {{ news.publication_date|date:"SHORT_DATE_FORMAT" }}
-    {{ news.newsbrief }}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endlocaltime %}
+
+{% include "news/newsbriefs.html" with recent_news_list=recent_news_list %}
+
 {% endif %}
 
 {% endblock content %}
