@@ -1,8 +1,28 @@
-/*! body padding needed with fixed navbar */
 body {
-  padding-top: 70px;
+  /*! body padding needed with fixed navbar */
+  /* padding-top: 70px; */
+  /* padding-bottom: 70px; */
 }
 
-.rmc-navbar {
-  background-color: #008000;
+.rmc-light {
+  background-color: #F4F4F4;
+}
+
+.rmc-dark {
+  color: #3a3a3a;
+}
+
+.rmc-green {
+  background-color: #00a005;
+}
+
+.rmc-navbar-top {
+  margin-bottom: 50px;
+  /* min-height: 70px;*/
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.rmc-navbar-bottom {
+  margin-top: 50px;
+  margin-bottom: 0px;
 }

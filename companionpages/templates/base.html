@@ -21,12 +21,11 @@
   {% endblock extra_css %}
 </head>
 
-<body>
+<body class="rmc-green">
 
 {% include 'header.html' %}
 
-<div class="row">
-
+<div class="row rmc-light">
   {% block sidenav %}
   <div class="col-lg-2">
     <ul class="nav">
@@ -46,11 +45,10 @@
   {% block content %}
     <div class="container">
 
-        <h1>{% block marketing_title %}{{ site_title }} {% lorem 2 w random  %}{% endblock marketing_title %}</h1>
+      <h1>{% block marketing_title %}About {{ site_title }}{% endblock marketing_title %}</h1>
 
-      <h2>{% lorem 4 w random %}</h2>
-
-      {% lorem p %}
+      <p>RunMyCode is a platform that enables scientists to share the
+      code and data that underlie research publications.</p>
 
       <div class="body-content">
         <div class="row">
