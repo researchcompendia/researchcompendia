@@ -26,17 +26,9 @@
 {% include 'header.html' %}
 
 <div class="row rmc-light">
+
   {% block sidenav %}
   <div class="col-lg-2">
-    <ul class="nav">
-      <li><a href="#about">About</a></li>
-      <li><a href="#Help">Help/FAQ</a></li>
-      {% if user.is_authenticated %}
-      <li><a href="#">My Account</a></li>
-      <li><a href="#">Sites</a></li>
-      <li class="disabled"><a href="#">History</a></li>
-      {% endif %}
-    </ul>
   </div>
   {% endblock sidenav %}
 
