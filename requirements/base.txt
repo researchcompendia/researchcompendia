@@ -17,4 +17,3 @@ django-filter
 logutils
 markdown
 psycopg2
-South

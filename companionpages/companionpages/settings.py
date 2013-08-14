@@ -173,7 +173,7 @@ THIRD_PARTY_APPS = (
     'honeypot',
     'profiles',
     'registration',
-    'south',
+    #'south',
     'storages',
 )
 
