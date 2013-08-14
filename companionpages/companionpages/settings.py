@@ -23,8 +23,8 @@ MANAGERS = ADMINS
 
 # dj_database_url will pull from the DATABASE_URL environment variable
 DATABASES = {
-        #'default': dj_database_url.config(default='postgres://localhost:5432/tyler'),
-        'default': dj_database_url.config(default='sqlite:////' + SITE_ROOT + '/tyler.db'),
+        'default': dj_database_url.config(default='postgres://localhost:5432/tyler'),
+        #'default': dj_database_url.config(default='sqlite:////' + SITE_ROOT + '/tyler.db'),
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
