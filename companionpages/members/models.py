@@ -7,14 +7,17 @@ from django.dispatch import receiver
 from model_utils.choices import Choices
 from model_utils.models import StatusModel, TimeStampedModel
 
+"""When user is created also create a matching profile."""
+# I'm not sure I want this to happen this way
+"""
 @receiver(post_save, sender=User)
 def create_profile(sender, **kwargs):
-    """When user is created also create a matching profile."""
     if kwargs['created']:
         user = kwargs['instance']
         # it's stupid to use username for public name, but let it be for now.
         member = Member(user=user, public_name=user.username)
         member.save()
+"""
 
 
 class Member(StatusModel, TimeStampedModel):
