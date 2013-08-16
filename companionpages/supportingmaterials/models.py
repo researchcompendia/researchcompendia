@@ -3,17 +3,18 @@ from django.db import models
 from model_utils.choices import Choices
 from model_utils.models import StatusModel, TimeStampedModel
 
-from companionpages.members import Member
+from members.models import Member
 
 
 class CompanionArticle(StatusModel, TimeStampedModel):
-    #corresponding_author = models.ForeignKey(Member, help_text=u'The primary point of contact')
+    corresponding_author = models.ForeignKey(Member, help_text=u'The primary point of contact')
+    # how to represent collaborators? Members? but don't want them to be required to be
     STATUS = Choices('active', 'inactive')
-    title = models.CharField(max_length=100, help_text=u'Title of the publication')t    d
+    title = models.CharField(max_length=100, help_text=u'Title of the publication')
     abstract = models.TextField(max_length=500)
     document = models.FileField(upload_to='papers', blank=True)
     article_url = models.URLField(blank=True, help_text=u'URL to the paper.')
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True)
 
     def __unicode__(self):
         return self.title
