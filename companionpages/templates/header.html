@@ -28,8 +28,7 @@
         <li><a href="">My Sites</a>
         <li><a href="">My Results</a>
         <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            {% firstof user.get_short_name user.get_username %}<b class="caret"></b></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.email }}<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">My Account</a></li>
             <li><a href="/accounts/logout">Logout</a></li>
