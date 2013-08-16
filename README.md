@@ -2,7 +2,7 @@
 
 ## Build Status
 
-![current build status](https://travis-ci.org/codersquid/tyler.png?branch=master)
+![current build status](https://travis-ci.org/codersquid/tyler.png?branch=master) (still figuring out how to set up travis env to work with postgres)
 
 [build history](https://travis-ci.org/codersquid/tyler)
 
@@ -11,9 +11,6 @@
 This repo contains a skeleton Django project that is deployable on Heroku or on
 a local or remote machine. Static files are served locally in DEBUG mode or via
 S3 when deployed to Heroku and/or in non-DEBUG mode.
-
-The Heroku instance is [RunMyAlpha](http://runmyalpha.herokuapp.com/). It only has one worker for now.
-
 
 I've set up a [trello](https://trello.com/b/8KC8wAye/rmc) board and have also
 created [issues](https://github.com/codersquid/tyler/issues) in the github tracker.
@@ -54,7 +51,7 @@ To set up a working environment,
 * `source venv/bin/acivate`
 * `pip install -r requirements.txt`
 
-You may need to define these environment variables to run this locally.
+You need to define environment variables to run this locally.
 
 ```
 export SECRET_KEY=''
