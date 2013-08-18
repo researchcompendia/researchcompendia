@@ -5,3 +5,4 @@ django-discover-runner
 coverage
 mock
 flake8
+gunicorn
