@@ -73,8 +73,8 @@ AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'starkravingsanermc
 S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 # WORKAROUND
 # I'm using strip("'") because heroku is inserting single quotes in heroku config settings
-AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID').strip("'")
-AWS_SECRET_ACCESS_KEY= env.get('AWS_SECRET_ACCESS_KEY').strip("'")
+AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID', '').strip("'")
+AWS_SECRET_ACCESS_KEY= env.get('AWS_SECRET_ACCESS_KEY', '').strip("'")
 AWS_HEADERS = {}
 DEFAULT_FILE_STORAGE = env.get('DEFAULT_FILE_STORAGE', 'django.core.files.storage.FileSystemStorage')
 # allow collectstatic automatically put your static files in your bucket
