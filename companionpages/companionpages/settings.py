@@ -1,6 +1,8 @@
+import imp
+import sys
+
 from os import environ as env
 from os.path import abspath, dirname, join, normpath
-from sys import path
 import dj_database_url
 
 
@@ -8,7 +10,7 @@ DJANGO_ROOT = dirname(abspath(__file__))
 SITE_ROOT = dirname(DJANGO_ROOT)
 SITE_TITLE = 'RunMyLab'
 
-path.append(DJANGO_ROOT)
+sys.path.append(DJANGO_ROOT)
 
 DEBUG = True if env.get('DEBUG', False) == 'True' else False
 TEMPLATE_DEBUG = DEBUG
@@ -237,3 +239,14 @@ LOGGING = {
 }
 
 
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'NAME': ':memory:',
+            'ENGINE': 'django.db.backends.sqlite3'
+        }
+    }
+    imp.find_module('django_nose')
+    INSTALLED_APPS = tuple(list(INSTALLED_APPS) + ['django_nose'])
+    TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+    SECRET_KEY = 'companionpages-test'

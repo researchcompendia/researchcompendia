@@ -1,5 +1,8 @@
 -r base.txt
 # continuous integration dependencies
+django-nose
+django-discover-runner
 coverage
 django-discover-runner
 mock
+flake8
