@@ -3,6 +3,5 @@
 django-nose
 django-discover-runner
 coverage
-django-discover-runner
 mock
 flake8
