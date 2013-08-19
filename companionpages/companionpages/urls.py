@@ -4,6 +4,7 @@ admin.autodiscover()
 
 from envelope.views import ContactView
 
+from home.views import FaqView
 from home.views import HomeView
 
 urlpatterns = patterns('',
@@ -20,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^contact/', ContactView.as_view(template_name='contact.html'),
         name='envelope-contact'),
+    url(r'^faq/', FaqView.as_view(), name='rmc_faq'),
     url(r'^news/', include('news.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),

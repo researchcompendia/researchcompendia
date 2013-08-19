@@ -16,4 +16,5 @@ django-storages
 django-filter
 logutils
 markdown
+bleach
 psycopg2

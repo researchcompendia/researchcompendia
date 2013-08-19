@@ -1,7 +1,9 @@
 from django.conf import settings
 from django.utils import timezone
+from django.views.generic import ListView
 from django.views.generic import TemplateView
 
+from .models import Faq
 from news.models import News
 
 class HomeView(TemplateView):
@@ -12,3 +14,9 @@ class HomeView(TemplateView):
         context['newsbriefs_list'] = News.objects.filter(publication_date__lte=timezone.now()).order_by('-publication_date')[:10]
         context['site_title'] = settings.SITE_TITLE
         return context
+
+class FaqView(ListView):
+    model = Faq
+    context_object_name = 'faq_list'
+
+    template_name='faq.html'
