@@ -6,18 +6,21 @@
 {% block content %}
 
 <h1>FAQ</h1>
-
 <div class="panel-group" id="accordion">
 {% for faq in faq_list %}
-  <div class="panel">
+<div class="panel">
     <div class="panel-heading">
       <h4 class="panel-title">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ forloop.counter }}">
-            {{ faq.question }}
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ forloop.counter }}">
+            {% if forloop.first %}
+            <div class="icon-plus-sign-alt rmc-green-font" id="iconstate"> {{ faq.question }}</div>
+            {% else %}
+            <div class="icon-minus-sign-alt rmc-green-font" id="iconstate"> {{ faq.question }}</div>
+            {% endif %}
         </a>
       </h4>
     </div> <!-- /panel-heading -->
-    {% if forloop.first %} 
+    {% if forloop.first %}
     <div id="{{ forloop.counter }}" class="panel-collapse collapse in">
     {% else %}
     <div id="{{ forloop.counter }}" class="panel-collapse collapse">
@@ -31,5 +34,4 @@
 <p>There are no FAQs</p>
 {% endfor %}
 </div> <!-- /panel-group -->
-
 {% endblock content %}

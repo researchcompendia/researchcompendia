@@ -12,17 +12,23 @@ body {
   color: #3a3a3a;
 }
 
-.rmc-green {
+.rmc-green-back {
   background-color: #00a005;
 }
+.rmc-green-font {
+  color: #00a005;
+}
 
-.rmc-navbar-top {
-  margin-bottom: 50px;
+.rmc-navbar-header {
+  /* margin-bottom: 50px; */
   /* min-height: 70px;*/
   padding-left: 0px;
   padding-right: 0px;
 }
-.rmc-navbar-bottom {
+.rmc-navbar-footer {
   margin-top: 50px;
   margin-bottom: 0px;
+}
+
+.hideable {
 }
