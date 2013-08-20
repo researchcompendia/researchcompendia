@@ -8,7 +8,7 @@ import dj_database_url
 
 DJANGO_ROOT = dirname(abspath(__file__))
 SITE_ROOT = dirname(DJANGO_ROOT)
-SITE_TITLE = 'RunMyLab'
+SITE_TITLE = 'RunMyCode'
 
 sys.path.append(DJANGO_ROOT)
 

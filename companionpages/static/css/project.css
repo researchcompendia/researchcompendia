@@ -2,6 +2,7 @@ body {
   /*! body padding needed with fixed navbar */
   /* padding-top: 70px; */
   /* padding-bottom: 70px; */
+	background: url(../img/base_background.png) repeat-x;
 }
 
 .rmc-light {
@@ -19,6 +20,15 @@ body {
   color: #00a005;
 }
 
+.rmc-light-font {
+  color: #F4F4F4;
+}
+
+.rmc-logo {
+  font-family: 'Homenaje', 'sans-serif';
+  font-size: 36px
+}
+
 .rmc-navbar-header {
   /* margin-bottom: 50px; */
   /* min-height: 70px;*/
@@ -28,7 +38,4 @@ body {
 .rmc-navbar-footer {
   margin-top: 50px;
   margin-bottom: 0px;
-}
-
-.hideable {
 }

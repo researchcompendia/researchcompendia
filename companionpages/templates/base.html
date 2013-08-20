@@ -8,6 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Le styles -->
+  <link href='http://fonts.googleapis.com/css?family=Homenaje' rel='stylesheet' type='text/css'>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -21,27 +22,36 @@
   {% endblock extra_css %}
 </head>
 
-<body class="rmc-green-back">
+<body>
 
 {% include 'header.html' %}
 
-<div class="row rmc-light">
+<div class="rmc-logo rmc-green-font pull-left">
+<img src="{% static 'img/rmc_checkmark.png' %}">
+<h1>runmycode</h1>
+<!--
+<img src="{% static 'img/logofont.png' %}">
+-->
+</div>
+
+
+<div class="row">
 
   {% block sidenav %}
-  <div class="col-lg-2">
+  <div class="col-lg-1">
   </div>
   {% endblock sidenav %}
 
-  <div class="col-lg-10">
-
+  <div class="col-lg-8 rmc-light">
   {% block content %}
     <div class="container">
 
-      <h1>{% block marketing_title %}About {{ site_title }}{% endblock marketing_title %}</h1>
+      <div class="jumbotron">
+        <h1 class="rmc-green-font">{{ site_title }}</h1>
 
-      <p>RunMyCode is a platform that enables scientists to share the
-      code and data that underlie research publications.</p>
-
+        <p>RunMyCode is a platform that enables scientists to share the
+        code and data that underlie research publications.</p>
+      </div>
 
       <div class="body-content">
         <div class="row">
@@ -67,6 +77,9 @@
     </div> <!-- /container -->
   {% endblock content %}
   </div> <!-- /col-lg-10 -->
+
+  <div class="col-lg-2">
+  </div>
 
 </div> <!-- /row -->
 
