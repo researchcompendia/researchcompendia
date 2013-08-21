@@ -1,8 +1,23 @@
 body {
   /*! body padding needed with fixed navbar */
   /* padding-top: 70px; */
-  /* padding-bottom: 70px; */
-	background: url(../img/base_background.png) repeat-x;
+  padding-bottom: 70px;
+	/* background: url(../img/base_background.png) repeat-x; */
+}
+
+.imagegradient {
+	background: url(../img/background_greengradient.png) repeat-x;
+}
+
+.gradient {
+  background: #415042; /* Old browsers */
+  background: -moz-linear-gradient(top, #415042 34%, #2e3c2e 70%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(34%,#415042), color-stop(70%,#2e3c2e)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #415042 34%,#2e3c2e 70%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #415042 34%,#2e3c2e 70%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #415042 34%,#2e3c2e 70%); /* IE10+ */
+  background: linear-gradient(to bottom, #415042 34%,#2e3c2e 70%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#415042', endColorstr='#2e3c2e',GradientType=0 ); /* IE6-9 */
 }
 
 .rmc-light {
