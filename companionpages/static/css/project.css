@@ -39,6 +39,16 @@ body {
   color: #F4F4F4;
 }
 
+.decorative-font {
+  /* 
+   * experimenting with different decorative fonts
+   * that we might want to use for headers.
+   *
+   */
+  font-family: 'Homenaje', 'sans-serif';
+  font-size: 36px
+}
+
 .rmc-logo {
   font-family: 'Homenaje', 'sans-serif';
   font-size: 36px
