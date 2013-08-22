@@ -20,3 +20,6 @@ class FaqView(ListView):
     context_object_name = 'faq_list'
 
     template_name='faq.html'
+
+class AboutView(TemplateView):
+    template_name="about.html"

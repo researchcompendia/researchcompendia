@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load webdesign %}
+{% load home_tags %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<h1>About</h1>
+
+<h2>{% lorem 10 w random %}</h2>
+
+{% lorem 3 p %}
+
+{% endblock content %}
