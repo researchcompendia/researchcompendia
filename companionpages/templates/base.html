@@ -8,9 +8,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Le styles -->
-  <link href='http://fonts.googleapis.com/css?family=Homenaje' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,700italic,400italic|Ubuntu:400,500,700,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+ 
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,45 +23,33 @@
   {% endblock extra_css %}
 </head>
 
-<body class="imagegradient">
+<body class="gradient">
 
 {% include 'header.html' %}
 
-<div class="rmc-logo rmc-green-font pull-left">
-  <img src="{% static 'img/rmc_checkmark.png' %}">
-</div>
-
+<div class="rmc-light">
+{% block content %}
 
 <div class="row">
+  <div class="jumbotron">
+    <h1>RunMyCode</h1>
+    <p>RunMyCode is a platform that enables scientists to share the
+    code and data that underlie research publications.</p>
+  </div> <!-- jumbotron -->
+</div> <!-- /row jumbotron row -->
 
-  {% block sidenav %}
-  <div class="col-lg-1">
-  </div>
-  {% endblock sidenav %}
+<div class="row">
+  <div class="container">
 
-  <div class="col-lg-8 rmc-light">
-  {% block content %}
-    <div class="container">
-
-      <div class="jumbotron">
-        <h1 class="rmc-green-font">{{ site_title }}</h1>
-
-        <p>RunMyCode is a platform that enables scientists to share the
-        code and data that underlie research publications.</p>
-      </div>
-
-      <div class="body-content">
         <div class="row">
-
           {% if newsbriefs_list %}
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             {% include "news/newsbriefs.html" with recent_news_list=newsbriefs_list %}
-
             <a href="{% url 'rmc_news_list' %}">more <i class="icon-ellipsis-horizontal"></i></a>
           </div>
           {% endif %}
 
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <h2>Article Companions</h2>
             <p>{% lorem 10 w random %}</p>
             <p>{% lorem 10 w random %}</p>
@@ -68,16 +57,12 @@
             <p>{% lorem 10 w random %}</p>
           </div>
         </div>
-      </div> <!-- /body-content -->
 
-    </div> <!-- /container -->
-  {% endblock content %}
-  </div> <!-- /col-lg-10 -->
-
-  <div class="col-lg-1">
-  </div>
-
+  </div> <!-- /container -->
 </div> <!-- /row -->
+
+{% endblock content %}
+</div> <!-- /rmc-light -->
 
 {% include 'footer.html' %}
 
