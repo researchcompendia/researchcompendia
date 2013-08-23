@@ -1,7 +1,7 @@
 body {
   /*! body padding needed with fixed navbar */
   /* padding-top: 70px; */
-  padding-bottom: 70px;
+  padding-bottom: 70px; /* for fixed bottom navbar */
 	/* background: url(../img/base_background.png) repeat-x; */
 }
 
@@ -39,19 +39,13 @@ body {
   color: #F4F4F4;
 }
 
-.decorative-font {
+.brand-font {
   /* 
    * experimenting with different decorative fonts
    * that we might want to use for headers.
    *
    */
-  font-family: 'Homenaje', 'sans-serif';
-  font-size: 36px
-}
-
-.rmc-logo {
-  font-family: 'Homenaje', 'sans-serif';
-  font-size: 36px
+  font-family: 'Ubuntu Mono', 'sans-serif';
 }
 
 .rmc-navbar-header {
