@@ -16,6 +16,7 @@ I've set up a [trello](https://trello.com/b/8KC8wAye/rmc) board and have also
 created [issues](https://github.com/codersquid/tyler/issues) in the github tracker.
 I'm trying out both tools to see which is most useful, I may find a tool to link them up
 in case they both are. I wish there was a trello-like UI for the github tracker.
+(update: I found out about [huboard](http://huboard.com/). I'm going to try that out and drop trello.
 
 (I'm starting not to like trello for tracking things. I like issue trackers more.)
 
