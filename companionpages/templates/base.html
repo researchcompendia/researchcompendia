@@ -28,9 +28,10 @@
 {% include 'header.html' %}
 
 <div class="rmc-light">
+
+<div class="container">
 {% block content %}
 
-  <div class="container">
 <div class="row">
   <div class="jumbotron">
     <h1>RunMyCode</h1>
@@ -39,29 +40,27 @@
   </div> <!-- jumbotron -->
 </div> <!-- /row jumbotron row -->
 
+
 <div class="row">
+  {% if newsbriefs_list %}
+    <div class="col-lg-6">
+      {% include "news/newsbriefs.html" with recent_news_list=newsbriefs_list %}
+      <a href="{% url 'rmc_news_list' %}">more <i class="icon-ellipsis-horizontal"></i></a>
+    </div>
+  {% endif %}
 
-        <div class="row">
-          {% if newsbriefs_list %}
-          <div class="col-lg-6">
-            {% include "news/newsbriefs.html" with recent_news_list=newsbriefs_list %}
-            <a href="{% url 'rmc_news_list' %}">more <i class="icon-ellipsis-horizontal"></i></a>
-          </div>
-          {% endif %}
-
-          <div class="col-lg-6">
-            <h2>Article Companions</h2>
-            <p>{% lorem 10 w random %}</p>
-            <p>{% lorem 10 w random %}</p>
-            <p>{% lorem 10 w random %}</p>
-            <p>{% lorem 10 w random %}</p>
-          </div>
-        </div>
-
+  <div class="col-lg-6">
+    <h2>Article Companions</h2>
+    <p>{% lorem 10 w random %}</p>
+    <p>{% lorem 10 w random %}</p>
+    <p>{% lorem 10 w random %}</p>
+    <p>{% lorem 10 w random %}</p>
+  </div>
 </div> <!-- /row -->
-  </div> <!-- /container -->
+
 
 {% endblock content %}
+</div> <!-- /container -->
 </div> <!-- /rmc-light -->
 
 {% include 'footer.html' %}
