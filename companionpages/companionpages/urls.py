@@ -21,8 +21,14 @@ urlpatterns = patterns('',
     url(r'^contact/', ContactView.as_view(template_name='contact.html'),
         name='envelope-contact'),
     url(r'^faq/', FaqView.as_view(), name='rmc_faq'),
-    url(r'^about/', AboutView.as_view(), name='rmc_about'),
+    #url(r'^about/', AboutView.as_view(), name='rmc_about'),
+
     url(r'^news/', include('news.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'^pages/', include('django.contrib.flatpages.urls')),
+)
+
+urlpatterns += patterns('django.contrib.flatpages.views',
+    url(r'^about/', 'flatpage', {'url': '/about/'}, name='rmc_about'),
 )
