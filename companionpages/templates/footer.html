@@ -14,9 +14,8 @@
     <ul class="nav navbar-nav">
       <li><a href="{% url 'rmc_about' %}" class="navbar-link">About</a></li>
       <li><a href="/contact" class="navbar-link">Contact</a></li>
-      <li class="disabled"><a href="#help" class="navbar-link">Help</a></li>
-      <li class="disabled"><a href="#privacy" class="navbar-link">Privacy Policy</a></li>
-      <li class="disabled"><a href="#terms" class="navbar-link">Terms of Use</a></li>
+      <li><a href="{% url 'rmc_privacy' %}" class="navbar-link">Privacy Policy</a></li>
+      <li><a href="{% url 'rmc_terms' %}" class="navbar-link">Terms of Use</a></li>
     </ul>
   </div>
 </nav>
