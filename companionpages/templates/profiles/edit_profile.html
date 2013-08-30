@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% load gravatar %}
 
-{% block title %}Edit Profile{% endblock %}
+{% block title %}Edit RunMyCode Profile{% endblock %}
 
 {% block content %}
+
+
+{% gravatar_img_for_user profile.user %}
+<p>Change your avatar image at <a href="http://gravatar.com/">Gravatar</a>.
+Change your RunMyCode information using the form below</p>
+
 
 {% if form.errors %}
 <ul id="messagelist">
@@ -20,6 +26,5 @@
   {{ form.as_p }}
   <input class="button blue" type="submit" value="Update profile"/>
 </form>
-
 
 {% endblock content %}
