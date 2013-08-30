@@ -4,7 +4,17 @@
 
 {% block content %}
 
-{% gravatar_img_for_user profile.user %}
+
+<div class="media">
+<p class="pull-left">{% gravatar_img_for_user profile.user %}</p>
+<div class="media-body">
+  <h4 class="media-heading">{{ profile.public_name }}</h4>
+  <em>{{ profile.byline }}</em>
+  <p>{{ profile.biography }}</p>
+  <p>{{ profile.website }}</p>
+</div>
+</div>
+
 
 {% ifequal user profile.user  %}
 <p>
@@ -12,11 +22,5 @@
 </p>
 {% endifequal %}
 
-
-a demonstration that you can see attributes on a profile.
-
-{% if profile.public_name %}
-    {{ profile.public_name }} <br/>
-{% endif %}
 
 {% endblock content %}

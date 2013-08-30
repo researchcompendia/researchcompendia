@@ -1,6 +1,3 @@
-<!--
-<div class="navbar navbar-fixed-top navbar-inverse rmc-green">
--->
 {% load staticfiles %}
 <nav class="navbar navbar-default navbar-inverse rmc-navbar-header" role="navigation">
 
@@ -11,7 +8,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand brand-font" href="{% url 'rmc_home' %}">
+    <a class="navbar-brand" href="{% url 'rmc_home' %}">
       <img src="{% static 'img/smalllogostrip.svg' %}">
     </a>
   </div>
@@ -34,7 +31,7 @@
       <li>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.email }}<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">My Account</a></li>
+            <li><a href="{% url 'profiles_profile_detail' user  %}">My Account</a></li>
             <li><a href="/accounts/logout">Logout</a></li>
             {% if user.is_staff %}
             <li><a href="{% url 'admin:index' %}">Admin</a></li>
@@ -49,12 +46,3 @@
   </div><!--/collapse nav-collapse navbar-ex1-collapse -->
 
 </nav><!-- navbar -->
-
-<!--
-<div class="rmc-logo">
-<img src="{% static 'img/rmc_checkmark.png' %}">
-<img src="{% static 'img/logofont.png' %}">
-</div>
--->
-
-

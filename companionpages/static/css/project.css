@@ -1,7 +1,8 @@
 body {
   /*! body padding needed with fixed navbar */
   /* padding-top: 70px; */
-  padding-bottom: 70px; /* for fixed bottom navbar */
+  /* for fixed bottom navbar */
+  /* padding-bottom: 70px; */
 	/* background: url(../img/base_background.png) repeat-x; */
 }
 
@@ -24,32 +25,12 @@ body {
   background-color: #F4F4F4;
 }
 
-.rmc-dark {
-  color: #3a3a3a;
-}
-
-.rmc-green-back {
-  background-color: #00a005;
-}
 .rmc-green-font {
   color: #00a005;
 }
 
-.rmc-light-font {
-  color: #F4F4F4;
-}
-
-.brand-font {
-  /* 
-   * experimenting with different decorative fonts
-   * that we might want to use for headers.
-   *
-   */
-  font-family: 'Ubuntu Mono', 'sans-serif';
-}
-
 .rmc-navbar-header {
-  /* margin-bottom: 50px; */
+  margin-bottom: 50px;
   /* min-height: 70px;*/
   padding-left: 0px;
   padding-right: 0px;

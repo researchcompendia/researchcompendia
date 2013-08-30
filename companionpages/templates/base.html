@@ -27,9 +27,8 @@
 
 {% include 'header.html' %}
 
-<div class="rmc-light">
 
-<div class="container">
+<div class="container rmc-light">
 {% block content %}
 
 <div class="row">
@@ -40,7 +39,7 @@
     <p>RunMyCode is a platform that enables scientists to share the
     code and data that underlie research publications.</p>
   </div> <!-- jumbotron -->
-</div> <!-- /row jumbotron row -->
+</div> <!-- /row jumbotron -->
 
 <div class="row">
   {% if newsbriefs_list %}
@@ -51,18 +50,19 @@
   {% endif %}
 
   <div class="col-lg-6">
-    <h2>Companion Websites</h2>
-    <p>{% lorem 10 w random %}</p>
-    <p>{% lorem 10 w random %}</p>
-    <p>{% lorem 10 w random %}</p>
-    <p>{% lorem 10 w random %}</p>
+    <h2>Companion Sites</h2>
+    <ul class="list-group">
+      <li class="list-group-item">{% lorem 10 w random %}</li>
+      <li class="list-group-item">{% lorem 10 w random %}</li>
+      <li class="list-group-item">{% lorem 10 w random %}</li>
+      <li class="list-group-item">{% lorem 10 w random %}</li>
+    </ul>
   </div>
-</div> <!-- /row -->
+</div> <!-- /row news and companions -->
 
 
 {% endblock content %}
 </div> <!-- /container -->
-</div> <!-- /rmc-light -->
 
 {% include 'footer.html' %}
 
