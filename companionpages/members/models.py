@@ -27,7 +27,7 @@ class Member(StatusModel, TimeStampedModel):
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
     STATUS = Choices('active', 'inactive')
     public_name = models.CharField(max_length=20, help_text=_(u'Publically displayed name'))
-    website = models.URLField(blank=True)
+    #website = models.URLField(blank=True)
     byline = models.CharField(max_length=100, blank=True, help_text=_(u'A short description for your profile'))
     biography = models.TextField(max_length=400, blank=True, help_text=_(u'A short biographical description'))
     #gravatar_email = models.EmailField(blank=True, help_text=_(u'an email associated with your gravatar account'))
