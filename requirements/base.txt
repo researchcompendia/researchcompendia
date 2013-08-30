@@ -18,3 +18,5 @@ logutils
 markdown
 bleach
 psycopg2
+django-gravatar
+south

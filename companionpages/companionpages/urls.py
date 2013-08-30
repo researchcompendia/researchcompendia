@@ -5,28 +5,24 @@ admin.autodiscover()
 from envelope.views import ContactView
 
 from home.views import FaqView, HomeView
+from members.forms import MemberForm
 
 urlpatterns = patterns('',
     url(r'^$', HomeView.as_view(), name='rmc_home'),
-    url(r'^profiles/', include('profiles.urls')),
-    # profiles urls are
+    url(r'^members/edit', 'profiles.views.edit_profile', {'form_class': MemberForm,}, name='rmc_edit'),
+    url(r'^members/', include('profiles.urls')),
     # profiles/create/ named profiles_create_profile
     # profiles/edit/ named profiles_edit_profile
     # profiles/username named profiles_profile_detail
     # profiles/ named profiles_profile_list
-    # I'm not sure I like using include('profiles.urls') since
-    # I think it is not self documenting. it goes against
-    # explicit over implicit. but I need to think about this.
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^contact/', ContactView.as_view(template_name='contact.html'),
         name='envelope-contact'),
     url(r'^faq/', FaqView.as_view(), name='rmc_faq'),
-    #url(r'^about/', AboutView.as_view(), name='rmc_about'),
-
     url(r'^news/', include('news.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^pages/', include('django.contrib.flatpages.urls')),
+    url(r'^avatar/', include('avatar.urls')),
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',
