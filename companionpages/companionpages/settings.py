@@ -94,7 +94,8 @@ AUTH_PROFILE_MODULE = 'members.Member'
 
 # django-gravatar
 GRAVATAR_DEFAULT_SIZE = 80
-GRAVATAR_DEFAULT_IMAGE = 'https://s3.amazonaws.com/starkravingsanermccompanion/img/avatar_small.png'
+#GRAVATAR_DEFAULT_IMAGE = 'https://s3.amazonaws.com/starkravingsanermccompanion/img/avatar_small.png'
+GRAVATAR_DEFAULT_IMAGE = 'http://raw.github.com/codersquid/tyler/master/companionpages/static/img/avatar_small.png'
 
 
 # Absolute path to the directory static files should be collected to.
