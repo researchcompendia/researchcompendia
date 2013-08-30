@@ -8,17 +8,17 @@
 
 ## Intro
 
-This repo contains a Django project that is deployable on Heroku or on a local
-or remote machine. Static files are served locally in DEBUG mode or via S3 when
-deployed to Heroku and/or in non-DEBUG mode.
+This repo contains a proof of concept for a Django-based RunMyCode site. Its name comes
+from Rose Tyler, who was a companion of The Doctor.
 
-I've set up a [trello](https://trello.com/b/8KC8wAye/rmc) board and have also
-created [issues](https://github.com/codersquid/tyler/issues) in the github tracker.
-I'm trying out both tools to see which is most useful, I may find a tool to link them up
-in case they both are. I wish there was a trello-like UI for the github tracker.
-(update: I found out about [huboard](http://huboard.com/). I'm going to try that out and drop trello.
+The heroku instance for this proof of concept is at
+[rose-tyler-alpha](http://rose-tyler-alpha.herokuapp.com/)
 
-(I'm starting not to like trello for tracking things. I like issue trackers more.)
+* [issue tracker](https://github.com/codersquid/tyler/issues)
+* kanban board evaluations
+    * [huboard](http://huboard.com/), integrates with issue tracker
+    * [trello](https://trello.com/b/8KC8wAye/rmc), does not integrate with issue tracker
+
 
 ## Working Environment
 
@@ -85,7 +85,7 @@ This is entirely in flux but I want to at least splat some links here
    * [django-socialauth](http://django-social-auth.readthedocs.org/en/latest/index.html): accounts via github, google, twitter, facebook, and so on and so forth
 
 
-## suggestions and references
+## tools
 
 * [contrast ratios testing ](http://leaverou.github.io/contrast-ratio/)
 * [colorzilla gradient editor](http://www.colorzilla.com/gradient-editor/)
