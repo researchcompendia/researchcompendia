@@ -11,6 +11,7 @@
   <h4 class="media-heading">{{ profile.public_name }}</h4>
   <em>{{ profile.byline }}</em>
   <p>{{ profile.biography }}</p>
+  <p>{{ profile.website|urlize }}</p>
 </div>
 </div>
 
@@ -23,3 +24,4 @@
 
 
 {% endblock content %}
+

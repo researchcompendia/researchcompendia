@@ -10,12 +10,13 @@
 
 <li class="list-group-item">
 <div class="media">
-  <a href="{% url 'profiles_profile_detail' p.user %}">
   <p class="pull-left">{% gravatar_img_for_user p.user %}</p>
-  </a>
   <div class="media-body">
-    <h4 class="media-header">{{ p.public_name }}</h4>
-    {{ p.byline }}
+    <a href="{% url 'profiles_profile_detail' p.user %}">
+      <h4 class="media-header">{{ p.public_name }}</h4>
+    </a>
+    {{ p.byline }}</br>
+    {{ p.website|urlize }}
   </div>
 </div>
 </li>
