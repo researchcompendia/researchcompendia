@@ -1,9 +1,27 @@
+
 body {
   /*! body padding needed with fixed navbar */
-  /* padding-top: 70px; */
+  padding-top: 70px;
+ 
   /* for fixed bottom navbar */
   /* padding-bottom: 70px; */
 	/* background: url(../img/base_background.png) repeat-x; */
+  /* 
+  light lime green
+  background-color: #a9d994;
+  orange
+  background-color: #f39104;
+  logo letter green
+  background-color: #70bf44;
+#00cc00;
+#269926;
+#008500;
+#39e639;
+#67e667;
+
+  background-color: #269926;
+
+   */
 }
 
 .imagegradient {
