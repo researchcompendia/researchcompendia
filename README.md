@@ -2,21 +2,20 @@
 
 ## Build Status
 
-![current build status](https://travis-ci.org/codersquid/tyler.png?branch=master)
+![current build status](https://travis-ci.org/runmycode/tyler.png?branch=master)
 
-[build history](https://travis-ci.org/codersquid/tyler)
+[build history](https://travis-ci.org/runmycode/tyler)
 
 ## Intro
 
-This repo contains a proof of concept for a Django-based RunMyCode site. Its name comes
-from Rose Tyler, who was a companion of The Doctor.
+This repo contains a proof of concept for a Django-based RunMyCode site.
 
 The heroku instance for this proof of concept is at
 [rose-tyler-alpha](http://rose-tyler-alpha.herokuapp.com/)
 
 * [issue tracker](https://github.com/codersquid/tyler/issues)
 * kanban board evaluations
-    * [huboard](http://huboard.com/), integrates with issue tracker
+    * [huboard](http://huboard.com/runmycode/tyler), integrates with issue tracker
     * [trello](https://trello.com/b/8KC8wAye/rmc), does not integrate with issue tracker
 
 
@@ -102,3 +101,7 @@ This is entirely in flux but I want to at least splat some links here
 ## Acknowledgements
 
 Many thanks to Audrey Roy and Daniel Greenfeld for writing [Two Scoops of django: Best Practices for Django 1.5](https://django.2scoops.org/). Many thanks to everyone who has posted helpful information on using Heroku with Django. Any clumsiness in my project is my fault, not theirs.
+
+## Random stuff
+
+tyler is named after Rose Tyler, who was a companion of The Doctor. Django is named after a person too.
