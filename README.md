@@ -14,9 +14,7 @@ The heroku instance for this proof of concept is at
 [rose-tyler-alpha](http://rose-tyler-alpha.herokuapp.com/)
 
 * [issue tracker](https://github.com/codersquid/tyler/issues)
-* kanban board evaluations
-    * [huboard](http://huboard.com/runmycode/tyler), integrates with issue tracker
-    * [trello](https://trello.com/b/8KC8wAye/rmc), does not integrate with issue tracker
+* kanban board [huboard](http://huboard.com/runmycode/tyler)
 
 
 ## Working Environment
