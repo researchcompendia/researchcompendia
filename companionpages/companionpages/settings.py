@@ -186,6 +186,7 @@ THIRD_PARTY_APPS = (
     'south',
     'storages',
     'gravatar',
+    'taggit',
 )
 
 # Apps specific for this project go here.

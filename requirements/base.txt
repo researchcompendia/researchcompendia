@@ -20,3 +20,4 @@ bleach
 psycopg2
 django-gravatar
 south
+django-taggit
