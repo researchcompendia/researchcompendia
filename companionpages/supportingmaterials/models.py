@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.choices import Choices
 from model_utils.models import StatusModel, TimeStampedModel
+from taggit.managers import TaggableManager
 
 from members.models import Member
 
@@ -16,6 +17,7 @@ class CompanionArticle(StatusModel, TimeStampedModel):
     document = models.FileField(upload_to='papers', blank=True)
     article_url = models.URLField(blank=True, help_text=_(u'URL to the paper.'))
     slug = models.SlugField(unique=True)
+    tags = TaggableManager()
 
     def __unicode__(self):
         return self.title
@@ -30,6 +32,7 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
     materials_url = models.URLField(blank=True, help_text=_(u'URL to the supporting material. For example, '
                                                             u'if this is source code, this would be a url '
                                                             u'to to the code repository.'))
+    tags = TaggableManager()
 
     def __unicode__(self):
         return self.name

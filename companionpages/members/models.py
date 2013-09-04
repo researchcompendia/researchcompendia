@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.choices import Choices
 from model_utils.models import StatusModel, TimeStampedModel
+from taggit.managers import TaggableManager
 
 # I'm not sure I want this to happen this way
 # it barfs when creating a superuser during syncdb. so
@@ -32,6 +33,8 @@ class Member(StatusModel, TimeStampedModel):
     byline = models.CharField(max_length=100, blank=True, help_text=_(u'A short description for your profile'))
     biography = models.TextField(max_length=400, blank=True, help_text=_(u'A short biographical description'))
     gravatar_email = models.EmailField(blank=True, help_text=_(u'a private email associated with your gravatar account'))
+    tags = TaggableManager()
+
 
     # TODO: should the permalink for a member be based on their username? This may violate their privacy.
     def get_absolute_url(self):
