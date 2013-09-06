@@ -23,3 +23,6 @@ class FaqView(ListView):
 
 class AboutView(TemplateView):
     template_name="about.html"
+
+class CompanionView(TemplateView):
+    template_name="create.html"
