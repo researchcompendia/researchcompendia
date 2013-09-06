@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Create your views here.
 from django.shortcuts import render
 from .forms import CompanionForm
@@ -19,3 +20,12 @@ def companion(request):
     else:
         form = CompanionForm()
     return render(request, 'create.html', {'form': form})
+=======
+from django.views import generic
+from .models import CompanionArticle
+
+class CompanionArticleListView(generic.ListView):
+    model = CompanionArticle
+    template_name = 'supportingmaterials/index.html'
+    context_object_name = 'companion_article_list'
+>>>>>>> 9e0b123e4dc094ba619854c74cd5a0053e84dc8c

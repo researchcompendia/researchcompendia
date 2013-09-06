@@ -20,18 +20,19 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">About<b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="{% url 'rmc_about' %}">About RunMyCode</a>
+          <li><a href="{% url 'rmc_news_list' %}">News</a>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </li>
       <li><a href="{% url 'rmc_faq' %}">FAQ</a></li>
       <li><a href="{% url 'profiles_profile_list' %}">Members</a></li>
+      <li><a href="{% url 'rmc_companionsites' %}">CompanionSites</a></li>
     </ul>
     <form class="navbar-form pull-left" action="">
       <input class="form-control col-lg-8" type="text" placeholder="Search">
     </form>
     <ul class="nav navbar-nav pull-right">
       {% if user.is_authenticated %}
-      <li class="disabled"><a href="">Dashboard</a>
       <li class="disabled"><a href="">My Sites</a>
       <li class="disabled"><a href="">My Results</a>
       <li>

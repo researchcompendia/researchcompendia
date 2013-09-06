@@ -25,8 +25,13 @@ urlpatterns = patterns('',
     url(r'^news/', include('news.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
+<<<<<<< HEAD
     url(r'^supportingmaterials/create', TemplateView.as_view(template_name='supportingmaterials/create.html'), {'form_class':CompanionForm}, name='rmc_create'),
     url(r'^supportingmaterials/', include('profiles.urls')),
+=======
+    url(r'^supportingmaterials/create', TemplateView.as_view(template_name='supportingmaterials/create.html'), name='rmc_create'),
+    url(r'^companionsites', include('supportingmaterials.urls')),
+>>>>>>> 9e0b123e4dc094ba619854c74cd5a0053e84dc8c
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',
