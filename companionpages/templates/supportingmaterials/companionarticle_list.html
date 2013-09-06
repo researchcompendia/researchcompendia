@@ -9,7 +9,7 @@
   {% for site in companion_article_list %}
 
   <li class="list-group-item">
-  {{ site.title }}
+  <em>{{ site.title }}</em>
   {{ site.corresponding_author }}
   {{ site.modified|date:"SHORT_DATE_FORMAT" }}
   </li>
