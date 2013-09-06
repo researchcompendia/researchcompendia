@@ -50,7 +50,6 @@
   {% if newsbriefs_list %}
     <div class="col-lg-6">
       {% include "news/newsbriefs.html" with recent_news_list=newsbriefs_list %}
-      <a href="{% url 'rmc_news_list' %}">more <i class="icon-ellipsis-horizontal"></i></a>
     </div>
   {% endif %}
 
@@ -58,6 +57,7 @@
     {% if companion_article_list %}
     {% include "supportingmaterials/companionarticle_list.html" with companion_article_list=companion_article_list %}
     {% endif %}
+    <a href="{% url 'rmc_companionsites' %}"><i class="icon-ellipsis-horizontal"></i></a>
   </div>
 </div> <!-- /row news and companions -->
 

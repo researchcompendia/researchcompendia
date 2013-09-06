@@ -20,6 +20,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">About<b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="{% url 'rmc_about' %}">About RunMyCode</a>
+          <li><a href="{% url 'rmc_news_list' %}">News</a>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </li>
@@ -31,7 +32,6 @@
     </form>
     <ul class="nav navbar-nav pull-right">
       {% if user.is_authenticated %}
-      <li class="disabled"><a href="">Dashboard</a>
       <li class="disabled"><a href="">My Sites</a>
       <li class="disabled"><a href="">My Results</a>
       <li>
