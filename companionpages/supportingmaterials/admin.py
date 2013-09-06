@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CompanionArticle, SupportingMaterial
+from .models import SupportingMaterial
 
 class SupportingInline(admin.StackedInline):
     model = SupportingMaterial
@@ -14,5 +14,5 @@ class CompanionArticleAdmin(admin.ModelAdmin):
 class SupportingMaterialAdmin(admin.ModelAdmin):
     date_heirarchy = ['created']
 
-admin.site.register(CompanionArticle, CompanionArticleAdmin)
+#admin.site.register(CompanionArticle, CompanionArticleAdmin)
 admin.site.register(SupportingMaterial, SupportingMaterialAdmin)

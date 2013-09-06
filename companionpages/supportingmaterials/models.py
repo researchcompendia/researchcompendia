@@ -1,31 +1,32 @@
+from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 from model_utils.choices import Choices
 from model_utils.models import StatusModel, TimeStampedModel
 from taggit.managers import TaggableManager
+from django.shortcuts import render
+from django.conf.urls.static import static
 
 from members.models import Member
+from django.http import HttpResponse
+from django.forms import ModelForm
+from .forms import UploadFileForm
+from .forms import CompanionForm
+
+@receiver(post_save, sender=User.member)
+   
 
 
-class CompanionArticle(StatusModel, TimeStampedModel):
-    corresponding_author = models.ForeignKey(Member, help_text=_(u'The primary point of contact'))
-    # how to represent collaborators? Members? but don't want them to be required to be
-    STATUS = Choices('active', 'inactive')
-    title = models.CharField(max_length=100, help_text=_(u'Title of the publication'))
-    abstract = models.TextField(max_length=500)
-    document = models.FileField(upload_to='papers', blank=True)
-    article_url = models.URLField(blank=True, help_text=_(u'URL to the paper.'))
-    slug = models.SlugField(unique=True)
-    tags = TaggableManager()
-
-    def __unicode__(self):
-        return self.title
-
-
+def search_form(request):
+    return render(request, 'create.html')
+        
 class SupportingMaterial(StatusModel, TimeStampedModel):
     STATUS = Choices('active', 'inactive')
-    companion_article = models.ForeignKey(CompanionArticle)
+    #companion_article = models.ForeignKey(CompanionArticle)
     name = models.CharField(max_length=100)
     archive_file = models.FileField(upload_to='materials', blank=True)
     explanatory_text = models.TextField(max_length=1000, blank=True)
@@ -36,3 +37,14 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
 
     def __unicode__(self):
         return self.name
+        
+def upload_file(request):
+	UploadFileForm(request.POST)
+	if request.method == 'POST':
+        	form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['file'])
+            return HttpResponseRedirect('/success/url/')
+	else:
+		form = UploadFileForm()
+	return render_to_response('create.html', {'form': form})

@@ -8,6 +8,7 @@ from envelope.views import ContactView
 
 from home.views import FaqView, HomeView
 from members.forms import MemberForm
+from supportingmaterials.forms import CompanionForm
 
 urlpatterns = patterns('',
     url(r'^$', HomeView.as_view(), name='rmc_home'),
@@ -24,7 +25,8 @@ urlpatterns = patterns('',
     url(r'^news/', include('news.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^supportingmaterials/create', TemplateView.as_view(template_name='supportingmaterials/create.html'), name='rmc_create'),
+    url(r'^supportingmaterials/create', TemplateView.as_view(template_name='supportingmaterials/create.html'), {'form_class':CompanionForm}, name='rmc_create'),
+    url(r'^supportingmaterials/', include('profiles.urls')),
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',
