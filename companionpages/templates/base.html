@@ -40,23 +40,35 @@
   <div class="jumbotron">
     <h1>RunMyCode</h1>
 
-      <img src="{% static 'img/littlegraphs.png' %}">
-    <p>RunMyCode is a platform that enables scientists to share the
-    code and data that underlie research publications.</p>
+    <div class='media'>
+      <img class='pull-right' src="{% static 'img/conceptcomposite.png' %}">
+      <div class='media-body'>
+        <div class='media-heading'>
+          As simple as 1, 2, 3
+        </div>
+          <ol>
+            <li>A researcher has an <b>idea</b>.</li>
+            <li>The researcher writes a <b>paper</b> based on this idea.</li>
+            <li>The researcher creates a companion page to share the
+            <b>code and data</b> underlying this paper.</li>
+          </ol>
+      </div>
+      <button type='button' class='btn btn-success btn-lg btn-block'>Create your own companion page</button>   
   </div> <!-- jumbotron -->
 </div> <!-- /row jumbotron -->
 
 <div class="row">
-  {% if newsbriefs_list %}
     <div class="col-lg-6">
-      {% include "news/newsbriefs.html" with recent_news_list=newsbriefs_list %}
+    {% if newsbriefs_list %}
+    <a href="{% url 'rmc_news_list' %}"><button type='button' class='btn btn-default btn-lg btn-block'>Browse news</button></a>
+    {% endif %}
     </div>
-  {% endif %}
 
   <div class="col-lg-6">
     {% if companion_article_list %}
-    {% include "supportingmaterials/companionarticle_list.html" with companion_article_list=companion_article_list %}
+    <a href="{% url 'rmc_companionsites' %}"><button type='button' class='btn btn-default btn-lg btn-block'>Browse companion pages</button></a>
     {% endif %}
+
   </div>
 </div> <!-- /row news and companions -->
 
