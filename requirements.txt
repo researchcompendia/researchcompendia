@@ -1,5 +1,4 @@
 -r requirements/base.txt
 
 # heroku
-django==1.5.1
 django-toolbelt
