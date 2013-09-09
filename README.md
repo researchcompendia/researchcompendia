@@ -12,7 +12,7 @@ The heroku instance for this proof of concept is at
 [rose-tyler-alpha](http://rose-tyler-alpha.herokuapp.com/)
 
 * [issue tracker](https://github.com/codersquid/tyler/issues)
-* kanban board [huboard](http://huboard.com/runmycode/tyler)
+* kanban board [trello](https://trello.com/b/8KC8wAye/rmc)
 
 
 ## Working Environment

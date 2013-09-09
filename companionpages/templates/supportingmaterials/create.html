@@ -1,15 +1,1043 @@
-{% extends "base.html" %}
-{% load webdesign %}
+{% extends "base.html" %}    
+{% load i18n %}
 {% load home_tags %}
-
-{% block title %}Create Companion Site{% endblock %}
-
+{% load envelope_tags %}
+{% load staticfiles %}
+{% block extrahead %}
+  <link href="http://jennseiler.com/rmc.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block title %}Create A Companion Site{% endblock %}
 {% block content %}
+<span id="paper" class="anchor"></span>
+    <span id="data" class="anchor"></span>
+    <span id="code" class="anchor"></span>
+    <span id="params" class="anchor"></span>
+    <span id="doc" class="anchor"></span>
+<h1> Create A Companion Site </h1><p>
+<div class="tabbed-menu" >
+ <ul class="tabs">
+	<a href="#paper"><li id="paper" class="selected">Paper Information</li></a>
+    <a href="#data"><li id="data">Data</li></a>
+    <a href="#code"><li id="code">Code</li></a>
+    <a href="#params"><li id="params">Parameters</li></a>	
+    <a href="#doc"><li id="doc">Output</li></a>	
+ </ul>
+</div>
+<div class="page" id="paper2" style="display:block">
+<form>
+{{ form }}
+<label>DOI or PMID </label> <input type="text" class="careful input-tips" style="width: 209px;" value="" id="DOI" placeholder="will autocomplete paper info" />&nbsp; or &nbsp;
+<label>Link to paper </label> <input type="text" class="careful input-tips" style="width: 209px;" value="" id="link" placeholder="will autocomplete paper info" />&nbsp; or &nbsp;
+<label>Upload paper </label> <input type="text" class="careful input-tips" style="width: 209px;" value="" id="upload" placeholder="will autocomplete paper info" /></br>
 
-<h1>{% lorem 3 w random %}</h1>
+<label>Title <span style="color:red">*</span></label>
+<input type="text" class="careful input-tips" style="width: 90%;" value="" id="title" placeholder="article title"/></br>
 
-<h2>{% lorem 6 w random %}</h2>
+<label>Type of paper <span style="color:red">*</span></label>
+	<input type="radio" name="type" value="1" checked="checked"> Published paper
+	&nbsp;&nbsp;&nbsp;
+	<input type="radio" name="type" value="2" > Working paper
+	&nbsp;&nbsp;&nbsp;
+	<input type="radio" name="type" value="2" > Methods
+	&nbsp;&nbsp;&nbsp;
+	<input type="radio" name="type" value="2" > Negative Results
+	
+	<div  class="publication-type-article">
+		<label>Journal </label>
+		<input type="text" class="careful input-tips" style="width: 409px;" placeholder="journal name" id="journal" value="" />
+		<label>Year </label> 
+		<input type="text" style="width: 59px;" class="careful input-tips" id="year"  />
+		<label>Volume </label>
+		<input type="text" class="careful input-tips" style="width: 79px;" id="volume" value="" />
+		<label>Issue</label>
+		<input type="text" class="careful input-tips" style="width: 79px;" id="issue"  />
+		<label>Pages </label>
+		<input type="text" class="careful input-tips" tyle="width: 79px;" id="pages"  />
+</div>
 
-{% lorem 3 p %}
+<label>Abstract <span style="color:red">*</span></label><br>
+<textarea class="careful input-tips" style="width: 95%; height: 200px; padding: 5px; margin-bottom: 15px;" id="abstract"></textarea>
 
-{% endblock content %}
+<h4>Classify your companion website</h4>
+
+<label>Keywords (comma separated)</label>
+<input type="text" class="careful input-tips" style="width: 759px;" value="" id="form-publication-add-for-member-keywords" /><br>
+
+<label>Research area <span class="red">*</span></label>				
+<select class="careful" id="domains" >
+	<option value="0">--</option>
+	
+		<option class="parent" value="32" >Biological Sciences</option>
+		<option class="child" value="27"  >Neuroscience</option>
+		<option class="miniChild" value="44"  >Cognitive neuroscience</option>
+		<option class="miniChild" value="45"  >Computational neuroscience</option>
+		<option class="miniChild" value="46"  >Developmental neuroscience</option>
+		<option class="miniChild" value="47"  >Neuroimaging</option>
+		<option class="miniChild" value="48"  >Neuroinformatics</option>
+		<option class="miniChild" value="49"  >Neurophysiology</option>
+		<option class="miniChild" value="50"  >Systems neuroscience</option>
+		<option class="parent" value="33" >Chemistry</option>
+		<option class="parent" value="34" >Computer and Information Sciences</option>
+		<option class="parent" value="35" >Engineering</option>
+		<option class="parent" value="36" >Geosciences</option>
+		<option class="parent" value="37" >Mathematics</option>
+		<option class="parent" value="38" >Medical Research</option>
+		<option class="parent" value="41" >Other Computational Sciences</option>
+		<option class="parent" value="39" >Physics</option>
+		<option class="parent" value="40" >Social Sciences</option>
+		<option class="child" value="4"  >Econometrics</option>
+		<option class="miniChild" value="85"  >Asymptotic Theory</option>
+		<option class="miniChild" value="82"  >Bayesian Analysis</option>
+		<option class="miniChild" value="84"  >Bootstrap and Monte Carlo</option>
+		<option class="miniChild" value="94"  >Classification Methods</option>
+		<option class="miniChild" value="91"  >Duration analysis</option>
+		<option class="miniChild" value="76"  >Econometric modeling</option>
+		<option class="miniChild" value="79"  >Financial Econometrics</option>
+		<option class="miniChild" value="78"  >Forecasting</option>
+		<option class="miniChild" value="81"  >Hypothesis Testing</option>
+		<option class="miniChild" value="80"  >Microeconometrics</option>
+		<option class="miniChild" value="95"  >Neural Networks</option>
+		<option class="miniChild" value="93"  >Nonlinear econometrics</option>
+		<option class="miniChild" value="86"  >Nonparametric econometrics</option>
+		<option class="miniChild" value="87"  >Panel data models</option>
+		<option class="miniChild" value="89"  >Qualitative choice models</option>
+		<option class="miniChild" value="92"  >Regime switching models</option>
+		<option class="miniChild" value="83"  >Simultaneous equation methods</option>
+		<option class="miniChild" value="88"  >Spatial econometrics</option>
+		<option class="miniChild" value="77"  >Time-Series</option>
+		<option class="miniChild" value="90"  >Truncated and Censored Models</option>
+		<option class="child" value="43"  >Economics</option>
+		<option class="miniChild" value="2"  >Agricultural, Environmental, and Energy Economics</option>
+		<option class="miniChild" value="3"  >Development and Transition Economics</option>
+		<option class="miniChild" value="5"  >Economic Theory</option>
+		<option class="miniChild" value="6"  >Experimental Economics</option>
+		<option class="miniChild" value="74"  >Experiments</option>
+		<option class="miniChild" value="70"  >Financial Economics</option>
+		<option class="miniChild" value="73"  >Game Theory</option>
+		<option class="miniChild" value="8"  >Game Theory and Decision Science</option>
+		<option class="miniChild" value="72"  >General Equilibrium</option>
+		<option class="miniChild" value="10"  >Health Economics and Management</option>
+		<option class="miniChild" value="12"  >Industrial Organization</option>
+		<option class="miniChild" value="14"  >Innovation and Entrepreneurship</option>
+		<option class="miniChild" value="16"  >International Economics</option>
+		<option class="miniChild" value="17"  >Labor Economics</option>
+		<option class="miniChild" value="18"  >Law and Economics</option>
+		<option class="miniChild" value="19"  >Macroeconomics</option>
+		<option class="miniChild" value="21"  >Microeconomics</option>
+		<option class="miniChild" value="22"  >Monetary Economics</option>
+		<option class="miniChild" value="75"  >Optimization</option>
+		<option class="miniChild" value="25"  >Public Economics and Public Choice</option>
+		<option class="miniChild" value="71"  >Real Estate</option>
+		<option class="miniChild" value="30"  >Urban, Spatial, and Regional Economics</option>
+		<option class="child" value="7"  >Finance</option>
+		<option class="miniChild" value="69"  >Alternative Investments</option>
+		<option class="miniChild" value="61"  >Asset Management</option>
+		<option class="miniChild" value="53"  >Asset Pricing</option>
+		<option class="miniChild" value="54"  >Banking and Risk Management</option>
+		<option class="miniChild" value="52"  >Behavioral Finance</option>
+		<option class="miniChild" value="57"  >Corporate Finance</option>
+		<option class="miniChild" value="55"  >Derivatives</option>
+		<option class="miniChild" value="65"  >Energy and Commodities</option>
+		<option class="miniChild" value="51"  >Financial Econometrics</option>
+		<option class="miniChild" value="68"  >Financing</option>
+		<option class="miniChild" value="62"  >Fixed Income</option>
+		<option class="miniChild" value="58"  >Governance</option>
+		<option class="miniChild" value="66"  >Household Finance</option>
+		<option class="miniChild" value="64"  >International Finance</option>
+		<option class="miniChild" value="56"  >Investment</option>
+		<option class="miniChild" value="60"  >Mergers and Acquisitions</option>
+		<option class="miniChild" value="63"  >Microstructure</option>
+		<option class="miniChild" value="26"  >Real Estate</option>
+		<option class="miniChild" value="67"  >Real Option</option>
+		<option class="miniChild" value="59"  >Valuation</option>
+		<option class="child" value="42"  >Management</option>
+				<option class="miniChild" value="1"  >Accounting</option>
+				<option class="miniChild" value="9"  >General Management</option>
+				<option class="miniChild" value="11"  >Human Resources Management</option>
+				<option class="miniChild" value="13"  >Information Systems</option>
+				<option class="miniChild" value="15"  >Insurance and Actuarial Science</option>
+				<option class="miniChild" value="20"  >Marketing</option>
+				<option class="miniChild" value="23"  >Operations Research</option>
+				<option class="miniChild" value="24"  >Organizational Behavior</option>
+				<option class="miniChild" value="28"  >Strategy</option>
+				<option class="miniChild" value="29"  >Technology and Operations Management</option>
+		<option class="parent" value="31" >Statistics</option>
+
+</select>
+
+<label>Secondary research area</label>				
+<select class="careful" id="complementaryDomain" style="margin-bottom: 15px;">
+	<option value="0">--</option>
+	
+		<option class="parent" value="32" >Biological Sciences</option>
+		
+			<option class="child" value="27"  >Neuroscience</option>
+			
+				<option class="miniChild" value="44"  >Cognitive neuroscience</option>
+				<option class="miniChild" value="45"  >Computational neuroscience</option>
+				<option class="miniChild" value="46"  >Developmental neuroscience</option>
+				<option class="miniChild" value="47"  >Neuroimaging</option>
+				<option class="miniChild" value="48"  >Neuroinformatics</option>
+				<option class="miniChild" value="49"  >Neurophysiology</option>
+				<option class="miniChild" value="50"  >Systems neuroscience</option>	
+		<option class="parent" value="33" >Chemistry</option>
+		<option class="parent" value="34" >Computer and Information Sciences</option>
+		<option class="parent" value="35" >Engineering</option>
+		<option class="parent" value="36" >Geosciences</option>
+		<option class="parent" value="37" >Mathematics</option>
+		<option class="parent" value="38" >Medical Research</option>
+		<option class="parent" value="41" >Other Computational Sciences</option>
+		<option class="parent" value="39" >Physics</option>
+		<option class="parent" value="40" >Social Sciences</option>
+			<option class="child" value="4"  >Econometrics</option>	
+				<option class="miniChild" value="85"  >Asymptotic Theory</option>
+		<option class="miniChild" value="82"  >Bayesian Analysis</option>
+				<option class="miniChild" value="84"  >Bootstrap and Monte Carlo</option>
+				<option class="miniChild" value="94"  >Classification Methods</option>
+				<option class="miniChild" value="91"  >Duration analysis</option>
+				<option class="miniChild" value="76"  >Econometric modeling</option>
+				<option class="miniChild" value="79"  >Financial Econometrics</option>
+				<option class="miniChild" value="78"  >Forecasting</option>
+				<option class="miniChild" value="81"  >Hypothesis Testing</option>
+				<option class="miniChild" value="80"  >Microeconometrics</option>
+				<option class="miniChild" value="95"  >Neural Networks</option>
+				<option class="miniChild" value="93"  >Nonlinear econometrics</option>
+				<option class="miniChild" value="86"  >Nonparametric econometrics</option>
+				<option class="miniChild" value="87"  >Panel data models</option>
+				<option class="miniChild" value="89"  >Qualitative choice models</option>
+				<option class="miniChild" value="92"  >Regime switching models</option>
+				<option class="miniChild" value="83"  >Simultaneous equation methods</option>
+				<option class="miniChild" value="88"  >Spatial econometrics</option>
+				<option class="miniChild" value="77"  >Time-Series</option>
+				<option class="miniChild" value="90"  >Truncated and Censored Models</option>
+		
+			<option class="child" value="43"  >Economics</option>
+				<option class="miniChild" value="2"  >Agricultural, Environmental, and Energy Economics</option>
+				<option class="miniChild" value="3"  >Development and Transition Economics</option>
+				<option class="miniChild" value="5"  >Economic Theory</option>
+				<option class="miniChild" value="6"  >Experimental Economics</option>
+				<option class="miniChild" value="74"  >Experiments</option>
+				<option class="miniChild" value="70"  >Financial Economics</option>
+				<option class="miniChild" value="73"  >Game Theory</option>
+				<option class="miniChild" value="8"  >Game Theory and Decision Science</option>
+				<option class="miniChild" value="72"  >General Equilibrium</option>
+				<option class="miniChild" value="10"  >Health Economics and Management</option>
+				<option class="miniChild" value="12"  >Industrial Organization</option>
+				<option class="miniChild" value="14"  >Innovation and Entrepreneurship</option>
+				<option class="miniChild" value="16"  >International Economics</option>
+				<option class="miniChild" value="17"  >Labor Economics</option>
+				<option class="miniChild" value="18"  >Law and Economics</option>
+				<option class="miniChild" value="19"  >Macroeconomics</option>
+				<option class="miniChild" value="21"  >Microeconomics</option>
+				<option class="miniChild" value="22"  >Monetary Economics</option>
+				<option class="miniChild" value="75"  >Optimization</option>
+				<option class="miniChild" value="25"  >Public Economics and Public Choice</option>
+				<option class="miniChild" value="71"  >Real Estate</option>
+				<option class="miniChild" value="30"  >Urban, Spatial, and Regional Economics</option>
+			<option class="child" value="7"  >Finance</option>
+				<option class="miniChild" value="69"  >Alternative Investments</option>
+				<option class="miniChild" value="61"  >Asset Management</option>
+				<option class="miniChild" value="53"  >Asset Pricing</option>
+				<option class="miniChild" value="54"  >Banking and Risk Management</option>
+				<option class="miniChild" value="52"  >Behavioral Finance</option>
+				<option class="miniChild" value="57"  >Corporate Finance</option>
+				<option class="miniChild" value="55"  >Derivatives</option>
+				<option class="miniChild" value="65"  >Energy and Commodities</option>
+				<option class="miniChild" value="51"  >Financial Econometrics</option>
+				<option class="miniChild" value="68"  >Financing</option>
+				<option class="miniChild" value="62"  >Fixed Income</option>
+				<option class="miniChild" value="58"  >Governance</option>
+				<option class="miniChild" value="66"  >Household Finance</option>
+				<option class="miniChild" value="64"  >International Finance</option>
+				<option class="miniChild" value="56"  >Investment</option>
+				<option class="miniChild" value="60"  >Mergers and Acquisitions</option>
+				<option class="miniChild" value="63"  >Microstructure</option>
+				<option class="miniChild" value="26"  >Real Estate</option>
+				<option class="miniChild" value="67"  >Real Option</option>
+				<option class="miniChild" value="59"  >Valuation</option>
+			<option class="child" value="42"  >Management</option>
+				<option class="miniChild" value="1"  >Accounting</option>
+				<option class="miniChild" value="9"  >General Management</option>
+				<option class="miniChild" value="11"  >Human Resources Management</option>
+				<option class="miniChild" value="13"  >Information Systems</option>
+				<option class="miniChild" value="15"  >Insurance and Actuarial Science</option>
+				<option class="miniChild" value="20"  >Marketing</option>
+				<option class="miniChild" value="23"  >Operations Research</option>
+				<option class="miniChild" value="24"  >Organizational Behavior</option>
+				<option class="miniChild" value="28"  >Strategy</option>
+				<option class="miniChild" value="29"  >Technology and Operations Management</option>
+		<option class="parent" value="31" >Statistics</option>
+</select>
+
+
+<div class="authors"> <h4>The author(s)</h4>
+<label id="authors-title">Search or add an author <span class="red">*</span></label>
+<input type="text" class="careful input-tips" style="width: 500px;" value="" id="author_1" placeholder="author 1"/><input type="submit" class="add_author" value="+" style="border:none"/></br>
+</div>
+<div class="button-modify-input" style="text-align: right;">
+
+<tr><td></td><td><input type="button" value="Save Paper Info" id="paper_info" class="save"/></td>
+<td></td><td><a href="#data"><input type="button" value="Continue To Sharing" id="data" class="next"/></a></td></tr>
+</div>
+    </form>
+</div>
+
+<div class="page" id="data2" style="display:none">
+<h4>Your data </h4>
+	
+	<!--<iframe src="script.do?action=add-data-for-site" id="form-modify-script-for-site-data" style="overflow: hidden;" scrolling="no" frameborder="0" width="100%"></iframe>
+	<div id="form-modify-script-for-site-data-wait" style="display: none; height: 100px;"><img src="img/wait.gif" alt="wait..." /></div>-->
+	<div style="width: 400px; float:left ;"> 
+	<label>	Upload your data </label><input type="hidden" name="action" value="add-data-for-site" />
+	<input id="dataname" type="text" class="careful input-tips" placeholder=" data name" style="width: 159px;" value="" />
+			<label for="script-add-data-for-site-button" id="for-script-add-data-for-site-button">
+			<img src="http://www.runmycode.org/MetaSite/img/browse.png" id="browse-file-data" class="hover-pointer" alt="browse..." style="margin-top: 5px;" />
+		</label>
+		<input type="file" style="position: absolute; left: -9999px;" name="file" id="script-add-data-for-site-button" />
+		<input type="submit" value="Submit" style="display: none;" />
+	</div>
+	<div style="width: 500px; float:left;"> 
+	<label>Please upload a result file of your data</label> 
+		<input type="hidden" name="action" value="add-demo-for-site" />
+		<input id="resultname" type="text" class="careful input-tips" placeholder=" result name" style="width: 159px;" value="" />
+			<label for="script-add-demo-for-site-button" id="for-script-add-demo-for-site-button">
+			<img src="http://www.runmycode.org/MetaSite/img/browse.png" id="browse-file-demo" class="hover-pointer" alt="browse..." style="margin-top: 5px;" />
+		</label>
+		<input type="file" style="position: absolute; left: -9999px;" name="file" id="script-add-demo-for-site-button" />
+		<input type="submit" value="Submit" style="display: none;" />
+	</div>
+	<label>	Please type a description of the the row and column data or data format (800 characters maximum)
+	<!--<span class="red">*</span><span id="infodiv">800 characters remaining</span>-->
+</label>
+<textarea class="careful" style="width: 100%; padding: 5px; height: 200px;" name="description" id="form-modify-script-for-site-description"></textarea><br>
+
+	
+	<div class="help" >
+		<label>Do you want to make your data downloadable by the RunMyCode users?</label></br>
+		<input type="radio" name="allowDataDownload" value="true" checked="checked" /> I authorize the download of my data<br />
+		<input type="radio" name="allowDataDownload" value="false"  /> I don’t authorize the download of my data
+	</div>
+	<div class="button-modify-input" style="text-align: right;">
+
+<tr ><td></td><td><input style="margin-top:10px" type="button" value="Save data Info" id="data" class="save"/></td>
+<td></td><td><a href="#code"><input type="button" value="Continue To Code" id="code" class="next"/></a></td></tr>
+</div></div>
+
+<div class="page" id="code2" style="display:none">
+<h4>Your code</h4>
+	<div style="width: 400px; float:left ;"> 
+	<label>	Upload your Code </label><input type="hidden" name="action" value="add-data-for-site" />
+	<input id="dataname" type="text" class="careful input-tips" placeholder=" code name" style="width: 159px;" value="" />
+			<label for="script-add-data-for-site-button" id="for-script-add-data-for-site-button">
+			<img src="http://www.runmycode.org/MetaSite/img/browse.png" id="browse-file-data" class="hover-pointer" alt="browse..." style="margin-top: 5px;" />
+		</label>
+		<input type="file" style="position: absolute; left: -9999px;" name="file" id="script-add-data-for-site-button" />
+		<input type="submit" value="Submit" style="display: none;" />
+	</div>
+	<div style="width: 500px; float:left;"> 
+	<label>Upload your auxiliary code</label> 
+		<input type="hidden" name="action" value="add-demo-for-site" />
+		<input id="resultname" type="text" class="careful input-tips" placeholder=" auxiliary code name" style="width: 159px;" value="" />
+			<label for="script-add-demo-for-site-button" id="for-script-add-demo-for-site-button">
+			<img src="http://www.runmycode.org/MetaSite/img/browse.png" id="browse-file-demo" class="hover-pointer" alt="browse..." style="margin-top: 5px;" />
+		</label>
+		<input type="file" style="position: absolute; left: -9999px;" name="file" id="script-add-demo-for-site-button" />
+		<input type="submit" value="Submit" style="display: none;" /><br>
+	</div>
+	<div style="float:none; clear:both">
+	<div class="authors"> <h4>The author(s)</h4>
+<label id="coders-title">Search or add an coder not on the author list </label>
+<input type="text" class="careful input-tips" style="width: 500px;" value="" id="coder_1" placeholder="coder 1"/><input type="submit" class="add_author" value="+" style="border:none"/></br>
+</div>
+
+	<label>Software <span class="red">*</span></label> <select class="careful" name="software" id="form-modify-script-for-site-software">
+		<option value="0">--</option>			
+		
+			<option value="4" >C</option>
+		
+			<option value="5" >C++</option>
+		
+			<option value="6" >Fortan</option>
+		
+			<option value="7" >Gauss</option>
+		
+			<option value="1" >Matlab</option>
+		
+			<option value="10" >Other</option>
+		
+			<option value="9" >Python</option>
+		
+			<option value="3" >R</option>
+		
+			<option value="2" >Rats</option>
+		
+			<option value="8" >Visual Basic</option>
+		
+	</select>&nbsp;
+	<label>Software version <span class="red">*</span></label>
+	<input id="form-modify-script-for-site-softwareVersion" type="text" class="careful input-tips" style="width: 559px;" value="" /><br></div>
+	
+	<label>Compiler options</label>
+		<input id="form-modify-script-for-site-compilationOptions" type="text" class="careful input-tips" style="width: 87%;" value="" /><br>
+		
+		<label>Architecture <span class="red">*</span></label>
+		<select class="careful" name="software" id="form-modify-script-for-site-architecture">
+			<option value="0">--</option>	
+			<option value="1" selected="selected">32-bit </option>	
+			<option value="2" >64-bit </option>	
+		</select>&nbsp;
+		
+		<label>Specific modules</label>
+		<input id="form-modify-script-for-site-modules" type="text" class="careful input-tips" style="width: 73%;" value="" />
+		
+		<label>Any recommendation to the RunMyCode team (confidential information)?</label>
+		<textarea style="height: 100px; width: 100%; padding: 5px; border: 1px solid #ccc;" class="careful small-textarea" name="recommendation" id="form-modify-script-for-site-recommendation"></textarea><br>
+<h4>	Goal of the code</h4>
+
+<label>	Please type a description of the goal of the code (800 characters maximum)
+	<!--<span class="red">*</span><span id="infodiv">800 characters remaining</span>-->
+</label>
+<textarea class="careful" style="width: 100%; padding: 5px; height: 200px;" name="description" id="form-modify-script-for-site-description"></textarea><br>
+<div class="button-modify-input" style="text-align: right;">
+<tr><td></td><td><input type="button" value="Save Code Info" id="code" class="save"/></td>
+<td></td><td><a href="#params"><input type="button" style="margin-top:10px" value="Continue To Parameters" id="params" class="next"/></a></td></tr>
+</div></div>
+
+
+<div class="page" id="params2" style="display:none">
+
+<div id="label-add-input">
+
+<h4>Add input variables</h4>
+	
+	<div style="margin: 0 0 20px 0;">
+		<a href="#params" id="form-input-for-site-add-input-select-button"><img src="http://www.runmycode.org/MetaSite/img/button-add-an-input.jpg" alt="add an input" align="top" /></a>
+			
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<select class="careful" style="margin-top:10px" id="form-input-for-site-add-input-select-type" style="display: none;" style="margin: 6px 20px 0 0;">
+			<option value="0">--</option>
+			<option value="1">Scalar</option>
+			<option value="2">Vector</option>
+			<option value="3">Matrix</option>
+			<option value="5">Choice list</option>
+			<option value="9">Text</option>
+			<option value="10">Image</option>
+			<option value="12">Audio</option>
+		</select>
+	</div>
+</div>
+
+<a name="form-input"></a>
+
+<form id="form-input-for-site-add-input" style="display: none;" method="post" action="input-add-for-script-validate.do" enctype="multipart/form-data">
+	
+	<input type="hidden" name="action" value="add-for-script" />
+
+	<ul class="form-input-titles">
+		<li id="form-input-for-site-add-title-general" class="active form-input-title">General</li>
+		<li id="form-input-for-site-add-title-specific" class="form-input-title">Specific</li>
+		<li id="form-input-for-site-add-title-constraint" class="form-input-title">Constraints</li>
+		<li id="form-input-for-site-add-title-data" class="form-input-title">Demo data</li>
+	</ul>
+<div class="form-input-contents">
+
+		<!-- begin general -->	
+		<div id="form-input-for-site-add-general" class="form-input-content">
+			<input type="hidden"" id="form-input-for-site-add-input-type" name="type" />
+	
+			<label>Variable name (in the code) <span class="red">*</span></label>
+			<input name="name" class="careful input-tips" type="text" id="form-input-for-site-add-input-name" style="width: 200px;" />
+		
+			<label>Variable name (display on the site) <span class="red">*</span></label>
+			<input name="nickname" class="careful input-tips" style="width: 200px; border-radius: 0;" type="text" id="form-input-for-site-add-input-nickname" />
+			
+			<div id="form-input-for-site-add-input-type-variable-constraint">
+				<label>Type</label>
+				<select name="variableType" id="form-input-for-site-add-input-type-variable">
+					<option value="0">--</option>
+					<option value="1">Integer</option>
+					<option value="2">Real</option>
+					<option value="3">Complex</option>
+					<option value="4">String</option>
+				</select>
+			</div>
+			
+			<label style="margin-bottom: 10px;"><input name="mandatory" class="careful" type="checkbox" id="form-input-for-site-add-input-mandatory" value="1" /> Facultative</label>
+			
+			<label>Description <span class="red">*</span></label>
+			
+			<textarea name="description" style="width: 100%; height: 200px; padding: 5px; border: 1px solid #ccc;" class="careful input-tips" id="form-input-for-site-add-input-description"></textarea>
+			
+			<div class="clear"></div>
+			<div style="bottom: 100; position: absolute;">
+				<a href="your-sites.do?action=modify-for-member&id=356&tab=inputs"><img src="http://www.runmycode.org/MetaSite/img/button-cancel.gif" alt="cancel" /></a>
+				<a href="#params" id="add-input-general-button-next"><img src="http://www.runmycode.org/MetaSite/img/button-next.gif" alt="next" /></a>
+			</div>
+			
+			<div id="form-add-script-for-site-visualization"></div>
+		</div>
+		<div id="form-input-for-site-add-specific" class="form-input-content hide">
+
+			<div style="display: none;" class="form-input-for-site-add" id="form-input-for-site-add-vector">
+				<label><input class="careful" type="checkbox" name="lineVector" id="form-input-for-site-add-vector-line-vector" value="1" /> Line vector</label>
+			</div>
+
+			<div style="display: none;" class="form-input-for-site-add" id="form-input-for-site-add-matrix">
+			
+				<label><input class="careful" type="checkbox" name="square" id="form-input-for-site-add-matrix-square" value="1" /> Square</label>
+				<label><input class="careful" type="checkbox" name="diagonal" id="form-input-for-site-add-matrix-diagonal" value="1" /> Diagonal</label>
+				<label><input class="careful" type="checkbox" name="positiveDefinite" id="form-input-for-site-add-matrix-positive-definite" value="1" /> Positive definite</label>
+				<label><input class="careful" type="checkbox" name="semiDefinitePositive" id="form-input-for-site-add-matrix-semi-definite-positive" value="1" /> Semi definite positive</label>
+				<label><input class="careful" type="checkbox" name="inversible" id="form-input-for-site-add-matrix-inversible" value="1" /> Inversible</label>
+				
+			</div>
+			
+			<div style="display: none;" class="form-input-for-site-add form-input-for-site-add-file">
+				<label>File extensions (comma separated)</label>
+				<input name="extensions" class="careful" type="text" style="width: 200px;" id="form-input-for-site-add-file-extensions" />				
+			</div>
+			
+			<!--  -->
+			<div style="display: none;" class="form-input-for-site-add" id="form-input-for-site-add-choice-list">
+			
+				<div class="help">
+					Do want to allow user to select multiple value? <br />
+					<input type="radio" name="multipleValue" value="1"> yes <br />
+					<input type="radio" name="multipleValue" checked="checked" value="0"> no
+				</div>
+				
+				<!-- Constraint choice list begin  -->
+				
+				
+				<div id="form-input-for-site-add-choice-list-choice-add-content" style="height: 390px; overflow: auto;">
+				
+					<div>
+						<span style="margin-left: 15px;">Label</span>
+						<span style="margin-left: 75px;">Value</span>
+						<span style="margin-left: 75px;">Action</span>
+					</div>
+					
+					<div class="form-input-for-site-add-choice-list-choice">
+						<input class="careful" name="label" type="text" />
+						<input class="careful" name="value" type="text" />
+						<input class="careful" name="actions" type="hidden" />
+						<div class="operation"></div>
+						<div class="inputs"></div>
+						<a href="#params" class="form-input-for-site-add-choice-list-choice-delete">delete</a>
+						<div class="clear"></div>
+					</div>
+					
+					<div id="form-input-for-site-add-choice-list-choice-add-title"></div>
+					<a href="#params" id="form-input-for-site-add-choice-list-choice-add"><img style="margin-top: 5px;" src="img/button-add-choice.gif" alt="add a new choice" /></a>
+					
+					<a href="#params" id="form-input-for-site-add-choice-list-choice-import-csv"><img style="margin-top: 5px;" src="img/button-import-csv.png" alt="import a csv file" /></a>
+					<iframe src="create.html?action=import-csv" id="form-input-for-site-add-choice-list-choice-import-csv-iframe" style="display: none;"></iframe>
+				</div>
+				
+			</div>
+			
+			<div style="display: none;" class="form-input-for-site-add" id="form-input-for-site-add-table">
+				<p>Columns :</p>
+				<div class="form-input-for-site-add-choice-table">
+					Description
+					<input class="careful" name="description" type="text" />
+				</div>
+				<div id="form-input-for-site-add-table-line-add-content">(<a href="#" id="form-input-for-site-add-table-line-add">add</a>)</div>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div style="bottom: 0; position: absolute;">
+				<a href="create.html?action=modify-for-member&id=356&tab=inputs"><img src="img/button-cancel.gif" alt="cancel" /></a>
+				<a href="#params" id="add-input-specific-button-next"><img src="img/button-next.gif" alt="next" /></a>
+			</div>
+			
+		</div>
+		<div id="form-input-for-site-add-constraint" class="form-input-content hide">
+		
+			<div class="inputs-list">
+				<ul>
+					<li id="add-input-0" class="inputs add-input-name"></li>
+					
+					<li id="add-input-o" class="inputs active right">Operations</li>
+				</ul>
+				
+				<div id="add-input-attributs-list-0" class="input-attributs-list">
+				
+					<div class="attribut selected attribut-1">
+						<input type="hidden" name="typeAttribut" value="1" />
+						<input type="hidden" name="input" value="id-input" />
+						<input type="hidden" name="typeInput" value="1" />
+						<input type="hidden" name="attribut" value="1" />
+						<span class="add-input-name"></span>.value
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					
+					<div class="attribut selected attribut-2">
+						<input type="hidden" name="typeAttribut" value="1" />
+						<input type="hidden" name="input" value="id-input" />
+						<input type="hidden" name="typeInput" value="2" />
+						<input type="hidden" name="attribut" value="1" />
+						<span class="add-input-name"></span>[<span class="i">i</span><input type="text" name="i" value="i" />].value
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut selected attribut-2">
+						<input type="hidden" name="typeAttribut" value="1" />
+						<input type="hidden" name="input" value="id-input" />
+						<input type="hidden" name="typeInput" value="2" />
+						<input type="hidden" name="attribut" value="2" />
+						<span class="add-input-name"></span>.size
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+			
+			
+					<div class="attribut selected attribut-3">
+						<input type="hidden" name="typeAttribut" value="1" />
+						<input type="hidden" name="input" value="id-input" />
+						<input type="hidden" name="typeInput" value="3" />
+						<input type="hidden" name="attribut" value="1" />
+						<span class="add-input-name"></span>[<span class="i">i</span><input type="text" name="i" value="i" />][<span class="j">j</span><input type="text" name="j" value="j" />].value
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut selected attribut-3">
+						<input type="hidden" name="typeAttribut" value="1" />
+						<input type="hidden" name="input" value="id-input" />
+						<input type="hidden" name="typeInput" value="3" />
+						<input type="hidden" name="attribut" value="3" />
+						<span class="add-input-name"></span>.line.size
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut selected attribut-3">
+						<input type="hidden" name="typeAttribut" value="1" />
+						<input type="hidden" name="input" value="id-input" />
+						<input type="hidden" name="typeInput" value="3" />
+						<input type="hidden" name="attribut" value="4" />
+						<span class="add-input-name"></span>.column.size
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+			
+			
+					<div class="attribut selected attribut-5">
+						<input type="hidden" name="typeAttribut" value="1" />
+						<input type="hidden" name="input" value="id-input" />
+						<input type="hidden" name="typeInput" value="5" />
+						<input type="hidden" name="attribut" value="1" />
+						<span class="add-input-name"></span>.value
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+			
+			
+					<div class="attribut selected attribut-9">
+						<input type="hidden" name="typeAttribut" value="1" />
+						<input type="hidden" name="input" value="id-input" />
+						<input type="hidden" name="typeInput" value="9" />
+						<input type="hidden" name="attribut" value="1" />
+						<span class="add-input-name"></span>.value
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				
+				
+								
+				<div id="add-input-attributs-list-o" class="input-attributs-list active">
+				
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="1" />
+						=
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="2" />
+						ne
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="3" />
+						&lt;
+						<a href="#params class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="4" />
+						&lt;=
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="14" />
+						=&gt;
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="13" />
+						&gt;
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+										
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="5" />
+						if
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="6" />
+						then
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="7" />
+						else
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="0" />
+						<input type="hidden" name="operation" value="10" />
+						in
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="attribut">
+						<input type="hidden" name="typeAttribut" value="2" />
+						<span class="x">x</span>
+						<input type="text" name="x" value="x" />
+						<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;"></a>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+			
+			<h5>New constraint</h5>
+			
+			<div class="constraint">
+				<input type="hidden" name="constraint" />
+				<div class="last-attribut">&nbsp;</div>
+				<a href="#params" class="delete" onclick="javascript:$(this).parent().remove();return false;">&nbsp;</a>
+				<div class="clear"></div>
+			</div>
+
+			<div class="clear"></div>
+			
+			<div style="bottom: 0; position: absolute;">
+				<a href="your-sites.do?action=modify-for-member&id=356&tab=inputs"><img src="img/button-cancel.gif" alt="cancel" /></a>
+				<a href="#params" id="add-input-constraint-button-next"><img src="img/button-next.gif" alt="next" /></a>
+			</div>
+
+		</div>
+		<!-- end constraint -->
+		
+		<!-- begin data -->
+		<div id="form-input-for-site-add-data" class="form-input-content hide">
+		
+			<div id="visualization" class="help">
+				Do you want a graph of this input? <br />
+				<input type="radio" name="visualization" checked="checked" value="1" /> yes <br />
+				<input type="radio" name="visualization" value="0" /> no
+			</div>
+
+			<div id="form-input-for-site-add-data-data" class="div-input"></div>
+			
+			<div id="form-input-for-site-add-data-description">
+				<label>Description</label>
+				<textarea name="dataDescription"></textarea>
+				<br />
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div style="bottom: 0; position: absolute;">
+				<a href="create.html?action=modify-for-member&id=356&tab=inputs"><img src="http://www.runmycode.org/MetaSite/img/button-cancel.gif" alt="cancel" /></a>
+				<a href="#params" id="form-input-for-site-add-scalar-submit"><img src="http://www.runmycode.org/MetaSite/img/button-save.gif" alt="save" /></a>
+			</div>
+			
+		</div>
+		<div id="form-modify-input-for-script"></div>
+</form>
+</div>
+
+<hr class="button-modify-input" />
+
+<div class="button-modify-input" style="text-align: right;">
+<tr><td></td><td><input type="button" value="Save Code Info" id="params" class="save"/></td>
+<td></td><td><a href="#doc"><input type="button" style="margin-top:10px" value="Continue To Documentation" id="doc" class="next"/></a></td></tr>
+</div>
+</div>
+
+<div class="page" id="doc2" style="display:none">
+<div class="help">
+	Do you want to create a data file from the results (csv format)?
+	<div style="margin-top: 3px;">
+		<input type="radio" name="generateOutput" value="1" > Yes
+		&nbsp;&nbsp;&nbsp;
+		<input type="radio" name="generateOutput" value="0" checked="checked"> No
+	</div>  
+</div>
+
+<div id="list-csv">
+	
+
+	<h4>Add an output</h4>
+	<div>
+		<a href="#doc" id="form-add-output-for-script-add"><img align="top" src="http://www.runmycode.org/MetaSite/img/button-add-an-output.jpg" alt="add an output" /></a>
+	</div>
+	
+	<div id="form-output-modify-for-script" style="margin-top: 15px;"></div>
+	
+	<div id="form-output-add-for-script" style="display: none; margin-top: 15px; width: 300px;">
+	
+		<ul class="form-input-titles">
+			<li id="form-input-for-site-add-title-general" class="active form-input-title">General</li>
+		</ul>
+		
+		<div class="form-input-contents">
+			<!-- begin general -->	
+			
+			<label>Name of the variable in the code <span class="red">*</span></label>
+			<input name="name" class="careful input-tips" type="text" id="form-output-for-site-add-output-name" style="width: 200px;" />
+		
+			<label>Name of the variable in the data file <span class="red">*</span></label>
+			<input name="nickname" class="careful input-tips" style="width: 200px; border-radius: 6;" type="text" id="form-output-for-site-add-output-nickname" /><br>
+			
+			<label>Description</label>
+			<textarea name="description" style="width: 100%; height: 200px; margin-bottom:10px;padding: 5px; border: 1px solid #ccc;" class="careful input-tips" id="form-output-for-site-add-output-description"></textarea>
+			
+			<div>
+				<a href="create.html?action=modify-for-member&id=356&tab=outputs"><img src="http://www.runmycode.org/MetaSite/img/button-cancel.gif" alt="cancel" /></a>
+				<a href="create.html?action=modify-for-member&id=356&tab=outputs" id="form-output-for-site-add-output-submit"><img src="http://www.runmycode.org/MetaSite/img/button-save.gif" alt="save" /></a>
+			</div>
+			
+			<div id="form-add-script-for-site-visualization"></div>
+			
+		</div>
+		
+	</div>
+</div>
+
+<div class="button-modify-input" style="text-align: right;">
+<tr><td></td><td><input type="button" style="margin-top:10px" value="Save Code Info" id="doc" class="save"/></td>
+<td></td><td><a href="#doc"><input type="button" style="margin-top:10px" value="Preview Page!" id="doc" class="next"/></a></td></tr>
+</div></div>
+
+</div>
+
+
+
+<script type="text/javascript">
+  num=1;
+$("input.add_author").click( function() {
+	console.log('here');
+	num= num+1;
+	$('div.authors').append('<input type="text" class="careful input-tips" style="width: 500px;margin-left:147px;" value="" id="author_'+num+'" placeholder="author '+num+'"/></br>');
+});
+$("input.save").click( function() {
+	alert('Input Saved!');
+});
+
+$('body').animate({ scrollTop: 0 }, 0);
+ 
+    function tabChange(){
+    if (!$(this).hasClass('selected')){
+      $('li').removeClass('selected');
+      var selectionId= $(this).attr('id')+'2';
+      $('.tabs li#'+$(this).attr('id')).addClass('selected');
+      if($(this).css("line-height")==="22px"){
+        var ifname= $('.page#'+selectionId+'> iframe').attr('src2');
+        $('.page#'+selectionId+ '>iframe').attr('src',ifname);
+        $('.page#'+selectionId + '>iframe').src = 
+        $('.page#'+selectionId + '>iframe').src;
+        $('.page#'+selectionId).css('padding-bottom','0');        
+      }
+      $('.page').css("display","none");
+      $('.page').css("height","0");
+      $('.page#'+selectionId).css("display","inline-block");
+      $('.page#'+selectionId).css("height","auto");
+      $('.content').fadeIn('fast');
+      //$(".page").css("width",$("body").width());
+      $(".page#"+selectionId).css("top","relative");
+      //var width = $('.page').width()-40;
+     // $(".page#"+selectionId).css("margin-top",$(".header").height()+25);
+     //$('.page').animate({ scrollTop: 0 }, 0);
+     window.scrollTo(0, 0);
+     }
+	}
+
+   $(document).ready(function () {
+      var url= window.location.href;
+      if(url.indexOf("#") >= 0) {
+        var id = url.substring(url.indexOf('#') + 1);
+        //alert($('div > #'+id+'2').prev().attr('class'));
+        if(!$('div > #'+id+'2').prev().hasClass('page') &&
+           !$('div > #'+id+'2').prev().hasClass('at') ){
+          id = $('#'+id).parentsUntil(".tc").attr('id'); 
+          id = id.replace('2','');
+          if(id==='proj'){ id = 'projects';}
+        }
+        
+        $('.tabs li#'+id).fadeIn(tabChange);
+        $('.page#'+id).animate({ scrollTop: 0 }, 0);     
+      }
+   });
+
+$(".tabs a").click( function() {
+    href = $(this).attr("href");
+    $('.tabs li'+href).fadeIn(tabChange);
+}); 
+
+$("input.next").click(tabChange);  
+  $(".tabs li").click(tabChange); 
+  $('body').animate({ scrollTop: 0 }, 0);
+ 
+$("#form-input-for-site-add-input-select-button").click(function(){$("#form-input-for-site-add-input-select-type").css('display','block');$("#form-input-for-site-add-input-select-type").fadeIn();});
+
+$("#form-input-for-site-add-input-select-type").change(
+				function(){
+					if($("#form-input-for-site-add-input-select-type").val() == 0){
+						$("#form-input-for-site-add-input").fadeOut();
+						$(".button-modify-input").fadeIn();
+						return false;
+					}
+					
+					if(
+							$("#form-input-for-site-add-input-select-type").val() > 12  ||
+							$("#form-input-for-site-add-input-select-type").val() < 1
+					)
+						return false;
+					
+					$('#add-input-attributs-list-0 .attribut').hide();
+					$('#add-input-attributs-list-0 .attribut-' + $("#form-input-for-site-add-input-select-type").val()).show();
+					
+					$(".form-input-for-site-add").hide();
+					
+					$("#visualization").hide();
+					
+					$("#form-input-for-site-add-input-type").val($("#form-input-for-site-add-input-select-type").val());
+					
+					if($("#form-input-for-site-add-input-type").val() != 4)
+						$("#form-input-for-site-add-title-constraint").show();
+					
+					if($("#form-input-for-site-add-input-type").val() != 1)
+						$("#form-input-for-site-add-title-specific").show();
+					
+					if(
+							$("#form-input-for-site-add-input-type").val() != 5 && 
+							$("#form-input-for-site-add-input-type").val() != 9 &&
+							$("#form-input-for-site-add-input-type").val() != 10 &&
+							$("#form-input-for-site-add-input-type").val() != 12
+					){
+						$("#form-input-for-site-add-title-constraint").show();
+						$("#form-input-for-site-add-input-type-variable-constraint").show();
+					}
+					
+					if($("#form-input-for-site-add-input-type").val() == 1){
+						$("#form-input-for-site-add-scalar").show();
+						$("#form-input-for-site-add-title-specific").hide();
+					}else if($("#form-input-for-site-add-input-type").val() == 2){
+						$("#form-input-for-site-add-vector").show();
+						$("#visualization").show();
+					}else if($("#form-input-for-site-add-input-type").val() == 3){
+						$("#form-input-for-site-add-matrix").show();
+					}else if($("#form-input-for-site-add-input-type").val() == 4){
+						$("#form-input-for-site-add-file").show();
+						$("#form-input-for-site-add-title-constraint").hide();
+					}else if($("#form-input-for-site-add-input-type").val() == 5){
+						$("#form-input-for-site-add-choice-list").show();
+						$("#form-input-for-site-add-title-constraint").hide();
+						$("#form-input-for-site-add-input-type-variable-constraint").hide();
+					}else if($("#form-input-for-site-add-input-type").val() == 7){
+						$("#form-input-for-site-add-table").show();
+					}else if($("#form-input-for-site-add-input-type").val() == 9){
+						$("#form-input-for-site-add-title-specific").hide();
+						$("#form-input-for-site-add-title-constraint").hide();
+						$("#form-input-for-site-add-input-type-variable-constraint").hide();
+					}else if($("#form-input-for-site-add-input-type").val() == 10){
+						$(".form-input-for-site-add-file").show();
+						$("#form-input-for-site-add-title-constraint").hide();
+						$("#form-input-for-site-add-input-type-variable-constraint").hide();
+					}else if($("#form-input-for-site-add-input-type").val() == 12){
+						$(".form-input-for-site-add-file").show();
+						$("#form-input-for-site-add-title-constraint").hide();
+						$("#form-input-for-site-add-input-type-variable-constraint").hide();
+					}
+						
+					$("#form-input-for-site-add-input").fadeIn();
+					
+					clearTips();
+					$(".form-input-content").addClass("hide");
+					$(".form-input-title").removeClass("active");
+					$("#form-input-for-site-add-general").removeClass("hide");
+					$("#form-input-for-site-add-title-general").addClass("active");
+					$("#add-nickname-keyboard").css({'top' : $("#form-input-for-site-add-input-nickname").position().top, 'left' : $("#form-input-for-site-add-input-nickname").position().left + $("#form-input-for-site-add-input-nickname").width() + 20});
+					$("#add-description-keyboard").css({'top' : $("#form-input-for-site-add-input-description").position().top, 'left' : $("#form-input-for-site-add-input-description").position().left + $("#form-input-for-site-add-input-description").width() + 20});
+					
+					$('.form-input-for-site-add-input-add-constraints').remove();
+					
+					$(':input','#form-input-for-site-add-input').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
+					
+					$(".button-modify-input").fadeOut();
+					
+					window.location.hash = '#form-input';
+					
+					if($("#form-input-for-site-add-input-type").val() == 1)
+						$("#form-input-for-site-add-title-general").html("Scalar");
+					else if($("#form-input-for-site-add-input-type").val() == 2)
+						$("#form-input-for-site-add-title-general").html("Vector");
+					else if($("#form-input-for-site-add-input-type").val() == 3)
+						$("#form-input-for-site-add-title-general").html("Matrix");
+					else if($("#form-input-for-site-add-input-type").val() == 5)
+						$("#form-input-for-site-add-title-general").html("Choice list");
+					else if($("#form-input-for-site-add-input-type").val() == 9)
+						$("#form-input-for-site-add-title-general").html("Text");
+					else if($("#form-input-for-site-add-input-type").val() == 10)
+						$("#form-input-for-site-add-title-general").html("Image");
+					else if($("#form-input-for-site-add-input-type").val() == 12)
+						$("#form-input-for-site-add-title-general").html("Audio");
+					else
+						$("#form-input-for-site-add-title-general").html("Input");
+					
+					$('#form-input-for-site-add-input-select-button').parent().fadeOut();
+					
+					return false;
+				}
+			);
+			$("#form-add-output-for-script-add").click(
+				function(){
+					$("#form-output-add-for-script").fadeIn();
+					$("#form-output-modify-for-script").fadeOut();
+					
+					$('#form-output-for-site-add-output-name').tipsy("hide");	
+					$('#form-output-for-site-add-output-nickname').tipsy("hide");
+					
+					$('#form-output-for-site-modify-output-name').tipsy("hide");	
+					$('#form-output-for-site-modify-output-nickname').tipsy("hide");
+					
+					$(".button-modify-output").fadeOut();
+				}
+			);
+
+
+  </script>
+
+{% endblock %}
