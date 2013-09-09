@@ -20,12 +20,9 @@
       <li><a href="/contact">Contact Us</a></li>
       <li><a href="{% url 'rmc_faq' %}">FAQ</a></li>
     </ul>
-    <button type="button" class="btn btn-success navbar-btn">Create a page</button>
-    <!--
     <form class="navbar-form pull-left" action="">
       <input class="form-control col-lg-8" type="text" placeholder="Search">
     </form>
-    -->
     <ul class="nav navbar-nav pull-right">
       {% if user.is_authenticated %}
       <li class="disabled"><a href="">My Sites</a>

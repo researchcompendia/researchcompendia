@@ -48,27 +48,34 @@
         <div class='media-heading'>
           As simple as 1, 2, 3
         </div>
-          <ol>
-            <li>A researcher has an <b>idea</b>.</li>
-            <li>The researcher writes a <b>paper</b> based on this idea.</li>
-            <li>The researcher creates a companion page to share the
-            <b>code and data</b> underlying this paper.</li>
-          </ol>
+        <ol>
+          <li>A researcher has an <b>idea</b>.</li>
+          <li>The researcher writes a <b>paper</b> based on this idea.</li>
+          <li>The researcher creates a companion page to share the
+          <b>code and data</b> underlying this paper.</li>
+        </ol>
       </div>
-      <button type='button' class='btn btn-success btn-lg btn-block'>Create your own companion page</button>   
+    </div>
+    <form action="{% url 'rmc_create' %}" method="get">
+      <button type='submit' class='btn btn-success btn-lg btn-block'>Create your own companion page</button>   
+    </form>
   </div> <!-- jumbotron -->
 </div> <!-- /row jumbotron -->
 
 <div class="row">
     <div class="col-lg-6">
     {% if newsbriefs_list %}
-    <a href="{% url 'rmc_news_list' %}"><button type='button' class='btn btn-default btn-lg btn-block'>Browse news</button></a>
+    <form action="{% url 'rmc_news_list' %}" method="get">
+      <button type='submit' class='btn btn-default btn-lg btn-block'>Browse news</button>
+    </form>
     {% endif %}
     </div>
 
   <div class="col-lg-6">
     {% if companion_article_list %}
-    <a href="{% url 'rmc_companionsites' %}"><button type='button' class='btn btn-default btn-lg btn-block'>Browse companion pages</button></a>
+    <form action="{% url 'rmc_companionpages' %}" method="get">
+      <button type='submit' class='btn btn-default btn-lg btn-block'>Browse companion pages</button>
+    </form>
     {% endif %}
 
   </div>
