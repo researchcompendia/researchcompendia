@@ -1,29 +1,38 @@
 from django import forms
+from django.http import HttpResponseRedirect
 from django.forms import ModelForm
-from model_utils.models import StatusModel, TimeStampedModel
-from model_utils.choices import Choices
+from django.shortcuts import render, render_to_response
 
-from django.db import models
-from members.models import Member
-from taggit.managers import TaggableManager
-
-class Article(models.Model): # StatusModel, TimeStampedModel):
-    corresponding_author = models.ForeignKey(Member, help_text=(u'The primary point of contact'))
-    #STATUS=Choices('active', 'inactive')
-    title = models.CharField(max_length=100, help_text=(u'Title of the publication'))
-    abstract = models.TextField(max_length=500)
-    document = models.FileField(upload_to='papers', blank=True)
-    article_url = models.URLField(blank=True, help_text=(u'URL to the paper.'))
-    #slug = models.SlugField(unique=True)
-    #tags = TaggableManager()
-    def __unicode__(self):
-        return self.title
+from .models import CompanionArticle
 
 class CompanionForm(ModelForm):
 	class Meta:
-		model = Article
+		model = CompanionArticle
         fields = ['corresponding_author', 'title', 'abstract','document', 'article_url']
-        
+
+
 class UploadFileForm(forms.Form):
     title = forms.CharField(max_length=50)
     file  = forms.FileField()
+
+
+def search_form(request):
+    return render(request, 'create.html')
+        
+
+def handle_uploaded_file(request):
+    """ stub """
+    # maybe this didn't get checked in yet?
+    pass
+
+
+def upload_file(request):
+	UploadFileForm(request.POST)
+	if request.method == 'POST':
+        	form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['file'])
+            return HttpResponseRedirect('/success/url/')
+	else:
+		form = UploadFileForm()
+	return render_to_response('create.html', {'form': form})
