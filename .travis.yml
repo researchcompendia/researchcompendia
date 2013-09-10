@@ -6,3 +6,13 @@ env:
 install:
   - pip install -r requirements/ci.txt --use-mirrors
 script: python companionpages/manage.py test
+notifications:
+  email:
+    recipients:
+      - codersquid@pobox.com
+      - jenn.seiler@gmail.com
+    on_success: change
+  irc:
+    channels:
+      - "chat.freenode.net#runmycode"
+    on_success: change
