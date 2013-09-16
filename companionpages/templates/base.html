@@ -62,26 +62,6 @@
   </div> <!-- jumbotron -->
 </div> <!-- /row jumbotron -->
 
-<div class="row">
-    <div class="col-lg-6">
-    {% if newsbriefs_list %}
-    <form action="{% url 'rmc_news_list' %}" method="get">
-      <button type='submit' class='btn btn-default btn-lg btn-block'>Browse news</button>
-    </form>
-    {% endif %}
-    </div>
-
-  <div class="col-lg-6">
-    {% if companion_article_list %}
-    <form action="{% url 'rmc_companionpages' %}" method="get">
-      <button type='submit' class='btn btn-default btn-lg btn-block'>Browse companion pages</button>
-    </form>
-    {% endif %}
-
-  </div>
-</div> <!-- /row news and companions -->
-
-
 {% endblock content %}
 </div> <!-- /container -->
 
