@@ -22,7 +22,7 @@ urlpatterns = patterns('',
     url(r'^news/', include('news.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^companionpages', include('supportingmaterials.urls')),
+    url(r'^companionpages/', include('supportingmaterials.urls')),
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',
