@@ -43,7 +43,7 @@ class CompanionArticle(StatusModel, TimeStampedModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('rmc_companionpage', kwargs={'companionpage_id': self.id} )
+        return reverse('rmc_companionpage', args=(self.id) )
 
     class Meta(object):
         ordering = ['title']
