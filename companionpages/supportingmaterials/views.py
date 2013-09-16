@@ -22,7 +22,13 @@ def companion(request):
         form = CompanionForm()
     return render(request, 'create.html', {'form': form})
 
+
 class CompanionArticleListView(generic.ListView):
     model = CompanionArticle
     template_name = 'supportingmaterials/index.html'
     context_object_name = 'companion_article_list'
+
+
+class CompanionArticleDetailView(generic.DetailView):
+    model = CompanionArticle
+    template_name = 'supportingmaterials/detail.html'

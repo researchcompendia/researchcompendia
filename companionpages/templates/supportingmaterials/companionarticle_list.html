@@ -12,6 +12,7 @@
   <em>{{ site.title }}</em>
   {{ site.corresponding_author }}
   {{ site.modified|date:"SHORT_DATE_FORMAT" }}
+  <a href="{% url 'rmc_companionpage' site.id %}">{{ site.id }}</a>
   </li>
 
   {% endfor %}
