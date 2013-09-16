@@ -58,8 +58,8 @@ EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.Emai
 DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'devtyler@codersquid.com')
 ENVELOPE_CONTACT_CHOICES = (
     ('',    u"Choose"),
-    (10,    u"A general question regarding the website"),
-    (20,    u"Something else"),
+    (10,    u"A question regarding the website"),
+    (20,    u"A question regarding companion pages"),
     (None,   u"Other"),
 )
 MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
