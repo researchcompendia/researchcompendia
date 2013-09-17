@@ -6,8 +6,8 @@ env:
 install:
   - pip install -r requirements/ci.txt --use-mirrors
 script:
-    flake8 companionpages
-    python companionpages/manage.py test
+  - flake8 companionpages
+  - python companionpages/manage.py test
 notifications:
   email:
     recipients:
