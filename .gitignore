@@ -2,7 +2,9 @@
 
 *.swp
 
+# heroku admin settings
 .env
+env
 
 # collectstatic
 staticfiles
