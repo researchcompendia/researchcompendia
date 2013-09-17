@@ -6,6 +6,11 @@
 .env
 env
 
+# sphinx
+_build
+docs/companionpages.*
+
+
 # collectstatic
 staticfiles
 
