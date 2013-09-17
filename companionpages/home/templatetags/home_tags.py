@@ -4,7 +4,9 @@ from django.template.defaultfilters import stringfilter
 
 import markdown
 
+
 register = template.Library()
+
 
 @register.filter(is_safe=True)
 @stringfilter

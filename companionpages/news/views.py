@@ -3,6 +3,7 @@ from django.views import generic
 
 from .models import News
 
+
 class NewsListView(generic.ListView):
     model = News
     template_name = 'news/index.html'

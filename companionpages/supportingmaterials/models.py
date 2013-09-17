@@ -10,8 +10,11 @@ from members.models import Member
 
 
 class Collaborator(TimeStampedModel):
-    member = models.ForeignKey(Member, null=True, blank=True,
-            help_text=_(u'Member account for a collaborator who is also a RunMyCode member'))
+    member = models.ForeignKey(
+        Member,
+        null=True,
+        blank=True,
+        help_text=_(u'Member account for a collaborator who is also a RunMyCode member'))
     name = models.TextField(max_length=200, help_text=_(u'The name of a collaborator'))
     coder = models.BooleanField()
     author = models.BooleanField()
@@ -43,7 +46,7 @@ class CompanionArticle(StatusModel, TimeStampedModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('rmc_companionpage', args=(self.id) )
+        return reverse('rmc_companionpage', args=(self.id))
 
     class Meta(object):
         ordering = ['title']
@@ -64,4 +67,3 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
 
     def __unicode__(self):
         return self.name
-

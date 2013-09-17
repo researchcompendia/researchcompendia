@@ -7,9 +7,10 @@ from envelope.views import ContactView
 from home.views import FaqView, HomeView
 from members.forms import MemberForm
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', HomeView.as_view(), name='rmc_home'),
-    url(r'^members/edit', 'profiles.views.edit_profile', {'form_class': MemberForm,}, name='rmc_edit'),
+    url(r'^members/edit', 'profiles.views.edit_profile', {'form_class': MemberForm, }, name='rmc_edit'),
     url(r'^members/', include('profiles.urls')),
     # profiles/create/ named profiles_create_profile
     # profiles/edit/ named profiles_edit_profile
@@ -25,7 +26,8 @@ urlpatterns = patterns('',
     url(r'^companionpages/', include('supportingmaterials.urls')),
 )
 
-urlpatterns += patterns('django.contrib.flatpages.views',
+urlpatterns += patterns(
+    'django.contrib.flatpages.views',
     url(r'^about/', 'flatpage', {'url': '/about/'}, name='rmc_about'),
     url(r'^terms/', 'flatpage', {'url': '/terms/'}, name='rmc_terms'),
     url(r'^privacy/', 'flatpage', {'url': '/privacy/'}, name='rmc_privacy'),

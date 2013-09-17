@@ -6,6 +6,7 @@ from django.views import generic
 from .forms import CompanionForm
 from .models import CompanionArticle
 
+
 def companion(request):
     if request.method == 'POST':
         form = CompanionForm(request.POST)

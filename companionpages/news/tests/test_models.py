@@ -5,9 +5,11 @@ from django.utils import timezone
 
 from news import models
 
+
 def create_news(newsbrief, offset):
     """Creates news offset by number of days"""
     return models.News(newsbrief, publication_date=timezone.now() + datetime.timedelta(days=offset))
+
 
 class NewsTest(TestCase):
 
@@ -31,4 +33,3 @@ class NewsTest(TestCase):
         """
         newsbrief = create_news('Breaking news', offset=0)
         assert newsbrief.published(), 'Breaking news should show as published'
-
