@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 
+
 class Faq(TimeStampedModel):
     # inherits created and modified DateTimeFields fields from TimeStampedModel
     question = models.TextField(max_length=200)

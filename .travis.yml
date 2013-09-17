@@ -5,7 +5,9 @@ env:
   - DJANGO=1.5
 install:
   - pip install -r requirements/ci.txt --use-mirrors
-script: python companionpages/manage.py test
+script:
+    flake8 companionpages
+    python companionpages/manage.py test
 notifications:
   email:
     recipients:

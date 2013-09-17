@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 
+
 class News(TimeStampedModel):
     # inherits created and modified DateTimeFields fields from TimeStampedModel
     newsbrief = models.TextField(max_length=200)
@@ -17,5 +18,3 @@ class News(TimeStampedModel):
 
     def __unicode__(self):
         return self.newsbrief
-
-
