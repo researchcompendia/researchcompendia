@@ -40,7 +40,9 @@
 
 <div class="row">
   <div class="jumbotron">
-    <h1>RunMyCode</h1>
+    <div class="rmc-green-font">
+      <h1 class="rmc-green-font">ResearchCompendia</h1>
+    </div>
 
     <div class='media'>
       <img class='pull-right' src="{% static 'img/conceptcomposite.png' %}">
@@ -51,13 +53,13 @@
         <ol>
           <li>A researcher has an <b>idea</b>.</li>
           <li>The researcher writes a <b>paper</b> based on this idea.</li>
-          <li>The researcher creates a companion page to share the
+          <li>The researcher creates a compendia page to share the
           <b>code and data</b> underlying this paper.</li>
         </ol>
       </div>
     </div>
     <form action="{% url 'rmc_create' %}" method="get">
-      <button type='submit' class='btn btn-success btn-lg btn-block'>Create your own companion page</button>   
+      <button type='submit' class='btn btn-success btn-lg btn-block'>Create your own compendia page</button>   
     </form>
   </div> <!-- jumbotron -->
 </div> <!-- /row jumbotron -->

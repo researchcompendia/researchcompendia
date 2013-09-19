@@ -9,7 +9,7 @@ import dj_database_url
 
 DJANGO_ROOT = dirname(abspath(__file__))
 SITE_ROOT = dirname(DJANGO_ROOT)
-SITE_TITLE = 'RunMyCode'
+SITE_TITLE = 'ResearchCompendia'
 
 sys.path.append(DJANGO_ROOT)
 
