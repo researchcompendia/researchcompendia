@@ -83,7 +83,7 @@ if __name__ == '__main__':
     from supportingmaterials import models
 
     parser = argparse.ArgumentParser(description="""
-    This Reads a collaborators json file that was created by the 
+    This Reads a collaborators json file that was created by the
     https://github.com/codersquid/rmcscrape scraper and adds
     Collaborator records to db. You need to be in the same directory as manage.py to run this.
 
