@@ -28,7 +28,7 @@ class Collaborator(TimeStampedModel):
 
 
 class CompanionArticle(StatusModel, TimeStampedModel):
-    corresponding_author = models.ForeignKey(Member, help_text=_(u'The primary point of contact'))
+    site_owner = models.ForeignKey(Member, help_text=_(u'The member who has ownership of the page'), blank=True, null=True)
     collaborators = models.ManyToManyField(Collaborator, blank=True, null=True)
 
     STATUS = Choices('active', 'inactive')
