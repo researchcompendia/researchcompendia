@@ -39,7 +39,8 @@ class CompanionArticle(StatusModel, TimeStampedModel):
     journal = models.CharField(blank=True, max_length=500, help_text=_(u'Journal Name'))
     article_url = models.URLField(blank=True, help_text=_(u'URL to the paper.'))
     slug = models.SlugField(unique=True)
-    tags = TaggableManager(blank=True)
+    # tags break serialization?
+    #tags = TaggableManager(blank=True)
     legacy_id = models.IntegerField(blank=True, null=True)
 
     def __unicode__(self):
@@ -63,7 +64,8 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
     materials_url = models.URLField(blank=True, help_text=_(u'URL to the supporting material. For example, '
                                                             u'if this is source code, this would be a url '
                                                             u'to to the code repository.'))
-    tags = TaggableManager(blank=True)
+    # tags break serialization?
+    #tags = TaggableManager(blank=True)
 
     def __unicode__(self):
         return self.name
