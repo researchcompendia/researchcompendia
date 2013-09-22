@@ -4,7 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.choices import Choices
 from model_utils.models import StatusModel, TimeStampedModel
-from taggit.managers import TaggableManager
 
 from members.models import Member
 
