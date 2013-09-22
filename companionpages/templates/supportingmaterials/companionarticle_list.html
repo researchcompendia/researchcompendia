@@ -10,8 +10,8 @@
 
   <li class="list-group-item">
   <em>{{ site.title }}</em>
-  {{ site.corresponding_author }}
-  {{ site.modified|date:"SHORT_DATE_FORMAT" }}
+  site owner: {{ site.site_owner }}
+  last modified: {{ site.modified|date:"SHORT_DATE_FORMAT" }}
   <a href="{% url 'rmc_companionpage' site.id %}">{{ site.id }}</a>
   </li>
 
