@@ -12,7 +12,6 @@ class CollaboratorInline(admin.StackedInline):
 
 class CompanionArticleAdmin(admin.ModelAdmin):
     date_heirarchy = ['created']
-    prepopulated_fields = {'slug': ('title',)}
     inlines = [SupportingInline]
 
 
