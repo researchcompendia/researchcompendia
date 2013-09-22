@@ -153,6 +153,10 @@ ROOT_URLCONF = 'companionpages.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'companionpages.wsgi.application'
 
+FIXTURE_DIRS = (
+    normpath(join(SITE_ROOT, 'fixtures')),
+)
+
 TEMPLATE_DIRS = (
     normpath(join(SITE_ROOT, 'templates')),
 )
