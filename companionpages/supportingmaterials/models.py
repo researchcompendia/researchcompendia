@@ -39,7 +39,6 @@ class CompanionArticle(StatusModel, TimeStampedModel):
     document = models.FileField(upload_to='papers', blank=True)
     journal = models.CharField(blank=True, max_length=500, help_text=_(u'Journal Name'))
     article_url = models.URLField(blank=True, help_text=_(u'URL to the paper.'))
-    slug = models.SlugField(unique=True, blank=True)
     # tags break serialization?
     #tags = TaggableManager(blank=True)
     legacy_id = models.IntegerField(blank=True, null=True)
