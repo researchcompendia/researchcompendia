@@ -15,6 +15,7 @@ sys.path.append(DJANGO_ROOT)
 
 DEBUG = True if env.get('DEBUG', False) == 'True' else False
 TEMPLATE_DEBUG = DEBUG
+REMOTE_DEBUG = True if env.get('REMOTE_DEBUG', False) == 'True' else False
 
 # heroku suggested setting
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -217,12 +218,12 @@ if DEBUG:
         'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
     TEMPLATE_STRING_IF_INVALID = 'template_error'
-    # use local files for static rather than amazon s3
-    STATIC_URL = '/static/'
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS':False,
     }
-
+    if not REMOTE_DEBUG:
+        # use local files for static rather than amazon s3
+        STATIC_URL = '/static/'
 
 
 # A sample logging configuration. The only tangible logging
