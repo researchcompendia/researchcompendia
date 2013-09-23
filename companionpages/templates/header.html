@@ -26,14 +26,13 @@
       <li><a href="/about">About</a></li>
       <li><a href="/contact">Contact Us</a></li>
       <li><a href="{% url 'rmc_faq' %}">FAQ</a></li>
+      <li><a href="{% url 'rmc_companionpages' %}">Compendia</a></li>
     </ul>
     <form class="navbar-form pull-left" action="">
       <input class="form-control col-lg-8" type="text" placeholder="Search">
     </form>
     <ul class="nav navbar-nav pull-right">
       {% if user.is_authenticated %}
-      <li class="disabled"><a href="">My Sites</a>
-      <li class="disabled"><a href="">My Results</a>
       <li>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.email }}<b class="caret"></b></a>
           <ul class="dropdown-menu">
