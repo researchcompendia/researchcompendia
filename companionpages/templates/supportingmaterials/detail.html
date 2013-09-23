@@ -2,7 +2,49 @@
 
 {% block content %}
 
-{{ object }}
+<h2>{{ companionarticle.title }}
+</h2>
+
+{% for collaborator in companionarticle.collaborators.all %}
+
+  {% if collaborator.member %}
+  <a href="{% url 'profiles_profile_detail' collaborator.member.user %}">{{ collaborator }}</a>
+  {% else %}
+    {{ collaborator }}
+  {% endif %}
+  {% if not forloop.last %}
+  ,
+  {% endif %}
+{% endfor %}
+
+
+<h4>Abstract</h4>
+
+<p>{{ companionarticle.abstract }}
+{% if companionarticle.article_url %}
+<a href="{{ companionarticle.article_url }}">
+  <div class="icon-external-link"> paper</div>
+</a>
+{% endif %}
+
+{% if companionarticle.legacy_id %}
+<a href="http://www.runmycode.org/CompanionSite/site.do?siteId={{ companionarticle.legacy_id }}">
+  <div class="icon-external-link"> legacy url</div>
+</a>
+{% endif %}
+</p>
+
+<h4>Supporting Materials</h4>
+
+{% for supportingmaterial in companionarticle.supportingmaterial_set.all %}
+<dl>
+  <dt>{{ supportingmaterial.name }}</dt>
+  <dd>{{ supportingmaterial.explanatory_text }}
+    {% if supportingmaterial.materials_url %}
+    <a href="{{ supportingmaterial.materials_url }}"><div class="icon-external-link"> url</div></a>
+    {% endif %}
+  </dd>
+{% endfor %}
 
 {% endblock content %}
 

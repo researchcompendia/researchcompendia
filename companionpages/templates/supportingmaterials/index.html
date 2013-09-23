@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
+{% load tz %}
 
-{% block title %}RunMyCode Companion Sites{% endblock %}
+{% block title %}ResearchCompendia Page{% endblock %}
 
 {% block content %}
 
-{% include "supportingmaterials/companionarticle_list.html" with companion_article_list=companion_article_list %}
+{% if companion_article_list %}
+
+<h2>Research Compendia</h2>
+
+<ul class="list-group">
+  {% localtime on %}
+  {% for site in companion_article_list %}
+
+  <li class="list-group-item">
+  <a class="btn btn-success" href="{% url 'rmc_companionpage' site.id %}"><i class="icon-terminal"></i></a>
+  <em>{{ site.title }}</em>
+  </li>
+
+  {% endfor %}
+  {% endlocaltime %}
+</ul>
+
+{% endif %}
 
 {% endblock content %}

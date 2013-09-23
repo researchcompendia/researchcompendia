@@ -5,7 +5,7 @@ from os import environ as env
 from os.path import abspath, dirname, join, normpath
 import dj_database_url
 
-# flake8: noqa
+#  flake8: noqa
 
 DJANGO_ROOT = dirname(abspath(__file__))
 SITE_ROOT = dirname(DJANGO_ROOT)
@@ -15,6 +15,7 @@ sys.path.append(DJANGO_ROOT)
 
 DEBUG = True if env.get('DEBUG', False) == 'True' else False
 TEMPLATE_DEBUG = DEBUG
+REMOTE_DEBUG = True if env.get('REMOTE_DEBUG', False) == 'True' else False
 
 # heroku suggested setting
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -153,6 +154,10 @@ ROOT_URLCONF = 'companionpages.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'companionpages.wsgi.application'
 
+FIXTURE_DIRS = (
+    normpath(join(SITE_ROOT, 'fixtures')),
+)
+
 TEMPLATE_DIRS = (
     normpath(join(SITE_ROOT, 'templates')),
 )
@@ -213,12 +218,12 @@ if DEBUG:
         'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
     TEMPLATE_STRING_IF_INVALID = 'template_error'
-    # use local files for static rather than amazon s3
-    STATIC_URL = '/static/'
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS':False,
     }
-
+    if not REMOTE_DEBUG:
+        # use local files for static rather than amazon s3
+        STATIC_URL = '/static/'
 
 
 # A sample logging configuration. The only tangible logging

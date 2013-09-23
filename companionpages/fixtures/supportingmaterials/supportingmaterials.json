@@ -1,0 +1,75 @@
+[
+{
+  "pk": 1, 
+  "model": "supportingmaterials.collaborator", 
+  "fields": {
+    "coder": true, 
+    "name": "Sheila Miguez", 
+    "author": true, 
+    "created": "2013-09-10T21:11:20.427Z", 
+    "modified": "2013-09-10T21:11:20.427Z", 
+    "member": null
+  }
+},
+{
+  "pk": 2, 
+  "model": "supportingmaterials.collaborator", 
+  "fields": {
+    "coder": true, 
+    "name": "Not a Member", 
+    "author": true, 
+    "created": "2013-09-22T18:12:52.183Z", 
+    "modified": "2013-09-22T18:12:52.184Z", 
+    "member": null
+  }
+},
+{
+  "pk": 3, 
+  "model": "supportingmaterials.collaborator", 
+  "fields": {
+    "coder": false, 
+    "name": "Memberless Author", 
+    "author": true, 
+    "created": "2013-09-22T18:13:17.159Z", 
+    "modified": "2013-09-22T18:13:17.159Z", 
+    "member": null
+  }
+},
+{
+  "pk": 1, 
+  "model": "supportingmaterials.companionarticle", 
+  "fields": {
+    "status": "active", 
+    "collaborators": [
+      3, 
+      1
+    ], 
+    "title": "This is a title", 
+    "abstract": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
+    "created": "2013-08-16T20:19:16.777Z", 
+    "modified": "2013-09-22T18:15:18.573Z", 
+    "article_url": "", 
+    "slug": "this-is-title", 
+    "site_owner": null, 
+    "legacy_id": null, 
+    "status_changed": "2013-08-16T20:18:37Z", 
+    "document": "", 
+    "journal": ""
+  }
+},
+{
+  "pk": 1, 
+  "model": "supportingmaterials.supportingmaterial", 
+  "fields": {
+    "status": "active", 
+    "materials_url": "http://google.com/", 
+    "archive_file": "materials/chicago_erlang_user_group_july2013_all_recording_sheets.pdf", 
+    "name": "A resource", 
+    "created": "2013-08-16T20:19:49.803Z", 
+    "modified": "2013-09-22T18:15:18.622Z", 
+    "status_changed": "2013-08-16T20:19:30Z", 
+    "companion_article": 1, 
+    "explanatory_text": "resource help text"
+  }
+}
+]

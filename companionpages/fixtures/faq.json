@@ -1,0 +1,42 @@
+[
+{
+  "pk": 1, 
+  "model": "home.faq", 
+  "fields": {
+    "answer": "ResearchCompendia is a web service allowing people to share the research software and data associated with a scientific publication (articles and working papers).\r\n\r\nThe ResearchCompendia website is operated by a not-profit making scientific association called the RunMyCode Association. The mission of the Association is to make research in economics and business easier to use and easier to replicate. ResearchCompendia is currently funded by several national research agencies and universities.", 
+    "question": "What is ResearchCompendia?", 
+    "modified": "2013-09-19T18:03:55.335Z", 
+    "created": "2013-08-19T19:34:00.489Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "home.faq", 
+  "fields": {
+    "answer": "ResearchCompendia follows three main objectives:\r\n\r\n* The first objective is to allow researchers to quickly disseminate internationally the results of their research, which will considerably increase the potential of citations of scientific papers.\r\n* The second objective is to provide a very large community of users with the ability to use the latest  scientific methods in a user-friendly environment. This will speed up the process of converting scientific results into productive forces.\r\n* The third objective is to allow members of the academic community (researchers, editors, referees,  etc.) to replicate scientific results and to demonstrate their robustness. Thus, ResearchCompendia constitutes a revolutionary scientific validation tool.", 
+    "question": "What are the goals of ResearchCompendia?", 
+    "modified": "2013-09-19T18:03:21.681Z", 
+    "created": "2013-08-19T19:34:32.068Z"
+  }
+},
+{
+  "pk": 3, 
+  "model": "home.faq", 
+  "fields": {
+    "answer": "A compendia page allows authors to provide the data and source code used in a scientific publication. In future iterations of compendia pages, site visitors will be able to run the code using the data provided by the author to generate results from the publication.", 
+    "question": "What is a compendia page?", 
+    "modified": "2013-09-19T18:04:35.572Z", 
+    "created": "2013-08-27T08:17:49.535Z"
+  }
+},
+{
+  "pk": 4, 
+  "model": "home.faq", 
+  "fields": {
+    "answer": "ResearchCompendia does not take a copyright for any computer codes or data (or other documents) researchers post on the ResearchCompendia website.", 
+    "question": "Is there any transfer of copyright from the researchers to the website or any other third party?", 
+    "modified": "2013-09-19T18:05:04.276Z", 
+    "created": "2013-08-27T08:18:39.360Z"
+  }
+}
+]
