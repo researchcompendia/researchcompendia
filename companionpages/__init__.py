@@ -3,4 +3,4 @@
 
 __author__ = 'Tyler Contributors'
 __email__ = 'tyler@codersquid.com'
-__version__ = '0.11.2'
+__version__ = '0.11.3'
