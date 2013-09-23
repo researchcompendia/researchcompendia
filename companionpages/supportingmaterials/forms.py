@@ -9,7 +9,7 @@ from .models import CompanionArticle
 class CompanionForm(ModelForm):
     class Meta:
         model = CompanionArticle
-        fields = ['corresponding_author', 'title', 'abstract', 'document', 'article_url']
+        fields = ['site_owner', 'title', 'abstract', 'document', 'article_url']
 
 
 class UploadFileForm(forms.Form):

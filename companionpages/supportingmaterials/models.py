@@ -14,9 +14,11 @@ class Collaborator(TimeStampedModel):
         null=True,
         blank=True,
         help_text=_(u'Member account for a collaborator who is also a RunMyCode member'))
-    name = models.TextField(max_length=200, help_text=_(u'The name of a collaborator'))
+    name = models.CharField(max_length=200, help_text=_(u'The name of a collaborator'))
     coder = models.BooleanField()
     author = models.BooleanField()
+    affiliation = models.CharField(max_length=200, help_text=_(u'Collaborator affiliation'), blank=True)
+    country = models.CharField(max_length=200, help_text=_(u'Collaborator country'), blank=True)
 
     def __unicode__(self):
         return self.name
@@ -28,7 +30,7 @@ class Collaborator(TimeStampedModel):
 
 
 class CompanionArticle(StatusModel, TimeStampedModel):
-    corresponding_author = models.ForeignKey(Member, help_text=_(u'The primary point of contact'))
+    site_owner = models.ForeignKey(Member, help_text=_(u'The member who has ownership of the page'), blank=True, null=True)
     collaborators = models.ManyToManyField(Collaborator, blank=True, null=True)
 
     STATUS = Choices('active', 'inactive')
@@ -37,7 +39,6 @@ class CompanionArticle(StatusModel, TimeStampedModel):
     document = models.FileField(upload_to='papers', blank=True)
     journal = models.CharField(blank=True, max_length=500, help_text=_(u'Journal Name'))
     article_url = models.URLField(blank=True, help_text=_(u'URL to the paper.'))
-    slug = models.SlugField(unique=True)
     # tags break serialization?
     #tags = TaggableManager(blank=True)
     legacy_id = models.IntegerField(blank=True, null=True)
