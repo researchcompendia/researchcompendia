@@ -21,3 +21,5 @@ psycopg2
 django-gravatar
 south
 django-taggit
+djangorestframework
+python-dateutil

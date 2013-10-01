@@ -82,6 +82,10 @@ DEFAULT_FILE_STORAGE = env.get('DEFAULT_FILE_STORAGE', 'django.core.files.storag
 # allow collectstatic automatically put your static files in your bucket
 STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
 
+AWS_MATERIALS_UPLOADER_KEY_ID = env.get('AWS_MATERIALS_UPLOADER_KEY_ID').strip("'")
+AWS_MATERIALS_UPLOADER_SECRET = env.get('AWS_MATERIALS_UPLOADER_SECRET').strip("'")
+AWS_MATERIALS_BUCKET = env.get('AWS_MATERIALS_BUCKET').strip("'")
+
 #from S3 import CallingFormat
 #AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
@@ -93,12 +97,17 @@ ACCOUNT_ACTIVATION_DAYS = 2
 # django-profiles
 AUTH_PROFILE_MODULE = 'members.Member'
 
-
 # django-gravatar
 GRAVATAR_DEFAULT_SIZE = 80
 #GRAVATAR_DEFAULT_IMAGE = 'https://s3.amazonaws.com/starkravingsanermccompanion/img/avatar_small.png'
 GRAVATAR_DEFAULT_IMAGE = 'http://raw.github.com/codersquid/tyler/master/companionpages/static/img/avatar_small.png'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+     )
+}
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -193,6 +202,7 @@ THIRD_PARTY_APPS = (
     'storages',
     'gravatar',
     'taggit',
+    'rest_framework',
 )
 
 # Apps specific for this project go here.
