@@ -13,7 +13,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/runmycode/tyler/issues.
+Report bugs at https://github.com/researchcompendia/tyler/issues.
 
 If you are reporting a bug, please include:
 
@@ -43,13 +43,22 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/runmycode/tyler/issues.
+The best way to send feedback is to file an issue at https://github.com/researchcompendia/tyler/issues.
 
 
 * If you are proposing a feature explain in detail how it would work.
 * Keep the scope as narrow as possible, to make an issue easier to implement.
 * Remember that this is a volunteer-driven project, and that contributions
   are welcome :)
+
+Before you Start
+----------------
+
+Before you get started, remember that it is easier for us to accept pull
+requests that are narrow in scope and easy to review. Ideally we want to see
+pull requests with a comment that is a logical changeset so plan to work in
+this fashion. TODO: define some guidelines for what makes something easy to review.
+
 
 Get Started!
 ------------
@@ -68,33 +77,36 @@ Ready to contribute? Here's how to set up `tyler` for local development.
     $ source venv/bin/activate
     $ pip install -r requirements/local.txt
 
-4. Create a branch for local development::
+4. Get help from someone to set up the environment variables.
+
+5. Create a branch for local development::
 
     $ git checkout -b name-of-your-bugfix-or-feature
 
   Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the
+6. When you're done making changes, check that your changes pass flake8 and the
 tests::
 
     $ flake8 companionpages
     $ companionpages/manage.py test
 
-6. Commit your changes and push your branch to GitHub::
+7. Commit your changes and push your branch to GitHub::
 
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 
-7. Submit a pull request through the GitHub website.
+8. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
 -----------------------
 
 Before you submit a pull request, check that it meets these guidelines:
 
+0. The pull request should be easy to review.
 1. The pull request should include tests
-2. Check https://travis-ci.org/runmycode/tyler/pull_requests
+2. Check https://travis-ci.org/researchcompendia/tyler/pull_requests
    and make sure that the tests pass
 3. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
