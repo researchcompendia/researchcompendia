@@ -5,7 +5,7 @@ Tyler
 .. image:: https://travis-ci.org/researchcompendia/tyler.png?branch=master
         :target: https://travis-ci.org/researchcompendia/tyler
 
-This is a proof of concept for a Django-based RunMyCode site.
+A proof of concept for a research compendia webapp.
 
 * Free software: `MIT License <http://opensource.org/licenses/MIT>`_
 * Documentation: http://tyler.rtfd.org
@@ -57,7 +57,7 @@ Acknowledgements
 
 This project's name comes from Rose Tyler, who was the first companion of The
 Doctor in the modern reboot. This is a reboot proof of concept for the original
-RunMyCode proof of concept, she firts. I also admit I named it after a person
+RunMyCode proof of concept, she fits. I also admit I used this naming convention
 in honor of my friend @willkg who gives his projects human names.
 
 
