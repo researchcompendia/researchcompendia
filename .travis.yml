@@ -12,7 +12,6 @@ notifications:
   email:
     recipients:
       - codersquid@pobox.com
-      - jenn.seiler@gmail.com
     on_success: change
   irc:
     channels:

@@ -3,6 +3,7 @@ from django.views import generic
 from .models import Article
 from .forms import ArticleForm
 
+
 class ArticleListView(generic.ListView):
     model = Article
     template_name = 'supportingmaterials/index.html'

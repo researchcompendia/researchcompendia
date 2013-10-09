@@ -11,7 +11,6 @@ from .choices import RESEARCH_FIELDS
 from lib.storage import upload_path
 
 
-
 class Collaborator(TimeStampedModel):
     member = models.ManyToManyField(
         Member,
@@ -41,7 +40,7 @@ class Article(StatusModel, TimeStampedModel):
         else:
             pathsegment = 'articles'
         return upload_path(pathsegment, filename)
- 
+
     site_owner = models.ForeignKey(Member, help_text=_(u'The member who has ownership of the page'), blank=True, null=True)
     collaborators = models.ManyToManyField(Collaborator, blank=True, null=True)
     STATUS = Choices('draft', 'active')
@@ -73,7 +72,7 @@ class Article(StatusModel, TimeStampedModel):
 class SupportingMaterial(StatusModel, TimeStampedModel):
     def upload_callback(self, filename):
         return upload_path('materials', filename)
- 
+
     STATUS = Choices('draft', 'active')
     article = models.ForeignKey(Article, null=True, blank=True)
     name = models.CharField(max_length=500)
@@ -84,7 +83,7 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
                                     help_text=_(u'URL to the supporting material. For example, '
                                                 u'if this is source code, this would be a url '
                                                 u'to to the code repository.'))
-    storage_url  = models.URLField(blank=True, max_length=2000)
+    storage_url = models.URLField(blank=True, max_length=2000)
     materials_file = models.FileField(blank=True, upload_to=upload_callback)
 
     def __unicode__(self):

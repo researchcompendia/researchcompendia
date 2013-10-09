@@ -9,10 +9,7 @@ from api import views
 class SimpleTest(TestCase):
     def setUp(self):
         self.factory = APIRequestFactory()
-        self.user = User.objects.create_user(
-                username='firstuser',
-                email='first@example.com',
-                password='fake')
+        self.user = User.objects.create_user(username='firstuser', email='first@example.com', password='fake')
 
     def test_not_authorized(self):
         """ Tests that an unauthenticed request fails """

@@ -3,6 +3,7 @@ import hashlib
 
 from django.conf import settings
 
+
 def upload_path(pathsegment, filename):
     """ Constructs an upload path for a filename """
 

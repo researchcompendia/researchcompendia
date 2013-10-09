@@ -14,6 +14,7 @@ from rest_framework import status
 
 from lib.storage import upload_path
 
+
 @api_view(['GET'])
 @permission_classes((IsAuthenticated,))
 def s3signatures(request):
@@ -33,7 +34,7 @@ def s3signatures(request):
     return Response({
         'signed_request': signature,
         'url': s3name,
-        'key_id': settings.AWS_MATERIALS_UPLOADER_KEY_ID, 
+        'key_id': settings.AWS_MATERIALS_UPLOADER_KEY_ID,
         'x-amz-date': amz_date,
         'canonical_string': canonical_string,
         'Authorization': 'AWS {}:{}'.format(settings.AWS_MATERIALS_UPLOADER_KEY_ID, signature),
