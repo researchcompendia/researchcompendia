@@ -1,6 +1,7 @@
 import datetime
 import hashlib
 
+
 def upload_path(pathsegment, filename):
     """ Constructs an upload path for a filename """
 

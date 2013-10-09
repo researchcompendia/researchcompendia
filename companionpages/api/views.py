@@ -28,14 +28,14 @@ def s3signatures(request):
     # http://s3.amazonaws.com/doc/s3-developer-guide/RESTAuthentication.html
     amz_date = datetime.datetime.now(tzlocal()).strftime('%a, %d %b %Y %H:%M:%S %Z')
     canonical_string = "POST\n\n\nx-amz-date:{}\n{}".format(amz_date, s3name)
-    h = hmac.new(settings.AWS_MATERIALS_UPLOADER_SECRET, canonical_string, sha)
+    h = hmac.new(settings.AWS_SECRET_ACCESS_KEY, canonical_string, sha)
     signature = base64.encodestring(h.digest()).strip()
 
     return Response({
         'signed_request': signature,
         'url': s3name,
-        'key_id': settings.AWS_MATERIALS_UPLOADER_KEY_ID,
+        'key_id': settings.AWS_ACCESS_KEY_ID,
         'x-amz-date': amz_date,
         'canonical_string': canonical_string,
-        'Authorization': 'AWS {}:{}'.format(settings.AWS_MATERIALS_UPLOADER_KEY_ID, signature),
+        'Authorization': 'AWS {}:{}'.format(settings.AWS_ACCESS_KEY_ID, signature),
     })
