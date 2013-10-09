@@ -35,11 +35,7 @@ class Collaborator(TimeStampedModel):
 
 class Article(StatusModel, TimeStampedModel):
     def upload_callback(self, filename):
-        if self.site_owner is not None:
-            pathsegment = self.site_owner.user.username
-        else:
-            pathsegment = 'articles'
-        return upload_path(pathsegment, filename)
+        return upload_path('articles', filename)
 
     site_owner = models.ForeignKey(Member, help_text=_(u'The member who has ownership of the page'), blank=True, null=True)
     collaborators = models.ManyToManyField(Collaborator, blank=True, null=True)
@@ -61,7 +57,7 @@ class Article(StatusModel, TimeStampedModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('researchcompendium', args=(self.id))
+        return reverse('researchcompendium', args=(self.id,))
 
     class Meta(object):
         ordering = ['title']

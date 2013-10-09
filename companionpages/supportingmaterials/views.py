@@ -1,7 +1,9 @@
 from django.views import generic
 
 from .models import Article
+from .models import SupportingMaterial
 from .forms import ArticleForm
+from .forms import SupportingMaterialForm
 
 
 class ArticleListView(generic.ListView):
@@ -18,4 +20,10 @@ class ArticleDetailView(generic.DetailView):
 class ArticleCreateView(generic.edit.CreateView):
     model = Article
     form_class = ArticleForm
+    template_name = 'supportingmaterials/create.html'
+
+
+class SupplementalMaterialCreateView(generic.edit.CreateView):
+    model = SupportingMaterial
+    form_class = SupportingMaterialForm
     template_name = 'supportingmaterials/create.html'

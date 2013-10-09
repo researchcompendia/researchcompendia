@@ -82,10 +82,6 @@ DEFAULT_FILE_STORAGE = env.get('DEFAULT_FILE_STORAGE', 'django.core.files.storag
 # allow collectstatic automatically put your static files in your bucket
 STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
 
-AWS_MATERIALS_UPLOADER_KEY_ID = env.get('AWS_MATERIALS_UPLOADER_KEY_ID', '').strip("'")
-AWS_MATERIALS_UPLOADER_SECRET = env.get('AWS_MATERIALS_UPLOADER_SECRET', '').strip("'")
-AWS_MATERIALS_BUCKET = env.get('AWS_MATERIALS_BUCKET', '').strip("'")
-
 #from S3 import CallingFormat
 #AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
@@ -246,6 +242,14 @@ if DEBUG:
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+     },
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
@@ -256,12 +260,22 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
         }
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'handlers': ['mail_admins', 'console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'INFO',
             'propagate': True,
         },
     }
