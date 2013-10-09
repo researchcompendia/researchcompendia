@@ -6,17 +6,25 @@
 {% block title %}Create A Compendium{% endblock %}
 
 {% block content %}
-   
-<h1>Create A Compendium</h1>
+
+  <div class="container">
+<div class="jumbotron">
+    <h1>Placeholder Form</h1>
+
+    <p>This is a place holder for this developer instance of the site in place
+    here while the storage system is being worked on. The page with the work in
+    progress for the form is <a class="btn btn-primary"
+        href="http://researchcompendia.org/companionpagescreate/">create</a>
+
+  </div>
+
+<h1>Placeholder</h1>
 
 <form method="post">{% csrf_token %}
 {{form.as_p}}
-  <input class="button" type="submit" style="margin-top:15px" value="Save Paper Data"/>
+<input class="button" type="submit" value="Save Paper Data"/>
 </form>
 
-
-<script type="text/javascript">
-
-</script>
+</div>
 
 {% endblock %}

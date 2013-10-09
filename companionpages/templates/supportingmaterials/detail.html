@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h2>{{ companionarticle.title }}
+<h2>{{ article.title }}
 </h2>
 
-{% for collaborator in companionarticle.collaborators.all %}
+{% for collaborator in article.collaborators.all %}
 
   {% if collaborator.member %}
   <a href="{% url 'profiles_profile_detail' collaborator.member.user %}">{{ collaborator }}</a>
@@ -20,15 +20,15 @@
 
 <h4>Abstract</h4>
 
-<p>{{ companionarticle.abstract }}
-{% if companionarticle.article_url %}
-<a href="{{ companionarticle.article_url }}">
+<p>{{ article.abstract }}
+{% if article.article_url %}
+<a href="{{ article.article_url }}">
   <div class="icon-external-link"> paper</div>
 </a>
 {% endif %}
 
-{% if companionarticle.legacy_id %}
-<a href="http://www.runmycode.org/CompanionSite/site.do?siteId={{ companionarticle.legacy_id }}">
+{% if article.legacy_id %}
+<a href="http://www.runshare.org/CompanionSite/site.do?siteId={{ article.legacy_id }}">
   <div class="icon-external-link"> legacy url</div>
 </a>
 {% endif %}
@@ -36,7 +36,7 @@
 
 <h4>Supporting Materials</h4>
 
-{% for supportingmaterial in companionarticle.supportingmaterial_set.all %}
+{% for supportingmaterial in article.supportingmaterial_set.all %}
 <dl>
   <dt>{{ supportingmaterial.name }}</dt>
   <dd>{{ supportingmaterial.explanatory_text }}

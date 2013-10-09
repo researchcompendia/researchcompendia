@@ -7,113 +7,9 @@ from model_utils.models import StatusModel, TimeStampedModel
 
 from members.models import Member
 
-RESEARCH_FIELDS = Choices(
-    ("biological_sciences", _("Biological Sciences")),
-    ("neuroscience", _("Neuroscience")),
-    ("cognitive_neuroscience", _("Cognitive neuroscience")),
-    ("computational_neuroscience", _("Computational neuroscience")),
-    ("developmental_neuroscience", _("Developmental neuroscience")),
-    ("neuroimaging", _("Neuroimaging")),
-    ("neuroinformatics", _("Neuroinformatics")),
-    ("neurophysiology", _("Neurophysiology")),
-    ("systems_neuroscience", _("Systems neuroscience")),
-    ("chemistry", _("Chemistry")),
-    ("computer_and_information_sciences", _("Computer and Information Sciences")),
-    ("engineering", _("Engineering")),
-    ("geosciences", _("Geosciences")),
-    ("mathematics", _("Mathematics")),
-    ("medical_research", _("Medical Research")),
-    ("other_computational_sciences", _("Other Computational Sciences")),
-    ("physics", _("Physics")),
-    ("social_sciences", _("Social Sciences")),
-    ("econometrics", _("Econometrics")),
-    ("asymptotic_theory", _("Asymptotic Theory")),
-    ("bayesian_analysis", _("Bayesian Analysis")),
-    ("bootstrap_and_montecarlo", _("Bootstrap and Monte Carlo")),
-    ("classification_methods", _("Classification Methods")),
-    ("duration_analysis", _("Duration analysis")),
-    ("econometric_modeling", _("Econometric modeling")),
-    ("financial_econometrics", _("Financial Econometrics")),
-    ("forecasting", _("Forecasting")),
-    ("hypothesis_testing", _("Hypothesis Testing")),
-    ("microeconometrics", _("Microeconometrics")),
-    ("neural_networks", _("Neural Networks")),
-    ("nonlinear_econometrics", _("Nonlinear econometrics")),
-    ("nonparametric_econometrics", _("Nonparametric econometrics")),
-    ("panel_data_models", _("Panel data models")),
-    ("qualitative_choice_models", _("Qualitative choice models")),
-    ("regime_switching_models", _("Regime switching models")),
-    ("simultaneous_equation_methods", _("Simultaneous equation methods")),
-    ("spatial_econometrics", _("Spatial econometrics")),
-    ("time_series"),
-    ("truncated_and_censored_models", _("Truncated and Censored Models")),
-    ("economics", _("Economics")),
-    ("agricultural_environment_energy_economics", _("Agricultural, Environmental, and Energy Economics")),
-    ("development_and_transition_economics", _("Development and Transition Economics")),
-    ("economic_theory", _("Economic Theory")),
-    ("experimental_economics", _("Experimental Economics")),
-    ("experiments", _("Experiments")),
-    ("financial_economics", _("Financial Economics")),
-    ("game_theory", _("Game Theory")),
-    ("game_theory_and_decision_science", _("Game Theory and Decision Science")),
-    ("general_equilibrium", _("General Equilibrium")),
-    ("health_economics_and_management", _("Health Economics and Management")),
-    ("industrial_organization", _("Industrial Organization")),
-    ("innovation_and_entrepreneurship", _("Innovation and Entrepreneurship")),
-    ("international_economics", _("International Economics")),
-    ("labor_economics", _("Labor Economics")),
-    ("law_and_economics", _("Law and Economics")),
-    ("macroeconomics", _("Macroeconomics")),
-    ("microeconomics", _("Microeconomics")),
-    ("monetary _conomics", _("Monetary Economics")),
-    ("optimization", _("Optimization")),
-    ("public_economics_and_public_choice", _("Public Economics and Public Choice")),
-    ("real_estate", _("Real Estate")),
-    ("urban_spatial_regional_economics", _("Urban, Spatial, and Regional Economics")),
-    ("finance", _("Finance")),
-    ("alternative_investments", _("Alternative Investments")),
-    ("asset_management", _("Asset Management")),
-    ("asset_pricing", _("Asset Pricing")),
-    ("banking_and_risk_management", _("Banking and Risk Management")),
-    ("behavioral_finance", _("Behavioral Finance")),
-    ("corporate_finance", _("Corporate Finance")),
-    ("derivatives", _("Derivatives")),
-    ("energy_and_commodities", _("Energy and Commodities")),
-    ("financial_econometrics", _("Financial Econometrics")),
-    ("financing", _("Financing")),
-    ("fixed_income", _("Fixed Income")),
-    ("governance", _("Governance")),
-    ("household_finance", _("Household Finance")),
-    ("international_finance", _("International Finance")),
-    ("investment", _("Investment")),
-    ("mergers_and_acquisitions", _("Mergers and Acquisitions")),
-    ("microstructure", _("Microstructure")),
-    ("real_estate", _("Real Estate")),
-    ("real_option", _("Real Option")),
-    ("valuation", _("Valuation")),
-    ("management", _("Management")),
-    ("accounting", _("Accounting")),
-    ("general_management", _("General Management")),
-    ("human_resources_management", _("Human Resources Management")),
-    ("information_systems", _("Information Systems")),
-    ("insurance_and_actuarial_science", _("Insurance and Actuarial Science")),
-    ("marketing", _("Marketing")),
-    ("operations_research", _("Operations Research")),
-    ("organizational_behavior", _("Organizational Behavior")),
-    ("strategy", _("Strategy")),
-    ("technology_and_operations_management", _("Technology and Operations Management")),
-    ("statistics", _("Statistics")),
-    ("other", _("Other")),
-)
+from .choices import RESEARCH_FIELDS
+from lib.storage import upload_path
 
-PAPER_TYPE = Choices(
-    ('published_paper', _('Published Paper')),
-    ('working_paper', _('Working Paper')),
-    ('methods_paper', _('Methods Paper')),
-    ('negative_results', _('Negative Results')),
-    ('public_tool', _('Public Tool')),
-    ("other", _("Other")),
-)
 
 
 class Collaborator(TimeStampedModel):
@@ -139,16 +35,24 @@ class Collaborator(TimeStampedModel):
 
 
 class Article(StatusModel, TimeStampedModel):
+    def upload_callback(self, filename):
+        if self.site_owner is not None:
+            pathsegment = self.site_owner.user.username
+        else:
+            pathsegment = 'articles'
+        return upload_path(pathsegment, filename)
+ 
     site_owner = models.ForeignKey(Member, help_text=_(u'The member who has ownership of the page'), blank=True, null=True)
     collaborators = models.ManyToManyField(Collaborator, blank=True, null=True)
     STATUS = Choices('draft', 'active')
     title = models.CharField(max_length=500, verbose_name=_(u'Article title'))
     abstract = models.TextField(max_length=5000)
     journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'))
-    article_url = models.URLField(blank=True, max_length=2000, help_text=_(u'external URL to the paper.'))
-    storage_url  = models.URLField(blank=True, max_length=2000, help_text=_(u'URL where we have stored the paper.'))
+    article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
+    storage_url = models.URLField(blank=True, max_length=2000)
+    article_file = models.FileField(blank=True, upload_to=upload_callback)
     legacy_id = models.IntegerField(blank=True, null=True)
-    doi = models.CharField(max_length=2000, help_text=_(u'The DOI for the article'), blank=True)
+    doi = models.CharField(max_length=2000, verbose_name=_(u'The article DOI'), blank=True)
     primary_research_field = models.CharField(max_length=300, choices=RESEARCH_FIELDS,
                                               verbose_name="Primary research field", blank=True)
     secondary_research_field = models.CharField(max_length=300, choices=RESEARCH_FIELDS,
@@ -167,6 +71,9 @@ class Article(StatusModel, TimeStampedModel):
 
 
 class SupportingMaterial(StatusModel, TimeStampedModel):
+    def upload_callback(self, filename):
+        return upload_path('materials', filename)
+ 
     STATUS = Choices('draft', 'active')
     article = models.ForeignKey(Article, null=True, blank=True)
     name = models.CharField(max_length=500)
@@ -177,9 +84,8 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
                                     help_text=_(u'URL to the supporting material. For example, '
                                                 u'if this is source code, this would be a url '
                                                 u'to to the code repository.'))
-    storage_url  = models.URLField(blank=True,
-                                   max_length=2000,
-                                   help_text=_(u'internal URL where we have stored this material.'))
+    storage_url  = models.URLField(blank=True, max_length=2000)
+    materials_file = models.FileField(blank=True, upload_to=upload_callback)
 
     def __unicode__(self):
         return self.name
