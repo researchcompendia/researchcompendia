@@ -10,6 +10,7 @@ from members.forms import MemberForm
 urlpatterns = patterns(
     '',
     url(r'^$', HomeView.as_view(), name='rmc_home'),
+    url(r'^api/v1/', include('api.urls')),
     url(r'^members/edit', 'profiles.views.edit_profile', {'form_class': MemberForm, }, name='rmc_edit'),
     url(r'^members/', include('profiles.urls')),
     # profiles/create/ named profiles_create_profile
@@ -23,7 +24,7 @@ urlpatterns = patterns(
     url(r'^news/', include('news.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^companionpages/', include('supportingmaterials.urls')),
+    url(r'^compendia/', include('supportingmaterials.urls')),
 )
 
 urlpatterns += patterns(

@@ -58,12 +58,12 @@ EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.Emai
 
 # django-envelope contact page settings
 DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'devtyler@codersquid.com')
-ENVELOPE_CONTACT_CHOICES = (
-    ('',    u"Choose"),
-    (10,    u"A question regarding the website"),
-    (20,    u"A question regarding companion pages"),
-    (None,   u"Other"),
-)
+#ENVELOPE_CONTACT_CHOICES = (
+#    ('',    u"Choose"),
+#    (10,    u"A question regarding the website"),
+#    (20,    u"A question regarding companion pages"),
+#    (None,   u"Other"),
+#)
 MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
 MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
 
@@ -132,7 +132,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
 
@@ -234,6 +234,8 @@ if DEBUG:
     if not REMOTE_DEBUG:
         # use local files for static rather than amazon s3
         STATIC_URL = '/static/'
+        MEDIA_URL = STATIC_URL + 'media/'
+        ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
 
 
 # A sample logging configuration. The only tangible logging

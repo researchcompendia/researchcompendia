@@ -10,7 +10,6 @@
   <!-- Le styles -->
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,700italic,400italic|Ubuntu:400,500,700,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
   
-  <!-- TODO figure out whether I should use CDN and if so, how to link it conditionally -->
   <!--
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   -->
@@ -30,42 +29,77 @@
 
 <body>
 
-{% include 'header.html' %}
+<nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{% url 'rmc_home' %}">
+      <div class="rmc-green-font">ResearchCompendia
+        <div class="icon-code"></div>
+        <div class="icon-bar-chart"></div>
+        <div class="icon-cloud-upload"></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="https://github.com/researchcompendia/tyler"><i class="icon-github icon-2x"></i></a>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="{% url 'researchcompendia' %}">Compendia</a></li>
+    </ul>
+    <form class="navbar-form pull-left" action="">
+      <input class="form-control col-lg-8" type="text" placeholder="Search">
+    </form>
+    <ul class="nav navbar-nav pull-right">
+      {% if user.is_authenticated %}
+      <li>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.email }}<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'profiles_profile_detail' user  %}">My Account</a></li>
+            <li><a href="/accounts/logout">Logout</a></li>
+            {% if user.is_staff %}
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            {% endif %}
+          </ul>
+      </li>
+        {% else %}
+        <li><a href="/accounts/register">Register</a></li>
+        <li><a href="/accounts/login">Login</a></li>
+        {% endif %}
+    </ul>
+  </div><!--/collapse nav-collapse navbar-ex1-collapse -->
+</nav><!-- navbar -->
 
 
-<div class="container rmc-light">
+<div class="container">
 {% block content %}
 
 <div class="row">
-  <div class="jumbotron">
-    <div class="rmc-green-font">
-      <h1 class="rmc-green-font">ResearchCompendia</h1>
-    </div>
+    <h1>Package all code and data used in research with the article about the research.</h1>
 
-    <div class='media'>
-      <img class='pull-right' src="{% static 'img/conceptcomposite.png' %}">
-      <div class='media-body'>
-        <div class='media-heading'>
-          As simple as 1, 2, 3
-        </div>
-        <ol>
-          <li>A researcher has an <b>idea</b>.</li>
-          <li>The researcher writes a <b>paper</b> based on this idea.</li>
-          <li>The researcher creates a compendia page to share the
-          <b>code and data</b> underlying this paper.</li>
-        </ol>
-      </div>
-    </div>
-    <form action="{% url 'rmc_create' %}" method="get">
-      <button type='submit' class='btn btn-success btn-lg btn-block'>Create your own compendia page</button>   
+    <blockquote>
+        <p><i class="icon-quote-left">An article about computational science in a scientific publication is not
+    the scholarship itself, it is merely advertising of the scholarship. The
+    actual scholarship is the complete software development environment and the
+    complete set of instructions which generated the figures.</i><i class="icon-quote-right"></i></p>
+
+    <cite>D. Donoho</cite>
+    </blockquote>
+
+
+    <form action="{% url 'researchcompendia_creation' %}" method="get">
+        <button type='submit' class='btn btn-success btn-lg'>Share all of your research</button>
     </form>
-  </div> <!-- jumbotron -->
 </div> <!-- /row jumbotron -->
 
 {% endblock content %}
 </div> <!-- /container -->
 
-{% include 'footer.html' %}
 
 <!-- Le javascript
 ================================================== -->
