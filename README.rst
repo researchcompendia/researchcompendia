@@ -10,6 +10,7 @@ A proof of concept for a research compendia webapp.
 * Free software: `MIT License <http://opensource.org/licenses/MIT>`_
 * Documentation: http://tyler.rtfd.org
 * Issue tracker: https://github.com/researchcompendia/tyler/issues
+* Issue kanban: https://huboard.com/researchcompendia/tyler
 * Wiki: https://github.com/researchcompendia/tyler/wiki
 
 
