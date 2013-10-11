@@ -23,3 +23,5 @@ south
 django-taggit
 djangorestframework
 python-dateutil
+beautifulsoup4
+lxml

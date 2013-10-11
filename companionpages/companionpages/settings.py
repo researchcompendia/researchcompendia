@@ -66,9 +66,13 @@ DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'devtyler@codersquid.com')
 #)
 MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
 MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
-
 # spam catching
 HONEYPOT_FIELD_NAME = 'relatedtopics2'
+
+
+# crossref service account
+CROSSREF_PID = env.get('CROSSREF_PID', '')
+
 
 # s3 amazon static file storage settings
 AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'starkravingsanermccompanion')

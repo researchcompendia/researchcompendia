@@ -13,12 +13,13 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from lib.storage import upload_path
+from lib import crossref
 
 
 @api_view(['GET'])
 @permission_classes((IsAuthenticated,))
 def s3signatures(request):
-    """ Return a signature so that files can be uploaded to the s3 materials bucket """
+    """ Returns a signature so that files can be uploaded to the s3 materials bucket """
 
     if 's3_object_name' not in request.QUERY_PARAMS:
         return Response({"message": "missing s3_object_name from request"}, status=status.HTTP_400_BAD_REQUEST)
@@ -39,3 +40,22 @@ def s3signatures(request):
         'canonical_string': canonical_string,
         'Authorization': 'AWS {}:{}'.format(settings.AWS_ACCESS_KEY_ID, signature),
     })
+
+
+@api_view(['GET'])
+def doi_crossref(request):
+    """ Returns information based on crossref's doi query service
+
+    request: The request is required to have a valid doi string. valid means TODO
+
+    response: The response will contain a json dict of data with keys
+    corresponding to attributes of the Article and Collaborator models. Any
+    attributes we were unable to get from the crossref service will not be
+    included in the dict.
+    """
+
+    if 'doi' not in request.QUERY_PARAMS:
+        return Response({"message": "missing DOI from request"}, status=status.HTTP_400_BAD_REQUEST)
+
+    doi_data = crossref.query(settings.CROSSREF_PID, request.QUERY_PARAMS['doi'])
+    return Response(doi_data)
