@@ -86,6 +86,8 @@ DEFAULT_FILE_STORAGE = env.get('DEFAULT_FILE_STORAGE', 'django.core.files.storag
 # allow collectstatic automatically put your static files in your bucket
 STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 #from S3 import CallingFormat
 #AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
@@ -203,6 +205,7 @@ THIRD_PARTY_APPS = (
     'gravatar',
     'taggit',
     'rest_framework',
+    'crispy_forms',
 )
 
 # Apps specific for this project go here.
