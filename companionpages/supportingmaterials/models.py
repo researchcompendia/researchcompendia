@@ -28,7 +28,7 @@ class Collaborator(TimeStampedModel):
     author_order = models.IntegerField(blank=True, null=True, verbose_name=_(u'Name order'), help_text=_(u'Optional index for ordering collaborator names'))
 
     def __unicode__(self):
-        return self.name
+        return '%s, %s' % (self.given_name, self.surname)
 
     class Meta(object):
         ordering = ['author_order', 'surname']
@@ -46,8 +46,9 @@ class Article(StatusModel, TimeStampedModel):
     collaborators = models.ManyToManyField(Collaborator, blank=True, null=True,
                                            verbose_name=_(u'Collaborators'))
     coders = models.ManyToManyField(Collaborator, blank=True, null=True,
-                                    verbose_name=_(u'Coders Collaborators'),
-                                    help_text=_(u'Collaborators who are also coders'))
+                                    verbose_name=_(u'Coder Collaborators'),
+                                    help_text=_(u'Collaborators who are also coders'),
+                                    related_name='coders')
     STATUS = Choices('draft', 'active')
     title = models.CharField(max_length=500, verbose_name=_(u'Article title'))
     abstract = models.TextField(max_length=5000)

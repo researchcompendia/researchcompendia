@@ -23,7 +23,7 @@ class ArticleCreateView(generic.edit.CreateView):
     template_name = 'supportingmaterials/create.html'
 
 
-class SupplementalMaterialCreateView(generic.edit.CreateView):
-    model = SupportingMaterial
-    form_class = SupportingMaterialForm
-    template_name = 'supportingmaterials/create.html'
+#class SupplementalMaterialCreateView(generic.edit.CreateView):
+#    model = SupportingMaterial
+#    form_class = SupportingMaterialForm
+#    template_name = 'supportingmaterials/create.html'
