@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
-
+{% load crispy_forms_tags %}
 {% load envelope_tags %}
 {% block content %}
 <section id="contact">
@@ -11,7 +11,7 @@
     <fieldset>
       <table>
         <tbody>
-        {{ form }}
+        {{ form|crispy }}
         </tbody>
         <tfoot>
          <tr>
