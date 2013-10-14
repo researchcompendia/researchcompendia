@@ -16,13 +16,16 @@ class Collaborator(TimeStampedModel):
         Member,
         null=True,
         blank=True,
+        verbose_name=_(u'Member'),
         help_text=_(u'Member account for the collaborator'))
-    name = models.CharField(max_length=200, help_text=_(u'The name of a collaborator'))
+    given_name = models.CharField(max_length=200, verbose_name=_(u'Given Name'))
+    surname = models.CharField(max_length=200, verbose_name=_(u'Surname'))
     coder = models.BooleanField()
     author = models.BooleanField()
-    affiliation = models.CharField(max_length=200, help_text=_(u'Collaborator affiliation'), blank=True)
-    country = models.CharField(max_length=200, help_text=_(u'Collaborator country'), blank=True)
-    author_order = models.IntegerField(blank=True, null=True)
+    affiliation = models.CharField(max_length=200, verbose_name=_(u'Affiliation'), blank=True)
+    country = models.CharField(max_length=200, verbose_name=_(u'Country'), blank=True)
+    # we should do drag-and-drop rather than have the user order by number
+    author_order = models.IntegerField(blank=True, null=True, verbose_name=_(u'Name order'), help_text=_(u'Optional index for ordering collaborator names'))
 
     def __unicode__(self):
         return self.name
@@ -37,15 +40,21 @@ class Article(StatusModel, TimeStampedModel):
     def upload_callback(self, filename):
         return upload_path('articles', filename)
 
-    site_owner = models.ForeignKey(Member, help_text=_(u'The member who has ownership of the page'), blank=True, null=True)
-    collaborators = models.ManyToManyField(Collaborator, blank=True, null=True)
+    site_owner = models.ForeignKey(Member, verbose_name=_(u'Compendia Owner'),
+                                   help_text=_(u'The member who has ownership of this compendia'),
+                                   blank=True, null=True)
+    collaborators = models.ManyToManyField(Collaborator, blank=True, null=True,
+                                           verbose_name=_(u'Collaborators'))
+    coders = models.ManyToManyField(Collaborator, blank=True, null=True,
+                                    verbose_name=_(u'Coders Collaborators'),
+                                    help_text=_(u'Collaborators who are also coders'))
     STATUS = Choices('draft', 'active')
     title = models.CharField(max_length=500, verbose_name=_(u'Article title'))
     abstract = models.TextField(max_length=5000)
     journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'))
     article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
     storage_url = models.URLField(blank=True, max_length=2000)
-    article_file = models.FileField(blank=True, upload_to=upload_callback)
+    article_file = models.FileField(blank=True, upload_to=upload_callback, verbose_name=_(u'Article File'), help_text=_(u'File containing the article'))
     legacy_id = models.IntegerField(blank=True, null=True)
     doi = models.CharField(max_length=2000, verbose_name=_(u'The article DOI'), blank=True)
     primary_research_field = models.CharField(max_length=300, choices=RESEARCH_FIELDS,
@@ -72,7 +81,7 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
     STATUS = Choices('draft', 'active')
     article = models.ForeignKey(Article, null=True, blank=True)
     name = models.CharField(max_length=500)
-    archive_file = models.FileField(upload_to='materials', blank=True)
+    archive_file = models.FileField(upload_to=upload_callback, blank=True, verbose_name=_(u'Materials File'), help_text=_(u'File containing the materials'))
     explanatory_text = models.TextField(max_length=5000, blank=True)
     materials_url = models.URLField(blank=True,
                                     max_length=2000,
@@ -80,7 +89,9 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
                                                 u'if this is source code, this would be a url '
                                                 u'to to the code repository.'))
     storage_url = models.URLField(blank=True, max_length=2000)
-    materials_file = models.FileField(blank=True, upload_to=upload_callback)
+    materials_file = models.FileField(blank=True, upload_to=upload_callback,
+                                      verbose_name=_(u'Materials Description'),
+                                      help_text=_(u'File containing description of the materails'))
 
     def __unicode__(self):
         return self.name
