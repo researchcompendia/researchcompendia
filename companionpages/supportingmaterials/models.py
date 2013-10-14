@@ -31,7 +31,7 @@ class Collaborator(TimeStampedModel):
         return self.name
 
     class Meta(object):
-        ordering = ['author_order', 'name']
+        ordering = ['author_order', 'surname']
         verbose_name = _(u'collaborator')
         verbose_name_plural = _(u'collaborators')
 
