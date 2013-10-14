@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load gravatar %}
+{% load crispy_forms_tags %}
 
 {% block title %}Edit RunMyCode Profile{% endblock %}
 
@@ -23,7 +24,7 @@ Change your RunMyCode information using the form below</p>
 <h2>Edit profile for {{ user.first_name }} {{ user.last_name }} ({{user}})</h2>
 
 <form enctype="multipart/form-data" method="post">{% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
   <input class="button blue" type="submit" value="Update profile"/>
 </form>
 

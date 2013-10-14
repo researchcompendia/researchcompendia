@@ -25,3 +25,4 @@ djangorestframework
 python-dateutil
 beautifulsoup4
 lxml
+django-crispy-forms
