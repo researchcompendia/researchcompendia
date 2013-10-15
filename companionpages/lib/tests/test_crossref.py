@@ -1,14 +1,15 @@
 from django.test import TestCase
 
+from lib import crossref
+
 #  flake8: noqa
 
 class DoiTests(TestCase):
 
-    def test_request_exceptions(self):
-        pass
-
-    def get_sample_requests_exception(self):
-        pass
+    def test_nonbarfing_emptiness(self):
+        r = crossref.parse_crossref_output('')
+        assert r['msg'] == 'crossref error', 'missing query should cause a crossref error'
+        assert 'compendia' not in r, 'empty reply should have an empty compendia'
 
     def get_sample_unixsd(self):
         return """
