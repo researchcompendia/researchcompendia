@@ -72,12 +72,15 @@ def query(pid, doi, timeout=0.60):
         logger.warning('crossref exception %s', r)
         return {'msg': 'crossref exception', 'status': r.status_code, 'xml': r.text}
 
-    # todo
-    response = parse_crossref_output(r.text)
-    return {'msg': 'ok', 'status': r.status_code, 'compendia': response, 'unixsd': r.text}
+    response = {'msg': 'ok', 'status': r.status_code, 'unixsd': r.text}
+
+    response.update(parse_crossref_output(r.text))
+
+    return response
 
 
 def parse_crossref_output(xml):
+    logger.debug('crossref output: %s', xml)
 
     soup = BeautifulSoup(xml, 'lxml')
 
@@ -88,44 +91,67 @@ def parse_crossref_output(xml):
         return {'mgs': 'crossref error'}
     if soup.query['status'] != 'resolved':
         return {'mgs': 'crossref status %s' % (soup.query['status'])}
+    if soup.doi_record is None:
+        return {'msg': 'crossref missing doi_record'}
 
-    return parse_doi_record(soup)
+    compendia = parse_doi_record(soup)
+    logger.debug('compendia %s', compendia)
+    return {'compendia': compendia}
 
 
 def parse_doi_record(soup):
     result = {}
 
-    if soup.doi_record is None:
-        return result
-
-    if soup.doi_record.journal is None:
-        return result
-
-    result.update(parse_journal(soup))
-
-    return result
-
-
-def parse_journal(soup):
-    result = {}
-
-    if soup.full_title is not None:
-        result['journal'] = soup.full_title.text
     if soup.resource is not None:
         result['article_url'] = soup.resource.text
     if soup.title is not None:
         result['title'] = soup.title.text
 
+    result.update(parse_contributors(soup))
+    result.update(parse_doi_type(soup))
+    return result
+
+
+def parse_doi_type(soup):
+    # crossref has a lot of types, we'll just handle a few at first
+    doi_type = ''
+    if soup.doi is not None:
+        doi_type = soup.doi.attrs.setdefault('type', '')
+
+    # oh boy a messy lookup table and we can clean this up later
+    parser_lookup = {
+        'conference_paper': parse_conference_paper,
+        'journal_article': parse_journal_article,
+    }
+    parser = parser_lookup.setdefault(doi_type, parse_journal_article)
+    results = parser(soup)
+    logging.debug('parse_doi_type %s', results)
+    return results
+
+
+def parse_conference_paper(soup):
+    if soup.proceedings_title is not None:
+        return {'journal': soup.proceedings_title.text}
+    return {}
+
+
+def parse_journal_article(soup):
+    result = {}
+
+    if soup.full_title is not None:
+        result['journal'] = soup.full_title.text
+
     if soup.journal_article is not None and 'publication_type' in soup.journal_article.attrs:
         result['publication_type'] = soup.journal_article['publication_type']
+    return result
 
+
+def parse_contributors(soup):
     collaborators = []
     for contributor in soup.find_all('person_name'):
         person = parse_person(contributor)
         collaborators.append(person)
-    result['collaborators'] = collaborators
-
-    return result
+    return {'collaborators': collaborators}
 
 
 def parse_person(contributor):
@@ -136,6 +162,10 @@ def parse_person(contributor):
         person['surname'] = contributor.surname.text
     if 'sequence' in contributor.attrs and contributor['sequence'] == 'first':
         person['author_order'] = 0
+    if contributor.ORCID is not None:
+        person['orcid'] = contributor.ORCID.text
+    if contributor.affiliation is not None:
+        person['affiliation'] = contributor.affiliation.text
     #TODO if 'contributor_role' in contributor.attrs:
     #   we could see about making our model have roles rather than coder, author.
     #   it makes more sense.
