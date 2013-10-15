@@ -42,7 +42,7 @@ def s3signatures(request):
     })
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def doi_crossref(request):
     """ Returns information based on crossref's doi query service
 
