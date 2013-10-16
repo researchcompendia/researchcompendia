@@ -1,7 +1,12 @@
 from django.views import generic
 
 from .models import Article
-from .forms import ArticleForm
+from .forms import ArticleForm, DoiForm
+
+
+class DoiFormView(generic.FormView):
+    form_class = DoiForm
+    template_name = 'supportingmaterials/doi.html'
 
 
 class ArticleListView(generic.ListView):

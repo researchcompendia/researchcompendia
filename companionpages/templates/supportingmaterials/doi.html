@@ -1,0 +1,14 @@
+{% extends "base.html" %}    
+{% load i18n %}
+{% load home_tags %}
+{% load envelope_tags %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}Doi Autocomplete{% endblock %}
+
+{% block content %}
+
+{% crispy form %}
+
+{% endblock %}
