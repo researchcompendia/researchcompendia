@@ -6,8 +6,7 @@ import sha
 from django.conf import settings
 
 from dateutil.tz import tzlocal
-from rest_framework.decorators import api_view
-from rest_framework.decorators import permission_classes
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
@@ -54,8 +53,8 @@ def doi_crossref(request):
     included in the dict.
     """
 
-    if 'doi' not in request.QUERY_PARAMS:
+    if 'doi' not in request.POST:
         return Response({"message": "missing DOI from request"}, status=status.HTTP_400_BAD_REQUEST)
 
-    doi_data = crossref.query(settings.CROSSREF_PID, request.QUERY_PARAMS['doi'])
+    doi_data = crossref.query(settings.CROSSREF_PID, request.POST['doi'])
     return Response(doi_data)
