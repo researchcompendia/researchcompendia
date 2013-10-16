@@ -12,7 +12,8 @@ A proof of concept for a research compendia webapp.
 * Issue tracker: https://github.com/researchcompendia/tyler/issues
 * Issue kanban: https://huboard.com/researchcompendia/tyler
 * Wiki: https://github.com/researchcompendia/tyler/wiki
-
+* Alpha Environment: http://alpha.researchcompendia.org or http://alpha-researchcompendia.herokuapp.com
+* Beta Environment: http://labs.researchcompendia.org or http://researchcompendia.herokuapp.com
 
 Introduction and Goals
 ----------------------
