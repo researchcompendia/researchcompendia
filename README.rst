@@ -8,58 +8,57 @@ Tyler
 A proof of concept for a research compendia webapp.
 
 * Free software: `MIT License <http://opensource.org/licenses/MIT>`_
-* Documentation: http://tyler.rtfd.org
+* Technical Documentation: http://tyler.rtfd.org
 * Issue tracker: https://github.com/researchcompendia/tyler/issues
 * Issue kanban: https://huboard.com/researchcompendia/tyler
 * Wiki: https://github.com/researchcompendia/tyler/wiki
+* IRC: #hackingscience on freenode.net
+* Alpha Environment: http://alpha.researchcompendia.org or http://alpha-researchcompendia.herokuapp.com
+* Beta Environment: http://labs.researchcompendia.org or http://researchcompendia.herokuapp.com
 
-
-
-Features
---------
-
-This is a proof of concept; please pardon the mess.
-
-* `home`: this handles the landing page, faq, and similar concerns that don't call for separate apps.
-* `members`: this handles member profiles. It's very spare for now.
-* `news`: this handles short twitteresque announcements and news. I'll probably dump this app. I just exists to demonstrate quickly something akin to newsfeed on the main page.
-* `supportingmaterials`: this handles pages for article companion sites with code and data. It's spare for now. I wanted a generic name so I picked supportingmaterials. what a meh name? I think I'll change it to compendia.
-
-TODOs
-+++++
-
-Ultimately this could combine the idea of executable papers and literate
-programming with continuous integration.  It could be the webapp that provides
-a front end to a set of services that act as a continuous integration system
-for researchers.
-
-References
-----------
+Introduction and Goals
+----------------------
 
 What are *research compendia*?
 
-Gentleman, Robert, and Duncan Temple Lang. 2007. “Statistical Analyses and Reproducible Research.” Journal of Computational and Graphical Statistics 16 (1): 1–23. doi:10.1198/106186007X178663. http://www.tandfonline.com/doi/abs/10.1198/106186007X178663.
+Gentleman and Temple Lang [#]_ presented the concept of a compendium as a collection of
+everything that has gone towards the work of a research publication. This idea reaches
+back towards the Knuth's concept of literate programming but overlayed with reproducibility concerns.
 
-  "We introduce the concept of a compendium as a container for one or more
-  dynamic documents and the different elements needed when processing them,
-  such as code and data. The compendium serves as a means for distributing,
-  managing, and updating the collection."
+The tyler application has the following goals.
+
+* We want to make it possible to collect all of the writing, code and data
+  in to an archivable form that represents what was presented at the time
+  of a publication or at any one point in time.
+* We want to provide a way for users to run compendia in non-trivial ways.
+* We want compendia to be re-mixable.
+* We want to help researchers manage their research in a way that makes it mixable and executable.
+
+
+If you are a programmer, you may find yourself thinking that some of these goals remind you of
+a continuous integration and build system. And yes, in some sense the goal with this
+prototype is to create a continuous integrations system for computational research.
+
+Project milestones are loosely organized on our `planning wiki page <https://github.com/researchcompendia/tyler/wiki/planning-scratchpads>`_.
+
+Project Structure
+-----------------
+
+This is a django project with the following structure.
+
+* `home`: this handles the landing page, faq, and similar concerns that don't call for separate apps.
+* `members`: this handles member profiles. User management and profile functionality is volatile for now, and we'll probably be overhauling it while we pull in the use of django-allauth.
+* `supportingmaterials`: this handles the archiving and representation of a compendia.
+* `lib`: this holds code that does not call for an app
+* `api`: this handles our service apis.
 
 
 Acknowledgements
 ----------------
 
-* Many thanks to future contributors
-* My coworkers
-* The reproducible and open science communities
-* `OpenHatch <http://openhatch.org/>`_
-* Many thanks to @audryr and @pydanny for https://django.2scoops.org/ and many other useful blog posts and repos.
-* Many thanks to everyone who has posted helpful information on using Heroku with Django.
+Make a separate acknowledgements page?
 
-This project's name comes from Rose Tyler, who was the first companion of The
-Doctor in the modern reboot. This is a reboot proof of concept for the original
-RunMyCode proof of concept, she fits. I also admit I used this naming convention
-in honor of my friend @willkg who gives his projects human names.
+References
+----------
 
-
-
+.. [#] Gentleman, Robert, and Duncan Temple Lang. 2007. “Statistical Analyses and Reproducible Research.” Journal of Computational and Graphical Statistics 16 (1): 1–23. doi:10.1198/106186007X178663. http://www.tandfonline.com/doi/abs/10.1198/106186007X178663.
