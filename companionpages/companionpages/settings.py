@@ -212,7 +212,6 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'home',
     'members',
-    'news',
     'supportingmaterials',
 )
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
