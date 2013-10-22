@@ -21,11 +21,7 @@
 
 <h1>Placeholder</h1>
 
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
-{{ form|crispy }}
-<input class="button" type="submit" value="Save Paper Data"/>
-</form>
+{% crispy form %}
 
-</div>
 
 {% endblock %}

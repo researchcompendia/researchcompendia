@@ -1,0 +1,2637 @@
+[
+  {
+    "coders": {}, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=312229", 
+    "legacy_id": "100", 
+    "authors": {
+      "Jushan Bai": {
+        "first": "Jushan", 
+        "last": "Bai", 
+        "author": true
+      }, 
+      "Serena Ng": {
+        "first": "Serena", 
+        "last": "Ng", 
+        "author": true
+      }
+    }, 
+    "abstract": "In this paper we develop some econometric theory for factor models of large dimensions. The focus is the determination of the number of factors (r), which is an unresolved issue in the rapidly growing literature on multifactor models. We first establish the convergence rate for the factor estimates that will allow for consistent estimation of r. We then propose some panel criteria and show that the number of factors can be consistently estimated using the criteria. The theory is developed under the framework of large cross-sections (N) and large time dimensions (T). No restriction is imposed on the relation between N and T. Simulations show that the proposed criteria have good finite sample properties in many configurations of the panel data encountered in practice.", 
+    "title": "Determining the Number of Factors in Approximate Factors Models", 
+    "journal": "Econometrica (2002)", 
+    "legacyid": "100", 
+    "explanatory_text": "This code computes the various panel criteria proposed by Bai and Ng (2002) to determine the number of factors in a multifactor model of large dimension. The required inputs simply consist in the (T,N) matrix of data (where T is the time dimension and N is the cross-section dimension) and the maximum number of potential factors considered. The codes computes the IC1, IC2, IC3, PC1, PC2, PC3, BIC3 (only BIC criteria function of N and T) and AIC3 (only AIC criteria function of N and T) criteria."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1016/S0304-4076(01)00098-7", 
+    "legacy_id": "101", 
+    "authors": {
+      "Chia-Shang James Chu": {
+        "first": "Chia-Shang", 
+        "last": "James Chu", 
+        "author": true
+      }, 
+      "Chien-Fu Lin": {
+        "first": "Chien-Fu", 
+        "last": "Lin", 
+        "author": true
+      }, 
+      "Andrew Levin": {
+        "first": "Andrew", 
+        "last": "Levin", 
+        "author": true
+      }
+    }, 
+    "abstract": "We consider pooling cross-section time series data for testing the unit root hypothesis. The degree of persistence in individual regression error, the intercept and trend coefficient are allowed to vary freely across individuals. As both the cross-section and time series dimensions of the panel grow large, the pooled t-statistic has a limiting normal distribution that depends on the regression specification but is free from nuisance parameters. Monte Carlo simulations indicate that the asymptotic results provide a good approximation to the test statistics in panels of moderate size, and that the power of the panel-based unit root test is dramatically higher, compared to performing a separate unitroottest for each individual time series.", 
+    "title": "Unit Root Tests in Panel Data: Asymptotic and Finite-Sample Properties", 
+    "journal": "Journal of Econometrics (2002)", 
+    "legacyid": "101", 
+    "explanatory_text": "This Matlab code computes the pooled t-statistic for the panel unit root test proposed by Levin, Lin and Chu (2002). The only required input is the (T,N) matrix of data (T is the time dimension and N is the cross section dimension). The user can choose the deterministic component: with no individual effects (model 1), with individual effects but no time trends (model 2), and with individual effects and time trends (model 3). The user can also choose the kernel function and the selection method for the bandwidth parameter. The individual lag orders are determined according to the BIC information criteria or provided by the user (optional). The code displays the corrected (and non-corrected) pooled t-statistic with its p-value, the mean and variance adjustment factors, and other information."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www.jstor.org/discover/10.2307/1914215?uid=3738016&uid=2&uid=4&sid=56146953873", 
+    "legacy_id": "102", 
+    "authors": {
+      "Forrest D Nelson": {
+        "first": "Forrest", 
+        "last": "D Nelson", 
+        "author": true
+      }, 
+      "Gangadharrao Soundalyarao Maddala": {
+        "first": "Gangadharrao", 
+        "last": "Soundalyarao Maddala", 
+        "author": true
+      }
+    }, 
+    "abstract": "For the abstract, please click on: http://www.jstor.org/discover/10.2307/1914215?uid=3738016&uid=2&uid=4&sid=56146953873", 
+    "title": "Maximum Likelihood Methods for Models of Markets in Disequilibrium", 
+    "journal": "Econometrica (1974)", 
+    "legacyid": "102", 
+    "explanatory_text": "This Matlab code computes the Maximum Likelihood (ML) estimates of the parameters of a disequilibrium model according to the methodology proposed by Maddala and Nelson (1974) or Quandt (1988). The user provides the dependant variable and the explicative variables of both regimes (supply and demand regimes). The ML estimation is done without any constraint on the parameter (by default) or with positivity constraints on the standard errors of both regimes. For more information about the model used, please download the following pdf file."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Santiago Herrera": {
+        "affiliation": "World Bank", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Herrera", 
+        "first": "Santiago"
+      }, 
+      "Chahir Zaki": {
+        "affiliation": "Cairo University", 
+        "coder": true, 
+        "country": "Egypt", 
+        "last": "Zaki", 
+        "first": "Chahir"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2087319", 
+    "legacy_id": "104", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Santiago Herrera": {
+        "first": "Santiago", 
+        "last": "Herrera", 
+        "author": true
+      }, 
+      "Chahir Zaki": {
+        "first": "Chahir", 
+        "last": "Zaki", 
+        "author": true
+      }
+    }, 
+    "abstract": "Bank credit to the private sector fell as a share to GDP during the last decade, in spite of a successful bank recapitalization in the middle of the 2000s and high and stable growth before the recent macroeconomic turmoil. This paper explains this trend based on both bank supply factors and demand for credit from the private sector. First the paper describes the evolution of the banks\u2019 sources and uses of funds in the period 2005-2011, characterized by two different cycles of external capital flows. Then it estimates supply and demand equations of credit to the private sector, using quarterly data for the period 1999-2011. First, the system of simultaneous equations is estimated assuming continuous market clearing. Then the system is estimated allowing for transitory disequilibrium. In general, the main results are robust to the market clearing assumption. Our main findings show that, while real industrial production and the stock market have a significant impact on credit demand, deposits and claims on government affected the supply of credit in Egypt. Finally, both models yield similar results for the most recent period of private credit contraction: the single most important factor explaining the largest share of the decline is the expansion of banking credit to the public sector. The slowdown in economic activity and the contraction of bank deposits explain the remainder of the predicted contraction in bank credit to the private sector.", 
+    "title": "Why don\u2019t Banks Lend to the Private Sector in Egypt? ", 
+    "journal": "World Bank Working Paper Series (2012)", 
+    "legacyid": "104", 
+    "explanatory_text": "This Matlab code computes the Maximum Likelihood (ML) estimates of the parameters of a disequilibrium model according to the methodology proposed by Maddala and Nelson (1974) or Quandt (1988). The user provides the dependant variable and the explicative variables of both regimes (supply and demand regimes). The ML estimation is done without any constraint on the parameter (by default) or with positivity constraints on the standard errors of both regimes. For more information about the model used, please download the following pdf file."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://onlinelibrary.wiley.com/doi/10.1111/1468-0084.0610s1631/abstract", 
+    "legacy_id": "108", 
+    "authors": {
+      "Shaowen Wu": {
+        "first": "Shaowen", 
+        "last": "Wu", 
+        "author": true
+      }, 
+      "Gangadharrao Soundalyarao Maddala": {
+        "first": "Gangadharrao", 
+        "last": "Soundalyarao Maddala", 
+        "author": true
+      }
+    }, 
+    "abstract": "The panel data unit root test suggested by Levin and Lin (LL) has been widely used in several applications, notably in papers on tests of the purchasing power parity hypothesis. This test is based on a very restrictive hypothesis which is rarely ever of interest in practice. The Im\u2013Pesaran\u2013Shin (IPS) test relaxes the restrictive assumption of the LL test. This paper argues that although the IPS test has been offered as a generalization of the LL test, it is best viewed as a test for summarizing the evidence from a number of independent tests of the sample hypothesis. This problem has a long statistical history going back to R. A. Fisher. This paper suggests the Fisher test as a panel data unit root test, compares it with the LL and IPS tests, and the Bonferroni bounds test which is valid for correlated tests. Overall, the evidence points to the Fisher test with bootstrap-based critical values as the preferred choice. We also suggest the use of the Fisher test for testing stationarity as the null and also in testing for cointegration in panel data.", 
+    "title": "A Comparative Study of Unit Root Tests with Panel Data and a New Simple Test", 
+    "journal": "Oxford Bulletin of Economics and Statistics (1999)", 
+    "legacyid": "108", 
+    "explanatory_text": "This Matlab code computes the Fisher (1932) type panel unit root tests, proposed by Choi (2001) and Maddala and Wu (1999). Both tests combine the significant levels obtained from individual ADF tests. The only required inputs is the (T,N) matrix of data, where T is the time dimension and N is the cross section one. The user can choose the deterministic component: with no individual effects (model 1), with individual effects but no time trends (model 2), and with individual effects and time trends (model 3). The individual lag orders are determined according to the BIC information criteria or provided by the user (optional). For more details, see the survey of Hurlin and Mignon (2007) on panel unit root tests."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1016/S0261-5606(00)00048-6", 
+    "legacy_id": "109", 
+    "authors": {
+      "In Choi": {
+        "first": "In", 
+        "last": "Choi", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper develops unit root tests for panel data. These tests are devised under more general assumptions than the tests previously proposed. First, the number of groups in the panel data is assumed to be either finite or infinite. Second, each group is assumed to have different types of nonstochastic and stochastic components. Third, the time series spans for the groups are assumed to be all different. Fourth, the alternative where some groups have a unit root and others do not can be dealt with by the tests. The tests can also be used for the null of stationarity and for cointegration, once relevant changes are made in the model, hypotheses, assumptions and underlying tests. The main idea for our unit root tests is to combine p-values from a unit root test applied to each group in the panel data. Combining p-values to formulate tests is a common practice in meta-analysis. This paper also reports the finite sample performance of our combination unit root tests and Im et al.'s [Mimeo (1995)] t-bar test. The results show that most of the combination tests are more powerful than the t-bar test in finite samples. Application of the combination unit root tests to the post-Bretton Woods US real exchange rate data provides some evidence in favor of the PPP hypothesis.", 
+    "title": "Unit Root Tests for Panel Data", 
+    "journal": "Journal of International Money and Finance (2001)", 
+    "legacyid": "109", 
+    "explanatory_text": "This Matlab code computes the Fisher (1932) type panel unit root tests, proposed by Choi (2001) and Maddala and Wu (1999). Both tests combine the significant levels obtained from individual ADF tests. The only required inputs is the (T,N) matrix of data, where T is the time dimension and N is the cross section one. The user can choose the deterministic component: with no individual effects (model 1), with individual effects but no time trends (model 2), and with individual effects and time trends (model 3). The individual lag orders are determined according to the BIC information criteria or provided by the user (optional). For more details see the survey of Hurlin and Mignon (2007) on panel unit root tests."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1016/S0304-4076(03)00092-7", 
+    "legacy_id": "110", 
+    "authors": {
+      "Yongcheol Shin": {
+        "first": "Yongcheol", 
+        "last": "Shin", 
+        "author": true
+      }, 
+      "Hashem M Pesaran": {
+        "first": "Hashem", 
+        "last": "M Pesaran", 
+        "author": true
+      }, 
+      "Kyung So Im": {
+        "first": "Kyung", 
+        "last": "So Im", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes unit root tests for dynamic heterogeneous panels based on the mean of individual unit root statistics. In particular it proposes a standardized t-bar test statistic based on the (augmented) Dickey\u2013Fuller statistics averaged across the groups. Under a general setting this statistic is shown to converge in probability to a standard normal variate sequentially with T (the time series dimension) \u2192\u221e, followed by N (the cross sectional dimension) \u2192\u221e. A diagonal convergence result with T and N\u2192\u221e while N/T\u2192k,k being a finite non-negative constant, is also conjectured. In the special case where errors in individual Dickey\u2013Fuller (DF) regressions are serially uncorrelated a modified version of the standardized t-bar statistic is shown to be distributed as standard normal as N\u2192\u221e for a fixed T, so long as T>5 in the case of DF regressions with intercepts and T>6 in the case of DF regressions with intercepts and linear time trends. An exact fixed N and T test is also developed using the simple average of the DF statistics. Monte Carlo results show that if a large enough lag order is selected for the underlying ADF regressions, then the small sample performances of the t-bar test is reasonably satisfactory and generally better than the test proposed by Levin and Lin (Unpublished manuscript, University of California, San Diego, 1993).", 
+    "title": "Testing for Unit Roots in Heterogeneous Panels ", 
+    "journal": "Journal of Econometrics (2003)", 
+    "legacyid": "110", 
+    "explanatory_text": "This Matlab code computes the various panel unit root test statistics proposed by Im, Pesaran and Shin (2003) for heterogeneous panels. The only required input is the (T,N) matrix of data, where T is the time dimension and N is the cross sectional one. The panel data can be balanced or unbalanced. The user can choose the deterministic component: with no individual effects (model 1), with individual effects but no time trends (model 2), and with individual effects and time trends (model 3). The individual lag orders are determined according to the BIC information criteria. The code displays the t-bar statistic (mean of individual ADF statistics), the two standardize IPS statistics (Wbar and Zbar) and their p-values. For more details, see the survey by Hurlin and Mignon (2007)."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1016/j.jeconom.2003.10.020", 
+    "legacy_id": "111", 
+    "authors": {
+      "Benoit Perron": {
+        "first": "Benoit", 
+        "last": "Perron", 
+        "author": true
+      }, 
+      "Hyungsik Roger Moon": {
+        "first": "Hyungsik", 
+        "last": "Roger Moon", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper studies testing for a unit root for large n and T panels in which the cross-sectional units are correlated. To model this cross-sectional correlation, we assume that the data are generated by an unknown number of unobservable common factors. We propose unit root tests in this environment and derive their (Gaussian) asymptotic distribution under the null hypothesis of a unit root and local alternatives. We show that these tests have significant asymptotic power when the model has no incidental trends. However, when there are incidental trends in the model and it is necessary to remove heterogeneous deterministic components, we show that these tests have no power against the same local alternatives. Through Monte Carlo simulations, we provide evidence on the finite sample properties of these new tests.", 
+    "title": "Testing for a Unit Root in Panels with Dynamic Factors", 
+    "journal": "Journal of Econometrics (2004)", 
+    "legacyid": "111", 
+    "explanatory_text": "This Matlab code computes the panel unit root test statistics proposed by Moon and Perron (2002) for panels with dynamic factors. The user can put his (T,N) matrix of data (where T is the time dimension and N is the cross section one) and choose the deterministic component: with individual effects but no time trends or with individual effects and time trends. The user can also choose the kernel function and the selection method for the bandwidth parameter. The optimal number of common factors will be automatically determined according the chosen information criteria (see Bai and Ng, 2002). The code displays both the ta_bar and tb_bar statistics of the null hypothesis of a unit root and their p-value. For more detail see the survey of Hurlin and Mignon (2007)."
+  }, 
+  {
+    "coders": {
+      "Michael Elad": {
+        "affiliation": "Technion - Israel Institute of Technology", 
+        "coder": true, 
+        "country": "Israel", 
+        "last": "Elad", 
+        "first": "Michael"
+      }, 
+      "Vladimir Temlyakov": {
+        "affiliation": "University of South Carolina", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Temlyakov", 
+        "first": "Vladimir"
+      }, 
+      "David Donoho": {
+        "affiliation": "Stanford University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Donoho", 
+        "first": "David"
+      }
+    }, 
+    "article_url": "http://www-stat.stanford.edu/~donoho/Reports/2004/StableSparse-Donoho-etal.pdf", 
+    "legacy_id": "115", 
+    "authors": {
+      "Michael Elad": {
+        "first": "Michael", 
+        "last": "Elad", 
+        "author": true
+      }, 
+      "Vladimir Temlyakov": {
+        "first": "Vladimir", 
+        "last": "Temlyakov", 
+        "author": true
+      }, 
+      "David Donoho": {
+        "first": "David", 
+        "last": "Donoho", 
+        "author": true
+      }
+    }, 
+    "abstract": "Overcomplete representations are attracting interest in signal processing theory, particularly due to their potential to generate sparse representations of signals. However, in general, the problem of finding sparse representations must be unstable in the presence of noise. This paper establishes the possibility of stable recovery under a combination of sufficient sparsity and favorable structure of the overcomplete system. Considering an ideal underlying signal that has a sufficiently sparse representation, it is assumed that only a noisy version of it can be observed. Assuming further that the overcomplete system is incoherent, it is shown that the optimally sparse approximation to the noisy data differs from the optimally sparse decomposition of the ideal noiseless signal by at most a constant multiple of the noise level. As this optimal-sparsity method requires heavy (combinatorial) computational effort, approximation algorithms are considered. It is shown that similar stability is also available using the basis and the matching pursuit algorithms. Furthermore, it is shown that these methods result in sparse approximation of the noisy data that contains only terms also appearing in the unique sparsest representation of the ideal noiseless sparse signal.", 
+    "title": "Stable Recovery of Sparse Overcomplete Representations in the Presence of Noise", 
+    "journal": "Transactions on Information Theory (2006)", 
+    "legacyid": "115", 
+    "explanatory_text": "This code studies the stability of various algorithms in finding sparse representations in the presence of noise. In particular, the l^1 method and the orthogonal greedy algorithm are proposed. And for each method, the figures obtained depict the representation error and signal error represented as a function of the noise level, as well as the support recovery success (in percent). The inputs required are the length of the signal and the number of trials. For more information, please visit the SparseLab (Seeking Sparse Solutions to Linear Systems of Equations) website (http://sparselab.stanford.edu/)."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www.homepages.ucl.ac.uk/~uctprgi/Files/CPA.pdf", 
+    "legacy_id": "116", 
+    "authors": {
+      "Halbert White": {
+        "first": "Halbert", 
+        "last": "White", 
+        "author": true
+      }, 
+      "Raffaella Giacomini": {
+        "first": "Raffaella", 
+        "last": "Giacomini", 
+        "author": true
+      }
+    }, 
+    "abstract": "We propose a framework for out-of-sample predictive ability testing and forecast selection designed for use in the realistic situation in which the forecasting model is possibly misspecified, due to unmodeled dynamics, unmodeled heterogeneity, incorrect functional form, or any combination of these. Relative to the existing literature (Diebold and Mariano (1995) and West (1996)), we introduce two main innovations: (i) We derive our tests in an environment where the finite sample properties of the estimators on which the forecasts may depend are preserved asymptotically. (ii) We accommodate conditional evaluation objectives (can we predict which forecast will be more accurate at a future date?), which nest unconditional objectives (which forecast was more accurate on average?), that have been the sole focus of previous literature. As a result of (i), our tests have several advantages: they capture the effect of estimation uncertainty on relative forecast performance, they can handle forecasts based on both nested and nonnested models, they allow the forecasts to be produced by general estimation methods, and they are easy to compute. Although both unconditional and conditional approaches are informative, conditioning can help fine-tune the forecast selection to current economic conditions. To this end, we propose a two-step decision rule that uses current information to select the best forecast for the future date of interest. We illustrate the usefulness of our approach by comparing forecasts from leading parameter-reduction methods for macroeconomic forecasting using a large number of predictors.", 
+    "title": "Tests of Conditional Predictive Ability ", 
+    "journal": "Econometrica (2006)", 
+    "legacyid": "116", 
+    "explanatory_text": "This code proposes a general framework for out-of-sample predictive ability testing and forecast selection when the model can be misspecified. It can be applied to different types of forecasts issued from both nested and non-nested models using different estimation techniques for a general loss function (chosen by the user). It accommodates both conditional and unconditional evaluation objectives. The null is H0: E( Loss(model A) - Loss(model B) )= 0. The sign of the test-statistics indicates which forecast performs better: a positive test-statistic indicates that model A forecast produces larger average loss than the model B forecast (model B outperforms model A), while a negative sign indicates the opposite."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1492177", 
+    "legacy_id": "12", 
+    "authors": {
+      "Juan Carlos Escanciano": {
+        "first": "Juan", 
+        "last": "Carlos Escanciano", 
+        "author": true
+      }
+    }, 
+    "abstract": "This article investigates model checks for a class of possibly nonlinear heteroskedastic time series models, including but not restricted to ARMA-GARCH models. We propose omnibus tests based on functionals of certain weighted standardized residual empirical processes. The new tests are asymptotically distribution-free, suitable when the conditioning set is infinite-dimensional, and consistent against a class of Pitman\u2019s local alternatives converging at the parametric rate n-1/2, with n the sample size. A Monte Carlo study shows that the simulated level of the proposed tests is close to the asymptotic level already for moderate sample sizes and that tests have a satisfactory power performance. Finally, we illustrate our methodology with an application to the well-known S&P 500 daily stock index. The paper also contains an asymptotic uniform expansion for weighted residual empirical processes when initial conditions are considered, a result of independent interest.", 
+    "title": "Asymptotic Distribution-Free Diagnostic Tests For Heteroskedastic Time Series", 
+    "journal": "Econometric Theory (2010)", 
+    "legacyid": "12", 
+    "explanatory_text": "For a user defined ARMA-GARCH model, the code evaluates the CvVn an KSn statistices defined in the Escanciano\u2019s article, the objective being to realize a joint test for the specification of the mean and the variance equations.The statistics are given for various initial weights (g0 in the Escanciano\u2019s paper) in order to study specific deviations from the null hypothesis."
+  }, 
+  {
+    "coders": {
+      "Michael Elad": {
+        "affiliation": "Technion - Israel Institute of Technology", 
+        "coder": true, 
+        "country": "Israel", 
+        "last": "Elad", 
+        "first": "Michael"
+      }, 
+      "David Donoho": {
+        "affiliation": "Stanford University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Donoho", 
+        "first": "David"
+      }
+    }, 
+    "article_url": "http://www.cs.technion.ac.il/~elad/publications/journals/2004/26_Stability_EURASIP.pdf", 
+    "legacy_id": "127", 
+    "authors": {
+      "Michael Elad": {
+        "first": "Michael", 
+        "last": "Elad", 
+        "author": true
+      }, 
+      "David Donoho": {
+        "first": "David", 
+        "last": "Donoho", 
+        "author": true
+      }
+    }, 
+    "abstract": "Given a signal S ( R^N and a full-rank matrix D ( R^NL with N<L, we define the signal\u2019s over-complete representation as a ( R^L satisfying S=Da. Among the infinitely many solutions of this under-determined linear system of equations, we have special interest in the sparsest representation, i.e., the one minimizing ||a||0. This problem has a combinatorial flavor to it, and its direct solution is impossible even for moderate L. Approximation algorithms are thus required, and one such appealing technique is the basis pursuit (BP) algorithm. This algorithm has been the focus of recent theoretical research effort. It was found that if indeed the representation is sparse enough, BP finds it accurately. When an error is permitted in the composition of the signal, we no longer require exact equality S=Da. The BP has been extended to treat this case, leading to a denoizing algorithm. The natural question to pose is how the abovementioned theoretical results generalize to this more practical mode of operation. In this paper we propose such a generalization. The behavior of the basis pursuit in the presence of noise has been the subject of two independent very wide contributions released for publication very recently. This paper is another contribution in this direction, but as opposed to the others mentioned, this paper aims to present a somewhat simplified picture of the topic, and thus could be referred to as a primer to this field. Specifically, we establish here the stability of the BP in the presence of noise for sparse enough representations. We study both the case of a general dictionary D, and a special case where D is built as a union of orthonormal bases. This work is a direct generalization of noiseless BP study, and indeed, when the noise power is reduced to zero, we obtain the known results of the noiseless BP.", 
+    "title": "On the Stability of the Basis Pursuit in the Presence of Noise ", 
+    "journal": "Signal Processing (2006)", 
+    "legacyid": "127", 
+    "explanatory_text": "This code analyses graphically the behavior of the basis pursuit (BP) algorithm in presence of noise. The stability conditions are given for a general dictionary as well as for a union of orthonormal matrices. For this, the user must specify the mutual incoherence (M), the signal length (N), the noise-to-signal-ratio (NSR), the maximal number of orthonormal matrices (J) and the normalized NSR, (R). Set M to 1/100 to get the same second set of plots as in the paper. For more information, please visit the SparseLab (Seeking Sparse Solutions to Linear Systems of Equations) website (http://sparselab.stanford.edu/)."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Dumitrescu", 
+        "first": "Elena-Ivona"
+      }
+    }, 
+    "article_url": "http://hal.inria.fr/docs/00/67/16/58/PDF/DvarLyxF.pdf", 
+    "legacy_id": "128", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Vinson Pham": {
+        "first": "Vinson", 
+        "last": "Pham", 
+        "author": true
+      }
+    }, 
+    "abstract": "In this paper we propose a new tool for backtesting that examines the quality of Value-at-Risk (VaR) forecasts. To date, the most distinguished regression-based backtest, proposed by Engle and Manganelli (2004), relies on a linear model. However, in view of the dichotomic character of the series of violations, a non-linear model seems more appropriate. In this paper we thus propose a new tool for backtesting (denoted DB) based on a dynamic binary regression model. Our discrete-choice model, e.g. Probit, Logit, links the sequence of violations to a set of explanatory variables including the lagged VaR and thelagged violations in particular. It allows us to separately test the unconditional coverage, the independence and the conditional coverage hypotheses and it is easy to implement. Monte-Carlo experiments show that the DB test exhibits good small sample properties in realistic sample settings (5% coverage rate with estimation risk). An application on a portfolio composed of three assets included in the CAC40 market index is finally proposed.", 
+    "title": "Backtesting Value-at-Risk: From Dynamic Quantile to Dynamic Binary Tests", 
+    "journal": "Finance (2012)", 
+    "legacyid": "128", 
+    "explanatory_text": "This code implements the Dynamic Binary (DB) backtest based on non-linear regression models to test for the conditional coverage hypothesis in VaR forecasts. Several specifications are considered for the DB test, including the lagged violations and the lagged VaR. For comparison reasons the DQ (Engle Manganelli, 2005) and LRCC (Christoffersen, 1998) tests are also presented. The code requires a sequence of VaR violations (binary indicator, 1 if violation, 0 otherwise), and the sequence of VaR for the \u03b1 coverage rate. The number of lags to be used in the test and the coverage rate at which the VaR has been computed are selected in a further step."
+  }, 
+  {
+    "coders": {
+      "Jared Tanner": {
+        "affiliation": "University of Oxford", 
+        "coder": true, 
+        "country": "United Kingdom", 
+        "last": "Tanner", 
+        "first": "Jared"
+      }, 
+      "David Donoho": {
+        "affiliation": "Stanford University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Donoho", 
+        "first": "David"
+      }
+    }, 
+    "article_url": "http://www-stat.stanford.edu/~donoho/Reports/2005/NonNegative-R5.pdf", 
+    "legacy_id": "129", 
+    "authors": {
+      "Jared Tanner": {
+        "first": "Jared", 
+        "last": "Tanner", 
+        "author": true
+      }, 
+      "David Donoho": {
+        "first": "David", 
+        "last": "Donoho", 
+        "author": true
+      }
+    }, 
+    "abstract": "Consider an underdetermined system of linear equations y = Ax with known d*n matrix A and known y. We seek the sparsest nonnegative solution, i.e. the nonnegative x with fewest nonzeros satisfying y = Ax. In general this problem is NP-hard. However, for many matrices A there is a threshold phenomenon: if the sparsest solution is sufficiently sparse, it can be found by linear programming. In classical convex polytope theory, a polytope P is called k-neighborly if every set of k vertices of P span a face of P. Let aj denote the j-th column of A, 1<=_j<=_n, let a0 = 0 and let P denote the convex hull of the aj . We say P is outwardly k-neighborly if every subset of k vertices not including 0 spans a face of P. We show that outward k-neighborliness is completely equivalent to the statement that, whenever y = Ax has a nonnegative solution with at most k nonzeros, it is the nonnegative solution to y = Ax having minimal sum. Using this and classical results on polytope neighborliness we obtain two types of corollaries. First, because many [d/2]-neighborly polytopes are known, there are many systems where the sparsest solution is available by convex optimization rather than combinatorial optimization - provided the answer has fewer nonzeros than half the number of equations. We mention examples involving incompletely-observed Fourier transforms and Laplace transforms. Second, results on classical neighborliness of high-dimensional randomly-projected simplices imply that, if A is a typical uniformly-distributed random orthoprojector with n = 2d and n large, the sparsest nonnegative solution to y = Ax can be found by linear programming provided it has fewer nonzeros than 1/8 the number of equations. We also consider a notion of weak neighborliness, in which the overwhelming majority of k-sets of aj's not containing 0 span a face. This implies that most nonnegative vectors x with k nonzeros are uniquely determined by y = Ax. As a corollary of recent work counting faces of random simplices, it is known that most polytopes P generated by large n by 2n uniformly-distributed orthoprojectors A are weakly k-neighborly with k _~.558n. We infer that for most n by 2n underdetermined systems having a sparse solution with fewer nonzeros than roughly half the number of equations, the sparsest solution can be found by linear programming.", 
+    "title": "Sparse Nonnegative Solution of Underdetermined Linear Equations by Linear Programming ", 
+    "journal": "Proceedings of the National Academy of Sciences of the United States of America (2005)", 
+    "legacyid": "129", 
+    "explanatory_text": "This code outputs a graphic that presents the fraction of successes in convex (LP) optimization recovering the combinatorial (NP) optimization outcomes. The equivalence phase transition is depicted as a function of the aspect ratio gamma and the sparsity through the phase transition rho. The user must specify the number of points generated, the length of the solution (n), the number of points for \u03b4 and \u03c1, as well as the number of trials performed to compute the fraction of equivalence. The larger the parameters specified (in particular the number of trials), the longer the code takes to run! For more information, please visit the SparseLab (Seeking Sparse Solutions to Linear Systems of Equations) website (http://sparselab.stanford.edu/)."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=932890", 
+    "legacy_id": "13", 
+    "authors": {
+      "Andrew J. Patton": {
+        "first": "Andrew", 
+        "last": "J. Patton", 
+        "author": true
+      }
+    }, 
+    "abstract": "The use of a conditionally unbiased, but imperfect, volatility proxy can lead to undesirable outcomes in standard methods for comparing conditional variance forecasts. We motivate our study with analytical results on the distortions caused by some widely used loss functions, when used with standard volatility proxies such as squared returns, the intra-daily range or realised volatility. We then derive necessary and sufficient conditions on the functional form of the loss function for the ranking of competing volatility forecasts to be robust to the presence of noise in the volatility proxy, and derive some useful special cases of this class of \u201crobust\u201d loss functions. The methods are illustrated with an application to the volatility of returns on IBM over the period 1993 to 2003.", 
+    "title": "Volatility Forecast Comparison Using Imperfect Volatility Proxies", 
+    "journal": "Journal of Econometrics (2011)", 
+    "legacyid": "13", 
+    "explanatory_text": "This code compares volatility forecasts from two models (A and B). It produces the t-statistics from Diebold\u2013Mariano\u2013West tests of equal predictive accuracy. The null is expressed as follows H0: Loss(model A) - Loss(model B) = 0. The sign of the t-statistics indicates which forecast performs better for each loss function: a positive t-statistic indicates that model A forecast produces larger average loss than the model B forecast, while a negative sign indicates the opposite. The statistics are displayed for various values of the scale parameter b of the loss function (equation 24, page 252), chosen by the user. The cases b = 0 and b = \u22122 correspond to the MSE and QLIKE loss functions, respectively."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www.cs.technion.ac.il/~elad/publications/journals/2005/33_Shrink_IEEE_TIT.pdf", 
+    "legacy_id": "131", 
+    "authors": {
+      "Michael Elad": {
+        "first": "Michael", 
+        "last": "Elad", 
+        "author": true
+      }
+    }, 
+    "abstract": "Shrinkage is a well known and appealing denoising technique, introduced originally by Donoho and Johnstone in 1994. The use of shrinkage for denoising is known to be optimal for Gaussian white noise, provided that the sparsity on the signal\u2019s representation is enforced using a unitary transform. Still, shrinkage is also practiced with non-unitary, and even redundant representations, typically leading to very satisfactory results. In this paper we shed some light on this behavior. The main argument in this paper is that such simple shrinkage could be interpreted as the first iteration of an algorithm that solves the basis pursuit denoising (BPDN) problem. While the desired solution of BPDN is hard to obtain in general, we develop in this paper a simple iterative procedure for the BPDN minimization that amounts to step-wise shrinkage. We demonstrate how the simple shrinkage emerges as the first iteration of this novel algorithm. Furthermore, we show how shrinkage can be iterated, turning into an effective algorithm that minimizes the BPDN via simple shrinkage steps, in order to further strengthen the denoising effect.", 
+    "title": "Why Simple Shrinkage is Still Relevant for Redundant Representations?", 
+    "journal": "IEEE Transactions on Information Theory (2006)", 
+    "legacyid": "131", 
+    "explanatory_text": "This code graphically illustrates the performance of various denoising algorithms, including the IRLS (Iterative Reweighting Least-Squares) and three versions of shrinkage, namely simple, parallel and sequential. Their performance at the first and last iteration is gauged. For this, Kmax ortho-matrices of a given size (n) are randomly generated to construct the dictionary. The number of non-zeros, the strength of the noise and the number of iterations must also be specified. As random dictionaries are used, the figures may show slight deviation from the paper's figures. The computational time also varies and it can easily exceed 10 minutes. For more information, please visit the SparseLab (Seeking Sparse Solutions to Linear Systems of Equations) website (http://sparselab.stanford.edu/)."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://doi.ieeecomputersociety.org/10.1109/TPAMI.2008.300", 
+    "legacy_id": "132", 
+    "authors": {
+      "Gregory Randall": {
+        "first": "Gregory", 
+        "last": "Randall", 
+        "author": true
+      }, 
+      "Rafael Grompone von Gioi": {
+        "first": "Rafael", 
+        "last": "Grompone von Gioi", 
+        "author": true
+      }, 
+      "Jean-Michel Morel": {
+        "first": "Jean-Michel", 
+        "last": "Morel", 
+        "author": true
+      }, 
+      "J\u00e9r\u00e9mie Jakubowicz": {
+        "first": "J\u00e9r\u00e9mie", 
+        "last": "Jakubowicz", 
+        "author": true
+      }
+    }, 
+    "abstract": "We propose a linear-time line segment detector that gives accurate results, a controlled number of false detections, and requires no parameter tuning. This algorithm is tested and compared to state-of-the-art algorithms on a wide set of natural images.", 
+    "title": "LSD: A Fast Line Segment Detector with a False Detection Control", 
+    "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence (2010)", 
+    "legacyid": "132", 
+    "explanatory_text": "LSD is a linear-time Line Segment Detector giving subpixel accurate results. It is designed to work on any digital image without parameter tuning. It controls its own number of false detections: On average, one false alarms is allowed per image [1]. The method is based on Burns, Hanson, and Riseman's method [2], and uses an a contrario validation approach according to the Desolneux, Moisan, and Morel's theory [3,4]. The version described here includes some further improvement over the one described in [1]."
+  }, 
+  {
+    "coders": {
+      "Jared Tanner": {
+        "affiliation": "University of Oxford", 
+        "coder": true, 
+        "country": "United Kingdom", 
+        "last": "Tanner", 
+        "first": "Jared"
+      }, 
+      "David Donoho": {
+        "affiliation": "Stanford University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Donoho", 
+        "first": "David"
+      }
+    }, 
+    "article_url": "http://www-stat.stanford.edu/~donoho/Reports/2005/NRPSHD-R3.pdf ", 
+    "legacy_id": "133", 
+    "authors": {
+      "Jared Tanner": {
+        "first": "Jared", 
+        "last": "Tanner", 
+        "author": true
+      }, 
+      "David Donoho": {
+        "first": "David", 
+        "last": "Donoho", 
+        "author": true
+      }
+    }, 
+    "abstract": "Let A be a d by n matrix, d < n. Let T = T^n-1 be the standard regular simplex in R^n. We count the faces of the projected simplex AT in the case where the projection is random, the dimension d is large and n and d are comparable: d ~ dn, d in (0, 1). The projector A is chosen uniformly at random from the Grassmann manifold of d-dimensional orthoprojectors of R^n. We derive ?N( d) > 0 with the property that, for any ? < ? N( deter), with overwhelming probability for large d, the number of k-dimensional faces of P = AT is exactly the same as for T, for 0<=k<= ?d. This implies that P is [?d]-neighborly, and its skeleton Skel[? d] ( P) is combinatorially equivalent to Skel[?d] (T). We display graphs of ?N. We also study a weaker notion of neighborliness it asks if the k-faces are all simplicial and if the numbers of k-dimensional faces fk(P) >= fk(T)(1-e). This was already considered by Vershik and Sporyshev, who obtained qualitative results about the existence of a threshold ? VS(d) > 0 at which phase transition occurs in k/d. We compute and display ?VS and compare to ?N. Our results imply that the convex hull of n Gaussian samples in R^d, with n large and proportional to d, \u2018looks like a simplex\u2019 in the following sense. In a typical realization of such a high-dimensional Gaussian point cloud d~ dn, all points are on the boundary of the convex hull, and all pairwise line segments, triangles, quadrangles, \u2026, [?d]-angles are on the boundary, for ?<? N(d/n). Our results also quantify a precise phase transition in the ability of linear programming to find the sparsest nonnegative solution to typical systems of underdetermined linear equations; when there is a solution with fewer than ?VS(d/n)d nonzeros, linear programming will find that solution.", 
+    "title": "Neighborliness of Randomly-Projected Simplices in High Dimensions ", 
+    "journal": "Proceedings of the National Academy of Sciences of the United States of America (2005)", 
+    "legacyid": "133", 
+    "explanatory_text": "This code provides graphs of the neighborliness threshold rho computed by Donoho and Tanner relatively to the Vershick-Sporyshev one. It also presents the behavior of the exponents for the combinatorial prefactor, external and internal angle. For more information, please visit the SparseLab (Seeking Sparse Solutions to Linear Systems of Equations) website (http://sparselab.stanford.edu/)."
+  }, 
+  {
+    "coders": {
+      "Carole Bernard": {
+        "affiliation": "University of Waterloo", 
+        "coder": true, 
+        "country": "Canada", 
+        "last": "Bernard", 
+        "first": "Carole"
+      }, 
+      "Zhenyu Cui": {
+        "affiliation": "brooklyn college", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Cui", 
+        "first": "Zhenyu"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2115881", 
+    "legacy_id": "135", 
+    "authors": {
+      "Carole Bernard": {
+        "first": "Carole", 
+        "last": "Bernard", 
+        "author": true
+      }, 
+      "Zhenyu Cui": {
+        "first": "Zhenyu", 
+        "last": "Cui", 
+        "author": true
+      }
+    }, 
+    "abstract": "We derive closed-form expressions for the fair strike of a discrete variance swap for a general time-homogeneous stochastic volatility model. In the special cases of Heston and Hull-White stochastic volatility models we give simple explicit expressions (improving Broadie and Jain (2008a) for the Heston case). We give conditions on parameters under which the fair strike of a discrete variance swap is higher or lower than the continuous variance swap. Interest rates and correlation between underlying price and its volatility are key elements in this analysis. We derive asymptotics for the discrete variance swaps and compare our results with those of Broadie and Jain (2008a), Jarrow et al. (2012) and Keller-Ressel (2011).", 
+    "title": "Prices and Asymptotics for Discrete Variance Swaps", 
+    "journal": "SSRN (2012)", 
+    "legacyid": "135", 
+    "explanatory_text": "The program implements formulas for each proposition of the paper. In particular it computes the fair strike of the discrete variance swap and the continuous variance swap in the Heston and Hull-White model. It also gives asymptotics."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www-stat.stanford.edu/~donoho/Reports/2005/HDCSPwNP2Dim.pdf ", 
+    "legacy_id": "138", 
+    "authors": {
+      "David Donoho": {
+        "first": "David", 
+        "last": "Donoho", 
+        "author": true
+      }
+    }, 
+    "abstract": "Let A be a d by n matrix, d < n. Let C be the regular cross polytope (octahedron) in Rn. It has recently been shown that properties of the centrosymmetric polytope P = AC are of interest for finding sparse solutions to the underdetermined system of equations y = Ax; [9]. In particular, it is valuable to know that P is centrally k-neighborly. We study the face numbers of randomly-projected cross-polytopes in the proportional dimensional case where dn, where the projector A is chosen uniformly at random from the Grassmann manifold of d-dimensional orthoprojectors of Rn. We derive ?N(d) > 0 with the property that, for any ? < ?N(d), with overwhelming probability for large d, the number of k-dimensional faces of P = AC is the same as for C, for 0 k d. This implies that P is centrally bdc-neighborly, and its skeleton Skel[? d](P) is combinatorially equivalent to Skel[? d]\u00a9. We display graphs of ?N. Two weaker notions of neighborliness are also important for understanding sparse solutions of linear equations: facial neighborliness and sectional neighborliness [9]; we study both. The weakest, (k, e)-facial neighborliness, asks if the k-faces are all simplicial and if the numbers of k-dimensional faces fk(P) >= fk(C)(1 - e). We characterize and compute the critical proportion ?F (d) > 0 at which phase transition occurs in k/d. The other, (k, e)- sectional neighborliness, asks whether all, except for a small fraction epsilon, of the k-dimensional intrinsic sections of P are k-dimensional cross-polytopes. (Intrinsic sections intersect P with k-dimensional subspaces spanned by vertices of P.) We characterize and compute a proportion ?S(d) > 0 guaranteeing this property for k/d ~ ? < ?S(d). We display graphs of ?S and ?F.", 
+    "title": "High-Dimensional Centrally-Symmetric Polytopes With Neighborliness Proportional to Dimension", 
+    "journal": "Discrete & Computational Geometry (2006)", 
+    "legacyid": "138", 
+    "explanatory_text": "This code provides graphics of the lower bound on the neighborliness threshold (rho_N), the lower bound on the sectional neighborliness threshold (rho_S) and the one for face-numbers (rho_F) for high-dimensional centrally-symmetric polytopes. It also presents the behavior of the exponents for the combinatorial prefactor, external and internal angle. For more information, please visit the SparseLab (Seeking Sparse Solutions to Linear Systems of Equations) website (http://sparselab.stanford.edu/)."
+  }, 
+  {
+    "coders": {
+      "George M. Lady": {
+        "affiliation": "Temple University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "M. Lady", 
+        "first": "George"
+      }, 
+      "Andrew J. Buck": {
+        "affiliation": "Temple University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "J. Buck", 
+        "first": "Andrew"
+      }
+    }, 
+    "article_url": "http://www.sciencedirect.com/science/article/pii/S026499931100280X", 
+    "legacy_id": "139", 
+    "authors": {
+      "George M. Lady": {
+        "first": "George", 
+        "last": "M. Lady", 
+        "author": true
+      }, 
+      "Andrew J. Buck": {
+        "first": "Andrew", 
+        "last": "J. Buck", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper reconsiders the degree to which the signpatterns of hypothesized structural arrays limit the possible outcomes for the signpattern of the corresponding estimated reducedform. The conditions under which any structuralrestrictions would apply were believed to be very narrow, rarely found to apply, and virtually never investigated. As a result, current practice does not test the structural hypothesis in terms of the comparison of the estimated reducedform and the permissible reducedformsignpatterns. This paper shows that such tests are always possible. Namely, that the signpatterns of the hypothesized structural arrays always limit the signpatterns that can be taken on by the estimated reducedform. Given this, it is always possible to falsify a structural hypothesis based only upon the signpattern proposed. Necessary conditions, algorithmic principles, and examples are provided to illustrate the analytic principle and the means of its application.", 
+    "title": "Structural Sign Patterns and Reduced Form Restrictions", 
+    "journal": "Economic Modelling (2012)", 
+    "legacyid": "139", 
+    "explanatory_text": "This program is a Monte Carlo simulation of reduced form sign patterns based upon structural sign patterns specified by the user. The basic purpose of the program is to determine if a proposed reduced form sign pattern could possibly be generated by the proposed structural sign patterns. The application was compiled in Visual Studio 6 to run under the Windows operating system. This software was used in support of the work reported on in: - Lady, George and Andrew Buck (2011). \"Structural Models, Information and Inherited Restrictions\", Economic Modelling, 28, pp. 2820-2831.. - Buck, Andrew and George Lady (2012).\"Structural Sign Patterns and Reduced Form Restrictions\", Economic Modelling, 29, pp. 462-470. For more details, please read the following document."
+  }, 
+  {
+    "coders": {
+      "George M. Lady": {
+        "affiliation": "Temple University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "M. Lady", 
+        "first": "George"
+      }, 
+      "Andrew J. Buck": {
+        "affiliation": "Temple University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "J. Buck", 
+        "first": "Andrew"
+      }
+    }, 
+    "article_url": "http://www.sciencedirect.com/science/article/pii/S0264999311002136", 
+    "legacy_id": "140", 
+    "authors": {
+      "George M. Lady": {
+        "first": "George", 
+        "last": "M. Lady", 
+        "author": true
+      }, 
+      "Andrew J. Buck": {
+        "first": "Andrew", 
+        "last": "J. Buck", 
+        "author": true
+      }
+    }, 
+    "abstract": "The derived structural estimates of the system \u03b2Y=\u03b3Z|\u03b4U impose identifying restrictions on the reduced form estimates ex post. Some or all of the derived structural estimates are presented as evidence of the model\u2019s efficacy. In fact, the reduced form inherits a great deal of information from the structure\u2019s restrictions and hypothesized sign patterns, limiting the allowable signs for the reduced form. A method for measuring a structural model\u2019s statistical information content is proposed. Further, the paper develops a method for enumerating the allowable reduced form outcomes which can be used to falsify the proposed model independently of significant coefficients found for the structural relations.", 
+    "title": "Structural Models, Information and Inherited Restrictions", 
+    "journal": "Economic Modelling (2011)", 
+    "legacyid": "140", 
+    "explanatory_text": "This program is a Monte Carlo simulation of reduced form sign patterns based upon structural sign patterns specified by the user. The basic purpose of the program is to determine if a proposed reduced form sign pattern could possibly be generated by the proposed structural sign patterns. The application was compiled in Visual Studio 6 to run under the Windows operating system. This software was used in support of the work reported on in: - Lady, George and Andrew Buck (2011). \"Structural Models, Information and Inherited Restrictions\", Economic Modelling, 28, pp. 2820-2831.. - Buck, Andrew and George Lady (2012).\"Structural Sign Patterns and Reduced Form Restrictions\", Economic Modelling, 29, pp. 462-470. For more details, please read the following document."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Florence Arestoff": {
+        "affiliation": "Universit\u00e9 Paris Dauphine", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Arestoff", 
+        "first": "Florence"
+      }
+    }, 
+    "article_url": "http://ideas.repec.org/p/ner/dauphi/urnhdl123456789-5253.html", 
+    "legacy_id": "142", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Florence Arestoff": {
+        "first": "Florence", 
+        "last": "Arestoff", 
+        "author": true
+      }
+    }, 
+    "abstract": "We provide various estimates of the government net capital stocks for a panel of 26 developing countries over the period 1970-2001. These internationally comparable series of public capital are proposed as a complementary solution to the use of public investment flows and to the use of physical measures of infrastructure when one comes to evaluate the productivity of the public capital formation in developing countries. In these estimates based on various assumptions, we attempt to take into account the potential inefficiency of public investment in creating capital.", 
+    "title": "Are Public Investment Efficient in Creating Capital Stocks in Developing Countries? Estimates of Government Net Capital Stocks for 26 Developing Countries, 1970-2002", 
+    "journal": "Economics Bulletin (2010)", 
+    "legacyid": "142", 
+    "explanatory_text": "This code computes various estimates of the government net capital stocks for a panel of 26 developing countries over the period 1970-2001. The authors can choose the efficiency parameter (i.e. the percentage of public investments that are really used to create new capital stock). The Perpetual Inventory Method (PIM) corresponds to a case with an efficiency parameter equal to one. The data of public capital stocks can be expressed in Local Currency Unit or in percentage of real GDP. For constant prices, the base year is not the same for all the countries and corresponds to the base year used for the GDP implicit price (WDI Code: Y.GDP.DEFL.ZS). See WDI (2004) and Hurlin and Arestoff (2004), pages 7-8. The data can be downloaded in a csv format (Sheet \"Results\")."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=51420", 
+    "legacy_id": "143", 
+    "authors": {
+      "Jacob Boudoukh": {
+        "first": "Jacob", 
+        "last": "Boudoukh", 
+        "author": true
+      }, 
+      "Robert F. Whitelaw": {
+        "first": "Robert", 
+        "last": "F. Whitelaw", 
+        "author": true
+      }, 
+      "Matthew Richardson": {
+        "first": "Matthew", 
+        "last": "Richardson", 
+        "author": true
+      }
+    }, 
+    "abstract": "The hybrid approach combines the two most popular approaches to VaR estimation: RiskMetrics and Historical Simulation. It estimates the VaR of a portfolio by applying exponentially declining weights to past returns and then finding the appropriate percentile of this time-weighted empirical distribution. This new approach is very simple to implement. Empirical tests show a significant improvement in the precision of VaR forecasts using the hybrid approach relative to these popular approaches.", 
+    "title": "The Best of Both Worlds: A Hybrid Approach to Calculating Value at Risk", 
+    "journal": "Risk (1998)", 
+    "legacyid": "143", 
+    "explanatory_text": "This code computes out-of-sample Value-at-Risk (VaR) forecasts according to the rolling window Weighted Historical Simulation (WHS) method proposed by Boudoukh, Richardson and Whitelaw (1998). This hybrid approach combines the two most popular approaches to VaR estimation: RiskMetrics and Historical Simulation. The user can define the coverage rate, the parameter of the WHS, and the length of the rolling window (for HS and WHS). The out-of-sample size is controlled by a percentage of the total length of the series. The forecast series can be downloaded as a csv file."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1016/j.jfineco.2012.04.004", 
+    "legacy_id": "144", 
+    "authors": {
+      "Philip Valta": {
+        "first": "Philip", 
+        "last": "Valta", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper empirically shows that the cost of bank debt is systematically higher for firms that operate in competitive product markets. Using various proxies for product market competition, and reductions of import tariff rates to capture exogenous changes to a firm's competitive environment, I find that competition has a significantly positive effect on the cost of bank debt. Moreover, the analysis reveals that the effect of competition is greater in industries in which small firms face financially strong rivals, in industries with intense strategic interactions between firms, and in illiquid industries. Overall, these findings suggest that banks price financial contracts by taking into account the risk that arises from product market competition.", 
+    "title": "Competition and the Cost of Debt", 
+    "journal": "Journal of Financial Economics (2012)", 
+    "legacyid": "144", 
+    "explanatory_text": "This code was used to generate the tables in the paper \"Competition and the Cost of Debt\", Journal of Financial Economics 105, 2012."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1016/j.jeconom.2012.01.018", 
+    "legacy_id": "146", 
+    "authors": {
+      "A.M. Robert Taylor": {
+        "first": "A.M.", 
+        "last": "Robert Taylor", 
+        "author": true
+      }, 
+      "Stephen J. Leybourne": {
+        "first": "Stephen", 
+        "last": "J. Leybourne", 
+        "author": true
+      }, 
+      "David I. Harvey": {
+        "first": "David", 
+        "last": "I. Harvey", 
+        "author": true
+      }
+    }, 
+    "abstract": "In this paper we provide a joint treatment of two major problems that surround testing for a unit root in practice: uncertainty as to whether or not a linear deterministic trend is present in the data, and uncertainty as to whether the initial condition of the process is (asymptotically) negligible or not. We suggest decision rules based on the union of rejections of four standard unit root tests (OLS and quasi-differenced demeaned and detrended ADF unit root tests), along with information regarding the magnitude of the trend and initial condition, to allow simultaneously for both trend and initial condition uncertainty.", 
+    "title": "Testing for Unit Roots in the Presence of Uncertainty Over Both the Trend and Initial Condition", 
+    "journal": "Journal of Econometrics (2012)", 
+    "legacyid": "146", 
+    "explanatory_text": "This code implements the Harvey, Leybourne and Taylor's union of rejections decision rule. Please read the following pdf document (link \"more\") for details."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.5201/ipol.2012.g-tvd", 
+    "legacy_id": "148", 
+    "authors": {
+      "Pascal Getreuer": {
+        "first": "Pascal", 
+        "last": "Getreuer", 
+        "author": true
+      }
+    }, 
+    "abstract": "Denoising is the problem of removing noise from an image. The most commonly studied case is with additive white Gaussian noise (AWGN), where the observed noisy image f is related to the underlying true image u by f = u + \u03b7, and \u03b7 is at each point in space independently and identically distributed as a zero-mean Gaussian random variable. Total variation (TV) regularization is a technique that was originally developed for AWGN image denoising by Rudin, Osher, and Fatemi. The TV regularization technique has since been applied to a multitude of other imaging problems, see for example Chan and Shen's book. We focus here on the split Bregman algorithm of Goldstein and Osher for TV-regularized denoising.", 
+    "title": "Rudin-Osher-Fatemi Total Variation Denoising using Split Bregman", 
+    "journal": "Image Processing On Line (2012)", 
+    "legacyid": "148", 
+    "explanatory_text": "This C source code accompanies with Image Processing On Line (IPOL) article \"Rudin-Osher-Fatemi Total Variation Denoising using Split Bregman\" at http://www.ipol.im/pub/algo/g_tv_denoising/ Total variation (TV) regularization is a technique for edge-preserving image restoration introduced by Rudin, Osher, and Fatemi. This code implements the TV image denoising model using the fast split Bregman algorithm of Goldstein and Osher. Three different noise models are supported (Gaussian, Laplace, and Poisson) for both grayscale and color images. Please see the readme.txt file inside for details."
+  }, 
+  {
+    "coders": {
+      "Hasung Jang": {
+        "affiliation": "Korea University Business School", 
+        "coder": true, 
+        "country": "South Korea", 
+        "last": "Jang", 
+        "first": "Hasung"
+      }, 
+      "Bernard S Black": {
+        "affiliation": "Northwestern University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "S Black", 
+        "first": "Bernard"
+      }, 
+      "Woochan Kim": {
+        "affiliation": "Korea University Business School", 
+        "coder": true, 
+        "country": "South Korea", 
+        "last": "Kim", 
+        "first": "Woochan"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1098690", 
+    "legacy_id": "150", 
+    "authors": {
+      "Hasung Jang": {
+        "first": "Hasung", 
+        "last": "Jang", 
+        "author": true
+      }, 
+      "Bernard S Black": {
+        "first": "Bernard", 
+        "last": "S Black", 
+        "author": true
+      }, 
+      "Woochan Kim": {
+        "first": "Woochan", 
+        "last": "Kim", 
+        "author": true
+      }
+    }, 
+    "abstract": "We report strong OLS and instrumental variable evidence that an overall corporate governance index is an important and likely causal factor in explaining the market value of Korean public companies. We construct a corporate governance index (KCGI, 0~100) for 515 Korean companies based on a 2001 Korea Stock Exchange survey. In OLS, a worst-to-best change in KCGIpredicts a 0.47 increase in Tobin's q (about a 160% increase in share price). This effect is statistically strong (t = 6.12) and robust to choice of market value variable (Tobin's q, market/book, and market/sales), specification of the governance index, and inclusion of extensive control variables. We rely on unique features of Korean legal rules to construct an instrument for KCGI. Good instruments are not available in other comparable studies. Two-stage and three-stage least squares coefficients are larger than OLS coefficients and are highly significant. Thus, this paper offers evidence consistent with a causal relationship between an overall governance index and higher share prices in emerging markets. We also find that Korean firms with 50% outside directors have 0.13 higher Tobin's q (roughly 40% higher share price), after controlling for the rest of KCGI. This effect, too, is likely causal. Thus, we report the first evidence consistent with greater board independence causally predicting higher share prices in emerging markets.", 
+    "title": "Does Corporate Governance Predict Firms' Market Values? Evidence from Korea", 
+    "journal": "The Journal of Law, Economics, & Organization (2006)", 
+    "legacyid": "150", 
+    "explanatory_text": "This code allows the user evaluating the robustness of the relationship found between an overall corporate governance index and the market value of Korean public companies. The sample includes 515 Korean companies based on a 2001 Korea Stock Exchange survey (the dataset can be downloaded). The user can choose the dependent variable (Tobin\u2019s q, Market / Book, Market / Sales) and a set of control explicative variables. The corporate governance index (KCGI) is systemically introduced in the specification. The user can also define some restrictions on the sample used (see, Table 5, page 382). The code systematically displays both OLS estimates and instrumental variable (asset size dummy is automatically introduced)."
+  }, 
+  {
+    "coders": {
+      "John W. Galbraith": {
+        "affiliation": "McGill", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "W. Galbraith", 
+        "first": "John"
+      }, 
+      "Dongming Zhu": {
+        "affiliation": "Shangai University of Finance and Economics", 
+        "coder": true, 
+        "country": "China", 
+        "last": "Zhu", 
+        "first": "Dongming"
+      }
+    }, 
+    "article_url": "http://www.cirano.qc.ca/pdf/publication/2009s-24.pdf", 
+    "legacy_id": "153", 
+    "authors": {
+      "John W. Galbraith": {
+        "first": "John", 
+        "last": "W. Galbraith", 
+        "author": true
+      }, 
+      "Dongming Zhu": {
+        "first": "Dongming", 
+        "last": "Zhu", 
+        "author": true
+      }
+    }, 
+    "abstract": "Financial returns typically display heavy tails and some skewness, and conditional variance models with these features often outperform more limited models. The difference in performance may be espe- cially important in estimating quantities that depend on tail features, including risk measures such as the expected shortfall. Here, using a recent generalization of the asymmetric Student-t distribution to allow separate parameters to control skewness and the thickness of each tail, we fit daily financial returns and forecast expected shortfall for the S&P 500 index and a number of individual company stocks; the generalized distribution is used for the standardized innovations in a nonlinear, asymmetric GARCH-type model. The results provide empirical evidence for the usefulness of the generalized distribution in improving prediction of downside market risk of financial assets.", 
+    "title": "Forcasting Expected Shortfall with a Generalized Asymetric Student-t Distribution", 
+    "journal": "Centre interuniversitaire de recherche en analyse des organisations (2009)", 
+    "legacyid": "153", 
+    "explanatory_text": "This code estimates the parameters for the model AST and for the models AST with restrictions: AST with \u03b1=0.5, SST (AST with v1=v2) and ST (SST with \u03b1=0.5). It also gives, for each model, the goodness-of-fit measures and the predictive performance for expected shortfall risk."
+  }, 
+  {
+    "coders": {
+      "Aron Jamil Ahmadia": {
+        "affiliation": "Columbia University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Jamil Ahmadia", 
+        "first": "Aron"
+      }, 
+      "David Ketcheson": {
+        "affiliation": "King Abdullah University of Science and Technology", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Ketcheson", 
+        "first": "David"
+      }
+    }, 
+    "article_url": "http://arxiv.org/abs/1201.3035", 
+    "legacy_id": "158", 
+    "authors": {
+      "Aron Jamil Ahmadia": {
+        "first": "Aron", 
+        "last": "Jamil Ahmadia", 
+        "author": true
+      }, 
+      "David Ketcheson": {
+        "first": "David", 
+        "last": "Ketcheson", 
+        "author": true
+      }
+    }, 
+    "abstract": "We consider the problem of finding optimally stable polynomial approximations to the exponential for application to one-step integration of initial value ordinary and partial differential equations. The objective is to find the largest stable step size and corresponding method for a given problem when the spectrum of the initial value problem is known. The problem is expressed in terms of a general least deviation feasibility problem. Its solution is obtained by a new fast, accurate, and robust algorithm based on convex optimization techniques. Global convergence of the algorithm is proven in the case that the order of approximation is one and in the case that the spectrum encloses a starlike region. Examples demonstrate the effectiveness of the proposed algorithm even when these conditions are not satisfied.", 
+    "title": "Optimal Stability Polynomials for Numerical Integration of Initial Value Problems", 
+    "journal": "arXiv.org (2012)", 
+    "legacyid": "158", 
+    "explanatory_text": "This code reproduces the figures 3a, 3b, 4a, 4b, 6a, 6b and 7b of the article \u201cOptimal stability polynomials for numerical integration of initial value problems\u201d (David I. Ketcheson and Aron J. Ahmadia, 2012). The user can fix the number of stages (s) and the order p, and then retrieve (1) the scaled size of real axis interval inclusion for optimized methods Hopt/s^2 (Table 1, page 12), (2) the scaled size of imaginary axis inclusion for optimized methods Hopt/s (Table 2, page 13), (3) the relative size of largest disk that can be included in the stability region scaled by the number of stages (Figure 5, page 15) and (4) the optimal effective step size (Figure 7a, page 16). Please note that updated code is available at http://numerics.kaust.edu.sa/RK-opt/"
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://jn.physiology.org/content/90/3/1921", 
+    "legacy_id": "160", 
+    "authors": {
+      "David Brown": {
+        "first": "David", 
+        "last": "Brown", 
+        "author": true
+      }, 
+      "Jianfeng Feng": {
+        "first": "Jianfeng", 
+        "last": "Feng", 
+        "author": true
+      }, 
+      "Andrew Davison": {
+        "first": "Andrew", 
+        "last": "Davison", 
+        "author": true
+      }
+    }, 
+    "abstract": "In the olfactory bulb, both the spatial distribution and the temporal structure of neuronal activity appear to be important for processing odor information, but it is currently impossible to measure both of these simultaneously with high resolution and in all layers of the bulb. We have developed a biologically realistic model of the mammalian olfactory bulb, incorporating the mitral and granule cells and the dendrodendritic synapses between them, which allows us to observe the network behavior in detail. The cell models were based on previously published work. The attributes of the synapses were obtained from the literature. The pattern of synaptic connections was based on the limited experimental data in the literature on the statistics of connections between neurons in the bulb. The results of simulation experiments with electrical stimulation agree closely in most details with published experimental data. This gives confidence that the model is capturing features of network interactions in the real olfactory bulb. The model predicts that the time course of dendrodendritic inhibition is dependent on the network connectivity as well as on the intrinsic parameters of the synapses. In response to simulated odor stimulation, strongly activated mitral cells tend to suppress neighboring cells, the mitral cells readily synchronize their firing, and increasing the stimulus intensity increases the degree of synchronization. Preliminary experiments suggest that slow temporal changes in the degree of synchronization are more useful in distinguishing between very similar odorants than is the spatial distribution of mean firing rate.", 
+    "title": "Dendrodendritic Inhibition and Simulated Odor Responses in a Detailed Olfactory Bulb Network Model", 
+    "journal": "Journal of Neurophysiology (2003)", 
+    "legacyid": "160", 
+    "explanatory_text": "This is a model of the mammalian olfactory bulb for the NEURON simulator. The model contains only mitral and granule cells. It is intended that the properties of the network can be explored by changing the files parameters_<xxx>.hoc and experiment_<xxx>.hoc. It should not be necessary to change the other files. After compiling the mod files, start the simulation by running init.hoc Type show_results() if after running the odour stimulus simulation the mitral cell spike time histogram graph is empty."
+  }, 
+  {
+    "coders": {
+      "Alexandru Minea": {
+        "affiliation": "CERDI, University of Auvergne", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Minea", 
+        "first": "Alexandru"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://www.runmycode.org/data/MetaSite/upload/companionSite165/FULL.pdf", 
+    "legacy_id": "165", 
+    "authors": {
+      "Alexandru Minea": {
+        "first": "Alexandru", 
+        "last": "Minea", 
+        "author": true
+      }, 
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }
+    }, 
+    "abstract": "We present an evaluation of the main empirical approaches used in the literature to estimate the contribution of public capital stock to growth and private factors' productivity. Based on a simple stochastic general equilibrium model, built as to reproduce the main long-run relations observed in US post-war historical data, we show that the production function approach may not be reliable to estimate this contribution. Our analysis reveals that this approach largely overestimates the public capital elasticity, given the presence of a common stochastic trend shared by all non-stationary inputs.", 
+    "title": "Is Public Capital Really Productive? A Methodological Reappraisal", 
+    "journal": "University of Orleans (2012)", 
+    "legacyid": "165", 
+    "explanatory_text": "This code allows user replicating the Monte Carlo simulations proposed in the paper \u201cIs Public Capital Really Productive? A Methodological Reappraisal\u201d (Hurlin and Minea, 2012). The user can choose the values of some calibrated parameters, the specification (level/first differences, OCRS versus PFCRS), the sample size and the number of Monte Carlo simulations. The goal of the code is to assess the potential finite sample bias on public capital elasticity estimates for a particular specification and for a particular guess on the true value of parameters."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Florence Arestoff": {
+        "affiliation": "Universit\u00e9 Paris Dauphine", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Arestoff", 
+        "first": "Florence"
+      }
+    }, 
+    "article_url": "http://ideas.repec.org/p/ner/dauphi/urnhdl123456789-5253.html", 
+    "legacy_id": "174", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Florence Arestoff": {
+        "first": "Florence", 
+        "last": "Arestoff", 
+        "author": true
+      }
+    }, 
+    "abstract": "In many poor countries, the problem is not that governments do not invest, but that these investments do not create productive capital. So, the cost of public investments does not correspond to the value of the capital stocks. In this paper, we propose an original non parametric approach to evaluate the efficiency function that links variations (net of depreciation) of stocks to public investments. We consider four sectors (electricity, telecommunications, roads and railways) of two Latin American countries (Mexico and Colombia). We show that there is a large discrepancy between the amount of investments and the value of increases in stocks.", 
+    "title": "Are Public Investment Efficient in Creating Capital Stocks in Developing Countries? Estimates of Government Net Capital Stocks for 26 Developing Countries, 1970-2002 ", 
+    "journal": "Economics Bulletin (2010)", 
+    "legacyid": "174", 
+    "explanatory_text": "This dataset includes series of government net capital stocks for a panel of 26 developing countries over the period 1970-2001. For each country, three series are provided given the efficiency parameter (i.e. the percentage of public investments that are really used to create new capital stock). The Perpetual Inventory Method (PIM) corresponds to a case with an efficiency parameter equal to one. The data of public capital stocks can be expressed in Local Currency Unit or in percentage of real GDP. For constant prices, the base year is not the same for all the countries and corresponds to the base year used for the GDP implicit price (WDI Code: Y.GDP.DEFL.ZS). See WDI (2004) and Hurlin and Arestoff (2004), pages 7-8."
+  }, 
+  {
+    "coders": {
+      "Alexandru Minea": {
+        "affiliation": "CERDI, University of Auvergne", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Minea", 
+        "first": "Alexandru"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://www.runmycode.org/data/MetaSite/upload/companionSite165/FULL.pdf", 
+    "legacy_id": "175", 
+    "authors": {
+      "Alexandru Minea": {
+        "first": "Alexandru", 
+        "last": "Minea", 
+        "author": true
+      }, 
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }
+    }, 
+    "abstract": "We present an evaluation of the main empirical approaches used in the literature to estimate the contribution of public capital stock to growth and private factors\u2019 productivity. Based on a simple stochastic general equilibrium model, built as to reproduce the main long-run relations observed in US post-war historical data, we show that the production function approach may not be reliable to estimate this contribution. Our analysis reveals that this approach largely overestimates the public capital elasticity, given the presence of a common stochastic trend shared by all non-stationary inputs.", 
+    "title": "Appendices for the article \"Is Public Capital Really Productive? A Methodological Reappraisal\" ", 
+    "journal": "Universit\u00e9 d'Orl\u00e9ans (2012)", 
+    "legacyid": "175", 
+    "explanatory_text": "This document corresponds to the appendices of the article \u00ab Is Public Capital Really Productive? A Methodological Reappraisal\u201d."
+  }, 
+  {
+    "coders": {
+      "Laurent E. Calvet": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "E. Calvet", 
+        "first": "Laurent"
+      }, 
+      "Adlai J. Fisher": {
+        "affiliation": "University of British Columbia", 
+        "coder": true, 
+        "country": "Canada", 
+        "last": "J. Fisher", 
+        "first": "Adlai"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=821714", 
+    "legacy_id": "18", 
+    "authors": {
+      "Laurent E. Calvet": {
+        "first": "Laurent", 
+        "last": "E. Calvet", 
+        "author": true
+      }, 
+      "Adlai J. Fisher": {
+        "first": "Adlai", 
+        "last": "J. Fisher", 
+        "author": true
+      }
+    }, 
+    "abstract": "We propose a discrete-time stochastic volatility model in which regime switching serves three purposes. First, changes in regimes capture low-frequency variations. Second, they specify intermediate-frequency dynamics usually assigned to smooth autoregressive transitions. Finally, high-frequency switches generate substantial outliers. Thus a single mechanism captures three features that are typically viewed as distinct in the literature. Maximum-likelihood estimation is developed and performs well in finite samples. Using exchange rates, we estimate a version of the process with four parameters and more than a thousand states. The multifractal outperforms GARCH, MS-GARCH, and FIGARCH in- and out-of-sample. Considerable gains in forecasting accuracy are obtained at horizons of 10 to 50 days.", 
+    "title": "How to Forecast Long-Run Volatility: Regime Switching and the Estimation of Multifractal Processes", 
+    "journal": "Journal of Financial Econometrics (2004)", 
+    "legacyid": "18", 
+    "explanatory_text": "This code implements the Maximum-Likelihood (ML) estimation of a Markov-Switching Multifractal process. It focuses on the simple case where M is a binomial random variable taking values m0 or 2-m0 with equal probability. The full parameter vector is then (b, m0, \u03b3k, \u03c3), where m0 characterizes the distribution of the multipliers, \u03c3 is the unconditional standard deviation of returns, and b and \u03b3k define the set of switching probabilities. User can provide starting values of ML optimization (optional) and choose the number of volatility frequencies (between 1 and 10), denoted kbar. Results display the four estimated parameters, the Log-Likelihood and some diagnostic information about the optimization procedure. For more information about Markov-Switching Multifractal processes, see http://en."
+  }, 
+  {
+    "coders": {
+      "Hatef Monajemi": {
+        "affiliation": "Stanford University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Monajemi", 
+        "first": "Hatef"
+      }, 
+      "David Donoho": {
+        "affiliation": "Stanford University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Donoho", 
+        "first": "David"
+      }
+    }, 
+    "article_url": "http://purl.stanford.edu/wp335yr5649", 
+    "legacy_id": "190", 
+    "authors": {
+      "Sina Jafarpour": {
+        "first": "Sina", 
+        "last": "Jafarpour", 
+        "author": true
+      }, 
+      "David Donoho": {
+        "first": "David", 
+        "last": "Donoho", 
+        "author": true
+      }, 
+      "Hatef Monajemi": {
+        "first": "Hatef", 
+        "last": "Monajemi", 
+        "author": true
+      }, 
+      "Matan Gavish": {
+        "first": "Matan", 
+        "last": "Gavish", 
+        "author": true
+      }
+    }, 
+    "abstract": "In compressed sensing, one takes n < N samples of an N -dimensional vector x0 using an n \u00d7 N matrix A, obtaining un-dersampled measurements y = Ax0 . For random matrices with Gaussian i.i.d entries, it is known that, when x0 is k-sparse, there is a precisely determined phase transition: for a certain region in the (k/n, n/N )-phase diagram, convex optimization min ||x||_1 subject to y = Ax, x \u2208 X^N typically \ufb01nds the sparsest solution, while outside that region, it typically fails. It has been shown empirically that the same property \u2013 with the same phase transition location \u2013 holds for a wide range of non-Gaussian random matrix ensembles. We consider speci\ufb01c deterministic matrices including Spikes and Sines, Spikes and Noiselets, Paley Frames, Delsarte-Goethals Frames, Chirp Sensing Matrices, and Grassmannian Frames. Extensive experiments show that for a typical k-sparse object, convex optimization is successful over a region of the phase diagram that coincides with the region known for Gaussian matrices. In our experiments, we considered coef\ufb01cients constrained to X^N for four different sets X \u2208 {[0, 1], R_+ , R, C}. We establish this \ufb01nding for each of the associated four phase transitions.", 
+    "title": "Deterministic Matrices Matching the Compressed Sensing Phase Transitions of Gaussian Random Matrices", 
+    "journal": "Stanford University (2012)", 
+    "legacyid": "190", 
+    "explanatory_text": "This code generates the figures in the paper \"Deterministic Matrices Matching the Compressed Sensing Phase Transitions of Gaussian Random Matrices\" by H. Monajemi, S. Jafarpour, Stat330/CME362 Collaboration, M. Gavish, and D. L. Donoho"
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www.sciencedirect.com/science/article/pii/S0304407612001182", 
+    "legacy_id": "193", 
+    "authors": {
+      "Alastair R Hall": {
+        "first": "Alastair", 
+        "last": "R Hall", 
+        "author": true
+      }, 
+      "Otilia Boldea": {
+        "first": "Otilia", 
+        "last": "Boldea", 
+        "author": true
+      }, 
+      "Sanggohn Han": {
+        "first": "Sanggohn", 
+        "last": "Han", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper considers the linear model with endogenous regressors and multiple changes in the parameters at unknown times. It is shown that minimization of a Generalized Method of Moments criterion yields inconsistent estimators of the break fractions, but minimization of the Two Stage Least Squares (2SLS) criterion yields consistent estimators of these parameters. We develop a methodology for estimation and inference of the parameters of the model based on 2SLS. The analysis covers the cases where the reduced form is either stable or unstable. The methodology is illustrated via an application to the New Keynesian Phillips Curve for the US.", 
+    "title": "Inference Regarding Multiple Structural Changes in Linear Models with Endogenous Regressors", 
+    "journal": "Journal of Econometrics (2012)", 
+    "legacyid": "193", 
+    "explanatory_text": "This code consistently estimates multiple breaks in linear models with endogenous regressors, via the 2SLS criterion. It contains both an artificially generated DGP and real data to estimate break in the New Keynesian Phillips curve for US. Please read the readme file in the zip file attached for more info."
+  }, 
+  {
+    "coders": {
+      "Malcolm A. MacIver": {
+        "affiliation": "Northwestern University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "A. MacIver", 
+        "first": "Malcolm"
+      }, 
+      "Ricardo Ruiz-Torres": {
+        "affiliation": "Northwestern University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Ruiz-Torres", 
+        "first": "Ricardo"
+      }
+    }, 
+    "article_url": "http://www.ncbi.nlm.nih.gov/pubmed/23197089", 
+    "legacy_id": "194", 
+    "authors": {
+      "George V. Lauder": {
+        "first": "George", 
+        "last": "V. Lauder", 
+        "author": true
+      }, 
+      "Malcolm A. MacIver": {
+        "first": "Malcolm", 
+        "last": "A. MacIver", 
+        "author": true
+      }, 
+      "Oscar M. Curet": {
+        "first": "Oscar", 
+        "last": "M. Curet", 
+        "author": true
+      }, 
+      "Ricardo Ruiz-Torres": {
+        "first": "Ricardo", 
+        "last": "Ruiz-Torres", 
+        "author": true
+      }
+    }, 
+    "abstract": "Weakly electric knifefish are exceptionally maneuverable swimmers. In prior work, we have shown that they are able to move their entire body omnidirectionally so that they can rapidly reach prey up to several centimeters away. Consequently, in addition to being a focus of efforts to understand the neural basis of sensory signal processing in vertebrates, knifefish are increasingly the subject of biomechanical analysis to understand the coupling of signal acquisition and biomechanics. Here, we focus on a key subset of the knifefish's omnidirectional mechanical abilities: hovering in place, and swimming forward at variable speed. Using high-speed video and a markerless motion capture system to capture fin position, we show that hovering is achieved by generating two traveling waves, one from the caudal edge of the fin and one from the rostral edge, moving toward each other. These two traveling waves overlap at a nodal point near the center of the fin, cancelling fore-aft propulsion. During forward swimming at low velocities, the caudal region of the fin continues to have counter-propagating waves, directly retarding forward movement. The gait transition from hovering to forward swimming is accompanied by a shift in the nodal point toward the caudal end of the fin. While frequency varies significantly to increase speed at low velocities, beyond approximately one body length per second, the frequency stays near 10 Hz, and amplitude modulation becomes more prominent. A coupled central pattern generator model is able to reproduce qualitative features of fin motion and suggest hypotheses regarding the fin's neural control.", 
+    "title": "Kinematics of the ribbon fin in hovering and swimming of the electric ghost knifefish", 
+    "journal": "Journal of Experimental Biology (2013)", 
+    "legacyid": "194", 
+    "explanatory_text": "These programs implement all the kinematics analysis and visualizations for the paper. In addition, there is a coupled CPG model that is used to generate the modeling results, and a GUI for experimenting with this model. Original high speed video files as well as the motion capture data of the ribbon fin edge is included."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Gilbert Colletaz": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Colletaz", 
+        "first": "Gilbert"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1824984", 
+    "legacy_id": "2", 
+    "authors": {
+      "Christophe Perignon": {
+        "first": "Christophe", 
+        "last": "Perignon", 
+        "author": true
+      }, 
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Gilbert Colletaz": {
+        "first": "Gilbert", 
+        "last": "Colletaz", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper presents a new tool for validating risk models. This tool, called the Risk Map, jointly accounts for the number and the magnitude of extreme losses and graphically summarizes all information about the performance of a risk model. It relies on the concept of Value-at-Risk (VaR) super exception, which is defined as a situation in which the loss exceeds both the standard VaR and a VaR defined at an extremely low coverage probability. We then formally test whether the sequences of exceptions and super exceptions is rejected by standard model validation tests. We show that the Risk Map can be used to validate market, credit, operational, or systemic (e.g. CoVaR) risk estimates or to assess the performance of the margin system of a clearing house.", 
+    "title": "The Risk Map:  A New Tool for Validating Risk Models", 
+    "journal": "SSRN (2012)", 
+    "legacyid": "2", 
+    "explanatory_text": "The goal of this code is to automatically create a \"Risk Map\" from a series of Value-at-Risk (VaR) and profit and loss (P&L). Given the time series of VaR(\u03b1) and P&L, we generate the corresponding time series for VaR(\u03b1'), with \u03b1'<\u03b1 through calibration. This is done by extracting the conditional variance of the P&L from VaR(\u03b1) and then plugging it into the formula for VaR(\u03b1'). A \"super exception\" is then defined as P&L < -VaR(\u03b1'). We formally test whether the sequence of exceptions and super exceptions satisfies standard backtesting conditions. Finally, the Risk Map graphically summarizes all information about the performance of the risk model."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Laurent Fresard": {
+        "affiliation": "University of Maryland", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Fresard", 
+        "first": "Laurent"
+      }, 
+      "Anders Wilhelmsson": {
+        "affiliation": "Lund University", 
+        "coder": true, 
+        "country": "Sweden", 
+        "last": "Wilhelmsson", 
+        "first": "Anders"
+      }
+    }, 
+    "article_url": "http://dx.doi.org/10.1016/j.jbankfin.2011.02.013", 
+    "legacy_id": "204", 
+    "authors": {
+      "Christophe Perignon": {
+        "first": "Christophe", 
+        "last": "Perignon", 
+        "author": true
+      }, 
+      "Laurent Fresard": {
+        "first": "Laurent", 
+        "last": "Fresard", 
+        "author": true
+      }, 
+      "Anders Wilhelmsson": {
+        "first": "Anders", 
+        "last": "Wilhelmsson", 
+        "author": true
+      }
+    }, 
+    "abstract": "Banks hold capital to guard against unexpected surges in losses and long freezes in financial markets. The minimum level of capital is set by banking regulators as a function of the banks\u2019 own estimates of their risk exposures. As a result, a great challenge for both banks and regulators is to validate internal risk models. We show that a large fraction of US and international banks uses contaminated data when testing their models. In particular, most banks validate their market risk model using profit-and-loss (P/L) data that include fees and commissions and intraday trading revenues. This practice is inconsistent with the definition of the employed market risk measure. Using both bank data and simulations, we find that data contamination has dramatic implications for model validation and can lead to the acceptance of misspecified risk models. Moreover, our estimates suggest that the use of contaminated data can significantly reduce (market-risk induced) regulatory capital.", 
+    "title": "The pernicious effects of contaminated data in risk management", 
+    "journal": "Journal of Banking and Finance (2011)", 
+    "legacyid": "204", 
+    "explanatory_text": "The file contains the data used in Figure 2 on page 2573. More specifically, it contains the daily VaR, as well as raw profit-and-loss (including fees and commissions) and clean profit-and-loss data for one large European Bank (La Caixa, Spain) between January 2007 and December 2008."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Daniel Smith": {
+        "affiliation": "Queensland University of Technology", 
+        "coder": true, 
+        "country": "Australia", 
+        "last": "Smith", 
+        "first": "Daniel"
+      }
+    }, 
+    "article_url": "http://dx.doi.org/10.1016/j.jbankfin.2009.07.003", 
+    "legacy_id": "206", 
+    "authors": {
+      "Christophe Perignon": {
+        "first": "Christophe", 
+        "last": "Perignon", 
+        "author": true
+      }, 
+      "Daniel Smith": {
+        "first": "Daniel", 
+        "last": "Smith", 
+        "author": true
+      }
+    }, 
+    "abstract": "A pervasive and puzzling feature of banks\u2019 Value-at-Risk (VaR) is its abnormally high level, which leads to excessive regulatory capital. A possible explanation for the tendency of commercial banks to overstate their VaR is that they incompletely account for the diversification effect among broad risk categories (e.g., equity, interest rate, commodity, credit spread, and foreign exchange). By underestimating the diversification effect, bank\u2019s proprietary VaR models produce overly prudent market risk assessments. In this paper, we examine empirically the validity of this hypothesis using actual VaR data from major US commercial banks. In contrast to the VaR diversification hypothesis, we find that US banks show no sign of systematic underestimation of the diversification effect. In particular, diversification effects used by banks is very close to (and quite often larger than) our empirical diversification estimates. A direct implication of this finding is that individual VaRs for each broad risk category, just like aggregate VaRs, are biased risk assessments.", 
+    "title": "Diversification and Value-at-Risk", 
+    "journal": "Journal of Banking and Finance (2010)", 
+    "legacyid": "206", 
+    "explanatory_text": "This file contains the data used in Figures 1 and 2. Specifically, it contains the individual Value-at-Risk (credit spread, commodity, foreign exchange, equity, and interest rate) and diversified (i.e., firm level) Value-at-Risk for Bank of America, Citigroup, HSBC, and JPMorgan Chase between 2004Q1 and 2007Q1."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Daniel Smith": {
+        "affiliation": "Queensland University of Technology", 
+        "coder": true, 
+        "country": "Australia", 
+        "last": "Smith", 
+        "first": "Daniel"
+      }
+    }, 
+    "article_url": "http://dx.doi.org/10.1016/j.jbankfin.2009.08.009", 
+    "legacy_id": "207", 
+    "authors": {
+      "Christophe Perignon": {
+        "first": "Christophe", 
+        "last": "Perignon", 
+        "author": true
+      }, 
+      "Daniel Smith": {
+        "first": "Daniel", 
+        "last": "Smith", 
+        "author": true
+      }
+    }, 
+    "abstract": "In this paper we study both the level of Value-at-Risk (VaR) disclosure and the accuracy of the disclosed VaR figures for a sample of US and international commercial banks. To measure the level of VaR disclosures, we develop a VaR Disclosure Index that captures many different facets of market risk disclosure. Using panel data over the period 1996\u20132005, we find an overall upward trend in the quantity of information released to the public. We also find that Historical Simulation is by far the most popular VaR method. We assess the accuracy of VaR figures by studying the number of VaR exceedances and whether actual daily VaRs contain information about the volatility of subsequent trading revenues. Unlike the level of VaR disclosure, the quality of VaR disclosure shows no sign of improvement over time. We find that VaR computed using Historical Simulation contains very little information about future volatility.", 
+    "title": "The level and quality of Value-at-Risk disclosure by commercial banks", 
+    "journal": "Journal of Banking and Finance (2010)", 
+    "legacyid": "207", 
+    "explanatory_text": "This data file contains the daily value-at-risk and trading revenues for Bank of America, Credit Suisse First Boston, Deutsche Bank, Royal Bank of Canada, and Soci\u00e9t\u00e9 G\u00e9n\u00e9rale between January 1, 2001 and December 31, 2004. All values are in millions and are expressed in local currencies. The data are displayed in Figure 5 and summary statistics are presented in Table 5. The data can be used to reproduce the GARCH results in Table 6 and the forecasting analysis in Table 7."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Daniel Smith": {
+        "affiliation": "Queensland University of Technology", 
+        "coder": true, 
+        "country": "Australia", 
+        "last": "Smith", 
+        "first": "Daniel"
+      }
+    }, 
+    "article_url": "http://ssrn.com/abstract=981207", 
+    "legacy_id": "208", 
+    "authors": {
+      "Christophe Perignon": {
+        "first": "Christophe", 
+        "last": "Perignon", 
+        "author": true
+      }, 
+      "Daniel Smith": {
+        "first": "Daniel", 
+        "last": "Smith", 
+        "author": true
+      }
+    }, 
+    "abstract": "We develop a novel backtesting framework based on multidimensional Value-at-Risk (VaR) that focuses on the left tail of the distribution of the bank trading revenues. Our coverage test is a multivariate generalization of the unconditional test of Kupiec (Journal of Derivatives, 1995). Applying our method to actual daily bank trading revenues, we find that non-parametric VaR methods, such as GARCH-based methods or filtered Historical Simulation, work best for bank trading revenues.", 
+    "title": "A New Approach to Comparing VaR Estimation Methods", 
+    "journal": "Journal of Derivatives (2008)", 
+    "legacyid": "208", 
+    "explanatory_text": "This data file contains the daily value-at-risk and trading revenues for Bank of America, Credit Suisse First Boston, Deutsche Bank, Royal Bank of Canada, and Soci\u00e9t\u00e9 G\u00e9n\u00e9rale between January 1, 2001 and December 31, 2004. All values are in millions and are expressed in local currencies. The data are displayed in Exhibit 3 and summary statistics are presented in Exhibit 4."
+  }, 
+  {
+    "coders": {
+      "Pei Pei": {
+        "affiliation": "Chinese Academy of Finance and Development, CUFE", 
+        "coder": true, 
+        "country": "China", 
+        "last": "Pei", 
+        "first": "Pei"
+      }, 
+      "Juan Carlos Escanciano": {
+        "affiliation": "Indiana University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Carlos Escanciano", 
+        "first": "Juan"
+      }
+    }, 
+    "article_url": "http://www.sciencedirect.com/science/article/pii/S037842661200101X", 
+    "legacy_id": "221", 
+    "authors": {
+      "Pei Pei": {
+        "first": "Pei", 
+        "last": "Pei", 
+        "author": true
+      }, 
+      "Juan Carlos Escanciano": {
+        "first": "Juan", 
+        "last": "Carlos Escanciano", 
+        "author": true
+      }
+    }, 
+    "abstract": "Abstract Historical Simulation (HS) and its variant, the Filtered Historical Simulation (FHS), are the most popular Value-at-Risk forecast methods at commercial banks. These forecast methods are traditionally evaluated by means of the unconditional backtest. This paper formally shows that the unconditional backtest is always inconsistent for backtesting HS and FHS models, with a power function that can be even smaller than the nominal level in large samples. Our findings have fundamental implications in the determination of market risk capital requirements, and also explain Monte Carlo and empirical findings in previous studies. We also propose a data-driven weighted backtest with good power properties to evaluate HS and FHS forecasts. A Monte Carlo study and an empirical application with three US stocks confirm our theoretical findings. The empirical application shows that multiplication factors computed under the current regulatory framework are downward biased, as they inherit the inconsistency of the unconditional backtest.", 
+    "title": "Pitfalls in backtesting Historical Simulation VaR models", 
+    "journal": "Journal of Banking and Finance (2012)", 
+    "legacyid": "221", 
+    "explanatory_text": "The dataset contains the returns for three portfolios based on three representative US stocks traded on the New York Stock Exchange (NYSE). The stocks are Walt Disney (DIS), General Electric (GE) and Merck & Company (MRK). Daily data on their market closure prices9 are collected over the period of 01/04/1999\u201312/31/2009, and then the daily returns are calculated as 100 times the difference of the log prices. The compositions of the three portfolios considered are (0.4, 0.1, 0.5), (0.1, 0.1, 0.8) and (0.3, 0.1, 0.6), respectively, where the numbers in each parentheses from left to right represent the portfolio weights on DIS, GE and MRK, respectively. These weights are chosen for illustrative purposes but"
+  }, 
+  {
+    "coders": {
+      "Christian Francq": {
+        "affiliation": "University of Lille 3", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Francq", 
+        "first": "Christian"
+      }, 
+      "Jean-Michel Zakoian": {
+        "affiliation": "CREST", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Zakoian", 
+        "first": "Jean-Michel"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1423152", 
+    "legacy_id": "23", 
+    "authors": {
+      "Christian Francq": {
+        "first": "Christian", 
+        "last": "Francq", 
+        "author": true
+      }, 
+      "Jean-Michel Zakoian": {
+        "first": "Jean-Michel", 
+        "last": "Zakoian", 
+        "author": true
+      }
+    }, 
+    "abstract": "A Bartlett-type formula is proposed for the asymptotic distribution of the sample autocorrelations of nonlinear processes. The asymptotic covariances between sample autocorrelations are expressed as the sum of two terms. The first term corresponds to the standard Bartlett's formula for linear processes, involving only the autocorrelation function of the observed process. The second term, which is specific to nonlinear processes, involves the autocorrelation function of the observed process, the kurtosis of the linear innovation process and the autocorrelation function of its square. This formula is obtained under a symmetry assumption on the linear innovation process. It is illustrated on ARMA\u2013GARCH models and compared to the standard formula. An empirical application on financial time series is proposed.", 
+    "title": "Bartlett's Formula for a General Class of Non Linear Processes", 
+    "journal": "Journal of Time Series Analysis (2009)", 
+    "legacyid": "23", 
+    "explanatory_text": "The program, written in R, is a modification of the R function acf. It plots the sample autocorrelations, the standard significance bounds in blue dotted lines and generalized significant bounds in red lines. Sample autocorrelations quite outside the bounds are generally considered as evidence against the white noise hypothesis. The standard significant bounds are 95% bounds for the sample autocorrelations of a strong (i.e. iid) white noise. The red bounds are valid for more general white noises, which can exhibit conditional heteroscedasticity or more general forms of nonlinear dynamics (see Francq, C. and Zako\u00efan, J-M. Bartlett's formula for a general class of non linear processes Journal of Time Series Analysis, 30, 449-465, 2009)."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://arxiv.org/pdf/1301.6879v1", 
+    "legacy_id": "258", 
+    "authors": {
+      "Christian Himpe": {
+        "first": "Christian", 
+        "last": "Himpe", 
+        "author": true
+      }, 
+      "Mario Ohlberger": {
+        "first": "Mario", 
+        "last": "Ohlberger", 
+        "author": true
+      }
+    }, 
+    "abstract": "A common approach in model reduction is balanced truncation, which is based on gramian matrices classifiying certain attributes of states or parameters of a given dynamic system. Initially restricted to linear systems, the empirical gramians not only extended this concept to nonlinear systems, but also provide a uniform computational method. This work introduces a unified software framework supplying routines for six types of empirical gramians. The gramian types will be discussed and applied in a model reduction framework for multiple-input-multiple-output (MIMO) systems.", 
+    "title": "A Unified Software Framework for Empirical Gramians", 
+    "journal": "Institute for Computational and Applied Mathematics at the University of Muenster (2013)", 
+    "legacyid": "258", 
+    "explanatory_text": "acc %runs the code and outputs results. acc(1) %runs the code and outputs results and plots. Code is compatible to Octave >= 3.6.3. For further info see paper."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2001988", 
+    "legacy_id": "26", 
+    "authors": {
+      "Christophe Perignon": {
+        "first": "Christophe", 
+        "last": "Perignon", 
+        "author": true
+      }, 
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper presents a validation framework for collateral requirements or margins on a derivatives exchange. It can be used by investors, risk managers, and regulators to check the accuracy of a margining system. The statistical tests presented in this study are based either on the number, frequency, magnitude, or timing of margin exceedances, which are de\u0085ned as situations in which the trading loss of a market participant exceeds his or her margin. We also propose an original way to validate globally the margining system by aggregating individual backtesting statistics ob- tained for each market participant.", 
+    "title": "Margin Backtesting", 
+    "journal": "University of Orleans, HEC Paris (2011)", 
+    "legacyid": "26", 
+    "explanatory_text": "This code allows users to implement various backtesting methods for a series of VaR margins or VaR forecasts. The statistical tests are the following: z statistic (Jorion, 2007), LR tests (Kupiec, 1995 and Christoffersen, 1998), DQ tests (Engle and Manganelli, 2004), LR duration based tests (Christoffersen and Pelletier, 2004), and the Risk Map (Colletaz, Hurlin and Perignon, 2011)."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://arxiv.org/abs/1302.0634", 
+    "legacy_id": "262", 
+    "authors": {
+      "Christian Himpe": {
+        "first": "Christian", 
+        "last": "Himpe", 
+        "author": true
+      }, 
+      "Mario Ohlberger": {
+        "first": "Mario", 
+        "last": "Ohlberger", 
+        "author": true
+      }
+    }, 
+    "abstract": "An accepted model reduction technique is balanced truncation, by which negligible states of a linear system of ODEs are determined by balancing the systems controllability and observability gramian matrices. To be applicable for nonlinear system this method was enhanced through the empirical gramians, while the cross gramian conjoined both gramians into one gramian matrix. This work introduces the empirical cross gramian for square Multiple-Input-Multiple-Output systems as well as the (empirical) joint gramian. Based on the cross gramian, the joint gramian determines, in addition to the Hankel singular values, the parameter identifiability allowing a combined model reduction, concurrently reducing state and parameter spaces. Furthermore, a controllability and an observability based combined reduction method are presented and the usage of empirical gramians is extended to parameter reduction in (Bayesian) inverse problems. All methods presented are evaluated by numerical experiments.", 
+    "title": "Cross-Gramian Based Combined State and Parameter Reduction", 
+    "journal": "WWU Muenster (2013)", 
+    "legacyid": "262", 
+    "explanatory_text": "The juq function verifies and tests the empirical gramians computed by the emgr framework as described in the paper. running juq; prints only the error table after computations finished, juq(1); also plots the error in outputs and juq(2); additionally saves these plots. Main and auxiliary code are compatible with MATLAB and OCTAVE and are licensed under the 2-clause (simplified) BSD license."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://arxiv.org/abs/1302.2331", 
+    "legacy_id": "265", 
+    "authors": {
+      "Matan Gavish": {
+        "first": "Matan", 
+        "last": "Gavish", 
+        "author": true
+      }, 
+      "Andrea Montanari": {
+        "first": "Andrea", 
+        "last": "Montanari", 
+        "author": true
+      }, 
+      "David Donoho": {
+        "first": "David", 
+        "last": "Donoho", 
+        "author": true
+      }
+    }, 
+    "abstract": "Let X_0 be an unknown M by N matrix. In matrix recovery, one takes n < MN linear measurements y_1, ... , y_n of X_0, where y_i = Trace(a_i' X_0) and each a_i is a M by N matrix. For measurement matrices with Gaussian i.i.d entries, it known that if X_0 is of low rank, it is recoverable from just a few measurements. A popular approach for matrix recovery is Nuclear Norm Minimization (NNM): solving the convex optimization problem min ||X||_* subject to y_i=Trace(a_i' X) for all 1<= i<= n, where || . ||_* denotes the nuclear norm, namely, the sum of singular values. Empirical work reveals a phase transition curve, stated in terms of the undersampling fraction \\delta(n,M,N) = n/(MN), rank fraction \\rho=r/N and aspect ratio \\beta=M/N. Specifically, a curve \\delta^* = \\delta^*(\\rho;\\beta) exists such that, if \\delta > \\delta^*(\\rho;\\beta), NNM typically succeeds, while if \\delta < \\delta^*(\\rho;\\beta), it typically fails. An apparently quite different problem is matrix denoising in Gaussian noise, where an unknown M by N matrix X_0 is to be estimated based on direct noisy measurements Y = X_0 + Z, where the matrix Z has iid Gaussian entries. It has been empirically observed that, if X_0 has low rank, it may be recovered quite accurately from the noisy measurement Y. A popular matrix denoising scheme solves the unconstrained optimization problem min || Y - X ||_F^2/2 + \\lambda ||X||_*. When optimally tuned, this scheme achieves the asymptotic minimax MSE, M( \\rho ) = \\lim_{N-> \\infty} \\inf_\\lambda \\sup_{\\rank(X) <= \\rho * N} MSE(X,\\hat{X}_\\lambda). We report extensive experiments showing that the phase transition \\delta^*(\\rho) in the first problem (Matrix Recovery from Gaussian Measurements) coincides with the minimax risk curve M(\\rho) in the second problem (Matrix Denoising in Gaussian Noise): \\delta^*(\\rho) = M(\\rho), for any rank fraction 0 < \\rho < 1. Our experiments considered matrices belonging to two constraint classes: real M by N matrices, of various ranks and aspect ratios, and real symmetric positive semidefinite N by N matrices, of various ranks. Different predictions M(\\rho) of the phase transition location were used in the two different cases, and were validated by the experimental data.", 
+    "title": "The Phase Transition of Matrix Recovery from Gaussian Measurements Matches the Minimax MSE of Matrix Denoising", 
+    "journal": "Stanford University (2013)", 
+    "legacyid": "265", 
+    "explanatory_text": "The program provided calculates the asymptotic minimax MSE, and the asymptotic minimax tuning threshold, of matrix denoising by Singular Value Thresholding: lim_{N->\\infty} inf_lambda sup_{rank(X)<= M*rho} MSE ||Xhat_lambda - X||^2_F /MN ... Here: (*) Xhat_lambda is the Singular Value Thresholding denoiser (applying soft thresholding with threshold lambda to each singular value of the data) (*) rho is the asymptotic rank fraction (*) M/N -> beta (the asymptotic aspect ratio) (*) X is an M-by-N matrix, M<=N (*) ||.||_F denotes the Frobenius matrix norm (sum of squares of matrix entries)"
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://arxiv.org/pdf/1301.6879", 
+    "legacy_id": "269", 
+    "authors": {
+      "Christian Himpe": {
+        "first": "Christian", 
+        "last": "Himpe", 
+        "author": true
+      }, 
+      "Mario Ohlberger": {
+        "first": "Mario", 
+        "last": "Ohlberger", 
+        "author": true
+      }
+    }, 
+    "abstract": "A common approach in model reduction is balanced truncation, which is based on gramian matrices classifiying certain attributes of states or parameters of a given dynamic system. Initially restricted to linear systems, the empirical gramians not only extended this concept to nonlinear systems, but also provide a uniform computational method. This work introduces a unified software framework supplying routines for six types of empirical gramians. The gramian types will be discussed and applied in a model reduction framework for multiple-input-multiple-output (MIMO) systems.", 
+    "title": "A Unified Software Framework for Empirical Gramians", 
+    "journal": "Institute for Computational and Applied Mathematics at the University of Muenster (2013)", 
+    "legacyid": "269", 
+    "explanatory_text": "acc %runs the code and outputs results. acc(1) %runs the code and outputs results and plots. Code is compatible to Octave >= 3.6.3. For further info see paper."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1016/j.econmod.2010.10.018", 
+    "legacy_id": "273", 
+    "authors": {
+      "Furkan Emirmahmutoglu": {
+        "first": "Furkan", 
+        "last": "Emirmahmutoglu", 
+        "author": true
+      }, 
+      "Nezir Kose": {
+        "first": "Nezir", 
+        "last": "Kose", 
+        "author": true
+      }
+    }, 
+    "abstract": "In this paper, we propose a simple Granger causality procedure based on Meta analysis in heterogeneous mixed panels. Firstly, we examine the finite sample properties of the causality test through Monte Carlo experiments for panels characterized by both cross-section independency and cross-section dependency. Then, we apply the procedure for investigating the export led growth hypothesis in a panel data of twenty OECD countries.", 
+    "title": "Testing for Granger Causality in Heterogeneous Mixed Panels ", 
+    "journal": "Economic Modelling (2011)", 
+    "legacyid": "273", 
+    "explanatory_text": "This code is written to test panel causality which is valid the following cases: 1) The test is valid for four different DGPs in mixed panels involving I(0), I(1), cointegrated and non-cointegrated series. 2) The lag lengths on autoregressive coefficients and exogenous variables can be different for cross-section units. 3) Time periods of each unit should not be same. 4) To prevent cross-section dependency problem, we obtain emprical distribution of the Fisher Test statistic using Bootstrap procedure."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1109/TSP.2012.2231077", 
+    "legacy_id": "286", 
+    "authors": {
+      "Robert Calderbank": {
+        "first": "Robert", 
+        "last": "Calderbank", 
+        "author": true
+      }, 
+      "Waheed U. Bajwa": {
+        "first": "Waheed", 
+        "last": "U. Bajwa", 
+        "author": true
+      }, 
+      "Andrew Harms": {
+        "first": "Andrew", 
+        "last": "Harms", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper presents a significant modification to the Random Demodulator (RD) of Tropp et al. for sub-Nyquist sampling of frequency-sparse signals. The modification, termed constrained random demodulator, involves replacing the random waveform, essential to the operation of the RD, with a constrained random waveform that has limits on its switching rate because fast switching waveforms may be hard to generate cleanly. The result is a relaxation on the hardware requirements with a slight, but manageable, decrease in the recovery guarantees. The paper also establishes the importance of properly choosing the statistics of the constrained random waveform. If the power spectrum of the random waveform matches the distribution on the tones of the input signal (i.e., the distribution is proportional to the power spectrum), then recovery of the input signal tones is improved. The theoretical guarantees provided in the paper are validated through extensive numerical simulations and phase transition plots.", 
+    "title": "A Constrained Random Demodulator for Sub-Nyquist Sampling", 
+    "journal": "IEEE Transactions on Signal Processing (2013)", 
+    "legacyid": "286", 
+    "explanatory_text": "The code can be used to reproduce the simulations presented in the associated paper or to run similar simulations. The code uses SpaRSA to calculate the Lasso solution and YALL1 to calculate the basis pursuit solution to finding spectral coefficients."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Bertrand Candelon": {
+        "affiliation": "Maastricht University", 
+        "coder": true, 
+        "country": "Netherlands", 
+        "last": "Candelon", 
+        "first": "Bertrand"
+      }, 
+      "Sessi Tokpavi": {
+        "affiliation": "University of Paris Ouest, Nanterre", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Tokpavi", 
+        "first": "Sessi"
+      }, 
+      "Gilbert Colletaz": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Colletaz", 
+        "first": "Gilbert"
+      }
+    }, 
+    "article_url": "http://jfec.oxfordjournals.org/content/9/2/314.short", 
+    "legacy_id": "3", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Bertrand Candelon": {
+        "first": "Bertrand", 
+        "last": "Candelon", 
+        "author": true
+      }, 
+      "Sessi Tokpavi": {
+        "first": "Sessi", 
+        "last": "Tokpavi", 
+        "author": true
+      }, 
+      "Gilbert Colletaz": {
+        "first": "Gilbert", 
+        "last": "Colletaz", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes a new duration-based backtesting procedure for VaR forecasts. The GMM test framework proposed by Bontemps (2006) to test for the distributional assumption (i.e. the geometric distribution) is applied to the case of the VaR forecasts validity. Using simple J-statistic based on the moments defined by the orthonormal polynomials associated with the geometric distribution, this new approach tackles most of the drawbacks usually associated to duration based backtesting procedures. First, its implementation is extremely easy. Second, it allows for a separate test for unconditional coverage, independence and conditional coverage hypothesis (Christoffersen, 1998). Third, Monte-Carlo simulations show that for realistic sample sizes, our GMM test outperforms traditional duration based test. Besides, we study the consequences of the estimation risk on the duration-based backtesting tests and propose a sub-sampling approach for robust inference derived from Escanciano and Olmo (2009). An empirical application for Nasdaq returns confirms that using GMM test leads to major consequences for the ex-post evaluation of the risk by regulation authorities.", 
+    "title": "Backtesting Value-at-Risk: A GMM Duration-based Test", 
+    "journal": "Journal of Financial Econometrics (2011)", 
+    "legacyid": "3", 
+    "explanatory_text": "This code computes the GMM duration-based VaR backtesting test proposed by Candelon et al. (2011). Three hypotheses are considered: the first one tests the null of unconditional coverage (CC), the second one tests the independence assumption (IND), and the last one the null of conditional coverage (CC) \u00e2\u0080\u0093 see Christoffersen (1998) for more details. The three J-statistics are based on the framework proposed by Bontemps (2006). They correspond to simple J-statistics based on the moments defined by the orthonormal polynomials associated with the geometric distribution. The user has to choose the number of polynomials considered (p denotes the maximum number of polynomials considered)."
+  }, 
+  {
+    "coders": {
+      "David Donoho": {
+        "affiliation": "Stanford University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Donoho", 
+        "first": "David"
+      }, 
+      "Matan Gavish": {
+        "affiliation": "", 
+        "coder": true, 
+        "country": "", 
+        "last": "Gavish", 
+        "first": "Matan"
+      }
+    }, 
+    "article_url": "http://arxiv.org/pdf/1305.5870.pdf", 
+    "legacy_id": "303", 
+    "authors": {
+      "Matan Gavish": {
+        "first": "Matan", 
+        "last": "Gavish", 
+        "author": true
+      }, 
+      "David Donoho": {
+        "first": "David", 
+        "last": "Donoho", 
+        "author": true
+      }
+    }, 
+    "abstract": "We consider recovery of low-rank matrices from noisy data by hard thresholding of singular values, where singular values below a prescribed threshold \\lambda are set to 0. We study the asymptotic MSE in a framework where the matrix size is large compared to the rank of the matrix to be recovered, and the signal-to-noise ratio of the low-rank piece stays constant. The AMSE-optimal choice of hard threshold, in the case of n-by-n matrix in noise level \\sigma, is simply (4/\\sqrt{3}) \\sqrt{n}\\sigma \\approx 2.309 \\sqrt{n}\\sigma when \\sigma is known, or simply 2.858\\cdot y_{med} when \\sigma is unknown, where y_{med} is the median empirical singular value. For nonsquare m by n matrices with m \\neq n, these thresholding coefficients are replaced with different provided constants. In our asymptotic framework, this thresholding rule adapts to unknown rank and to unknown noise level in an optimal manner: it is always better than hard thresholding at any other value, no matter what the matrix is that we are trying to recover, and is always better than ideal Truncated SVD (TSVD), which truncates at the true rank of the low-rank matrix we are trying to recover. Hard thresholding at the recommended value to recover an n-by-n matrix of rank r guarantees an AMSE at most 3nr\\sigma^2. In comparison, the guarantee provided by TSVD is 5nr\\sigma^2, the guarantee provided by optimally tuned singular value soft thresholding is 6nr\\sigma^2, and the best guarantee achievable by any shrinkage of the data singular values is 2nr\\sigma^2. Empirical evidence shows that these AMSE properties of the 4/\\sqrt{3} thresholding rule remain valid even for relatively small n, and that performance improvement over TSVD and other shrinkage rules is substantial, turning it into the practical hard threshold of choice.", 
+    "title": "The Optimal Hard Threshold for Singular Values is 4/sqrt(3)", 
+    "journal": "Stanford University (2013)", 
+    "legacyid": "303", 
+    "explanatory_text": "Coefficient determining optimal location of Hard Threshold for Matrix Denoising by Singular Values Hard Thresholding when noise level is known or unknown. See D. L. Donoho and M. Gavish, \"The Optimal Hard Threshold for Singular Values is 4/sqrt(3)\", http://arxiv.org/abs/1305.5870 IN: beta: aspect ratio m/n of the matrix to be denoised, 0<beta<=1. beta may be a vector sigma_known: 1 if noise level known, 0 if unknown OUT: coef: optimal location of hard threshold, up the median data singular value (sigma unknown) or up to sigma*sqrt(n) (sigma known); a vector of the same dimension as beta, where coef(i) is the coefficient correcponding to beta(i) Usage in known noise level: Given an m-by-n matrix Y known to be low rank and observed in white noise with mean zero and known variance sigma^2, form a denoised matrix Xhat by: [U D V] = svd(Y); y = diag(Y); y( y < (optimal_SVHT_coef(m/n,1) * sqrt(n) * sigma) ) = 0; Xhat = U * diag(y) * V'; Usage in unknown noise level: Given an m-by-n matrix Y known to be low rank and observed in white noise with mean zero and unknown variance, form a denoised matrix Xhat by: [U D V] = svd(Y); y = diag(Y); y( y < (optimal_SVHT_coef_sigma_unknown(m/n,0) * median(y)) ) = 0; Xhat = U * diag(y) * V';"
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Dumitrescu", 
+        "first": "Elena-Ivona"
+      }
+    }, 
+    "article_url": "http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)1099-131X/earlyview", 
+    "legacy_id": "31", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Jaouad Madkour": {
+        "first": "Jaouad", 
+        "last": "Madkour", 
+        "author": true
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "first": "Elena-Ivona", 
+        "last": "Dumitrescu", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes a new evaluation framework of interval forecasts. Our model free test can be used to evaluate intervals forecasts and/or High Density Region, potentially discontinuous and/or asymmetric. Using simple J-statistic based on the moments defined by the orthonormal polynomials associated with the Binomial distribution, this new approach presents many advantages. First, its implementation is extremely easy. Second, it allows for a separate test for unconditional coverage, independence and conditional coverage hypothesis. Third, Monte-Carlo simulations show that for realistic sample sizes, our GMM test outperforms traditional LR test. These results are corroborated by an empirical application on SP500 and Nikkei stock market indexes. The empirical application for financial returns confirms that using a GMM test leads to major consequences for the ex-post evaluation of interval forecasts produced by linear versus non linear models.", 
+    "title": "Testing Interval Forecasts: A GMM-Based Approach", 
+    "journal": "Journal of Forecasting (2011)", 
+    "legacyid": "31", 
+    "explanatory_text": "The goal of this code is to implement the evaluation framework of interval forecasts proposed in Dumitrescu, Hurlin and Madkour (2011). This is a set of three univariate tests (unconditional coverage J_UC, conditional coverage J_CC, and independence J_IND) that can be implemented with any dataset. Besides, the results of Christoffersen (1998)'s tests (LR_UC, LR_CC and LR_IND) are also reported. To run my codes, you need (i) the Indicator Series (1 - if the realization of the variable to be forecasted does not belong to the interval forecast, i.e. violation; 0 - if it is in the interval) (ii) Risk level (5% or 1%) (iii) Block size N=T/nn, where nn is chosen from (4;10;50) and T is the out-of-sample size (iv) Number of moment conditions for the GMM test (from 2 to 10)."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Sylvain Benoit": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Benoit", 
+        "first": "Sylvain"
+      }, 
+      "Gilbert Colletaz": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Colletaz", 
+        "first": "Gilbert"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1973950", 
+    "legacy_id": "32", 
+    "authors": {
+      "Christophe Perignon": {
+        "first": "Christophe", 
+        "last": "Perignon", 
+        "author": true
+      }, 
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Sylvain Benoit": {
+        "first": "Sylvain", 
+        "last": "Benoit", 
+        "author": true
+      }, 
+      "Gilbert Colletaz": {
+        "first": "Gilbert", 
+        "last": "Colletaz", 
+        "author": true
+      }
+    }, 
+    "abstract": "In this paper, we propose a theoretical and empirical comparison of two popular systemic risk measures - Marginal Expected Shortfall (MES) and Delta Conditional Value at Risk (\u0394CoVaR) - that can be estimated using publicly available data. First, we assume that the time-varying correlation completely captures the dependence between firm and market returns. Under this assumption, we derive three analytical results: (i) we show that the MES corresponds to the product of the conditional ES of market returns and the time-varying beta of this institution, (ii) we give an analytical expression of the \u0394CoVaR and show that the CoVaR corresponds to the product of the VaR of the firm's returns and the time-varying linear projection coefficient of the market returns on the firm's returns and (iii) we derive the ratio of the MES to the \u0394CoVaR. Second, we relax this assumption and propose an empirical comparison for a panel of 61 US financial institutions over the period from January 2000 to December 2010. For each measure, we propose a cross-sectional analysis, a time-series comparison and rankings analysis of these institutions based on the two measures.", 
+    "title": "A Theoretical and Empirical Comparison of Systemic Risk Measures: MES versus CoVaR", 
+    "journal": "SSRN (2011)", 
+    "legacyid": "32", 
+    "explanatory_text": "These codes compute two systemic risk measures: (1) the MES (Marginal Expected Shortfall) proposed by Acharya et al.(2010) and Brownlees and Engle (2012) and (2) the \u0394CoVaR (Delta Conditional Value-at-Risk) proposed by Adrian and Brunnermeier (2011). Both measures are derived from an asymmetric DCC model. The conditional variances are estimated from univariate TGARCH models. The codes also compute the \u0394CoVaR issued from a quantile regression of the financial sector returns on a particular institution\u2019s returns. The estimated VaR, MES, DCC-\u0394CoVaR and quantile-\u0394CoVaR can be downloaded from a csv file. The codes only require, as input, the market's returns, the asset's returns and the coverage rate (for MES, \u0394CoVaR and the conditioning financial distress events)."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Dumitrescu", 
+        "first": "Elena-Ivona"
+      }
+    }, 
+    "article_url": "http://www.univ-orleans.fr/deg/masters/ESA/CH/Causality_20111.pdf", 
+    "legacy_id": "51", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "first": "Elena-Ivona", 
+        "last": "Dumitrescu", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes a very simple test of Granger (1969) non-causality for hetero- geneous panel data models. Our test statistic is based on the individual Wald statistics of Granger non causality averaged across the cross-section units. First, this statistic is shown to converge sequentially to a standard normal distribution. Second, the semi- asymptotic distribution of the average statistic is characterized for a fixed T sample. A standardized statistic based on an approximation of the moments of Wald statistics is hence proposed. Third, Monte Carlo experiments show that our standardized panel statistics have very good small sample properties, even in the presence of cross-sectional dependence.", 
+    "title": "Testing for Granger Non-causality in Heterogeneous Panels", 
+    "journal": "Economic Modelling (2012)", 
+    "legacyid": "51", 
+    "explanatory_text": "This code computes the Wbar and Zbar test statistics of the Homogenous Non Causality (HNC) hypothesis. Under the null hypothesis of Homogenous Non Causality (HNC) hypothesis, there is no causal relationship for all the cross-units of the panel. Under the alternative, there is a causal relationship from X to Y at least for one cross-unit. In this version of the code, the panel must be balanced (a future version of the website will allow for unbalanced panel). The Wbar statistic corresponds to the cross sectional average of the N standard individual Wald statistics of Granger non causality tests. The Zbar statistic corresponds to the standardized statistic (for fixed T sample)."
+  }, 
+  {
+    "coders": {
+      "Allan Timmermann": {
+        "affiliation": "University of California, San Diego", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Timmermann", 
+        "first": "Allan"
+      }, 
+      "Andrew J. Patton": {
+        "affiliation": "Duke University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "J. Patton", 
+        "first": "Andrew"
+      }
+    }, 
+    "article_url": "http://dx.doi.org/10.1016/j.jfineco.2010.06.006", 
+    "legacy_id": "56", 
+    "authors": {
+      "Allan Timmermann": {
+        "first": "Allan", 
+        "last": "Timmermann", 
+        "author": true
+      }, 
+      "Andrew J. Patton": {
+        "first": "Andrew", 
+        "last": "J. Patton", 
+        "author": true
+      }
+    }, 
+    "abstract": "Many theories in finance imply monotonic patterns in expected returns and other financial variables. The liquidity preference hypothesis predicts higher expected returns for bonds with longer times to maturity; the Capital Asset Pricing Model(CAPM)implies higher expected returns for stocks with higher betas; and standard asset pricing models imply that the pricing kernel is declining in market returns. The full set of implications of monotonicity is generally not exploited in empirical work, however. This paper proposes new and simple ways to test for monotonicity in financial variables and compares the proposed tests with extant alternatives such as t-tests, Bonferroni bounds, and multivariate inequality tests through empirical applications and simulations.", 
+    "title": "Monotonicity in Asset Returns: New Tests with Applications to the Term Structure, the CAPM, and Portfolio Sorts", 
+    "journal": "Journal of Financial Economics (2010)", 
+    "legacyid": "56", 
+    "explanatory_text": "This code implements the test of monotonicity in asset returns of Patton and Timmermann (2010). The monotonic relation (MR) test holds that expected returns are identical or weakly declining under the null hypothesis, while under the alternative it maintains a monotonically increasing relation. The code computes the spread in the estimated expected return between the top and the bottom ranked portfolio, the t-statistic for this spread and the associated p-value. It also reports the p-values from the MR test applied to the decile portfolios, based either on the minimal set of portfolio comparisons or on all possible comparisons (MRall), the p-values associated with the Up and Down tests (based on the sum of up and down moves) and the p-values from Wolak(1989) test and a Bonferroni bound."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=312230", 
+    "legacy_id": "58", 
+    "authors": {
+      "Yacine A\u00eft-Sahalia": {
+        "first": "Yacine", 
+        "last": "A\u00eft-Sahalia", 
+        "author": true
+      }
+    }, 
+    "abstract": "When a continuous-time diffusion is observed only at discrete dates, in most cases the transition distribution and hence the likelihood function of the observation is not explicitely computable. Using Hermite polynomials, I construct an explicit sequences of closed-form functions and show that it converges to the true (but unknown) likelihood function. I document that the approximation is very accurate and prove that maximizing the sequence results in an estimator that converges to the true maximum likelihood estimator and shares its asymptotic properties. Monte Carlo evidence reveals that this method outperforms other approximation schemes in situations relevant for financial models.", 
+    "title": "Maximum Likelihood Estimation of Discretely Sampled Diffusions: A Closed-Form Approximation Approach", 
+    "journal": "Econometrica (2002)", 
+    "legacyid": "58", 
+    "explanatory_text": "The code, written in MATLAB, implements the closed-form maximum-likelihood estimation method for continuous-time processes in economics and finance. First, the code maximizes the log-likelihood function and displays the MLE estimates, the standard error estimates (constructed from the inverse of Hessian) and the misspecification-robust standard error (i.e., the sandwich estimate). Second, it reports whether the maximization procedure converges under the default tolerance. Finally, it plots the marginal log-likelihood for each parameter in a neighborhood of the estimates. The blue curve is the likelihood function, while each red star corresponds to the estimate for the corresponding parameter. For more information about the models, please read the user's guide (link \"more\")."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www.insa-rennes.fr/wpFichiers/25/82/ressources/File/webpage_caus.pdf", 
+    "legacy_id": "62", 
+    "authors": {
+      "Valentin Patilea": {
+        "first": "Valentin", 
+        "last": "Patilea", 
+        "author": true
+      }
+    }, 
+    "abstract": "Linear Vector AutoRegressive (VAR) models where the innovations could be unconditionally heteroscedastic and serially dependent are considered. The volatility structure is deterministic and quite general, including breaks or trending variances as special cases. In this framework we propose Ordinary Least Squares (OLS), Generalized Least Squares (GLS) and Adaptive Least Squares (ALS) procedures. The GLS estimator requires the knowledge of the time-varying variance structure while in the ALS approach the unknown variance is estimated by kernel smoothing with the outer product of the OLS residuals vectors. Different bandwidths for the different cells of the time-varying variance matrix are also allowed. We derive the asymptotic distribution of the proposed estimators for the VAR model coefficients and compare their properties. In particular we show that the ALS estimator is asymptotically equivalent to the infeasible GLS estimator. This asymptotic equivalence is obtained uniformly with respect to the bandwidth(s) in a given range and hence justifies data-driven bandwidth rules. Using these results we build Wald tests for the linear Granger causality in mean which are adapted to VAR processes driven by errors with a non stationary volatility. It is also shown that the commonly used standard Wald test for the linear Granger causality in mean is potentially unreliable in our framework (incorrect level and lower asymptotic power). Monte Carlo and real-data experiments illustrate the use of the different estimation approaches for the analysis of VAR models with time-varying variance innovations.", 
+    "title": "Adaptive Estimation of Vector Autoregressive Models with Time-Varying Variance: Application to Testing Linear Causality in Mean", 
+    "journal": "IRMAR-INSA and CREST ENSAI (2010)", 
+    "legacyid": "62", 
+    "explanatory_text": "The code provides Wald tests results for testing linear Granger causality in mean in the framework of VAR models with non constant variance. A summary on bandwidth selection and the minimum eigenvalues of the estimated volatilities is displayed. The series have to be centered before proceeding to the tests. Note that the adequacy of the VAR model has to be tested before using the modified portmanteau tests available on this companion website."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www.springer.com/statistics/business%2C+economics+%26+finance/book/978-3-540-71296-1", 
+    "legacy_id": "63", 
+    "authors": {
+      "Andrew J. Patton": {
+        "first": "Andrew", 
+        "last": "J. Patton", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper presents an overview of the literature on applications of copulas in the modelling of financial time series. Copulas have been used both in multivariate time series analysis, where they are used to charaterise the (conditional) cross-sectional dependence between individual time series, and in univariate time series analysis, where they are used to characterise the dependence between a sequence of observations of a scalar time series process. The paper includes a broad, brief, review of the many applications of copulas in finance and economics.", 
+    "title": "Copula-Based Models for Financial Time Series", 
+    "journal": "Handbook of Financial Time Series, Springer Verlag (2009)", 
+    "legacyid": "63", 
+    "explanatory_text": "This code estimates a dozen constant and time-varying copula functions for bivariate time-series (e.g. Normal, Clayton, Rotates Clayton, Plackett, Frank, Gumbel, Rotated Gumbel, Student, Symmetrised Joe-Clayton). These copulas are then compared by relying on criteria such as Log-likelihood, AIC or BIC. Besides, the code reports the plots for exceedence correlations, quantile dependence and the graphical comparison of the constant and the time-varying versions of three copulas, i.e. Normal, Gumbel and SJC. For the constant copulas, the level of tail dependence (Ldep and Udep) is also indicated."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www.jstor.org/stable/2646846", 
+    "legacy_id": "64", 
+    "authors": {
+      "David Revelt": {
+        "first": "David", 
+        "last": "Revelt", 
+        "author": true
+      }, 
+      "Kenneth Train": {
+        "first": "Kenneth", 
+        "last": "Train", 
+        "author": true
+      }
+    }, 
+    "abstract": "Mixed logit models, also called random-parameters or error-components logit, are a generalization of standard logit that do not exhibit the restrictive \"independence from irrelevant alternatives\" property and explicitly account for correlations in unobserved utility over repeated choices by each customer. Mixed logits are estimated for households\u2019 choices of appliances under utility-sponsored programs that offer rebates or loans on high-efficiency appliances.", 
+    "title": "Mixed Logit with Repeated Choices: Households' Choices of Appliance Efficiency Level", 
+    "journal": "The Review of Economics and Statistics (1998)", 
+    "legacyid": "64", 
+    "explanatory_text": "This code estimates the parameters of mixed logit models, also called random-parameters or error-components logit. This model is a generalization of standard logit that does not exhibit the restrictive \"independence from irrelevant alternatives\" property and explicitly accounts for correlations in unobserved utility over repeated choices by each customer. The user can introduce explanatory variables associated with fixed and/or random coefficients. For random coefficients (RC), the user can choose a specific distribution for each parameter. The code displays estimated fixed coefficients, the estimated parameters of the RC distribution, standard errors and sampling covariance matrix, and the log-likelihood at convergence."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Bertrand Candelon": {
+        "affiliation": "Maastricht University", 
+        "coder": true, 
+        "country": "Netherlands", 
+        "last": "Candelon", 
+        "first": "Bertrand"
+      }, 
+      "Gilbert Colletaz": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Colletaz", 
+        "first": "Gilbert"
+      }
+    }, 
+    "article_url": "http://ideas.repec.org/p/dgr/umamet/2009050.html", 
+    "legacy_id": "65", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Bertrand Candelon": {
+        "first": "Bertrand", 
+        "last": "Candelon", 
+        "author": true
+      }, 
+      "Gilbert Colletaz": {
+        "first": "Gilbert", 
+        "last": "Colletaz", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes to investigate the threshold effects of the productivity of infrastructure investment in developing countries within a panel data framework. Various speci.cations of an augmented production function that allow for endogenous thresholds are considered. The overwhelming outcome is the presence of strong threshold effects in the relationship between output and private and public inputs. Whatever the transition mechanism used, the testing procedures lead to strong rejection of the linearity of this relationship. In particular, the productivity of infrastructure investment generally exhibits some network effects. When the available stock of infrastructure is very low, investment in this sector has the same productivity as non-infrastructure investment. On the contrary, when a minimumnetwork is available, the marginal productivity of infrastructure investment is generally largely greater than the productivity of other investments. Finally, when the main network is achieved, its marginal productivity becomes similar to the productivity of other investment.", 
+    "title": "Network Effects and Infrastructure Productivity in Developing Countries", 
+    "journal": "Maastricht University (2011)", 
+    "legacyid": "65", 
+    "explanatory_text": "This code allows estimating the parameters of a Panel Threshold Regression (PTR) model with one or two thresholds parameters. The model does not exactly correspond to that proposed by Hansen (1999). All the slope parameters are affected by the regime. In this model, you can consider contemporary exogenous variable. The code does not automatically introduce some lags on the threshold variable and the explicative variables. If you want to introduce such lags, you have to introduce lagged data in the form. The results display the estimated slope parameters and thresholds parameters. The F-tests F1 and/or F2 (test on the number of regimes) are also displayed. The corresponding Boostrap pvalues are displayed if the chosen number of simulations is greater than 0."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://ideas.repec.org/p/hal/wpaper/halshs-00008056.html", 
+    "legacy_id": "66", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Gilbert Colletaz": {
+        "first": "Gilbert", 
+        "last": "Colletaz", 
+        "author": true
+      }
+    }, 
+    "abstract": "Using a non linear panel data model we examine the threshold effects in the productivity of the public capital stocks for a panel of 21 OECD countries observed over 1965-2001. Using the so-called \"augmented production function\" approach, we estimate various specifications of a Panel Smooth Threshold Regression (PSTR) model recently developed by Gonzalez, Ter\u00e4svirta and Van Dijk (2004). One of our main results is the existence of strong threshold effects in the relationship between output and private and public inputs : whatever the transition mechanism specified, tests strongly reject the linearity assumption. Moreover this model allows cross-country heterogeneity and time instability of the productivity without specification of an ex-ante classification over individuals. Consequently it is posible to give estimates of productivity coefficients for both private and public capital stocks at any time and for each countries in the sample. Finally we proposed estimates of individual time varying elasticities that are much more reasonable than those previously published.", 
+    "title": "Threshold Effects of the Public Capital Productivity : An International Panel Smooth Transition Approach", 
+    "journal": "University of Orl\u00e9ans (2006)", 
+    "legacyid": "66", 
+    "explanatory_text": "This code allows estimating the parameters of a Panel Smooth Transition Regression (PSTR) model. In this code, the panel can be unbalanced. The user can define the number of location parameters see Gonzalez et al., 2005 for more details) and the maximum number of transition function. The code automatically determines the optimal number of transition functions, by testing the hypothesis of no remaining heterogeneity, using a 5% nominal risk. The parameters (slope parameter and location parameters of the transition function, slopes parameters in each regime for all the explicative variables\u2026) are estimated by NLS. At the end, the individual elasticities for each explicative variable are computed and stored in an excel file."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://www.jstor.org/pss/2527341", 
+    "legacy_id": "67", 
+    "authors": {
+      "Peter F Christoffersen": {
+        "first": "Peter", 
+        "last": "F Christoffersen", 
+        "author": true
+      }
+    }, 
+    "abstract": "A complete theory for evaluating interval forecasts has not been worked out to date. Most of the literature implicitly assumes homoskedastic errors even when this is clearly violated and proceed by merely testing for correct unconditional coverage. Consequently, the author sets out to build a consistent framework for conditional interval forecast evaluation, which is crucial when higher-order moment dynamics are present. The new methodology is demonstrated in an application to the exchange rate forecasting procedures advocated in risk management.", 
+    "title": "Evaluating Interval Forecasts", 
+    "journal": "International Economic Review (1998)", 
+    "legacyid": "67", 
+    "explanatory_text": "This code computes the LR test statistics proposed by Christoffersen (1998) in the context of the backtesting of Value-at-Risk forecasts. The tests are then based on the concept of violation: a violation is said to occur when the ex-post losses are larger than the VaR defined for a given coverage rate. The user can choose to test for Unconditional Coverage (UC), Independence (IND) and/or Conditional Coverage (CC) assumptions. The two first corresponding test statistics have a chi-squared distribution with one degree of freedom and the last one a chi-squared distribution with two degrees of freedom. For more details, please read the following document."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=821715", 
+    "legacy_id": "68", 
+    "authors": {
+      "Peter F Christoffersen": {
+        "first": "Peter", 
+        "last": "F Christoffersen", 
+        "author": true
+      }, 
+      "Denis Pelletier": {
+        "first": "Denis", 
+        "last": "Pelletier", 
+        "author": true
+      }
+    }, 
+    "abstract": "Financial risk model evaluation or backtesting is a key part of the internal model\u2019s approach to market risk management as laid out by the Basle Committee on Banking Supervision. However, existing backtesting methods have relatively low power in realistic small sample settings. Our contribution is the exploration of new tools for backtesting based on the duration of days between the violations of the Value-at-Risk. Our Monte Carlo results show that in realistic situations, the new duration-based tests have considerably better power properties than the previously suggested tests.", 
+    "title": "Backtesting Value-at-Risk: A Duration-Based Approach", 
+    "journal": "Journal of Financial Econometrics (2004)", 
+    "legacyid": "68", 
+    "explanatory_text": "This code computes two LR duration based test statistics derived from Christoffersen and Pelletier (2004). These backtesting tests are based on the durations observed between two consecutive hits (VaR violations). The LR statistics (denoted LR_CC) corresponds to the Conditional Coverage assumption. Under the null of CC, the durations have an exponential distribution with a rate parameter equal to 1/\u03b1, where \u03b1 denotes the VaR coverage rate. The second statistic LR_IND corresponds to the independence (IND) assumption. Under the null of IND, the durations have an exponential distribution (memory-free distribution) but with a rate parameter that can different from 1/\u03b1. The first has a \u03c72(1) distribution and the second a \u03c72(2)."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Sessi Tokpavi": {
+        "affiliation": "University of Paris Ouest, Nanterre", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Tokpavi", 
+        "first": "Sessi"
+      }
+    }, 
+    "article_url": "http://www.thejournalofrisk.com/public/showPage.html?validate=0&page=jor_login_new2&url=%2Fpublic%2FshowPage.html%3Fpage%3Djor_v9n2a2", 
+    "legacy_id": "69", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Sessi Tokpavi": {
+        "first": "Sessi", 
+        "last": "Tokpavi", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes a new test of value-at-risk (VAR) validation. Our test exploits the idea that the sequence of VAR violations (hit function) \u2013 taking value 1 - \u03b1 if there is a violation, and -\u03b1 otherwise \u2013 for a nominal coverage rate \u03b1 verifies the properties of a martingale difference if the model used to quantify risk is adequate (Berkowitz et al., 2005). More precisely, we use the multivariate portmanteau statistic of Li and McLeod (1981), an extension to the multivariate framework of the test of Box and Pierce (1970), to jointly test the absence of autocorrelation in the vector of hit sequences for various coverage rates considered relevant for the management of extreme risks. We show that this shift to a multivariate dimension appreciably improves the power properties of the VAR validation test for reasonable sample sizes.", 
+    "title": "Backtesting Value-at-Risk Accuracy: A Simple New Test", 
+    "journal": "Journal of Risk (2006)", 
+    "legacyid": "69", 
+    "explanatory_text": "This code computes the QK statistic proposed by Hurlin and Tokpavi (2006) to backtest Value-at-Risk (VaR) forecasts. The test statistic is a multivariate portmanteau statistic \u00e0 la Li and McLeod (1981) \u2013 extension to the multivariate framework of the test of Box and Pierce (1970). It jointly tests the absence of autocorrelation in the vector of hit sequences for the coverage rates considered as relevant for the management of extreme risks and chosen by the user. This code requires m VaR forecast series issued from the same model (for instance GARCH) for m coverage rates. The order of the VaRs (in column) in the matrix must correspond to the order of the coverage rates defined in the vector. The coverage rates (and the VaRs) can be sorted or unsorted."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Bertrand Candelon": {
+        "affiliation": "Maastricht University", 
+        "coder": true, 
+        "country": "Netherlands", 
+        "last": "Candelon", 
+        "first": "Bertrand"
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Dumitrescu", 
+        "first": "Elena-Ivona"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2021703", 
+    "legacy_id": "70", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Bertrand Candelon": {
+        "first": "Bertrand", 
+        "last": "Candelon", 
+        "author": true
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "first": "Elena-Ivona", 
+        "last": "Dumitrescu", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes an original and unified toolbox to evaluate financial crisis Early Warning Systems (EWS). It presents four main advantages. First, it is a model-free method which can be used to asses the forecasts issued from different EWS (probit, logit, markov switching models, or combinations of models). Second, this toolbox can be applied to any type of crisis EWS (currency, banking, sovereign debt, etc.). Third, it does not only provide various criteria to evaluate the (absolute) validity of EWS forecasts but also proposes some tests to compare the relative performance of alternative EWS. Fourth, our toolbox can be used to evaluate both in-sample and out-of-sample forecasts. Applied to a logit model for twelve emerging countries we show that the yield spread is a key variable for predicting currency crises exclusively for South-Asian countries. Besides, the optimal cut-off correctly allows us to identify now on average more than 2/3 of the crisis and calm periods.", 
+    "title": "How To Evaluate an Early Warning System? Towards a unified Statistical Framework for Assessing Financial Crises Forecasting Methods", 
+    "journal": "IMF Economic Review (2012)", 
+    "legacyid": "70", 
+    "explanatory_text": "This original model free toolbox evaluates the forecasting abilities of an Early Warning System (EWS) or those of two competing EWS. First, it finds the optimal cut-off, the one that best discriminates between crisis and calm periods. Second, it computes several evaluation criteria for the predictive abilities of the EWS. If two models are considered, it evaluates each model and then uses comparison tests to identify the outperforming one. The code relies on 2 series (optionally, 3 series and the choice nested/non nested models). The first one is the observed crisis (binary, taking the values of 0 and 1). The second one is a series of probabilities issued from any type of EWS. Another series of probabilities (a 2nd EWS) must be provided if 2 EWS are to be compared."
+  }, 
+  {
+    "coders": {
+      "Guillaume Gaulier": {
+        "affiliation": "Banque de France", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Gaulier", 
+        "first": "Guillaume"
+      }, 
+      "Marc Fleurbaey": {
+        "affiliation": "Princeton University", 
+        "coder": true, 
+        "country": "United States", 
+        "last": "Fleurbaey", 
+        "first": "Marc"
+      }
+    }, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1489058", 
+    "legacy_id": "71", 
+    "authors": {
+      "Guillaume Gaulier": {
+        "first": "Guillaume", 
+        "last": "Gaulier", 
+        "author": true
+      }, 
+      "Marc Fleurbaey": {
+        "first": "Marc", 
+        "last": "Fleurbaey", 
+        "author": true
+      }
+    }, 
+    "abstract": "We propose a measure of living standards for international comparisons. Based on GDP per capita, the measure incorporates corrections for international flows of income, labor, risk of unemployment, healthy life expectancy, household demography and inequalities. The method for comparing populations that differ in some non-income dimension consists of computing the equivalent variation of income that would make each population indifferent between its current situation and a reference situation with respect to the non-income dimension. This is applied to 24 OECD countries. The obtained ranking of countries differs substantially from the GDP ranking.", 
+    "title": "International Comparisons of Living Standards by Equivalent Incomes", 
+    "journal": "The Scandinavian Journal of Economics (2009)", 
+    "legacyid": "71", 
+    "explanatory_text": "The purpose of this code is to propose an international comparison of measures of living standards for a sample of 24 OECD countries for the year 2004. Based on GDP per capita, the measure incorporates corrections for international flows of income, labor, risk of unemployment, healthy life expectancy, household demography and inequalities. The code displays the GDP per capita, the GDP relative position and the GDP ranking, the absolute value of each correction in dollar terms (per capita), the relative position of countries after each correction and the ranking of countries after each cumulative correction. The user can choose some parameters specific to each correction (for more details see Fleurbaey and Gaulier, 2009)."
+  }, 
+  {
+    "coders": {
+      "Daniel Preve": {
+        "affiliation": "Uppsala University", 
+        "coder": true, 
+        "country": "Sweden", 
+        "last": "Preve", 
+        "first": "Daniel"
+      }, 
+      "Jun Yu": {
+        "affiliation": "Singapore Management University", 
+        "coder": true, 
+        "country": "Singapore", 
+        "last": "Yu", 
+        "first": "Jun"
+      }
+    }, 
+    "article_url": "http://www.mysmu.edu/faculty/yujun/Research/PEY.pdf", 
+    "legacy_id": "72", 
+    "authors": {
+      "Anders Eriksson": {
+        "first": "Anders", 
+        "last": "Eriksson", 
+        "author": true
+      }, 
+      "Daniel Preve": {
+        "first": "Daniel", 
+        "last": "Preve", 
+        "author": true
+      }, 
+      "Jun Yu": {
+        "first": "Jun", 
+        "last": "Yu", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper introduces a parsimonious and yet exible nonnegative semi-parametric model to forecast financial volatility. The new model extends the linear nonnegative autoregressive model of Barndor-Nielsen & Shephard (2001) and Nielsen & Shephard (2003) by way of a power transformation. It is semiparametric in the sense that the distributional form of its error component is left unspecified. The statistical properties of the model are discussed and a novel estimation method is proposed. Asymptotic properties are established for the new estimation method. Simulation studies validate the new estimation method. The out-of-sample performance of the proposed model is evaluated against a number of standard methods, using data on S&P 500 monthly realized volatilities. The competing models include the exponential smoothing method, a linear AR(1) model, a log-linear AR(1) model, and two long-memory ARFIMA models. Various loss functions are utilized to evaluate the predictive accuracy of the alternative methods. It is found that the new model generally produces highly competitive forecasts.", 
+    "title": "Forecasting Realized Volatility Using a Nonnegative Semiparametric Model", 
+    "journal": "Uppsala University (2009)", 
+    "legacyid": "72", 
+    "explanatory_text": "This code proposes one-step-ahead forecasts for realized volatility by relying on a parsimonious and flexible non-negative semiparametric model. This model uses the Box-Cox power transformation to induce normality and reduce heteroskedasticity. The persistence parameters are estimated in a two-stage procedure based on extreme-value theory, while the distributional form of the error is unspecified. Out of sample evaluation criteria of the model forecasting abilities are included. The code requires a series of realized volatility and a cut-off point (the last observation used to fit the model for the first forecast). The user can choose between the fixed, rolling and recursive schemes. The computations may take some time."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://elsa.berkeley.edu/~train/trainsonnier.pdf ", 
+    "legacy_id": "73", 
+    "authors": {
+      "Garrett Sonnier": {
+        "first": "Garrett", 
+        "last": "Sonnier", 
+        "author": true
+      }, 
+      "Kenneth Train": {
+        "first": "Kenneth", 
+        "last": "Train", 
+        "author": true
+      }
+    }, 
+    "abstract": "The use of a joint normal distribution for partworths is computationally attractive, particularly with Bayesian MCMC procedures, and yet is unrealistic for any attribute whose partworth is logically bounded (e.g., is necessarily positive or cannot be unboundedly large). A mixed logit is specified with partworths that are transformations of normally distributed terms, where the transformation induces bounds; examples include censored normals, log-normals, and SB distributions which are bounded on both sides. The model retains the computational advantages of joint normals while providing greater flexibility for the distributions of correlated partworths. The method is applied to data on customers\u2019 choice among vehicles in stated choice experiments. The flexibility that the transformations allow is found to greatly improve the model, both in terms of fit and plausibility, without appreciably increasing the computational burden.", 
+    "title": "Mixed Logit with Bounded Distributions of Correlated Partworths ", 
+    "journal": "Applications of Simulation Methods in Environmental Resource Economics (2005)", 
+    "legacyid": "73", 
+    "explanatory_text": "This code provides Bayesian estimation of the mixed logit model which accommodates bounded and correlated partworths (where \"partworths\" are coefficients of the attributes in the utility function). The model retains the numerical advantages of Bayesian procedures with correlated normals while also allowing for different bounded distributions of partworths (log-normal, normal censored from below at 0, Johnson's S_B distribution). The code allows variables with either fixed and/or random coefficients. The results are presented in the standard format for classically estimated models, namely by reporting the parameter estimates (posterior means) and their standard errors (posterior standard deviations)."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://merage.uci.edu/~jorion/books.htm", 
+    "legacy_id": "74", 
+    "authors": {
+      "Philippe Jorion": {
+        "first": "Philippe", 
+        "last": "Jorion", 
+        "author": true
+      }
+    }, 
+    "abstract": "Book description: To accommodate sweeping global economic changes, the risk management field has evolved substantially since the first edition of Value at Risk, making this revised edition a must. Updates include a new chapter on liquidity risk, information on the latest risk instruments and the expanded derivatives market, recent developments in Monte Carlo methods, and more. Value at Risk, Second Edition, will help professional risk managers understand, and operate within, today\u2019s dynamic new risk environment.", 
+    "title": "Value-at-Risk (Chapter 7: Portfolio Risk - Analytical Methods)", 
+    "journal": "McGraw-Hill (2007)", 
+    "legacyid": "74", 
+    "explanatory_text": "This code computes the Value-at-Risk (VaR) of a portfolio under the normality assumption as explained in the chapter 7 (Portfolio Risk: Analytical Methods) of the Jorion\u2019s book \u201cValue-at-Risk\u201d. The number of assets is limited to 100. From the returns time series of the N assets (TxN matrix data), the code automatically computes the (unconditional) VaR of each asset, the portfolio\u2019s VaR, the undiversified VaR (i.e the sum of the VaR of each asset), the marginal VaR, and the component VaR for each asset. By convention, all VaRs are positive."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://merage.uci.edu/~jorion/books.htm", 
+    "legacy_id": "75", 
+    "authors": {
+      "Philippe Jorion": {
+        "first": "Philippe", 
+        "last": "Jorion", 
+        "author": true
+      }
+    }, 
+    "abstract": "Book description: To accommodate sweeping global economic changes, the risk management field has evolved substantially since the first edition of Value at Risk, making this revised edition a must. Updates include a new chapter on liquidity risk, information on the latest risk instruments and the expanded derivatives market, recent developments in Monte Carlo methods, and more. Value at Risk will help professional risk managers understand, and operate within, today\u2019s dynamic new risk environment.", 
+    "title": "Value-at-Risk (Chapter 5: Computing VaR)", 
+    "journal": "MacGraw-Hill (2007)", 
+    "legacyid": "75", 
+    "explanatory_text": "This code computes out-of-sample Value-at-Risk (VaR) forecasts following five parametric and non-parametric approaches (see Chapter 5 of the Jorion\u2019s book \u201cValue-at-Risk\u201d). From a time series of historical returns, the code automatically computes the VaR forecasts according the (i) rolling window Historical Simulation (HS) method, (ii) the rolling window Weighted Historical Simulation (WHS) method (Boudoukh et al., 1998), (iii) a GARCH (with normal or student conditional distributions) model, and (iv) the RiskMetrics model. The user can define the coverage rate, the parameter of the WHS, and the length of the rolling window (for HS and WHS). The out-of-sample size is controlled by a percentage of the total length of the series."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }
+    }, 
+    "article_url": "http://www.iijournals.com/doi/abs/10.3905/jod.1995.407942", 
+    "legacy_id": "76", 
+    "authors": {
+      "Paul H Kupiec": {
+        "first": "Paul", 
+        "last": "H Kupiec", 
+        "author": true
+      }
+    }, 
+    "abstract": "Risk exposures are typically quantified in terms of a \"Value at Risk\" (VaR) estimate. A VaR estimate corresponds to a specific critical value of a portfolio's potential one-day profit and loss probability distribution. Given their function both as internal risk management tools and as potential regulatory measures of risk exposure, it is important to quantify the accuracy of an institution's VaR estimates. This study shows that the formal statistical procedures that would typically be used in performance-based VaR verification tests require large samples to produce a reliable assessment of a model's accuracy in predicting the size and likelihood of very low probability events. Verification test statistics based on historical trading profits and losses have very poor power in small samples, so it does not appear possible for a bank or its supervisor to verify the accuracy of a VaR estimate unless many years of performance data are available. Historical simulation-based verification test statistics also require long samples to generate accurate results: Estimates of 0.01 critical values exhibit substantial errors even in samples as large as ten years of daily data.", 
+    "title": "Techniques for Verifying the Accuracy of Risk Management Models", 
+    "journal": "Journal of Derivatives (1995)", 
+    "legacyid": "76", 
+    "explanatory_text": "This code computes the Likelihood Ratio (LR) tests proposed by Kupiec (1995) to backtest Value-at-Risk (VaR) forecasts. The first LR test statistic, denoted LRuc in the code, test the assumption of unconditional coverage (UC). Under the null, the probability to get a VaR failure or violation (a violation is said to occur if the ex-post losses are larger than the VaR) is equal to the coverage rate \u03b1 (1% for instance). This statistic has a chi-squared distribution with one degree of freedom. The second LR statistic proposed by Kupiec (1995) test the Time Until the First Failure (TUFF). Under the null of UC, the TUFF has a geometric distribution with an expected value of 1/\u03b1. The LR TUFF statistic has also a chi-squared distribution with one degree of freedom."
+  }, 
+  {
+    "coders": {
+      "Am\u00e9lie Charles": {
+        "affiliation": "Audiencia", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Charles", 
+        "first": "Am\u00e9lie"
+      }, 
+      "Denisa Banulescu": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Banulescu", 
+        "first": "Denisa"
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Dumitrescu", 
+        "first": "Elena-Ivona"
+      }, 
+      "Olivier Darn\u00e9": {
+        "affiliation": "University of Nantes", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Darn\u00e9", 
+        "first": "Olivier"
+      }
+    }, 
+    "article_url": "http://ideas.repec.org/a/eee/ecolet/v86y2005i3p347-352.html", 
+    "legacy_id": "78", 
+    "authors": {
+      "Am\u00e9lie Charles": {
+        "first": "Am\u00e9lie", 
+        "last": "Charles", 
+        "author": true
+      }, 
+      "Olivier Darn\u00e9": {
+        "first": "Olivier", 
+        "last": "Darn\u00e9", 
+        "author": true
+      }
+    }, 
+    "abstract": "We propose to extend the additive outlier (AO) identification procedure developed by Franses and Ghijsels(Franses, P.H., Ghijsels, H., 1999. Additive outliers, GARCH and forecasting volatility. International Journal of Forecasting, 15, 1\u20139) to take into account the innovative outliers (IOs) in a GARCH model. We apply it to three daily stock market indexes and examine the effects of outliers on the diagnostics of normality.", 
+    "title": "Outliers and GARCH Models in Financial Data", 
+    "journal": "Economics Letters (2005)", 
+    "legacyid": "78", 
+    "explanatory_text": "This code identifies additive outliers (AO) and innovative outliers (IO) in a GARCH(1,1) model. Based on Franses and Ghijsels (1999), it uses the outlier detection method proposed by Chen and Liu (1993). To run this code, input the series of returns and choose the type of outlier to be identified as well as the critical value. The recommended value of the critical value (C=10) is based on simulation experiments proposed by Franses and Dijk (2000)."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://dx.doi.org/10.1016/S0304-405X(01)00079-4", 
+    "legacy_id": "80", 
+    "authors": {
+      "Christopher S. Jones": {
+        "first": "Christopher", 
+        "last": "S. Jones", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes an alternative to the asymptotic principal components procedure of Connor and Korajczyk (Journal of Financial Economics, 1986) that is robust to time series heteroskedasticity in the factor model residuals. The new method is simple to use and requires no assumptions stronger than those made by Connor and Korajczyk. It is demonstrated through simulations and analysis of actual stock market data that allowing heteroskedasticity sometimes improves the quality of the extracted factors quite dramatically. Over the period from 1989 to 1993, for example, a single factor extracted using the Connor and Korajczyk method explains only 8.2% of the variation of the CRSP value-weighted index, while the factor extracted allowing heteroskedasticity explains 57.3%. Accounting for heteroskedasticity is also important for tests of the APT, with p-values sometimes depending strongly on the factor extraction method used.", 
+    "title": "Extracting Factors from Heteroskedastic Asset Returns", 
+    "journal": "Journal of Financial Economics (2001)", 
+    "legacyid": "80", 
+    "explanatory_text": "This code implements two factor extraction methods: the heteroskedastic factor analysis (HFA) of Jones (2001) and the asymptotic principal components procedure (CK) of Connor and Korajczyk (1986). The HFA method can improve the quality of the extracted factors by allowing for heteroskedastic residuals. Besides, it does not require any extra assumptions to those in CK. The user must specify a T*N matrix of returns and the number of factors to extract. The number of iterations in the optimization process is by default set to 5. The minimum allowable average ideosyncratic standard deviation is by default set equal to .001."
+  }, 
+  {
+    "coders": {
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Bertrand Candelon": {
+        "affiliation": "Maastricht University", 
+        "coder": true, 
+        "country": "Netherlands", 
+        "last": "Candelon", 
+        "first": "Bertrand"
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Dumitrescu", 
+        "first": "Elena-Ivona"
+      }
+    }, 
+    "article_url": "http://ideas.repec.org/p/dgr/umamet/2010047.html", 
+    "legacy_id": "81", 
+    "authors": {
+      "Christophe Hurlin": {
+        "first": "Christophe", 
+        "last": "Hurlin", 
+        "author": true
+      }, 
+      "Bertrand Candelon": {
+        "first": "Bertrand", 
+        "last": "Candelon", 
+        "author": true
+      }, 
+      "Elena-Ivona Dumitrescu": {
+        "first": "Elena-Ivona", 
+        "last": "Dumitrescu", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper introduces a new generation of Early Warning Systems (EWS) which takes into account the dynamics, i.e. the persistence in the binary crisis indicator. We elaborate on Kauppi and Saikonnen (2008), which allows to consider several dynamic specifications by re- lying on an exact maximum likelihood estimation method. Applied so as to predict currency crises for fifteen countries, this new EWS turns out to exhibit significantly better predic- tive abilities than the existing models both within and out of the sample, thus vindicating dynamic models in the quest for optimal EWS.", 
+    "title": "Currency Crises Early Warning Systems: why they should be Dynamic", 
+    "journal": "Maastricht University (2010)", 
+    "legacyid": "81", 
+    "explanatory_text": "This code estimates both static and dynamic Logit and Probit (binary-choice) models. Three types of dynamic models can be considered by including the lagged binary variable (Dynamic_y), the lagged index (Dynamic_\u03c0) or both of them (Dynamic_y ; Dy_\u03c0) as explanatory variables. A (T,1) binary vector must be specified, as well as a (T,N) matrix of explanatory variables. The user can also choose the lag length, the type of model and select between Logit and Probit specifications. The results include estimated parameters, standard-errors, t-statistics as well as information criteria. The series of estimated probabilities is saved in .csv format."
+  }, 
+  {
+    "coders": {
+      "Christophe Perignon": {
+        "affiliation": "HEC Paris", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Perignon", 
+        "first": "Christophe"
+      }, 
+      "Christophe Hurlin": {
+        "affiliation": "University of Orleans", 
+        "coder": true, 
+        "country": "France", 
+        "last": "Hurlin", 
+        "first": "Christophe"
+      }, 
+      "Daniel Smith": {
+        "affiliation": "Queensland University of Technology", 
+        "coder": true, 
+        "country": "Australia", 
+        "last": "Smith", 
+        "first": "Daniel"
+      }
+    }, 
+    "article_url": "http://www.iijournals.com/doi/abs/10.3905/JOD.2008.16.2.054", 
+    "legacy_id": "9", 
+    "authors": {
+      "Christophe Perignon": {
+        "first": "Christophe", 
+        "last": "Perignon", 
+        "author": true
+      }, 
+      "Daniel Smith": {
+        "first": "Daniel", 
+        "last": "Smith", 
+        "author": true
+      }
+    }, 
+    "abstract": "We develop a novel backtesting framework based on multidimensional Value-at-Risk (VaR) that focuses on the left tail of the distribution of the bank trading revenues. Our coverage test is a multivariate generalization of the unconditional test of Kupiec (Journal of Derivatives, 1995). Applying our method to actual daily bank trading revenues, we find that non-parametric VaR methods, such as GARCH-based methods or filtered Historical Simulation, work best for bank trading revenues.", 
+    "title": "A New Approach to Comparing VaR Estimation Methods", 
+    "journal": "Journal of Derivatives (2008)", 
+    "legacyid": "9", 
+    "explanatory_text": "The goal of this code is to implement the Value-at-Risk (VaR) backtesting methodology of Perignon and Smith (2008). This is a multivariate unconditional test for VaR models based on several coverage probabilities. This test can be implemented with bank-level or portfolio-level profit-and-loss (P&L) data. To run our codes, you need (i) the P&L series, (ii) the VaR forecasts for different coverage rates, and (iii) the corresponding coverage rates."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2047420", 
+    "legacy_id": "92", 
+    "authors": {
+      "Gr\u00e9gory Levieuge": {
+        "first": "Gr\u00e9gory", 
+        "last": "Levieuge", 
+        "author": true
+      }, 
+      "Yannick Lucotte": {
+        "first": "Yannick", 
+        "last": "Lucotte", 
+        "author": true
+      }
+    }, 
+    "abstract": "In this paper we suggest a simple empirical and model-independent measure of Central Banks' Conservatism, based on the Taylor curve. This new indicator can easily be extended in time and space, whatever the underlying monetary regime of the considered countries. We demonstrate that it evolves in accordance with the monetary experiences of 32 OECD member countries from 1980, and is largely equivalent to the model-based measure provided by Krause & M\u00e9ndez [Southern Economic Journal, 2005]. We finally bring forward the interest of such an indicator for further empirical analysis dealing with the preferences of Central Banks.", 
+    "title": "A Simple Empirical Measure of Central Banks' Conservatism", 
+    "journal": "SSRN (2012)", 
+    "legacyid": "92", 
+    "explanatory_text": "This code allows to replicate the results obtained for the United States in the corresponding paper. More precisely, it replicates the U.S. optimal monetary policy rule for 3 alternative values of \u03bb - the preference parameter devoted to the inflation variability in equation (1): Lambda_KM, Lambda_CONS, and Lambda_CONSW. Running the code, the user will find the optimal reaction coefficients \u03b2y* and \u03b2\u03c0* as in table 4. Moreover, the program replicates the graphs of the last plot of the figure 9, and delivers the composition of the matrices A1, A2 and B following the very first step of the program (GMM estimations), before the estimated \u03b2y and \u03b2\u03c0 in A1 are replaced by their respective optimized values. Click below for more information."
+  }, 
+  {
+    "coders": {}, 
+    "article_url": "http://www.sciencedirect.com/science/article/pii/S0304407604001666", 
+    "legacy_id": "97", 
+    "authors": {
+      "John W. Galbraith": {
+        "first": "John", 
+        "last": "W. Galbraith", 
+        "author": true
+      }, 
+      "Dongming Zhu": {
+        "first": "Dongming", 
+        "last": "Zhu", 
+        "author": true
+      }
+    }, 
+    "abstract": "This paper proposes a new class of asymmetric Student-t (AST) distributions, and investigates its properties, gives procedures for estimation, and indicates applications in financial econometrics. We derive analytical expressions for the cdf, quantile function, moments, and quantities useful in financial econometric applications such as the Expected Shortfall. A stochastic representation of the distribution is also given. Although the AST density does not satisfy the usual regularity conditions for maximum likelihood estimation, we establish consistency, asymptotic normality and efficiency of ML estimators and derive an explicit analytical expression for the asymptotic covariance matrix. A Monte Carlo study indicates generally good finite-sample conformity with these asymptotic properties.", 
+    "title": "A Generalized Asymmetric Student-t Distribution with Application to Financial Econometrics", 
+    "journal": "Journal of Econometrics (2010)", 
+    "legacyid": "97", 
+    "explanatory_text": "This code estimates the parameters of an AST-NGARCH(1,1) model, which is a non-linear asymmetric NGARCH process of Engle and Ng where the conditional distribution of return is the Asymmetric Student-t distribution (AST) proposed by Zhu and Galbraith."
+  }
+]
