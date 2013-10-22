@@ -1,6 +1,5 @@
 import logging
 
-from django.shortcuts import render_to_response
 from django.views import generic
 
 from .models import Article
@@ -31,7 +30,6 @@ class ArticleCreateView(generic.edit.CreateView):
     template_name = 'supportingmaterials/create.html'
 
 
-
 def get_author_names(compendia):
     """ helper function to join up author names from the doi_response """
     collaborators = compendia.setdefault('collaborators', [])
@@ -40,7 +38,3 @@ def get_author_names(compendia):
         name = '{first} {last}'.format(first=c.setdefault('given_name', ''), last=c.setdefault('surname'))
         authors.append(name)
     return ', '.join(authors)
-
-
-class DoiMultiFormView(generic.FormView):
-    pass
