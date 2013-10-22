@@ -37,7 +37,8 @@ scrapes is a dict
 def save_collaborators(collaborators):
     for name, attributes in collaborators.items():
         collaborator = models.Collaborator(
-            name=name,
+            given_name=attributes.get('first', ''),
+            surname=attributes.get('last', ''),
             coder=attributes.get('coder', False),
             author=attributes.get('author', False),
             affiliation=attributes.get('affiliation', ''),
@@ -46,22 +47,46 @@ def save_collaborators(collaborators):
         collaborator.save()
 
 
-def save_companionarticles(scrapes):
+def save_articles(scrapes):
     for scrape in scrapes:
         coders = scrape.get('coders', {})
         article_url = scrape.get('article_url', '')
-        names = scrape.get('names', [])
+        authors = scrape.get('authors', {})
         legacy_id = scrape.get('legacy_id')
         title = scrape.get('title', '')
         abstract = scrape.get('abstract', '')
         journal = scrape.get('journal', '')
         explanatory_text = scrape.get('explanatory_text', '')
 
-        # make a list of names we can use to fetch records for
-        names.extend(coders.keys())
-        collaborators = models.Collaborator.objects.filter(name__in=names)
+        all_firstnames = [authors[key]['first'] for key in authors if authors[key]['first'] is not None]
+        all_lastnames = [authors[key]['last'] for key in authors if authors[key]['last'] is not None]
+        coder_firstnames = [coders[key]['first'] for key in coders if coders[key]['first'] is not None]
+        coder_lastnames = [coders[key]['last'] for key in coders if coders[key]['last'] is not None]
+        all_firstnames.extend(coder_firstnames)
+        all_lastnames.extend(coder_lastnames)
 
-        article = models.CompanionArticle(
+        coders = None
+        collaborators = None
+        if len(coder_lastnames) > 0:
+            coders = models.Collaborator.objects.filter(
+                given_name__in=coder_firstnames
+            ).filter(
+                surname__in=coder_lastnames
+            )
+            print coders
+        else:
+            print 'no coders', legacy_id, title
+        if len(all_lastnames) > 0:
+            collaborators = models.Collaborator.objects.filter(
+                given_name__in=all_firstnames
+            ).filter(
+                surname__in=all_lastnames
+            )
+            print collaborators
+        else:
+            print 'no everyone', legacy_id, title
+
+        article = models.Article(
             title=title,
             abstract=abstract,
             journal=journal,
@@ -70,7 +95,10 @@ def save_companionarticles(scrapes):
         )
         article.save()
 
-        article.collaborators.add(*collaborators)
+        if collaborators is not None:
+            article.collaborators.add(*collaborators)
+        if coders is not None:
+            article.coders.add(*coders)
 
         article.supportingmaterial_set.create(
             name='materials supporting %s' % (title),
@@ -79,7 +107,7 @@ def save_companionarticles(scrapes):
 
 
 if __name__ == '__main__':
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'companionpages.settings')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "companionpages.settings")
     from supportingmaterials import models
 
     parser = argparse.ArgumentParser(description="""
@@ -103,4 +131,4 @@ if __name__ == '__main__':
     if args.scrapes is not None:
         print("loading scrapes...")
         scrapes = json.load(args.scrapes)
-        save_companionarticles(scrapes)
+        save_articles(scrapes)

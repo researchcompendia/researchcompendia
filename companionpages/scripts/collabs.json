@@ -1,0 +1,685 @@
+{
+  "Santiago Herrera": {
+    "coder": true, 
+    "last": "Herrera", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "World Bank", 
+    "first": "Santiago"
+  }, 
+  "Yannick Lucotte": {
+    "author": true, 
+    "last": "Lucotte", 
+    "first": "Yannick"
+  }, 
+  "Gr\u00e9gory Levieuge": {
+    "author": true, 
+    "last": "Levieuge", 
+    "first": "Gr\u00e9gory"
+  }, 
+  "Stephen J. Leybourne": {
+    "author": true, 
+    "last": "J. Leybourne", 
+    "first": "Stephen"
+  }, 
+  "Andrew Harms": {
+    "author": true, 
+    "last": "Harms", 
+    "first": "Andrew"
+  }, 
+  "Yacine A\u00eft-Sahalia": {
+    "author": true, 
+    "last": "A\u00eft-Sahalia", 
+    "first": "Yacine"
+  }, 
+  "Jianfeng Feng": {
+    "author": true, 
+    "last": "Feng", 
+    "first": "Jianfeng"
+  }, 
+  "Juan Carlos Escanciano": {
+    "affiliation": "Indiana University", 
+    "coder": true, 
+    "last": "Carlos Escanciano", 
+    "author": true, 
+    "country": "United States", 
+    "first": "Juan"
+  }, 
+  "Yongcheol Shin": {
+    "author": true, 
+    "last": "Shin", 
+    "first": "Yongcheol"
+  }, 
+  "Valentin Patilea": {
+    "author": true, 
+    "last": "Patilea", 
+    "first": "Valentin"
+  }, 
+  "Vinson Pham": {
+    "author": true, 
+    "last": "Pham", 
+    "first": "Vinson"
+  }, 
+  "Laurent E. Calvet": {
+    "coder": true, 
+    "last": "E. Calvet", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "HEC Paris", 
+    "first": "Laurent"
+  }, 
+  "Andrew J. Buck": {
+    "coder": true, 
+    "last": "J. Buck", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Temple University", 
+    "first": "Andrew"
+  }, 
+  "Paul H Kupiec": {
+    "author": true, 
+    "last": "H Kupiec", 
+    "first": "Paul"
+  }, 
+  "Vladimir Temlyakov": {
+    "coder": true, 
+    "last": "Temlyakov", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "University of South Carolina", 
+    "first": "Vladimir"
+  }, 
+  "Philip Valta": {
+    "author": true, 
+    "last": "Valta", 
+    "first": "Philip"
+  }, 
+  "Raffaella Giacomini": {
+    "author": true, 
+    "last": "Giacomini", 
+    "first": "Raffaella"
+  }, 
+  "Peter F Christoffersen": {
+    "last": "F Christoffersen", 
+    "author": true, 
+    "first": "Peter"
+  }, 
+  "Sessi Tokpavi": {
+    "coder": true, 
+    "last": "Tokpavi", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "University of Paris Ouest, Nanterre", 
+    "first": "Sessi"
+  }, 
+  "Robert F. Whitelaw": {
+    "author": true, 
+    "last": "F. Whitelaw", 
+    "first": "Robert"
+  }, 
+  "Aron Jamil Ahmadia": {
+    "coder": true, 
+    "last": "Jamil Ahmadia", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Columbia University", 
+    "first": "Aron"
+  }, 
+  "Jun Yu": {
+    "coder": true, 
+    "last": "Yu", 
+    "author": true, 
+    "country": "Singapore", 
+    "affiliation": "Singapore Management University", 
+    "first": "Jun"
+  }, 
+  "Chia-Shang James Chu": {
+    "author": true, 
+    "last": "James Chu", 
+    "first": "Chia-Shang"
+  }, 
+  "Benoit Perron": {
+    "author": true, 
+    "last": "Perron", 
+    "first": "Benoit"
+  }, 
+  "David Revelt": {
+    "author": true, 
+    "last": "Revelt", 
+    "first": "David"
+  }, 
+  "Anders Wilhelmsson": {
+    "coder": true, 
+    "last": "Wilhelmsson", 
+    "author": true, 
+    "country": "Sweden", 
+    "affiliation": "Lund University", 
+    "first": "Anders"
+  }, 
+  "Alexandru Minea": {
+    "coder": true, 
+    "last": "Minea", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "CERDI, University of Auvergne", 
+    "first": "Alexandru"
+  }, 
+  "Laurent Fresard": {
+    "coder": true, 
+    "last": "Fresard", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "University of Maryland", 
+    "first": "Laurent"
+  }, 
+  "Hashem M Pesaran": {
+    "author": true, 
+    "last": "M Pesaran", 
+    "first": "Hashem"
+  }, 
+  "Denis Pelletier": {
+    "author": true, 
+    "last": "Pelletier", 
+    "first": "Denis"
+  }, 
+  "David Ketcheson": {
+    "coder": true, 
+    "last": "Ketcheson", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "King Abdullah University of Science and Technology", 
+    "first": "David"
+  }, 
+  "Oscar M. Curet": {
+    "author": true, 
+    "last": "M. Curet", 
+    "first": "Oscar"
+  }, 
+  "Waheed U. Bajwa": {
+    "author": true, 
+    "last": "U. Bajwa", 
+    "first": "Waheed"
+  }, 
+  "Sina Jafarpour": {
+    "author": true, 
+    "last": "Jafarpour", 
+    "first": "Sina"
+  }, 
+  "Hasung Jang": {
+    "coder": true, 
+    "last": "Jang", 
+    "author": true, 
+    "country": "South Korea", 
+    "affiliation": "Korea University Business School", 
+    "first": "Hasung"
+  }, 
+  "Jaouad Madkour": {
+    "author": true, 
+    "last": "Madkour", 
+    "first": "Jaouad"
+  }, 
+  "Christophe Perignon": {
+    "coder": true, 
+    "last": "Perignon", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "HEC Paris", 
+    "first": "Christophe"
+  }, 
+  "John W. Galbraith": {
+    "coder": true, 
+    "last": "W. Galbraith", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "McGill", 
+    "first": "John"
+  }, 
+  "Am\u00e9lie Charles": {
+    "coder": true, 
+    "last": "Charles", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "Audiencia", 
+    "first": "Am\u00e9lie"
+  }, 
+  "Forrest D Nelson": {
+    "author": true, 
+    "last": "D Nelson", 
+    "first": "Forrest"
+  }, 
+  "A.M. Robert Taylor": {
+    "author": true, 
+    "last": "Robert Taylor", 
+    "first": "A.M."
+  }, 
+  "Malcolm A. MacIver": {
+    "coder": true, 
+    "last": "A. MacIver", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Northwestern University", 
+    "first": "Malcolm"
+  }, 
+  "Philippe Jorion": {
+    "last": "Jorion", 
+    "author": true, 
+    "first": "Philippe"
+  }, 
+  "Garrett Sonnier": {
+    "author": true, 
+    "last": "Sonnier", 
+    "first": "Garrett"
+  }, 
+  "Pascal Getreuer": {
+    "author": true, 
+    "last": "Getreuer", 
+    "first": "Pascal"
+  }, 
+  "Matan Gavish": {
+    "affiliation": "", 
+    "coder": true, 
+    "last": "Gavish", 
+    "author": true, 
+    "country": "", 
+    "first": "Matan"
+  }, 
+  "Daniel Smith": {
+    "coder": true, 
+    "last": "Smith", 
+    "author": true, 
+    "country": "Australia", 
+    "affiliation": "Queensland University of Technology", 
+    "first": "Daniel"
+  }, 
+  "In Choi": {
+    "author": true, 
+    "last": "Choi", 
+    "first": "In"
+  }, 
+  "Anders Eriksson": {
+    "author": true, 
+    "last": "Eriksson", 
+    "first": "Anders"
+  }, 
+  "Sanggohn Han": {
+    "author": true, 
+    "last": "Han", 
+    "first": "Sanggohn"
+  }, 
+  "Carole Bernard": {
+    "coder": true, 
+    "last": "Bernard", 
+    "author": true, 
+    "country": "Canada", 
+    "affiliation": "University of Waterloo", 
+    "first": "Carole"
+  }, 
+  "Furkan Emirmahmutoglu": {
+    "author": true, 
+    "last": "Emirmahmutoglu", 
+    "first": "Furkan"
+  }, 
+  "Christopher S. Jones": {
+    "author": true, 
+    "last": "S. Jones", 
+    "first": "Christopher"
+  }, 
+  "George M. Lady": {
+    "coder": true, 
+    "last": "M. Lady", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Temple University", 
+    "first": "George"
+  }, 
+  "Gilbert Colletaz": {
+    "coder": true, 
+    "last": "Colletaz", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "University of Orleans", 
+    "first": "Gilbert"
+  }, 
+  "Alastair R Hall": {
+    "author": true, 
+    "last": "R Hall", 
+    "first": "Alastair"
+  }, 
+  "Olivier Darn\u00e9": {
+    "coder": true, 
+    "last": "Darn\u00e9", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "University of Nantes", 
+    "first": "Olivier"
+  }, 
+  "George V. Lauder": {
+    "author": true, 
+    "last": "V. Lauder", 
+    "first": "George"
+  }, 
+  "Andrew J. Patton": {
+    "affiliation": "Duke University", 
+    "coder": true, 
+    "last": "J. Patton", 
+    "author": true, 
+    "country": "United States", 
+    "first": "Andrew"
+  }, 
+  "Jared Tanner": {
+    "coder": true, 
+    "last": "Tanner", 
+    "author": true, 
+    "country": "United Kingdom", 
+    "affiliation": "University of Oxford", 
+    "first": "Jared"
+  }, 
+  "Florence Arestoff": {
+    "coder": true, 
+    "last": "Arestoff", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "Universit\u00e9 Paris Dauphine", 
+    "first": "Florence"
+  }, 
+  "David Donoho": {
+    "coder": true, 
+    "last": "Donoho", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Stanford University", 
+    "first": "David"
+  }, 
+  "Sylvain Benoit": {
+    "coder": true, 
+    "last": "Benoit", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "University of Orleans", 
+    "first": "Sylvain"
+  }, 
+  "Andrea Montanari": {
+    "author": true, 
+    "last": "Montanari", 
+    "first": "Andrea"
+  }, 
+  "Allan Timmermann": {
+    "coder": true, 
+    "last": "Timmermann", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "University of California, San Diego", 
+    "first": "Allan"
+  }, 
+  "Rafael Grompone von Gioi": {
+    "author": true, 
+    "last": "Grompone von Gioi", 
+    "first": "Rafael"
+  }, 
+  "Chien-Fu Lin": {
+    "author": true, 
+    "last": "Lin", 
+    "first": "Chien-Fu"
+  }, 
+  "Serena Ng": {
+    "author": true, 
+    "last": "Ng", 
+    "first": "Serena"
+  }, 
+  "David I. Harvey": {
+    "author": true, 
+    "last": "I. Harvey", 
+    "first": "David"
+  }, 
+  "David Brown": {
+    "author": true, 
+    "last": "Brown", 
+    "first": "David"
+  }, 
+  "Denisa Banulescu": {
+    "affiliation": "University of Orleans", 
+    "coder": true, 
+    "first": "Denisa", 
+    "last": "Banulescu", 
+    "country": "France"
+  }, 
+  "Bernard S Black": {
+    "coder": true, 
+    "last": "S Black", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Northwestern University", 
+    "first": "Bernard"
+  }, 
+  "Matthew Richardson": {
+    "author": true, 
+    "last": "Richardson", 
+    "first": "Matthew"
+  }, 
+  "Gangadharrao Soundalyarao Maddala": {
+    "last": "Soundalyarao Maddala", 
+    "author": true, 
+    "first": "Gangadharrao"
+  }, 
+  "Gregory Randall": {
+    "author": true, 
+    "last": "Randall", 
+    "first": "Gregory"
+  }, 
+  "Shaowen Wu": {
+    "author": true, 
+    "last": "Wu", 
+    "first": "Shaowen"
+  }, 
+  "Jacob Boudoukh": {
+    "author": true, 
+    "last": "Boudoukh", 
+    "first": "Jacob"
+  }, 
+  "Christophe Hurlin": {
+    "coder": true, 
+    "last": "Hurlin", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "University of Orleans", 
+    "first": "Christophe"
+  }, 
+  "Adlai J. Fisher": {
+    "coder": true, 
+    "last": "J. Fisher", 
+    "author": true, 
+    "country": "Canada", 
+    "affiliation": "University of British Columbia", 
+    "first": "Adlai"
+  }, 
+  "Zhenyu Cui": {
+    "coder": true, 
+    "last": "Cui", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "brooklyn college", 
+    "first": "Zhenyu"
+  }, 
+  "Guillaume Gaulier": {
+    "coder": true, 
+    "last": "Gaulier", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "Banque de France", 
+    "first": "Guillaume"
+  }, 
+  "Christian Francq": {
+    "coder": true, 
+    "last": "Francq", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "University of Lille 3", 
+    "first": "Christian"
+  }, 
+  "Mario Ohlberger": {
+    "last": "Ohlberger", 
+    "author": true, 
+    "first": "Mario"
+  }, 
+  "Robert Calderbank": {
+    "author": true, 
+    "last": "Calderbank", 
+    "first": "Robert"
+  }, 
+  "Andrew Levin": {
+    "author": true, 
+    "last": "Levin", 
+    "first": "Andrew"
+  }, 
+  "Marc Fleurbaey": {
+    "coder": true, 
+    "last": "Fleurbaey", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Princeton University", 
+    "first": "Marc"
+  }, 
+  "Kyung So Im": {
+    "author": true, 
+    "last": "So Im", 
+    "first": "Kyung"
+  }, 
+  "Dongming Zhu": {
+    "coder": true, 
+    "last": "Zhu", 
+    "author": true, 
+    "country": "China", 
+    "affiliation": "Shangai University of Finance and Economics", 
+    "first": "Dongming"
+  }, 
+  "Christian Himpe": {
+    "last": "Himpe", 
+    "author": true, 
+    "first": "Christian"
+  }, 
+  "Ricardo Ruiz-Torres": {
+    "coder": true, 
+    "last": "Ruiz-Torres", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Northwestern University", 
+    "first": "Ricardo"
+  }, 
+  "Elena-Ivona Dumitrescu": {
+    "coder": true, 
+    "last": "Dumitrescu", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "University of Orleans", 
+    "first": "Elena-Ivona"
+  }, 
+  "Woochan Kim": {
+    "coder": true, 
+    "last": "Kim", 
+    "author": true, 
+    "country": "South Korea", 
+    "affiliation": "Korea University Business School", 
+    "first": "Woochan"
+  }, 
+  "Kenneth Train": {
+    "last": "Train", 
+    "author": true, 
+    "first": "Kenneth"
+  }, 
+  "Chahir Zaki": {
+    "coder": true, 
+    "last": "Zaki", 
+    "author": true, 
+    "country": "Egypt", 
+    "affiliation": "Cairo University", 
+    "first": "Chahir"
+  }, 
+  "Nezir Kose": {
+    "author": true, 
+    "last": "Kose", 
+    "first": "Nezir"
+  }, 
+  "Pei Pei": {
+    "coder": true, 
+    "last": "Pei", 
+    "author": true, 
+    "country": "China", 
+    "affiliation": "Chinese Academy of Finance and Development, CUFE", 
+    "first": "Pei"
+  }, 
+  "Daniel Preve": {
+    "coder": true, 
+    "last": "Preve", 
+    "author": true, 
+    "country": "Sweden", 
+    "affiliation": "Uppsala University", 
+    "first": "Daniel"
+  }, 
+  "Otilia Boldea": {
+    "author": true, 
+    "last": "Boldea", 
+    "first": "Otilia"
+  }, 
+  "Halbert White": {
+    "author": true, 
+    "last": "White", 
+    "first": "Halbert"
+  }, 
+  "Jean-Michel Zakoian": {
+    "coder": true, 
+    "last": "Zakoian", 
+    "author": true, 
+    "country": "France", 
+    "affiliation": "CREST", 
+    "first": "Jean-Michel"
+  }, 
+  "J\u00e9r\u00e9mie Jakubowicz": {
+    "author": true, 
+    "last": "Jakubowicz", 
+    "first": "J\u00e9r\u00e9mie"
+  }, 
+  "Michael Elad": {
+    "coder": true, 
+    "last": "Elad", 
+    "author": true, 
+    "country": "Israel", 
+    "affiliation": "Technion - Israel Institute of Technology", 
+    "first": "Michael"
+  }, 
+  "Hatef Monajemi": {
+    "coder": true, 
+    "last": "Monajemi", 
+    "author": true, 
+    "country": "United States", 
+    "affiliation": "Stanford University", 
+    "first": "Hatef"
+  }, 
+  "Bertrand Candelon": {
+    "coder": true, 
+    "last": "Candelon", 
+    "author": true, 
+    "country": "Netherlands", 
+    "affiliation": "Maastricht University", 
+    "first": "Bertrand"
+  }, 
+  "Andrew Davison": {
+    "author": true, 
+    "last": "Davison", 
+    "first": "Andrew"
+  }, 
+  "Jean-Michel Morel": {
+    "author": true, 
+    "last": "Morel", 
+    "first": "Jean-Michel"
+  }, 
+  "Hyungsik Roger Moon": {
+    "author": true, 
+    "last": "Roger Moon", 
+    "first": "Hyungsik"
+  }, 
+  "Jushan Bai": {
+    "author": true, 
+    "last": "Bai", 
+    "first": "Jushan"
+  }
+}
