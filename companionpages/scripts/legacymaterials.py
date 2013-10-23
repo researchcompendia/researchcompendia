@@ -3,7 +3,6 @@
 import argparse
 import os
 
-#  flake8: noqa
 
 """
 This scans a directory containing directories numbered according to the legacy id
@@ -36,6 +35,7 @@ def get_filehandles(path, legacy_id):
 
 def save_material(articles, path):
     print('handling articles')
+    too_big = 1024**2
     for article in articles:
         legacy_id = str(article.legacy_id)
         print('handling legacy article %s, %s' % (legacy_id, article))
@@ -47,15 +47,19 @@ def save_material(articles, path):
         filenames = os.listdir(fullpath)
         print('    handling filenames', fullpath, filenames)
 
-
         for filename in filenames:
-            with open(os.path.join(fullpath, filename)) as fh:
+            filepath = os.path.join(fullpath, filename)
+            filestat = os.stat(filepath)
+            if filestat.st_size > too_big:
+                print('    file %s is too big' % filepath)
+                continue
+            with open(filepath) as fh:
                 print('    adding %s' % filename)
                 supporting_material = article.supportingmaterial_set.create(
                     name=filename,
                     explanatory_text='supporting materials file',
                 )
-                supporting_material.materials_file.save(
+                supporting_material.archive_file.save(
                     filename,
                     ContentFile(fh.read()),
                 )
@@ -79,10 +83,10 @@ if __name__ == '__main__':
     parser.add_argument('--path', default='/home/sheila/Dropbox/RMC-DataCode/',
         help='path to directory of legacy file directories')
     args = parser.parse_args()
-    if args.legacy_ids is not None:
+    if len(args.legacy_ids) > 0:
+        print 'legacy_ids: ', args.legacy_ids
         articles = get_legacy_articles(args.legacy_ids)
     else:
+        print 'all'
         articles = get_all_legacy_articles()
-    from django.core.files.storage import get_storage_class
-    print get_storage_class()
     save_material(articles, args.path)
