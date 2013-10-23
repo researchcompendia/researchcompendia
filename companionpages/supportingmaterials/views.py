@@ -1,5 +1,5 @@
 import logging
-
+from django.conf import settings
 from django.views import generic
 
 from .models import Article
@@ -22,6 +22,11 @@ class ArticleListView(generic.ListView):
 class ArticleDetailView(generic.DetailView):
     model = Article
     template_name = 'supportingmaterials/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        context['static_url'] = settings.STATIC_URL.rstrip('/')
+        return context
 
 
 class ArticleCreateView(generic.edit.CreateView):
