@@ -3,6 +3,7 @@
 import argparse
 import os
 
+# flake8: noqa
 
 """
 This scans a directory containing directories numbered according to the legacy id
