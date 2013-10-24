@@ -28,7 +28,7 @@ class Collaborator(TimeStampedModel):
     author_order = models.IntegerField(blank=True, null=True, verbose_name=_(u'Name order'), help_text=_(u'Optional index for ordering collaborator names'))
 
     def __unicode__(self):
-        return '%s, %s' % (self.given_name, self.surname)
+        return '%s %s' % (self.given_name, self.surname)
 
     class Meta(object):
         ordering = ['author_order', 'surname']
@@ -63,8 +63,10 @@ class Article(StatusModel, TimeStampedModel):
     secondary_research_field = models.CharField(max_length=300, choices=RESEARCH_FIELDS,
                                                 verbose_name=_(u'Secondary research field'), blank=True)
     notes_for_staff = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Notes for staff'),
-        help_text=_(u'Notes to the staff for help in creating your research compendium'))
-    materials_file = models.FileField(blank=True, upload_to=upload_callback, verbose_name=_(u'Materials File'), help_text=_(u'File containing an archive of supplemental materials'))
+                                       help_text=_(u'Notes to the staff for help in creating your research'
+                                                   u'compendium, including links to data and code if not uploaded'))
+    materials_file = models.FileField(blank=True, upload_to=upload_callback, verbose_name=_(u'Materials File'),
+                                      help_text=_(u'File containing an archive of supplemental materials'))
 
     def __unicode__(self):
         return self.title
