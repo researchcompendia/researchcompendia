@@ -2,49 +2,57 @@
 
 {% block content %}
 
-<h2>{{ companionarticle.title }}
-</h2>
+<h2>{{ article.title }}</h2>
 
-{% for collaborator in companionarticle.collaborators.all %}
-
-  {% if collaborator.member %}
-  <a href="{% url 'profiles_profile_detail' collaborator.member.user %}">{{ collaborator }}</a>
-  {% else %}
-    {{ collaborator }}
-  {% endif %}
+<h4>Collaborators</h4>
+{% for collaborator in article.collaborators.all %}
+  {{ collaborator }}
   {% if not forloop.last %}
   ,
   {% endif %}
 {% endfor %}
 
+<h2>Abstract</h2>
 
-<h4>Abstract</h4>
+<p>{{ article.abstract }}
 
-<p>{{ companionarticle.abstract }}
-{% if companionarticle.article_url %}
-<a href="{{ companionarticle.article_url }}">
-  <div class="icon-external-link"> paper</div>
-</a>
-{% endif %}
-
-{% if companionarticle.legacy_id %}
-<a href="http://www.runmycode.org/CompanionSite/site.do?siteId={{ companionarticle.legacy_id }}">
-  <div class="icon-external-link"> legacy url</div>
+<p>
+{% if article.article_url %}
+<a href="{{ article.article_url }}">
+  <i class="fa fa-external-link"></i> article
 </a>
 {% endif %}
 </p>
 
-<h4>Supporting Materials</h4>
+<h2>Supporting Materials</h2>
 
-{% for supportingmaterial in companionarticle.supportingmaterial_set.all %}
-<dl>
-  <dt>{{ supportingmaterial.name }}</dt>
-  <dd>{{ supportingmaterial.explanatory_text }}
-    {% if supportingmaterial.materials_url %}
+{% for supportingmaterial in article.supportingmaterial_set.all %}
+
+
+<h4>{{ supportingmaterial.name }}</h4>
+
+{% if supportingmaterial.archive_file %}
+  <a href="{{ static_url }}{{ supportingmaterial.archive_file }}">
+      <div class="fa fa-file-o"></div>
+  </a>
+{% endif %}
+
+  {{ supportingmaterial.explanatory_text }}
+
+  {% if supportingmaterial.materials_url %}
     <a href="{{ supportingmaterial.materials_url }}"><div class="icon-external-link"> url</div></a>
-    {% endif %}
-  </dd>
+  {% endif %}
+
 {% endfor %}
+
+
+<p>
+</p>
+{% if article.legacy_id %}
+<a href="http://www.runshare.org/CompanionSite/site.do?siteId={{ article.legacy_id }}">old page</a>
+{% endif %}
+</p>
+
 
 {% endblock content %}
 

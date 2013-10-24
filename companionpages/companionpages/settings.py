@@ -58,17 +58,21 @@ EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.Emai
 
 # django-envelope contact page settings
 DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'devtyler@codersquid.com')
-ENVELOPE_CONTACT_CHOICES = (
-    ('',    u"Choose"),
-    (10,    u"A question regarding the website"),
-    (20,    u"A question regarding companion pages"),
-    (None,   u"Other"),
-)
+#ENVELOPE_CONTACT_CHOICES = (
+#    ('',    u"Choose"),
+#    (10,    u"A question regarding the website"),
+#    (20,    u"A question regarding companion pages"),
+#    (None,   u"Other"),
+#)
 MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
 MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
-
 # spam catching
 HONEYPOT_FIELD_NAME = 'relatedtopics2'
+
+
+# crossref service account
+CROSSREF_PID = env.get('CROSSREF_PID', '')
+
 
 # s3 amazon static file storage settings
 AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'starkravingsanermccompanion')
@@ -82,6 +86,8 @@ DEFAULT_FILE_STORAGE = env.get('DEFAULT_FILE_STORAGE', 'django.core.files.storag
 # allow collectstatic automatically put your static files in your bucket
 STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 #from S3 import CallingFormat
 #AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
 
@@ -93,12 +99,17 @@ ACCOUNT_ACTIVATION_DAYS = 2
 # django-profiles
 AUTH_PROFILE_MODULE = 'members.Member'
 
-
 # django-gravatar
 GRAVATAR_DEFAULT_SIZE = 80
 #GRAVATAR_DEFAULT_IMAGE = 'https://s3.amazonaws.com/starkravingsanermccompanion/img/avatar_small.png'
 GRAVATAR_DEFAULT_IMAGE = 'http://raw.github.com/codersquid/tyler/master/companionpages/static/img/avatar_small.png'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+     )
+}
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -123,7 +134,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
 
@@ -193,13 +204,14 @@ THIRD_PARTY_APPS = (
     'storages',
     'gravatar',
     'taggit',
+    'rest_framework',
+    'crispy_forms',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'home',
     'members',
-    'news',
     'supportingmaterials',
 )
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -224,6 +236,8 @@ if DEBUG:
     if not REMOTE_DEBUG:
         # use local files for static rather than amazon s3
         STATIC_URL = '/static/'
+        MEDIA_URL = STATIC_URL + 'media/'
+        ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
 
 
 # A sample logging configuration. The only tangible logging
@@ -234,6 +248,14 @@ if DEBUG:
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+     },
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
@@ -244,12 +266,22 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
         }
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'handlers': ['mail_admins', 'console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'INFO',
             'propagate': True,
         },
     }

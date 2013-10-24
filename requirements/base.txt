@@ -21,3 +21,9 @@ psycopg2
 django-gravatar
 south
 django-taggit
+djangorestframework
+python-dateutil
+beautifulsoup4
+lxml
+django-crispy-forms
+-e git://github.com/codersquid/django-extra-views.git#egg=django-extra-views

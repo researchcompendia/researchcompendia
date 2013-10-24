@@ -1,39 +1,40 @@
 from django import forms
-from django.http import HttpResponseRedirect
-from django.forms import ModelForm
-from django.shortcuts import render, render_to_response
 
-from .models import CompanionArticle
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
+from crispy_forms.bootstrap import PrependedText
+
+from .models import Article, SupportingMaterial
 
 
-class CompanionForm(ModelForm):
+class DoiForm(forms.Form):
+
+    doi = forms.CharField(required=False, label='')
+
+    def __init__(self, *args, **kwargs):
+        super(DoiForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'doiref'
+        self.helper.layout = Layout(
+            PrependedText('doi', 'doi:'),
+        )
+
+
+class ArticleForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ArticleForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.attrs = {'enctype': 'multipart/form-data'}
+        self.helper.add_input(Submit('submit', 'Save'))
+
     class Meta:
-        model = CompanionArticle
-        fields = ['site_owner', 'title', 'abstract', 'document', 'article_url']
+        model = Article
+        fields = ['title', 'article_url', 'doi', 'article_file', 'materials_file', 'abstract', 'notes_for_staff']
 
 
-class UploadFileForm(forms.Form):
-    title = forms.CharField(max_length=50)
-    file = forms.FileField()
+class SupportingMaterialForm(forms.ModelForm):
 
-
-def search_form(request):
-    return render(request, 'create.html')
-
-
-def handle_uploaded_file(request):
-    """ stub """
-    # maybe this didn't get checked in yet?
-    pass
-
-
-def upload_file(request):
-    UploadFileForm(request.POST)
-    if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)
-    if form.is_valid():
-        handle_uploaded_file(request.FILES['file'])
-        return HttpResponseRedirect('/success/url/')
-    else:
-        form = UploadFileForm()
-    return render_to_response('create.html', {'form': form})
+    class Meta:
+        model = SupportingMaterial
+        exclude = ['article', 'status', 'status_changed', 'storage_url', 'legacy_id', ]

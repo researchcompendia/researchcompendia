@@ -1,35 +1,49 @@
-from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+import logging
+from django.conf import settings
 from django.views import generic
 
-from .forms import CompanionForm
-from .models import CompanionArticle
+from .models import Article
+from .forms import ArticleForm, DoiForm
+
+logger = logging.getLogger(__name__)
 
 
-def companion(request):
-    if request.method == 'POST':
-        form = CompanionForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            send_mail(
-                cd['subject'],
-                cd['message'],
-                cd.get('email', 'noreply@example.com'),
-                ['siteowner@example.com'],
-            )
-            return HttpResponseRedirect('/contact/thanks/')
-    else:
-        form = CompanionForm()
-    return render(request, 'create.html', {'form': form})
+class DoiFormView(generic.FormView):
+    form_class = DoiForm
+    template_name = 'supportingmaterials/doi.html'
 
 
-class CompanionArticleListView(generic.ListView):
-    model = CompanionArticle
+class ArticleListView(generic.ListView):
+    model = Article
     template_name = 'supportingmaterials/index.html'
     context_object_name = 'companion_article_list'
 
+    def get_queryset(self):
+        """Return active compendia"""
+        return Article.objects.filter(status__iexact=Article.STATUS.active)
 
-class CompanionArticleDetailView(generic.DetailView):
-    model = CompanionArticle
+
+class ArticleDetailView(generic.DetailView):
+    model = Article
     template_name = 'supportingmaterials/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        context['static_url'] = settings.STATIC_URL.rstrip('/')
+        return context
+
+
+class ArticleCreateView(generic.edit.CreateView):
+    model = Article
+    form_class = ArticleForm
+    template_name = 'supportingmaterials/create.html'
+
+
+def get_author_names(compendia):
+    """ helper function to join up author names from the doi_response """
+    collaborators = compendia.setdefault('collaborators', [])
+    authors = []
+    for c in collaborators:
+        name = '{first} {last}'.format(first=c.setdefault('given_name', ''), last=c.setdefault('surname'))
+        authors.append(name)
+    return ', '.join(authors)
