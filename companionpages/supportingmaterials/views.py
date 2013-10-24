@@ -18,6 +18,10 @@ class ArticleListView(generic.ListView):
     template_name = 'supportingmaterials/index.html'
     context_object_name = 'companion_article_list'
 
+    def get_queryset(self):
+        """Return active compendia"""
+        return Article.objects.filter(status__iexact=Article.STATUS.active)
+
 
 class ArticleDetailView(generic.DetailView):
     model = Article

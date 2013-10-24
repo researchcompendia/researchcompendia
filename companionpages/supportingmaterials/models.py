@@ -50,18 +50,21 @@ class Article(StatusModel, TimeStampedModel):
                                     help_text=_(u'Collaborators who are also coders'),
                                     related_name='coders')
     STATUS = Choices('draft', 'active')
-    title = models.CharField(max_length=500, verbose_name=_(u'Article title'))
-    abstract = models.TextField(max_length=5000)
+    title = models.CharField(max_length=500, verbose_name=_(u'Title'))
+    abstract = models.TextField(max_length=5000, blank=True)
     journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'))
-    article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
+    article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'URL'))
     storage_url = models.URLField(blank=True, max_length=2000)
-    article_file = models.FileField(blank=True, upload_to=upload_callback, verbose_name=_(u'Article File'), help_text=_(u'File containing the article'))
+    article_file = models.FileField(blank=True, upload_to=upload_callback, verbose_name=_(u'Publication File'), help_text=_(u'File containing the article'))
     legacy_id = models.IntegerField(blank=True, null=True)
-    doi = models.CharField(max_length=2000, verbose_name=_(u'The article DOI'), blank=True)
+    doi = models.CharField(max_length=2000, verbose_name=_(u'DOI'), blank=True)
     primary_research_field = models.CharField(max_length=300, choices=RESEARCH_FIELDS,
-                                              verbose_name="Primary research field", blank=True)
+                                              verbose_name=_(u'Primary research field'), blank=True)
     secondary_research_field = models.CharField(max_length=300, choices=RESEARCH_FIELDS,
-                                                verbose_name="Secondary research field", blank=True)
+                                                verbose_name=_(u'Secondary research field'), blank=True)
+    notes_for_staff = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Notes for staff'),
+        help_text=_(u'Notes to the staff for help in creating your research compendium'))
+    materials_file = models.FileField(blank=True, upload_to=upload_callback, verbose_name=_(u'Materials File'), help_text=_(u'File containing an archive of supplemental materials'))
 
     def __unicode__(self):
         return self.title
