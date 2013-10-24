@@ -116,14 +116,14 @@ def parse_doi_type(soup):
     # crossref has a lot of types, we'll just handle a few at first
     doi_type = ''
     if soup.doi is not None:
-        doi_type = soup.doi.attrs.setdefault('type', '')
+        doi_type = soup.doi.attrs.get('type', '')
 
     # oh boy a messy lookup table and we can clean this up later
     parser_lookup = {
         'conference_paper': parse_conference_paper,
         'journal_article': parse_journal_article,
     }
-    parser = parser_lookup.setdefault(doi_type, parse_journal_article)
+    parser = parser_lookup.get(doi_type, parse_journal_article)
     results = parser(soup)
     logging.debug('parse_doi_type %s', results)
     return results

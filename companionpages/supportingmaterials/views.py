@@ -41,9 +41,9 @@ class ArticleCreateView(generic.edit.CreateView):
 
 def get_author_names(compendia):
     """ helper function to join up author names from the doi_response """
-    collaborators = compendia.setdefault('collaborators', [])
+    collaborators = compendia.get('collaborators', [])
     authors = []
     for c in collaborators:
-        name = '{first} {last}'.format(first=c.setdefault('given_name', ''), last=c.setdefault('surname'))
+        name = '{first} {last}'.format(first=c.get('given_name', ''), last=c.get('surname', ''))
         authors.append(name)
     return ', '.join(authors)
