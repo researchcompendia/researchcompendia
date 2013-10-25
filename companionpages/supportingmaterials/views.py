@@ -16,7 +16,7 @@ class DoiFormView(generic.FormView):
 class ArticleListView(generic.ListView):
     model = Article
     template_name = 'supportingmaterials/index.html'
-    context_object_name = 'companion_article_list'
+    paginate_by = 25
 
     def get_queryset(self):
         """Return active compendia"""

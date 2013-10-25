@@ -5,17 +5,47 @@
 
 {% block content %}
 
-{% if companion_article_list %}
+{% if object_list %}
 
 <h2>Research Compendia</h2>
 
+{{ page_obj.start_index }} through {{ page_obj.end_index }} of {{ paginator.count }} results
+
+{% if page_obj.has_other_pages %}
+
+<ul class="pagination">
+
+{% if page_obj.has_previous %}
+<li><a href="?page={{ page_obj.previous_page_number }}">&laquo</a></li>
+{% else %}
+<li class="disabled"><a href="#">&laquo</a></li>
+{% endif %}
+
+{% for num in paginator.page_range %}
+<li class="{% if page_obj.number == num %}active{% endif %}">
+  <a href="?page={{num}}">{{ num }}</a>
+</li>
+{% endfor %}
+
+{% if page_obj.has_next %}
+<li><a href="?page={{ page_obj.next_page_number }}">&raquo</a></li>
+{% else %}
+<li class="disabled"><a href="#">&raquo</a></li>
+{% endif %}
+
+</ul>
+
+{% endif %}
+
+
+
 <ul class="list-group">
   {% localtime on %}
-  {% for site in companion_article_list %}
+  {% for obj in object_list %}
 
   <li class="list-group-item">
-  <a class="btn btn-success" href="{% url 'researchcompendium' site.id %}"></i></a>
-  <em>{{ site.title }}</em>
+  <a class="btn btn-success" href="{% url 'researchcompendium' obj.id %}"></i></a>
+  <em>{{ obj.title }}</em>
   </li>
 
   {% endfor %}
