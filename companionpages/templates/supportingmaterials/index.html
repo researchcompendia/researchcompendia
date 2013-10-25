@@ -12,7 +12,6 @@
 {{ page_obj.start_index }} through {{ page_obj.end_index }} of {{ paginator.count }} results
 
 {% if page_obj.has_other_pages %}
-
 <ul class="pagination">
 
 {% if page_obj.has_previous %}
@@ -32,25 +31,25 @@
 {% else %}
 <li class="disabled"><a href="#">&raquo</a></li>
 {% endif %}
-
 </ul>
 
 {% endif %}
 
 
+{% for obj in object_list %}
+<div class="panel panel-default">
 
-<ul class="list-group">
-  {% localtime on %}
-  {% for obj in object_list %}
+  <div class="panel-heading"> {{ obj.title }} </div>
+  <div class="panel-body">
+    <p>{% for collaborator in obj.collaborators.all %}
+       {{ collaborator }} {% if not forloop.last %}, {% endif %}
+       {% endfor %}</p>
+    <p>{{ obj.journal }}</p>
+    <a class="btn btn-success" href="{% url 'researchcompendium' obj.id %}">Read</a>
+  </div>
 
-  <li class="list-group-item">
-  <a class="btn btn-success" href="{% url 'researchcompendium' obj.id %}"></i></a>
-  <em>{{ obj.title }}</em>
-  </li>
-
-  {% endfor %}
-  {% endlocaltime %}
-</ul>
+</div>
+{% endfor %}
 
 {% endif %}
 
