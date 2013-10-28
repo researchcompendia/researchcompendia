@@ -10,8 +10,15 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>{{ object.username }}</h2>
-      {% avatar object %}
+      <h2>{{ object.public_name }}</h2>
+      <div class="media">
+        <div class="media_object">{% avatar object %}</div>
+        <div class="media-body">
+          <h4 class="media-heading">{{ object.byline }}</h4>
+          {{ object.biography }}
+        </div>
+      </div>
+
     </div>
   </div>
 
