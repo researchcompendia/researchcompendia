@@ -28,6 +28,8 @@ boto
 South
 django-model-utils
 
+django-taggit
+
 logutils
 
 python-dateutil

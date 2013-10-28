@@ -58,14 +58,14 @@ EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.Emai
 
 # django-envelope contact page settings
 DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'devtyler@codersquid.com')
-#ENVELOPE_CONTACT_CHOICES = (
-#    ('',    u"Choose"),
-#    (10,    u"A question regarding the website"),
-#    (20,    u"A question regarding companion pages"),
-#    (None,   u"Other"),
-#)
-MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY')
-MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME')
+ENVELOPE_CONTACT_CHOICES = (
+    ('',    u"Choose"),
+    (10,    u"A question regarding the website"),
+    (20,    u"A question regarding research compendia"),
+    (None,  u"Other"),
+)
+MAILGUN_ACCESS_KEY = env.get('MAILGUN_ACCESS_KEY', '')
+MAILGUN_SERVER_NAME = env.get('MAILGUN_SERVER_NAME', '')
 # spam catching
 HONEYPOT_FIELD_NAME = 'relatedtopics2'
 
@@ -88,21 +88,26 @@ STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-#from S3 import CallingFormat
-#AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+########## AUTHENTICATION CONFIGURATION
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
+SOCIALACCOUNT_AVATAR_SUPPORT = 'avatar'
+########## END AUTHENTICATION CONFIGURATION
+########## Custom user app defaults
+# Select the correct user model
+AUTH_USER_MODEL = "users.User"
+LOGIN_REDIRECT_URL = "users:redirect"
+########## END Custom user app defaults
 
-# REST_FRAMEWORK = { }
-
-# django-registration settings
-ACCOUNT_ACTIVATION_DAYS = 2
-
-# django-profiles
-AUTH_PROFILE_MODULE = 'members.Member'
-
-# django-gravatar
-GRAVATAR_DEFAULT_SIZE = 80
-#GRAVATAR_DEFAULT_IMAGE = 'https://s3.amazonaws.com/starkravingsanermccompanion/img/avatar_small.png'
-GRAVATAR_DEFAULT_IMAGE = 'http://raw.github.com/codersquid/tyler/master/companionpages/static/img/avatar_small.png'
+########## SLUGLIFIER
+AUTOSLUG_SLUGIFY_FUNCTION = "slugify.slugify"
+########## END SLUGLIFIER
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -174,12 +179,15 @@ TEMPLATE_DIRS = (
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
+    'django.core.context_processors.request',
 )
 
 DJANGO_APPS = (
@@ -198,24 +206,33 @@ THIRD_PARTY_APPS = (
     'envelope',
     'gunicorn',
     'honeypot',
-    'profiles',
-    'registration',
-    'south',
     'storages',
-    'gravatar',
-    'taggit',
     'rest_framework',
     'crispy_forms',
+    'avatar',
+    'taggit',
+    'south',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'users',
     'home',
-    'members',
-    'supportingmaterials',
 )
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS += (
+    # Needs to come last for now because of a weird edge case between
+    #   South and allauth
+    'allauth',  # registration
+    'allauth.account',  # registration
+    'allauth.socialaccount',  # registration
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.openid',
+    'allauth.socialaccount.providers.persona',
+    'allauth.socialaccount.providers.twitter',
+)
 
 if DEBUG:
     # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
@@ -233,11 +250,10 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = {
         'INTERCEPT_REDIRECTS':False,
     }
-    if not REMOTE_DEBUG:
-        # use local files for static rather than amazon s3
-        STATIC_URL = '/static/'
-        MEDIA_URL = STATIC_URL + 'media/'
-        ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
+    # use local files for static rather than amazon s3
+    STATIC_URL = '/static/'
+    MEDIA_URL = STATIC_URL + 'media/'
+    ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
 
 
 # A sample logging configuration. The only tangible logging
