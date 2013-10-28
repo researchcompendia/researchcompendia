@@ -28,9 +28,12 @@ urlpatterns = patterns(
 
 urlpatterns += patterns(
     'django.contrib.flatpages.views',
+    # hard coded flatpages so that we can reference them with the url template tag
     url(r'^about/', 'flatpage', {'url': '/about/'}, name='about'),
     url(r'^terms/', 'flatpage', {'url': '/terms/'}, name='terms'),
     url(r'^privacy/', 'flatpage', {'url': '/privacy/'}, name='privacy'),
     url(r'^partners/', 'flatpage', {'url': '/partners/'}, name='partners'),
     url(r'^developers/', 'flatpage', {'url': '/developers/'}, name='developers'),
+    # catchall pattern for when you don't want to use the url template tag for some reason
+    url(r'^(?P<url>.*/)$', 'flatpage'),
 )
