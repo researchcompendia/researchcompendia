@@ -19,7 +19,6 @@ class ArticleListView(generic.ListView):
     paginate_by = 25
 
     def get_queryset(self):
-        """Return active compendia"""
         return Article.objects.filter(status__iexact=Article.STATUS.active)
 
 
@@ -37,13 +36,3 @@ class ArticleCreateView(generic.edit.CreateView):
     model = Article
     form_class = ArticleForm
     template_name = 'supportingmaterials/create.html'
-
-
-def get_author_names(compendia):
-    """ helper function to join up author names from the doi_response """
-    collaborators = compendia.get('collaborators', [])
-    authors = []
-    for c in collaborators:
-        name = '{first} {last}'.format(first=c.get('given_name', ''), last=c.get('surname', ''))
-        authors.append(name)
-    return ', '.join(authors)

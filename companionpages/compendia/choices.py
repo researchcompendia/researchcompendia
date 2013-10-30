@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from model_utils.choices import Choices
 
+STATUS = Choices('draft', 'active')
 
 RESEARCH_FIELDS = Choices(
     ("accounting", _("Accounting")),
@@ -102,7 +103,7 @@ RESEARCH_FIELDS = Choices(
 )
 
 
-PAPER_TYPE = Choices(
+PAPER_TYPES = Choices(
     ('published_paper', _('Published Paper')),
     ('working_paper', _('Working Paper')),
     ('methods_paper', _('Methods Paper')),
@@ -112,8 +113,15 @@ PAPER_TYPE = Choices(
 )
 
 
-MATERIAL_TYPE = Choices(
+MATERIAL_TYPES = Choices(
     ('code', _('Code')),
     ('data', _('Data')),
     ('other', _('Other')),
+)
+
+
+CONTRIBUTOR_ROLES = Choices(
+    ('author', _('Author')),
+    ('editor', _('Editor')),
+    ('programmer', _('Programmer')),
 )

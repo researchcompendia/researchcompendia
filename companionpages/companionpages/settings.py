@@ -218,6 +218,7 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'users',
     'home',
+    'compendia',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
