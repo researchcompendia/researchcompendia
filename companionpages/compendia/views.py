@@ -10,12 +10,12 @@ logger = logging.getLogger(__name__)
 
 class DoiFormView(generic.FormView):
     form_class = DoiForm
-    template_name = 'supportingmaterials/doi.html'
+    template_name = 'compendia/doi.html'
 
 
 class ArticleListView(generic.ListView):
     model = Article
-    template_name = 'supportingmaterials/index.html'
+    template_name = 'compendia/index.html'
     paginate_by = 25
 
     def get_queryset(self):
@@ -24,7 +24,7 @@ class ArticleListView(generic.ListView):
 
 class ArticleDetailView(generic.DetailView):
     model = Article
-    template_name = 'supportingmaterials/detail.html'
+    template_name = 'compendia/detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
@@ -35,4 +35,4 @@ class ArticleDetailView(generic.DetailView):
 class ArticleCreateView(generic.edit.CreateView):
     model = Article
     form_class = ArticleForm
-    template_name = 'supportingmaterials/create.html'
+    template_name = 'compendia/create.html'

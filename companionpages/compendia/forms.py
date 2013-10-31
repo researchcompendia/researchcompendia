@@ -30,11 +30,12 @@ class ArticleForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ['title', 'article_url', 'doi', 'article_file', 'materials_file', 'abstract', 'notes_for_staff']
+        exclude = ['legacy_id', 'status_changed', ]
+
 
 
 class SupportingMaterialForm(forms.ModelForm):
 
     class Meta:
         model = SupportingMaterial
-        exclude = ['article', 'status', 'status_changed', 'storage_url', 'legacy_id', ]
+        exclude = ['article', 'status_changed',]
