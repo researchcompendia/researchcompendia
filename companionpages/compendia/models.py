@@ -15,7 +15,10 @@ class Article(StatusModel, TimeStampedModel):
         return upload_path('articles', filename)
 
     site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'))
-    contributors = models.ManyToManyField(User, through='Contributor', related_name='contributors')
+    contributors = models.ManyToManyField(User, through='Contributor', related_name='contributors',
+                                          help_text=_(u'Users who have contributed to this compendium'))
+    # TODO: I know this is sloppy, and need advice on a better way to handle it.
+    authorship = models.TextField(max_length=500, blank=True, help_text=_(u'Text containing authors as shown in the paper.'))
     STATUS = choices.STATUS
     title = models.CharField(max_length=500, verbose_name=_(u'Title'))
     abstract = models.TextField(max_length=5000, blank=True)
