@@ -2,7 +2,7 @@
 {% load avatar_tags %}
 {% load static %}
 
-{% block title %}User: {{ object.username }}{% endblock %}
+{% block title %}Research Compendia User/{{ object.id }}{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -14,7 +14,7 @@
       <div class="media">
         <div class="media_object">{% avatar object %}</div>
         <div class="media-body">
-          <h4 class="media-heading">{{ object.byline }}</h4>
+          <h4 class="media-heading">{{ object.affiliation }}</h4>
           {{ object.biography }}
         </div>
       </div>

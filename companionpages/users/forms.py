@@ -10,4 +10,4 @@ class UserForm(forms.ModelForm):
         # Set this form to use the User model.
         model = User
 
-        fields = ("first_name", "last_name", "public_name", "byline", "biography",)
+        fields = ("first_name", "last_name", "public_name", "affiliation", "biography", "country")
