@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from json_field import JSONField
 from model_utils.models import StatusModel, TimeStampedModel
 from taggit.managers import TaggableManager
 
@@ -11,30 +12,36 @@ from . import choices
 
 
 class Article(StatusModel, TimeStampedModel):
-    def upload_callback(self, filename):
+
+    def upload_article_callback(self, path, filename):
         return upload_path('articles', filename)
 
+    def upload_materials_callback(self, filename):
+        return upload_path('materials', filename)
+
     site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'))
+    authorship = JSONField(blank=True, verbose_name=_(u'Authors'))
     contributors = models.ManyToManyField(User, through='Contributor', related_name='contributors',
-                                          help_text=_(u'Users who have contributed to this compendium'))
-    # TODO: I know this is sloppy, and need advice on a better way to handle it.
-    authorship = models.TextField(max_length=500, blank=True, help_text=_(u'Text containing authors as shown in the paper.'))
+        help_text=_(u'Users who have contributed to this compendium'))
     STATUS = choices.STATUS
+    doi = models.CharField(max_length=2000, verbose_name=_(u'DOI (optional)'), blank=True)
     title = models.CharField(max_length=500, verbose_name=_(u'Title'))
-    abstract = models.TextField(max_length=5000, blank=True)
-    journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'))
-    article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'URL'))
-    article_file = models.FileField(blank=True, upload_to=upload_callback)
-    legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
-    doi = models.CharField(max_length=2000, verbose_name=_(u'DOI'), blank=True)
+    paper_abstract = models.TextField(max_length=5000, blank=True)
+    journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name (if applicable)'))
+    article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
+    related_urls = JSONField(blank=True, verbose_name=_(u'Related URLs'))
     primary_research_field = models.CharField(max_length=300, choices=choices.RESEARCH_FIELDS,
-                                              verbose_name=_(u'Primary research field'), blank=True)
+        verbose_name=_(u'Primary research field'), blank=True)
     secondary_research_field = models.CharField(max_length=300, choices=choices.RESEARCH_FIELDS,
-                                                verbose_name=_(u'Secondary research field'), blank=True)
+        verbose_name=_(u'Secondary research field'), blank=True)
     notes_for_staff = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Notes for staff'),
-                                       help_text=_(u'Private notes to the staff for help in creating your research'
-                                                   u'compendium, including links to data and code if not uploaded'))
+        help_text=_(u'Private notes to the staff for help in creating your research'
+                    u'compendium, including links to data and code if not uploaded'))
+    article_file = models.FileField(blank=True, upload_to=upload_article_callback, help_text=_(u'File containing the article (optional)'))
+    code_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback, help_text=_(u'File containing an archive of the code'))
+    data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback, help_text=_(u'File containing an archive of the data'))
     tags = TaggableManager(blank=True)
+    legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
 
     def __unicode__(self):
         return self.title
@@ -52,9 +59,8 @@ class Contributor(TimeStampedModel):
     user = models.ForeignKey(User, verbose_name=(u'Contributing User'))
     article = models.ForeignKey(Article, verbose_name=_(u'Article'))
     role = models.CharField(max_length=50, choices=choices.CONTRIBUTOR_ROLES,
-                            verbose_name=_(u'Contributing Role'),
-                            blank=True)
-    primary = models.BooleanField(verbose_name=_(u'Primary Contributor?'))
+        verbose_name=_(u'Contributing Role'),
+        blank=True)
     citation_order = models.IntegerField(blank=True, null=True, verbose_name=_(u'Citation Order'))
 
     def __unicode__(self):
@@ -64,32 +70,3 @@ class Contributor(TimeStampedModel):
         ordering = ['citation_order', 'user']
         verbose_name = _(u'contributor')
         verbose_name_plural = _(u'contributors')
-
-
-class SupportingMaterial(StatusModel, TimeStampedModel):
-    def upload_callback(self, filename):
-        return upload_path('materials', filename)
-
-    STATUS = choices.STATUS
-    article = models.ForeignKey(Article, verbose_name=(u'Article'))
-    name = models.CharField(max_length=100, verbose_name=_(u'Name'), help_text=_(u'Provide a name for the supporting material.'))
-    archive_file = models.FileField(upload_to=upload_callback, blank=True, verbose_name=_(u'Archive File'), help_text=_(u'File containing the materials'))
-    description = models.TextField(max_length=5000, blank=True)
-    materials_url = models.URLField(blank=True,
-                                    max_length=2000,
-                                    help_text=_(u'URL to the supporting material. For example, '
-                                                u'if this is source code, this would be a url '
-                                                u'to to the code repository.'))
-    description_file = models.FileField(blank=True, upload_to=upload_callback,
-                                        verbose_name=_(u'Materials Description'),
-                                        help_text=_(u'File containing description of the materials'))
-    materials_type = models.CharField(max_length=200, choices=choices.MATERIAL_TYPES)
-    tags = TaggableManager(blank=True)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta(object):
-        ordering = ['name']
-        verbose_name = _(u'supporting material')
-        verbose_name_plural = _(u'supporting materials')

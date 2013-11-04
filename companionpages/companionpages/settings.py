@@ -211,6 +211,7 @@ THIRD_PARTY_APPS = (
     'crispy_forms',
     'avatar',
     'taggit',
+    'json_field',
     'south',
 )
 

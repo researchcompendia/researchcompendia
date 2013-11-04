@@ -4,7 +4,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 from crispy_forms.bootstrap import PrependedText
 
-from .models import Article, SupportingMaterial
+from .models import Article
 
 
 class DoiForm(forms.Form):
@@ -31,10 +31,3 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         exclude = ['legacy_id', 'status_changed', ]
-
-
-class SupportingMaterialForm(forms.ModelForm):
-
-    class Meta:
-        model = SupportingMaterial
-        exclude = ['article', 'status_changed']
