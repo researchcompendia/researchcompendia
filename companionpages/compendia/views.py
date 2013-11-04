@@ -2,6 +2,8 @@ import logging
 from django.conf import settings
 from django.views import generic
 
+from braces.views import LoginRequiredMixin
+
 from .models import Article
 from .forms import ArticleForm, DoiForm
 
@@ -32,7 +34,7 @@ class ArticleDetailView(generic.DetailView):
         return context
 
 
-class ArticleCreateView(generic.edit.CreateView):
+class ArticleCreateView(LoginRequiredMixin, generic.edit.CreateView):
     model = Article
     form_class = ArticleForm
     template_name = 'compendia/create.html'
