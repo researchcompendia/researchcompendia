@@ -7,15 +7,6 @@ Tyler
 
 A proof of concept for a research compendia webapp.
 
-* Free software: `MIT License <http://opensource.org/licenses/MIT>`_
-* Technical Documentation: http://tyler.rtfd.org
-* Issue tracker: https://github.com/researchcompendia/tyler/issues
-* Issue kanban: https://huboard.com/researchcompendia/tyler
-* Wiki: https://github.com/researchcompendia/tyler/wiki
-* IRC: #hackingscience on freenode.net
-* Alpha Environment: http://alpha.researchcompendia.org or http://alpha-researchcompendia.herokuapp.com
-* Beta Environment: http://labs.researchcompendia.org or http://researchcompendia.herokuapp.com
-
 Introduction and Goals
 ----------------------
 
@@ -51,6 +42,22 @@ This is a django project with the following structure.
 * `supportingmaterials`: this handles the archiving and representation of a compendia.
 * `lib`: this holds code that does not call for an app
 * `api`: this handles our service apis.
+
+Resources
+---------
+
+* Free software: `MIT License <http://opensource.org/licenses/MIT>`_
+* Technical Documentation: http://tyler.rtfd.org
+* Issue tracker: https://github.com/researchcompendia/tyler/issues
+* Issue kanban: https://huboard.com/researchcompendia/tyler
+* Wiki: https://github.com/researchcompendia/tyler/wiki
+* IRC: #hackingscience on freenode.net
+
+Development Environments
+++++++++++++++++++++++++
+* Beta http://researchcompendia.org
+* Pre-prod: http://preprod-researchcompendia.herokuapp.com
+* Alpha http://alpha.researchcompendia.org
 
 
 Acknowledgements
