@@ -27,6 +27,7 @@ django-storages
 boto
 South
 django-model-utils
+django-json-field
 
 django-taggit
 
