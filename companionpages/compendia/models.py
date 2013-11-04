@@ -34,7 +34,7 @@ class Article(StatusModel, TimeStampedModel):
     notes_for_staff = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Notes for staff'),
                                        help_text=_(u'Private notes to the staff for help in creating your research'
                                                    u'compendium, including links to data and code if not uploaded'))
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     def __unicode__(self):
         return self.title
@@ -84,7 +84,7 @@ class SupportingMaterial(StatusModel, TimeStampedModel):
                                         verbose_name=_(u'Materials Description'),
                                         help_text=_(u'File containing description of the materials'))
     materials_type = models.CharField(max_length=200, choices=choices.MATERIAL_TYPES)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     def __unicode__(self):
         return self.name

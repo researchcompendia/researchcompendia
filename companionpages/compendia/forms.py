@@ -33,9 +33,8 @@ class ArticleForm(forms.ModelForm):
         exclude = ['legacy_id', 'status_changed', ]
 
 
-
 class SupportingMaterialForm(forms.ModelForm):
 
     class Meta:
         model = SupportingMaterial
-        exclude = ['article', 'status_changed',]
+        exclude = ['article', 'status_changed']

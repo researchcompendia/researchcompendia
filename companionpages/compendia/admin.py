@@ -13,13 +13,12 @@ def make_draft(modeladmin, request, queryset):
 make_active.short_description = "Mark selected item as draft"
 
 
-
 class SupportingInline(admin.StackedInline):
     model = SupportingMaterial
 
 
 class ContributorInline(admin.StackedInline):
-    model = Contributor 
+    model = Contributor
 
 
 class ArticleAdmin(admin.ModelAdmin):
