@@ -2,7 +2,7 @@ import logging
 from django.conf import settings
 from django.views import generic
 
-from braces.views import LoginRequiredMixin
+from braces.views import FormMessagesMixin, LoginRequiredMixin
 
 from .models import Article
 from .forms import ArticleForm, DoiForm
@@ -34,7 +34,11 @@ class ArticleDetailView(generic.DetailView):
         return context
 
 
-class ArticleCreateView(LoginRequiredMixin, generic.edit.CreateView):
+class ArticleCreateView(LoginRequiredMixin, FormMessagesMixin, generic.edit.CreateView):
     model = Article
     form_class = ArticleForm
     template_name = 'compendia/create.html'
+    form_invalid_message = 'The article was not created, and administrators have been notified.'
+
+    def get_form_valid_message(self):
+        return "Article '{0}' created!".format(self.object.title)

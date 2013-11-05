@@ -30,4 +30,8 @@ class ArticleForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        exclude = ['legacy_id', 'status_changed', ]
+        exclude = ['authorship', 'related_urls', 'legacy_id', 'status_changed', ]
+        widgets = {
+            'site_owner': forms.MultipleHiddenInput(),
+            'doi' : forms.TextInput(attrs = {'placeholder': 'will autocomplete paper info'}),
+        }

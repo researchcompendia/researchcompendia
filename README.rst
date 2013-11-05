@@ -16,7 +16,7 @@ Gentleman and Temple Lang [#]_ presented the concept of a compendium as a collec
 everything that has gone towards the work of a research publication. This idea reaches
 back towards the Knuth's concept of literate programming but overlayed with reproducibility concerns.
 
-The tyler application has the following goals.
+The application has the following goals.
 
 * We want to make it possible to collect all of the writing, code and data
   in to an archivable form that represents what was presented at the time
@@ -38,8 +38,8 @@ Project Structure
 This is a django project with the following structure.
 
 * `home`: this handles the landing page, faq, and similar concerns that don't call for separate apps.
-* `members`: this handles member profiles. User management and profile functionality is volatile for now, and we'll probably be overhauling it while we pull in the use of django-allauth.
-* `supportingmaterials`: this handles the archiving and representation of a compendia.
+* `users`: this handles users and profiles by using django-allauth and cookiecutter-django's user template
+* `compendia`: this handles the archiving and representation of a compendium.
 * `lib`: this holds code that does not call for an app
 * `api`: this handles our service apis.
 
@@ -57,8 +57,6 @@ Development Environments
 ++++++++++++++++++++++++
 * Beta http://researchcompendia.org
 * Pre-prod: http://preprod-researchcompendia.herokuapp.com
-* Alpha http://alpha.researchcompendia.org
-
 
 Acknowledgements
 ----------------

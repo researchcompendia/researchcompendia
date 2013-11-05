@@ -8,21 +8,19 @@ from django.views.generic import RedirectView
 from django.views.generic import UpdateView
 from django.views.generic import ListView
 
-# Only authenticated users can access views using this.
-from braces.views import LoginRequiredMixin
+from braces.views import LoginRequiredMixin, SelectRelatedMixin
 
-# Import the form from users/forms.py
 from .forms import UserForm
-
-# Import the customized User model
 from .models import User
 
 
-class UserDetailView(LoginRequiredMixin, DetailView):
+class UserDetailView(LoginRequiredMixin, SelectRelatedMixin, DetailView):
     model = User
-    # These next two lines tell the view to index lookups by username
-    #slug_field = "username"
-    #slug_url_kwarg = "username"
+    select_related = ['article__site_owner', 'contributor__user']
+
+    def get_queryset(self):
+        queryset = super(UserDetailView, self).get_queryset()
+        return queryset.select_related(*self.select_related)
 
 
 class UserRedirectView(LoginRequiredMixin, RedirectView):

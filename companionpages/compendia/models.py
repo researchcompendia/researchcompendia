@@ -26,7 +26,8 @@ class Article(StatusModel, TimeStampedModel):
     STATUS = choices.STATUS
     doi = models.CharField(max_length=2000, verbose_name=_(u'DOI (optional)'), blank=True)
     title = models.CharField(max_length=500, verbose_name=_(u'Title'))
-    paper_abstract = models.TextField(max_length=5000, blank=True)
+    paper_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Paper Abstract'))
+    code_data_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Code and Data Abstract'))
     journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name (if applicable)'))
     article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
     related_urls = JSONField(blank=True, verbose_name=_(u'Related URLs'))
