@@ -2,7 +2,7 @@ from django import forms
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Field, Hidden, Layout, Submit
-from crispy_forms.bootstrap import FieldWithButtons, PrependedText, StrictButton
+from crispy_forms.bootstrap import PrependedText
 
 from .models import Article
 
