@@ -10,7 +10,7 @@ A proof of concept for a research compendia webapp.
 Introduction and Goals
 ----------------------
 
-ResearchCompendia is a project [#]_ to allow scientists to create compendium as
+ResearchCompendia is a project to allow scientists to create compendium as
 introduced by Gentleman and Temple Lang [#]_. Now that much of that data and analysis is generated
 computationally, it is natural to expect that code and parameters also be
 shared. Additionally, it is right to expect that researchers ought to document
