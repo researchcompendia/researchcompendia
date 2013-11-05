@@ -8,7 +8,51 @@
 
 {% block content %}
 
+<div class="row">
+<div class="col-sm-2">
+</div>
+<div class="col-sm-8">
+<form class="form-horizontal" id="doi_form" role="form">
+  <div class="input-group" id="doi_group">
+    <input type="text" class="form-control" placeholder="Fetch DOI to autocomplate paper info">
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Fetch DOI</button>
+    </span>
+  </div>
+</form>
+</div>
+</div>
+
+
+
 {% crispy form %}
 
+
+{% endblock %}
+
+{% block extrajs %}
+
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
+
+<script type="text/javascript">
+
+
+$( "#doi_form" ).submit(function(event) {
+  event.preventDefault();
+  var doi_query = $(this).find("input").val();
+  var csrftoken = $.cookie('csrftoken');
+  $.ajax({
+      type: "POST",
+      url: "{% url 'doiref' %}",
+      data: { doi: doi_query },
+      headers: { "X-CSRFToken": csrftoken }
+  })
+  .done(function (msg ) {
+      console.log(msg);
+  });
+
+});
+
+</script>
 
 {% endblock %}

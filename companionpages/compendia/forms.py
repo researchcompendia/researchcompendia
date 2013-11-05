@@ -26,12 +26,13 @@ class ArticleForm(forms.ModelForm):
         super(ArticleForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.helper.form_class = 'form-horizontal'
+        self.helper.form_id = 'id-creation'
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-8'
         self.helper.attrs = {'enctype': 'multipart/form-data'}
         self.helper.add_input(Submit('submit', 'Save'))
         self.helper.layout = Layout(
-            FieldWithButtons('doi', StrictButton('Lookup', css_class="btn-default"), id='doisearch'),
+            Hidden('doi', ''),
             Hidden('site_owner', '{{ user }}'),
             'title',
             'code_data_abstract',
@@ -52,6 +53,6 @@ class ArticleForm(forms.ModelForm):
         exclude = ['legacy_id', 'status_changed', ]
         widgets = {
             # TODO this is not DRY but I'm not sure how to include placeholder attr in the crispy layout
+            'title': forms.TextInput(attrs={'placeholder': 'Title your compendium.'}),
             'code_data_abstract': forms.Textarea(attrs={'placeholder': 'does not need to match paper abstract'}),
-            'doi': forms.TextInput(attrs={'placeholder': 'will autocomplete paper info'}),
         }
