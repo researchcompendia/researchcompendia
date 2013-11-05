@@ -7,15 +7,7 @@ body {
   padding-bottom: 70px;
 }
 
-.rmc-light {
-  background-color: #F4F4F4;
-}
-
-.rmc-green-font {
-  color: #00a005;
-}
-
-.rmc-navbar-top {
+.rc-navbar-top {
   margin-bottom: 50px;
   /* min-height: 70px;*/
   padding-left: 0px;
