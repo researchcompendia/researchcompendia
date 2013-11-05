@@ -10,20 +10,23 @@ A proof of concept for a research compendia webapp.
 Introduction and Goals
 ----------------------
 
-What are *research compendia*?
-
-Gentleman and Temple Lang [#]_ presented the concept of a compendium as a collection of
-everything that has gone towards the work of a research publication. This idea reaches
-back towards the Knuth's concept of literate programming but overlayed with reproducibility concerns.
+ResearchCompendia is a project [#]_ to allow scientists to create compendium as
+introduced by Gentleman and Temple Lang [#]_. Now that much of that data and analysis is generated
+computationally, it is natural to expect that code and parameters also be
+shared. Additionally, it is right to expect that researchers ought to document
+the computational portions of their research methods as thoroughly as they
+would document a tabletop experiment.
 
 The application has the following goals.
 
-* We want to make it possible to collect all of the writing, code and data
-  in to an archivable form that represents what was presented at the time
-  of a publication or at any one point in time.
-* We want to provide a way for users to run compendia in non-trivial ways.
-* We want compendia to be re-mixable.
-* We want to help researchers manage their research in a way that makes it mixable and executable.
+* We will make it possible to archive all of the data, codes, documentation, parameters,
+  and environmental settings linked with published research in a versioned form.
+* We will support the verification and validation processes by providing for the execution
+  of shared code and the visualization of results.
+* We want to help and encourage researchers to manage their research in a way that makes it mixable and executable.
+* Most of all we wish to make these tools heavily automated, and easy to access and
+  utilize to lessen the exertion required from already overburdened academic researchers in the process of
+  publishing fully reproducible work.
 
 
 If you are a programmer, you may find yourself thinking that some of these goals remind you of
