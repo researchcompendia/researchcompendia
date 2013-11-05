@@ -1,8 +1,8 @@
 from django import forms
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit
-from crispy_forms.bootstrap import PrependedText
+from crispy_forms.layout import Field, Hidden, Layout, Submit
+from crispy_forms.bootstrap import FieldWithButtons, PrependedText, StrictButton
 
 from .models import Article
 
@@ -25,13 +25,33 @@ class ArticleForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ArticleForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-lg-2'
+        self.helper.field_class = 'col-lg-8'
         self.helper.attrs = {'enctype': 'multipart/form-data'}
         self.helper.add_input(Submit('submit', 'Save'))
+        self.helper.layout = Layout(
+            FieldWithButtons('doi', StrictButton('Lookup', css_class="btn-default"), id='doisearch'),
+            Hidden('site_owner', '{{ user }}'),
+            'title',
+            'code_data_abstract',
+            'code_archive_file',
+            'data_archive_file',
+            'notes_for_staff',
+            'primary_research_field',
+            'secondary_research_field',
+            'tags',
+            Field('authorship', type='hidden'),
+            Field('related_urls', type='hidden'),
+            Field('paper_abstract', type='hidden'),
+        )
 
     class Meta:
         model = Article
-        exclude = ['authorship', 'related_urls', 'legacy_id', 'status_changed', ]
+        # TODO I wonder if exclude is redundant since I don't list these in the layout?
+        exclude = ['legacy_id', 'status_changed', ]
         widgets = {
-            'site_owner': forms.MultipleHiddenInput(),
+            # TODO this is not DRY but I'm not sure how to include placeholder attr in the crispy layout
+            'code_data_abstract': forms.Textarea(attrs={'placeholder': 'does not need to match paper abstract'}),
             'doi': forms.TextInput(attrs={'placeholder': 'will autocomplete paper info'}),
         }
