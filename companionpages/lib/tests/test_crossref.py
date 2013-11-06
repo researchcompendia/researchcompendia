@@ -48,15 +48,22 @@ class DoiTests(TestCase):
     def test_conference_paper(self):
         # 10.1109/UKSIM.2011.38
         r = crossref.parse_crossref_output(self.get_conference_paper())
-        assert 'compendia' in r, 'able to find compendia fields in conference paper query'
-        assert r['compendia'] is not None, r
+        assert 'compendia' in r, 'able to find compendia in conference paper query'
+
+        compendia = r['compendia']
+        assert compendia is not None, r
+
+        assert compendia['title'] == 'Trend Modelling of Elderly Lifestyle within an Occupancy Simulator'
 
     def test_journal_article(self):
         # 10.1006/jmbi.2000.4282<
         r = crossref.parse_crossref_output(self.get_journal_article())
         assert 'compendia' in r, 'able to find compendia fields in article paper query'
-        assert r['compendia'] is not None, r
 
+        compendia = r['compendia']
+        assert compendia is not None, r
+
+        assert compendia['title'] == 'Specific interaction between anticodon nuclease and the tRNALys wobble base'
 
 
     def get_conference_paper(self):

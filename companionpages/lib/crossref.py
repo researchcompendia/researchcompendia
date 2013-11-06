@@ -67,6 +67,7 @@ def query(pid, doi_param, timeout=0.60):
 
     if doi == '':
         msg = 'invalid doi parameter: %s' % doi_param
+        logger.warning(msg)
         return {'msg': msg, 'status': 400}
 
     try:
@@ -94,7 +95,9 @@ def query(pid, doi_param, timeout=0.60):
 def parse_crossref_output(xml):
     logger.debug('crossref output: %s', xml)
 
-    soup = BeautifulSoup(xml, 'lxml')
+    # I'm using 'xml' instead of 'lxml' because 'lxml' ignores CDATA,
+    # but 'xml' turns CDATA in to text elements
+    soup = BeautifulSoup(xml, 'xml')
 
     # the response is a query that has a resolve status
     if soup.query is None:
