@@ -42,6 +42,9 @@ class DoiTests(TestCase):
         assert r['msg'] == 'crossref error', 'missing query should cause a crossref error'
         assert 'compendia' not in r, 'empty reply should have an empty compendia'
 
+        r = crossref.query('pid', 'no match')
+        assert r['msg'] == 'invalid doi parameter: no match'
+
     def test_conference_paper(self):
         # 10.1109/UKSIM.2011.38
         r = crossref.parse_crossref_output(self.get_conference_paper())

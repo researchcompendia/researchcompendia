@@ -1,6 +1,7 @@
 import base64
 import datetime
 import hmac
+import logging
 import sha
 
 from django.conf import settings
@@ -13,6 +14,8 @@ from rest_framework import status
 
 from lib.storage import upload_path
 from lib import crossref
+
+logger = logging.getLogger(__name__)
 
 
 @api_view(['GET'])
@@ -54,6 +57,7 @@ def doi_crossref(request):
     """
 
     if 'doi' not in request.POST:
+        logger.debug("doi not in request %s", request.POST)
         return Response({"message": "missing DOI from request"}, status=status.HTTP_400_BAD_REQUEST)
 
     doi_data = crossref.query(settings.CROSSREF_PID, request.POST['doi'])

@@ -33,7 +33,7 @@ Publishers return information in unixref1.0 or unixref1.1.
 """
 
 
-def query(pid, doi, timeout=0.60):
+def query(pid, doi_param, timeout=0.60):
     """ returns a dictionary optionally populated with Article and Collaborator attributes
 
     pid: a validated username for the crossref query service
@@ -59,10 +59,14 @@ def query(pid, doi, timeout=0.60):
     """
 
     try:
-        doi = match_doi(doi)
+        doi = match_doi(doi_param)
     except TypeError:
-        msg = 'invalid doi parameter: %s' % doi
+        msg = 'invalid doi parameter: %s' % doi_param
         logger.warning(msg)
+        return {'msg': msg, 'status': 400}
+
+    if doi == '':
+        msg = 'invalid doi parameter: %s' % doi_param
         return {'msg': msg, 'status': 400}
 
     try:
