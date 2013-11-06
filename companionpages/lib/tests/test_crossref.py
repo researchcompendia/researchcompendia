@@ -6,6 +6,37 @@ from lib import crossref
 
 class DoiTests(TestCase):
 
+    def test_doi_matcher(self):
+        """
+        tests suggested from from http://stackoverflow.com/a/10324802
+        """
+
+        tests = (
+            ("This is a short DOI: 10.1000/123456.", "10.1000/123456"),
+            ("This is NOT a DOI: 4210.1000/123456.", ""),
+            ("This is a long DOI: 10.1016.12.31/nature.S0735-1097(98)2000/12/31/34:7-7!!!",
+                "10.1016.12.31/nature.S0735-1097(98)2000/12/31/34:7-7"),
+            ("10.1007/978-3-642-28108-2_19", "10.1007/978-3-642-28108-2_19"),
+            ("10.1007.10/978-3-642-28108-2_19 (fictitious example, see @Ju9OR comment)",
+                "10.1007.10/978-3-642-28108-2_19"),
+            ("10.1016/S0735-1097(98)00347-7", "10.1016/S0735-1097(98)00347-7"),
+            ("10.1579/0044-7447(2006)35\[89:RDUICP\]2.0.CO;2",
+                "10.1579/0044-7447(2006)35\[89:RDUICP\]2.0.CO;2"),
+            ("doi:10.1203/00006450-199305000-00005", "10.1203/00006450-199305000-00005"),
+            ("<geo coords=\"10.4515260,51.1656910\"></geo>", ""),
+        )
+        for given, expected in tests:
+            result = crossref.match_doi(given)
+            assert result == expected, 'result "%s" from query "%s" does not match expected value "%s"' % (result, given, expected)
+
+
+    def test_nonbarfing_invalid_param(self):
+        r = crossref.query('pid', None)
+        assert r['msg'] == 'invalid doi parameter: None'
+        r = crossref.query('pid', 0)
+        assert r['msg'] == 'invalid doi parameter: 0'
+
+
     def test_nonbarfing_emptiness(self):
         r = crossref.parse_crossref_output('')
         assert r['msg'] == 'crossref error', 'missing query should cause a crossref error'
