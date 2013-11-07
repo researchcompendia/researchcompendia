@@ -13,7 +13,7 @@ from . import choices
 
 class Article(StatusModel, TimeStampedModel):
 
-    def upload_article_callback(self, path, filename):
+    def upload_article_callback(self, filename):
         return upload_path('articles', filename)
 
     def upload_materials_callback(self, filename):
