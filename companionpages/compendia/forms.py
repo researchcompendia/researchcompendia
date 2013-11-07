@@ -56,7 +56,12 @@ class ArticleForm(forms.ModelForm):
         article.save()
         for user in self.cleaned_data.get('contributors'):
             Contributor.objects.create(article=article, user=user)
-        self.save_m2m()
+        # fake excluding our m2m intermediated relationship before
+        # calling save_m2m
+        self.exclude.append('contributers');
+        self.save_m2m();
+        # return exclude back to normal
+        self.exclude = [x for x in self.exclude if x != 'contributors']
 
     class Meta:
         model = Article
