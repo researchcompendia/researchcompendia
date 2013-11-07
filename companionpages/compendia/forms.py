@@ -4,7 +4,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Field, Hidden, Layout, Submit
 from crispy_forms.bootstrap import PrependedText
 
-from .models import Article
+from .models import Article, Contributor
 
 
 class DoiForm(forms.Form):
@@ -22,6 +22,7 @@ class DoiForm(forms.Form):
 
 
 class ArticleForm(forms.ModelForm):
+
     def __init__(self, *args, **kwargs):
         super(ArticleForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
@@ -31,10 +32,12 @@ class ArticleForm(forms.ModelForm):
         self.helper.field_class = 'col-lg-8'
         self.helper.attrs = {'enctype': 'multipart/form-data'}
         self.helper.add_input(Submit('submit', 'Save'))
+
         self.helper.layout = Layout(
             Hidden('doi', ''),
             Hidden('site_owner', '{{ user }}'),
             'title',
+            'contributors',
             'code_data_abstract',
             'code_archive_file',
             'data_archive_file',
@@ -46,6 +49,14 @@ class ArticleForm(forms.ModelForm):
             Field('related_urls', type='hidden'),
             Field('paper_abstract', type='hidden'),
         )
+
+    def save(self, **kwargs):
+        kwargs.update({'commit': False})
+        article = super(ArticleForm, self).save(**kwargs)
+        article.save()
+        for user in self.cleaned_data.get('contributors'):
+            Contributor.objects.create(article=article, user=user)
+        self.save_m2m()
 
     class Meta:
         model = Article
