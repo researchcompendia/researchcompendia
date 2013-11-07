@@ -54,18 +54,19 @@ class ArticleForm(forms.ModelForm):
         kwargs.update({'commit': False})
         article = super(ArticleForm, self).save(**kwargs)
         article.save()
-        for user in self.cleaned_data.get('contributors'):
+        for user in self.cleaned_data.get('contributors', []):
             Contributor.objects.create(article=article, user=user)
         # fake excluding our m2m intermediated relationship before
-        # calling save_m2m
-        self.exclude.append('contributers');
+        # calling save_m2m (this assumes we haven't already excluded contributors
+        self.exclude.append('contributors');
         self.save_m2m();
-        # return exclude back to normal
+        # return exclude back to normal (this assumes we don't want contributors in exclude)
         self.exclude = [x for x in self.exclude if x != 'contributors']
 
     class Meta:
         model = Article
         # TODO I wonder if exclude is redundant since I don't list these in the layout?
+        # WARNING: exclude is munged in save(), look there before you change this
         exclude = ['legacy_id', 'status_changed', ]
         widgets = {
             # TODO this is not DRY but I'm not sure how to include placeholder attr in the crispy layout
