@@ -1094,6 +1094,7 @@
     }, 
     "article_url": "http://purl.stanford.edu/wp335yr5649", 
     "legacy_id": "190", 
+    "new_key": "36",
     "authors": {
       "Sina Jafarpour": {
         "first": "Sina", 
@@ -1564,6 +1565,7 @@
     "coders": {}, 
     "article_url": "http://arxiv.org/abs/1302.2331", 
     "legacy_id": "265", 
+    "new_key": "49",
     "authors": {
       "Matan Gavish": {
         "first": "Matan", 
@@ -1738,6 +1740,7 @@
     }, 
     "article_url": "http://arxiv.org/pdf/1305.5870.pdf", 
     "legacy_id": "303", 
+    "new_key": "54",
     "authors": {
       "Matan Gavish": {
         "first": "Matan", 

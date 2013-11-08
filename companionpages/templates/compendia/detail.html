@@ -5,6 +5,9 @@
 <h2>{{ article.title }}</h2>
 
 <h4>Collaborators</h4>
+
+{{ article.authorship }}
+
 {% for collaborator in article.collaborators.all %}
   {{ collaborator }}
   {% if not forloop.last %}
@@ -12,9 +15,14 @@
   {% endif %}
 {% endfor %}
 
-<h2>Abstract</h2>
+<h2>Code and Data Abstract</h2>
+<p>{{ article.code_data_abstract }}</p>
 
-<p>{{ article.abstract }}
+
+{% if article.paper_abstract %}
+<h2>Paper Abstract</h2>
+<p>{{ article.paper_abstract }}</p>
+{% endif %}
 
 <p>
 {% if article.article_url %}
@@ -24,32 +32,34 @@
 {% endif %}
 </p>
 
-<h2>Supporting Materials</h2>
+{% if article.code_archive_file or article.data_archive_file or article.article_file %}
+<h2>Compendium Files</h2>
+<ul>
 
-{% for supportingmaterial in article.supportingmaterial_set.all %}
-
-
-<h4>{{ supportingmaterial.name }}</h4>
-
-{% if supportingmaterial.archive_file %}
-  <a href="{{ static_url }}{{ supportingmaterial.archive_file }}">
-      <div class="fa fa-file-o"></div>
-  </a>
+{% if article.code_archive_file %}
+<li><a href="{{ static_url }}{{ article.code_archive_file}}"><i class="fa fa-file-o"></i>
+    {{ article.code_archive_file }}</a></li>
 {% endif %}
 
-  {{ supportingmaterial.explanatory_text }}
+{% if article.data_archive_file %}
+<li><a href="{{ static_url }}{{ article.data_archive_file}}"><i class="fa fa-file-o"></i>
+    {{ article.data_archive_file }}</a></li>
+{% endif %}
 
-  {% if supportingmaterial.materials_url %}
-    <a href="{{ supportingmaterial.materials_url }}"><div class="icon-external-link"> url</div></a>
-  {% endif %}
+{% if article.article_file %}
+<h2>Article</h2>
+<li><a href="{{ static_url }}{{ article.article_file}}"><i class="fa fa-file-o"></i>
+    {{ article.article_file }}</a></li>
+{% endif %}
 
-{% endfor %}
 
+</ul>
+{% endif %}
 
 <p>
 </p>
 {% if article.legacy_id %}
-<a href="http://www.runshare.org/CompanionSite/site.do?siteId={{ article.legacy_id }}">old page</a>
+<a href="http://www.runshare.org/CompanionSite/site.do?siteId={{ article.legacy_id }}">earlier prototype page</a>
 {% endif %}
 </p>
 
