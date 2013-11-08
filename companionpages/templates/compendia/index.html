@@ -49,6 +49,7 @@
     <p>{{ obj.code_data_abstract|truncatewords:20 }}
     <p>created {{ obj.created|date:"SHORT_DATE_FORMAT" }}</p>
     <a class="btn btn-primary" href="{% url 'compendium' obj.id %}"><i class="fa fa-book"></i> Read</a>
+    <a class="btn btn-primary disabled" href="{% url 'compendium' obj.id %}"><i class="fa fa-download"></i> Download</a>
   </div>
 </div>
 {% endfor %}
