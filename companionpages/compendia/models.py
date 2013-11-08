@@ -23,7 +23,7 @@ class Article(StatusModel, TimeStampedModel):
     def upload_materials_callback(self, filename):
         return upload_path('materials', filename)
 
-    site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'))
+    site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'), help_text=_(u'Site user who moderates this compendium'))
     authorship = JSONField(blank=True, verbose_name=_(u'Authors'))
     contributors = models.ManyToManyField(User, blank=True, null=True, through='Contributor', related_name='contributors',
         help_text=_(u'Users who have contributed to this compendium'))

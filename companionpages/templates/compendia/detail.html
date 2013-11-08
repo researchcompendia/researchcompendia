@@ -4,14 +4,17 @@
 
 <h2>{{ article.title }}</h2>
 
-<h4>Collaborators</h4>
+<h4>Contributors</h4>
+
+<h5>Author Contributors</h5>
 
 {{ article.authorship }}
 
-{% for collaborator in article.collaborators.all %}
-  {{ collaborator }}
-  {% if not forloop.last %}
-  ,
+{% for contributor in article.contributors.all %}
+  {% if contributor.public_name %}
+    {% if forloop.first %}<h5>User Contributors</h5>{% endif %}
+    <a href="{% url 'users:detail' contributor.id  %}">{{ contributor.public_name }}</a>
+    {% if not forloop.last %}, {% endif %}
   {% endif %}
 {% endfor %}
 

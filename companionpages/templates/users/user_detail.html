@@ -7,36 +7,53 @@
 {% block content %}
 <div class="container">
 
-  <div class="row">
-    <div class="col-sm-12">
+{% if object == request.user %}
+<!-- Action buttons -->     
+<div class="row">
+  <div class="col-sm-12 ">
+    <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
+    <a class="btn btn-info" href="{% url 'avatar_change' %}">Avatar</a>
+  </div>
+</div>
+<!-- End Action buttons -->
+{% endif %}
 
-      <h2>{{ object.public_name }}</h2>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+      {% if object.public_name %}<h2>{{ object.public_name }}</h2>{% endif %}
       <div class="media">
         <div class="media_object">{% avatar object %}</div>
         <div class="media-body">
           <h4 class="media-heading">{{ object.affiliation }}</h4>
           {{ object.biography }}
         </div>
-      </div>
+      </div> <!-- media -->
+    </div> <!-- col -->
 
-    </div>
-  </div>
-
-{% if object == request.user %}
-<!-- Action buttons -->     
-<div class="row">
-
-  <div class="col-sm-12 ">
-    <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
-    <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
-    <a class="btn btn-info" href="{% url 'avatar_change' %}">Avatar</a>
-    <!-- Your Stuff: Custom user template urls -->
-  </div>
-
-</div>
-<!-- End Action buttons -->
-{% endif %}
-
+    <div class="col-sm-8">
+      <ul>
+      {% for contributor in object.contributor_set.all %}</li>
+        {% if forloop.first %}<h3>Contributor</h3>{% endif %}
+        <li>
+          <a href="{% url 'compendium' contributor.article.id %}"><i class="fa fa-book"></i> Read</a>
+          {{ contributor.article.title }}
+        </li>
+      {% endfor %}
+      </ul>
+      <ul>
+      {% for article in object.article_set.all %}</li>
+        {% if forloop.first %}<h3>Moderator</h3>{% endif %}
+        <li>
+          <a href="{% url 'compendium' article.id %}"><i class="fa fa-book"></i> Read</a>
+          {{ article.title }}
+        </li>
+      {% endfor %}
+      </ul>
+    </div> <!-- col -->
+  </div> <!-- row -->
 
 </div>
 {% endblock content %}
