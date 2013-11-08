@@ -25,7 +25,7 @@ class Article(StatusModel, TimeStampedModel):
 
     site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'))
     authorship = JSONField(blank=True, verbose_name=_(u'Authors'))
-    contributors = models.ManyToManyField(User, through='Contributor', related_name='contributors',
+    contributors = models.ManyToManyField(User, blank=True, null=True, through='Contributor', related_name='contributors',
         help_text=_(u'Users who have contributed to this compendium'))
     STATUS = choices.STATUS
     doi = models.CharField(max_length=2000, verbose_name=_(u'DOI'), blank=True)
