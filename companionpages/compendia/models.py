@@ -12,6 +12,10 @@ from . import choices
 
 
 class Article(StatusModel, TimeStampedModel):
+    # WARNING: ArticleForm overrides save so that we can save
+    # the m2m Contributors relationship. subsequently, save_m2m is
+    # not called. If you introduce a new m2m relationship, you must
+    # change the save method in ArticleForm.
 
     def upload_article_callback(self, filename):
         return upload_path('articles', filename)
@@ -24,11 +28,11 @@ class Article(StatusModel, TimeStampedModel):
     contributors = models.ManyToManyField(User, through='Contributor', related_name='contributors',
         help_text=_(u'Users who have contributed to this compendium'))
     STATUS = choices.STATUS
-    doi = models.CharField(max_length=2000, verbose_name=_(u'DOI (optional)'), blank=True)
+    doi = models.CharField(max_length=2000, verbose_name=_(u'DOI'), blank=True)
     title = models.CharField(max_length=500, verbose_name=_(u'Title'))
     paper_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Paper Abstract'))
     code_data_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Code and Data Abstract'))
-    journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name (if applicable)'))
+    journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'))
     article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
     related_urls = JSONField(blank=True, verbose_name=_(u'Related URLs'))
     primary_research_field = models.CharField(max_length=300, choices=choices.RESEARCH_FIELDS,
@@ -38,7 +42,7 @@ class Article(StatusModel, TimeStampedModel):
     notes_for_staff = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Notes for staff'),
         help_text=_(u'Private notes to the staff for help in creating your research'
                     u'compendium, including links to data and code if not uploaded'))
-    article_file = models.FileField(blank=True, upload_to=upload_article_callback, help_text=_(u'File containing the article (optional)'))
+    article_file = models.FileField(blank=True, upload_to=upload_article_callback, help_text=_(u'File containing the article'))
     code_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback, help_text=_(u'File containing an archive of the code'))
     data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback, help_text=_(u'File containing an archive of the data'))
     tags = TaggableManager(blank=True)

@@ -36,6 +36,7 @@
 {% endif %}
 
 
+{% localtime on %}
 {% for obj in object_list %}
 <div class="panel panel-default">
 
@@ -45,12 +46,13 @@
        {{ collaborator }} {% if not forloop.last %}, {% endif %}
        {% endfor %}</p>
     <p>{{ obj.journal }}</p>
-    <a class="btn btn-success" href="{% url 'researchcompendium' obj.id %}">Read</a>
+    <p>{{ obj.code_data_abstract|truncatewords:20 }}
+    <p>created {{ obj.created|date:"SHORT_DATE_FORMAT" }}</p>
+    <a class="btn btn-success" href="{% url 'compendium' obj.id %}">Read</a>
   </div>
-
 </div>
 {% endfor %}
-
+{% endlocaltime %}
 {% endif %}
 
 {% endblock content %}

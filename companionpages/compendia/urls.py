@@ -7,5 +7,4 @@ urlpatterns = patterns(
     url(r'^$', views.ArticleListView.as_view(), name='researchcompendia'),
     url(r'^create/$', views.ArticleCreateView.as_view(), name='researchcompendia_creation'),
     url(r'^(?P<pk>\d+)/$', views.ArticleDetailView.as_view(), name='compendium'),
-    url(r'^doi/$', views.DoiFormView.as_view(), name='doifill'),
 )

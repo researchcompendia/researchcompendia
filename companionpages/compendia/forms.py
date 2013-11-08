@@ -1,24 +1,9 @@
 from django import forms
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Field, Hidden, Layout, Submit
-from crispy_forms.bootstrap import PrependedText
+from crispy_forms.layout import Submit
 
 from .models import Article, Contributor
-
-
-class DoiForm(forms.Form):
-
-    doi = forms.CharField(required=False, label='')
-
-    def __init__(self, *args, **kwargs):
-        super(DoiForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.form_action = 'doiref'
-        self.helper.layout = Layout(
-            PrependedText('doi', 'doi:'),
-        )
 
 
 class ArticleForm(forms.ModelForm):
@@ -32,44 +17,46 @@ class ArticleForm(forms.ModelForm):
         self.helper.field_class = 'col-lg-8'
         self.helper.attrs = {'enctype': 'multipart/form-data'}
         self.helper.add_input(Submit('submit', 'Save'))
+        # NOTE: I had a crispy Layout, but it seemed to have a weird interaction with save().
 
-        self.helper.layout = Layout(
-            Hidden('doi', ''),
-            Hidden('site_owner', '{{ user }}'),
-            'title',
-            'contributors',
-            'code_data_abstract',
-            'code_archive_file',
-            'data_archive_file',
-            'notes_for_staff',
-            'primary_research_field',
-            'secondary_research_field',
-            'tags',
-            Field('authorship', type='hidden'),
-            Field('related_urls', type='hidden'),
-            Field('paper_abstract', type='hidden'),
-        )
-
-    def save(self, **kwargs):
-        kwargs.update({'commit': False})
-        article = super(ArticleForm, self).save(**kwargs)
+    def save(self):
+        article = super(ArticleForm, self).save(commit=False)
         article.save()
         for user in self.cleaned_data.get('contributors', []):
             Contributor.objects.create(article=article, user=user)
-        # fake excluding our m2m intermediated relationship before
-        # calling save_m2m (this assumes we haven't already excluded contributors
-        self.exclude.append('contributors');
-        self.save_m2m();
-        # return exclude back to normal (this assumes we don't want contributors in exclude)
-        self.exclude = [x for x in self.exclude if x != 'contributors']
 
     class Meta:
         model = Article
-        # TODO I wonder if exclude is redundant since I don't list these in the layout?
-        # WARNING: exclude is munged in save(), look there before you change this
-        exclude = ['legacy_id', 'status_changed', ]
+        fields = (
+            'status',
+            'title',
+            'contributors',
+            'article_url',
+            'doi',
+            'journal',
+            'code_data_abstract',
+            'code_archive_file',
+            'data_archive_file',
+            'article_file',
+            'primary_research_field',
+            'secondary_research_field',
+            'notes_for_staff',
+            'tags',
+            # hidden elements
+            'site_owner',
+            'authorship',
+            'paper_abstract',
+            'related_urls',
+        )
         widgets = {
-            # TODO this is not DRY but I'm not sure how to include placeholder attr in the crispy layout
             'title': forms.TextInput(attrs={'placeholder': 'Title your compendium.'}),
             'code_data_abstract': forms.Textarea(attrs={'placeholder': 'does not need to match paper abstract'}),
+            'journal': forms.TextInput(attrs={'placeholder': 'if applicable'}),
+            # set this via javascript or allow the user to enter it
+            'doi': forms.TextInput(attrs={'placeholder': 'if applicable'}),
+            # set all these via javascript
+            'site_owner': forms.MultipleHiddenInput(),
+            'authorship': forms.HiddenInput(),
+            'related_urls': forms.HiddenInput(),
+            'paper_abstract': forms.HiddenInput(),
         }
