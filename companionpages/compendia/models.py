@@ -52,7 +52,7 @@ class Article(StatusModel, TimeStampedModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('compendium', args=(self.id,))
+        return reverse('detail', args=(self.id,))
 
     class Meta(object):
         ordering = ['title']
