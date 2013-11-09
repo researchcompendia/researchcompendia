@@ -21,7 +21,7 @@ urlpatterns = patterns(
     url(r'^faq/', FaqView.as_view(), name='faq'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^compendia/', include('compendia.urls')),
+    url(r'^compendia/', include('compendia.urls', namespace="compendia")),
 )
 
 urlpatterns += patterns(
