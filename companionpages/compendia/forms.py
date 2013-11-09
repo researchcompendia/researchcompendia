@@ -19,7 +19,10 @@ class ArticleUpdateForm(forms.ModelForm):
 
     def save(self):
         article = super(ArticleUpdateForm, self).save(commit=False)
-        # noop
+        article.save()
+        #TODO
+        #for user in self.cleaned_data.get('contributors', []):
+        #   Contributor.objects.create(article=article, user=user)
 
     class Meta:
         model = Article
@@ -41,7 +44,7 @@ class ArticleUpdateForm(forms.ModelForm):
             'paper_abstract',
             'article_file',
         )
- 
+
 
 class ArticleForm(forms.ModelForm):
 
