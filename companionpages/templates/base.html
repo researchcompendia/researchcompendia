@@ -46,7 +46,7 @@
 
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="{% url 'researchcompendia' %}">Browse</a></li>
+      <li><a href="{% url 'compendia:list' %}">Browse</a></li>
     </ul>
     <ul class="nav navbar-nav pull-right">
       {% if request.user.is_authenticated %}
@@ -97,7 +97,7 @@
     research.</p>
 
 
-    <form action="{% url 'researchcompendia_creation' %}" method="get">
+    <form action="{% url 'compendia:create' %}" method="get">
         <button type='submit' class='btn btn-primary btn-lg'>Create Research Compendium</button>
     </form>
 
