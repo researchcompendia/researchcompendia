@@ -6,6 +6,43 @@ from crispy_forms.layout import Submit
 from .models import Article, Contributor
 
 
+class ArticleUpdateForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ArticleUpdateForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        self.helper.form_id = 'id-update'
+        self.helper.label_class = 'col-lg-2'
+        self.helper.field_class = 'col-lg-8'
+        self.helper.attrs = {'enctype': 'multipart/form-data'}
+        self.helper.add_input(Submit('submit', 'Save'))
+
+    def save(self):
+        article = super(ArticleUpdateForm, self).save(commit=False)
+        # noop
+
+    class Meta:
+        model = Article
+        fields = (
+            'status',
+            'contributors',
+            'authorship',
+            'article_url',
+            'doi',
+            'journal',
+            'code_data_abstract',
+            'code_archive_file',
+            'data_archive_file',
+            'related_urls',
+            'primary_research_field',
+            'secondary_research_field',
+            'notes_for_staff',
+            'tags',
+            'paper_abstract',
+            'article_file',
+        )
+ 
+
 class ArticleForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
