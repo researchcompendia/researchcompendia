@@ -19,7 +19,7 @@ class ContributorInline(admin.StackedInline):
 
 class ArticleAdmin(admin.ModelAdmin):
     date_heirarchy = ['created']
-    list_filter = ['status', 'created', 'primary_research_field']
+    list_filter = ['status', 'created', 'compendium_type', 'primary_research_field']
     inlines = [ContributorInline]
     actions = [make_active, make_draft]
 

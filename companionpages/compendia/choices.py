@@ -125,3 +125,21 @@ CONTRIBUTOR_ROLES = Choices(
     ('editor', _('Editor')),
     ('programmer', _('Programmer')),
 )
+
+
+# TODO make representation of the licenses chosen for content by using rdf schema and use that rather than Choices
+# http://creativecommons.org/ns#
+CONTENT_LICENSES = Choices(
+    ('CC-BY', _(u'Attribution')),
+    ('CC-BY-SA', _(u'Attribution-ShareAlike')),
+    ('other', _(u'Other (will be held in draft mode until approved by ResearchCompendia'))
+)
+
+
+CODE_LICENSES = Choices(
+    ('Apache-2.0', _(u'Apache License, 2.0')),
+    ('BSD 3-Clause', _(u'"New" or "Revised" BSD 3 "New" or "Revised"')),
+    ('BSD 2-Clause', _(u'"Simplified" or "FreeBSD" BSD 2 license')),
+    ('MIT', _(u'MIT License')),
+    ('other', _(u'Other (will be held in draft mode until approved by ResearchCompendia'))
+)

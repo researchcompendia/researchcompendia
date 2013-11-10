@@ -33,8 +33,22 @@
 <p>
 {% if article.article_url %}
 <a href="{{ article.article_url }}">
-  <i class="fa fa-external-link"></i> article
+  <i class="fa fa-external-link"></i> article url
 </a>
+{% endif %}
+</p>
+
+<p>
+{% if article.compendium_type %}
+Compendium Type: {{ article.compendium_type}}
+{% endif %}
+</p>
+
+{% if article.content_license %}
+Content License: {{ article.content_license }}
+{% endif %}
+{% if article.code_license %}
+Code License: {{ article.content_license }}
 {% endif %}
 </p>
 

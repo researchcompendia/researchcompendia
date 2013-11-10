@@ -40,6 +40,9 @@ class Article(StatusModel, TimeStampedModel):
         help_text=(u'Please share the name of the journal if applicable'))
     article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
     related_urls = JSONField(blank=True, verbose_name=_(u'Related URLs'))
+    content_license = models.CharField(max_length=100, choices=choices.CONTENT_LICENSES, blank=True)
+    code_license = models.CharField(max_length=100, choices=choices.CODE_LICENSES, blank=True)
+    compendium_type = models.CharField(max_length=100, choices=choices.PAPER_TYPES, blank=True)
     primary_research_field = models.CharField(max_length=300, choices=choices.RESEARCH_FIELDS,
         verbose_name=_(u'Primary research field'), blank=True)
     secondary_research_field = models.CharField(max_length=300, choices=choices.RESEARCH_FIELDS,
