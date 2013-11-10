@@ -1,4 +1,5 @@
 import logging
+from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.views import generic
 
@@ -39,7 +40,7 @@ class ArticleCreateView(LoginRequiredMixin, FormMessagesMixin, generic.edit.Crea
     template_name = 'compendia/create.html'
 
     def get_form_invalid_message(self):
-        logger.error('An attempt to create an article has failed.')
+        logger.error('An attempt to create an article has failed. PATH: %s GET: %s POST: %s', self.request.path, self.request.GET, self.request.POST)
         return 'The article was not created, and the site administrators have been notified.'
 
     def get_form_valid_message(self):
@@ -57,3 +58,6 @@ class ArticleUpdateView(LoginRequiredMixin, FormMessagesMixin, generic.UpdateVie
 
     def get_form_valid_message(self):
         return "Article '{0}' updated!".format(self.object.title)
+
+    def get_success_url(self):
+        return reverse("compendia:detail", args=(self.object.id,))

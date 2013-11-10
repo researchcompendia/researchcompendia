@@ -26,13 +26,18 @@ class Article(StatusModel, TimeStampedModel):
     site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'), help_text=_(u'Site user who moderates this compendium'))
     authorship = JSONField(blank=True, verbose_name=_(u'Authors'))
     contributors = models.ManyToManyField(User, blank=True, null=True, through='Contributor', related_name='contributors',
-        help_text=_(u'Users who have contributed to this compendium'))
+        help_text=_(u'ResearchCompendia users who have contributed to this compendium'))
     STATUS = choices.STATUS
-    doi = models.CharField(max_length=2000, verbose_name=_(u'DOI'), blank=True, help_text=(u'If applicable'))
-    title = models.CharField(max_length=500, verbose_name=_(u'Title'))
-    paper_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Paper Abstract'), help_text=(u'Optional'))
-    code_data_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Code and Data Abstract'))
-    journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'), help_text=(u'If applicable'))
+    doi = models.CharField(max_length=2000, verbose_name=_(u'DOI'), blank=True,
+        help_text=(u'Please share your paper DOI if applicable'))
+    title = models.CharField(max_length=500, verbose_name=_(u'Title'),
+        help_text=_(u'Please title your compendium. Does not have to match the title of the paper.'))
+    paper_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Paper Abstract'),
+        help_text=(u'Please share the abstract of the paper (5000 characters maximum) (Optional)'))
+    code_data_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Code and Data Abstract'),
+        help_text=_(u'Please write an abstract for the code and data. Does not need to match paper abstract. (5000 characters maximum)'))
+    journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'),
+        help_text=(u'Please share the name of the journal if applicable'))
     article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
     related_urls = JSONField(blank=True, verbose_name=_(u'Related URLs'))
     primary_research_field = models.CharField(max_length=300, choices=choices.RESEARCH_FIELDS,
@@ -43,16 +48,18 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'Private notes to the staff for help in creating your research'
                     u'compendium, including links to data and code if not uploaded'))
     article_file = models.FileField(blank=True, upload_to=upload_article_callback, help_text=_(u'File containing the article. Optional.'))
-    code_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback, help_text=_(u'File containing an archive of the code'))
-    data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback, help_text=_(u'File containing an archive of the data'))
-    tags = TaggableManager(blank=True)
+    code_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
+        help_text=_(u'File containing an archive of the code. Please include a README in the archive according to site recommendations.'))
+    data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
+        help_text=_(u'File containing an archive of the data. Please include a README in the archive according to site recommendations.'))
+    tags = TaggableManager(blank=True, help_text=_(u'Share keywords about the research, code and data.'))
     legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
 
     def __unicode__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('detail', args=(self.id,))
+        return reverse('compendia:detail', args=(self.id,))
 
     class Meta(object):
         ordering = ['title']

@@ -15,20 +15,19 @@ class ArticleUpdateForm(forms.ModelForm):
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-8'
         self.helper.attrs = {'enctype': 'multipart/form-data'}
-        self.helper.add_input(Submit('submit', 'Save'))
+        self.helper.add_input(Submit('submit', 'Update'))
 
     def save(self):
         article = super(ArticleUpdateForm, self).save(commit=False)
         article.save()
-        #TODO
-        #for user in self.cleaned_data.get('contributors', []):
-        #   Contributor.objects.create(article=article, user=user)
+        article.contributors.clear()
+        for user in self.cleaned_data.get('contributors', []):
+            Contributor.objects.create(article=article, user=user)
 
     class Meta:
         model = Article
         fields = (
             'status',
-            'contributors',
             'authorship',
             'article_url',
             'doi',
@@ -59,18 +58,20 @@ class ArticleForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Save'))
         # NOTE: I had a crispy Layout, but it seemed to have a weird interaction with save().
 
+    """
     def save(self):
         article = super(ArticleForm, self).save(commit=False)
         article.save()
         for user in self.cleaned_data.get('contributors', []):
             Contributor.objects.create(article=article, user=user)
+    """
 
     class Meta:
         model = Article
         fields = (
+            'site_owner',
             'status',
             'title',
-            'contributors',
             'article_url',
             'doi',
             'journal',
@@ -89,13 +90,9 @@ class ArticleForm(forms.ModelForm):
             'related_urls',
         )
         widgets = {
-            'title': forms.TextInput(attrs={'placeholder': 'Title your compendium.'}),
-            'code_data_abstract': forms.Textarea(attrs={'placeholder': 'does not need to match paper abstract'}),
-            'journal': forms.TextInput(attrs={'placeholder': 'if applicable'}),
             # set this via javascript or allow the user to enter it
-            'doi': forms.TextInput(attrs={'placeholder': 'if applicable'}),
             # set all these via javascript
-            'site_owner': forms.MultipleHiddenInput(),
+            #'site_owner': forms.MultipleHiddenInput(),
             'authorship': forms.HiddenInput(),
             'related_urls': forms.HiddenInput(),
             'paper_abstract': forms.HiddenInput(),
