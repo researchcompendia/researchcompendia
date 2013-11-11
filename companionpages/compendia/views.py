@@ -1,5 +1,4 @@
 import logging
-from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.views import generic
 
@@ -58,6 +57,3 @@ class ArticleUpdateView(LoginRequiredMixin, FormMessagesMixin, generic.UpdateVie
 
     def get_form_valid_message(self):
         return "Article '{0}' updated!".format(self.object.title)
-
-    def get_success_url(self):
-        return reverse("compendia:detail", args=(self.object.id,))

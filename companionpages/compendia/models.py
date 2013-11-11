@@ -56,7 +56,7 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'File containing an archive of the code. Please include a README in the archive according to site recommendations.'))
     data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
         help_text=_(u'File containing an archive of the data. Please include a README in the archive according to site recommendations.'))
-    tags = TaggableManager(blank=True, help_text=_(u'Share keywords about the research, code and data.'))
+    tags = TaggableManager(blank=True, help_text=_(u'Share keywords about the research, code and data. For example, use keywords for the languages used in the project code.'))
     legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
 
     def __unicode__(self):

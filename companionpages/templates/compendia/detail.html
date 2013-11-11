@@ -6,18 +6,15 @@
 <a class="btn btn-default" href="{% url 'compendia:update' article.id %}"><i class="fa fa-pencil"></i> Edit</a>
 {% endif %}
 
-<h2>{{ article.title }}</h2>
+<h2><a href="{{ article.article_url }}">{{ article.title }}</a></h2>
 
 <h4>Contributors</h4>
 
-<h5>Author Contributors</h5>
-
-{{ article.authorship }}
+{{ article.authors_text }}
 
 {% for contributor in article.contributors.all %}
   {% if contributor.public_name %}
-    {% if forloop.first %}<h5>User Contributors</h5>{% endif %}
-    <a href="{% url 'users:detail' contributor.id  %}">{{ contributor.public_name }}</a>
+    <a href="{% url 'users:detail' contributor.id  %}">{{ contributor.firstname }} {{ contributor.lastname }}</a>
     {% if not forloop.last %}, {% endif %}
   {% endif %}
 {% endfor %}
@@ -30,27 +27,15 @@
 <p>{{ article.paper_abstract }}</p>
 {% endif %}
 
-<p>
-{% if article.article_url %}
-<a href="{{ article.article_url }}">
-  <i class="fa fa-external-link"></i> article url
-</a>
-{% endif %}
-</p>
-
-<p>
 {% if article.compendium_type %}
-Compendium Type: {{ article.compendium_type}}
+<b>Compendium Type:</b>: {{ article.compendium_type}}</br>
 {% endif %}
-</p>
-
 {% if article.content_license %}
-Content License: {{ article.content_license }}
+<b>Content License:</b>: {{ article.content_license }}</br>
 {% endif %}
 {% if article.code_license %}
-Code License: {{ article.content_license }}
+<b>Code License:</b>: {{ article.code_license }}</br>
 {% endif %}
-</p>
 
 {% if article.code_archive_file or article.data_archive_file or article.article_file %}
 <h2>Compendium Files</h2>
@@ -75,11 +60,15 @@ Code License: {{ article.content_license }}
 
 </ul>
 {% endif %}
+<p>
+
+<h2>Page Owner</h2>
+{{ article.site_owner }}
+</p>
 
 <p>
-</p>
 {% if article.legacy_id %}
-<a href="http://www.runshare.org/CompanionSite/site.do?siteId={{ article.legacy_id }}">earlier prototype page</a>
+<a href="http://www.runshare.org/CompanionSite/site.do?siteId={{ article.legacy_id }}">rmc id</a>
 {% endif %}
 </p>
 

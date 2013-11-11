@@ -28,7 +28,8 @@ class ArticleUpdateForm(forms.ModelForm):
         model = Article
         fields = (
             'status',
-            'authorship',
+            'site_owner',
+            'authors_text',
             'article_url',
             'doi',
             'journal',
@@ -75,6 +76,7 @@ class ArticleForm(forms.ModelForm):
             'site_owner',
             'status',
             'title',
+            'authors_text',
             'article_url',
             'doi',
             'journal',
@@ -87,19 +89,15 @@ class ArticleForm(forms.ModelForm):
             'compendium_type',
             'primary_research_field',
             'secondary_research_field',
+            'paper_abstract',
             'notes_for_staff',
             'tags',
             # hidden elements
             'site_owner',
-            'authorship',
             'paper_abstract',
-            'related_urls',
         )
-        widgets = {
+        #widgets = {
             # set this via javascript or allow the user to enter it
             # set all these via javascript
             #'site_owner': forms.MultipleHiddenInput(),
-            'authorship': forms.HiddenInput(),
-            'related_urls': forms.HiddenInput(),
-            'paper_abstract': forms.HiddenInput(),
-        }
+        #}
