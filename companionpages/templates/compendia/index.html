@@ -35,25 +35,33 @@
 
 {% endif %}
 
-{% localtime on %}
 {% for obj in object_list %}
+
 <div class="panel panel-default">
 
-  <div class="panel-heading"><a href="{% url 'compendia:detail' obj.id %}">{{ obj.title }}</a></div>
+  <div class="panel-heading">
+    <a href="{% url 'compendia:detail' obj.id %}">
+        {{ obj.title }}
+    </a>
+  </div>
+
   <div class="panel-body">
     <p>{% for collaborator in obj.collaborators.all %}
        {{ collaborator }} {% if not forloop.last %}, {% endif %}
        {% endfor %}</p>
     <p>{{ obj.journal }}</p>
-    <p>{{ obj.code_data_abstract|truncatewords:100 }}
-    <p>created {{ obj.created|date:"SHORT_DATE_FORMAT" }}</p>
+    <p>{{ obj.code_data_abstract|truncatewords:100 }}</p>
+
     <a class="btn btn-primary" href="{% url 'compendia:detail' obj.id %}"><i class="fa fa-book"></i> Details</a>
-    <a class="btn btn-primary disabled" href="{% url 'compendia:detail' obj.id %}"><i class="fa fa-download"></i> Code</a>
-    <a class="btn btn-primary disabled" href="{% url 'compendia:detail' obj.id %}"><i class="fa fa-download"></i> Data</a>
+    {% if obj.code_archive_file %}
+    <a class="btn btn-primary" href="{{ static_url }}{{ obj.code_archive_file}}"><i class="fa fa-download"></i> Code</a>
+    {% endif %}
+    {% if obj.data_archive_file %}
+    <a class="btn btn-primary" href="{{ static_url }}{{ obj.data_archive_file}}"><i class="fa fa-download"></i> Data</a>
+    {% endif %}
   </div>
 </div>
 {% endfor %}
-{% endlocaltime %}
 {% endif %}
 
 {% endblock content %}

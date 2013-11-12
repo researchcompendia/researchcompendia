@@ -25,7 +25,8 @@ class Article(StatusModel, TimeStampedModel):
 
     site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'), help_text=_(u'Site user who moderates this compendium'))
     authors_text = models.TextField(verbose_name=_(u'Authors'), help_text=_(u'Authors listed in paper (max length 500)'), max_length=500)
-    authorship = JSONField(blank=True, verbose_name=_(u'Authors'), help_text=_(u'Loosely structured info for authorship for authors who do not have site accounts'))
+    authorship = JSONField(blank=True, verbose_name=_(u'Authors'),
+        help_text=_(u'Loosely structured info for authorship for authors who do not have site accounts'))
     contributors = models.ManyToManyField(User, blank=True, null=True, through='Contributor', related_name='contributors',
         help_text=_(u'ResearchCompendia users who have contributed to this compendium'))
     STATUS = choices.STATUS
@@ -51,12 +52,14 @@ class Article(StatusModel, TimeStampedModel):
     notes_for_staff = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Notes for staff'),
         help_text=_(u'Private notes to the staff for help in creating your research'
                     u'compendium, including links to data and code if not uploaded'))
-    article_file = models.FileField(blank=True, upload_to=upload_article_callback, help_text=_(u'File containing the article. Optional.'))
+    article_file = models.FileField(blank=True, upload_to=upload_article_callback,
+        help_text=_(u'File containing the article. Optional.'))
     code_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
         help_text=_(u'File containing an archive of the code. Please include a README in the archive according to site recommendations.'))
     data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
         help_text=_(u'File containing an archive of the data. Please include a README in the archive according to site recommendations.'))
-    tags = TaggableManager(blank=True, help_text=_(u'Share keywords about the research, code and data. For example, use keywords for the languages used in the project code.'))
+    tags = TaggableManager(blank=True,
+        help_text=_(u'Share keywords about the research, code and data. For example, use keywords for the languages used in the project code.'))
     legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
 
     def __unicode__(self):

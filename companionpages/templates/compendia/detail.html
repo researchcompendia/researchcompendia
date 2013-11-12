@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load tz %}
 
 {% block content %}
 
@@ -8,9 +9,7 @@
 
 <h2><a href="{{ article.article_url }}">{{ article.title }}</a></h2>
 
-<h4>Contributors</h4>
-
-{{ article.authors_text }}
+<p>{{ article.authors_text }}</p>
 
 {% for contributor in article.contributors.all %}
   {% if contributor.public_name %}
@@ -22,9 +21,20 @@
 <h2>Code and Data Abstract</h2>
 <p>{{ article.code_data_abstract }}</p>
 
+{% if article.code_archive_file %}
+<a class="btn btn-default" href="{{ static_url }}{{ article.code_archive_file}}"><i class="fa fa-code"></i> code</a>
+{% endif %}
+{% if article.data_archive_file %}
+<a class="btn btn-default" href="{{ static_url }}{{ article.data_archive_file}}"><i class="fa fa-bar-chart-o"></i> data</a>
+{% endif %}
+
 {% if article.paper_abstract %}
 <h2>Paper Abstract</h2>
 <p>{{ article.paper_abstract }}</p>
+{% endif %}
+
+{% if article.article_file %}
+<a class="btn btn-default" href="{{ static_url }}{{ article.article_file}}"><i class="fa fa-file-o"></i> article</a>
 {% endif %}
 
 {% if article.compendium_type %}
@@ -37,34 +47,11 @@
 <b>Code License:</b>: {{ article.code_license }}</br>
 {% endif %}
 
-{% if article.code_archive_file or article.data_archive_file or article.article_file %}
-<h2>Compendium Files</h2>
-<ul>
-
-{% if article.code_archive_file %}
-<li><a href="{{ static_url }}{{ article.code_archive_file}}"><i class="fa fa-file-o"></i>
-    {{ article.code_archive_file }}</a></li>
-{% endif %}
-
-{% if article.data_archive_file %}
-<li><a href="{{ static_url }}{{ article.data_archive_file}}"><i class="fa fa-file-o"></i>
-    {{ article.data_archive_file }}</a></li>
-{% endif %}
-
-{% if article.article_file %}
-<h2>Article</h2>
-<li><a href="{{ static_url }}{{ article.article_file}}"><i class="fa fa-file-o"></i>
-    {{ article.article_file }}</a></li>
-{% endif %}
-
-
-</ul>
-{% endif %}
-<p>
-
 <h2>Page Owner</h2>
 {{ article.site_owner }}
-</p>
+{% localtime on %}
+<p>created {{ article.created|date:"SHORT_DATE_FORMAT" }}</p>
+{% endlocaltime %}
 
 <p>
 {% if article.legacy_id %}

@@ -33,10 +33,17 @@ def get_filehandles(path, legacy_id):
 
     return fnames
 
+def get_tags(fh):
+    tags = []
+    for tag in fh:
+        tags.append(tag)
+    return tags
+        
+
 
 def save_material(articles, path, dryrun=False):
     print('handling articles')
-    too_big = 2048**2
+    too_big = 2048**3
     for article in articles:
         legacy_id = str(article.legacy_id)
         print('%s article %s' % (legacy_id, article))
@@ -61,18 +68,21 @@ def save_material(articles, path, dryrun=False):
                 # add some logic here so that we decide which field to use
                 # code_archive_file
                 # data_archive_file
-                # article_file
+                # tags
 
-                if filename.startswith('data'):
+                if filename.startswith(('data', 'Data')):
                     print('%s    handling %s as %s' % (legacy_id, filename, 'data'))
                     if dryrun is False:
                         article.data_archive_file.save(filename, ContentFile(fh.read()),)
-                elif filename.startswith(('code', 'script')):
+                elif filename.startswith('tag'):
+                    tags = get_tags(fh)
+                    if len(tags) > 0:
+                        if dryrun is False:
+                            article.tags.add(*tags)
+                else:
                     print('%s    handling %s as %s' % (legacy_id, filename, 'code'))
                     if dryrun is False:
                         article.code_archive_file.save(filename, ContentFile(fh.read()),)
-                else:
-                    print('%s    skipping %s' % (legacy_id, filename))
         print('%s done' % legacy_id)
 
 
@@ -92,7 +102,7 @@ if __name__ == '__main__':
 
     parser.add_argument('legacy_ids', metavar='N', nargs='*',
         help='legacy ids. use to run against specific articles')
-    parser.add_argument('--path', default='/home/sheila/Dropbox/RMC-DataCode/scrapedfolders/',
+    parser.add_argument('--path', default='/home/sheila/notetoself/scraped/',
         help='path to directory of legacy file directories')
     parser.add_argument('--dryrun', action='store_true')
     args = parser.parse_args()

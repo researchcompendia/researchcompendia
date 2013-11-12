@@ -64,6 +64,13 @@ def save_articles(scrapes, site_owner):
         for k in authors:
             authorship[k].update(authors[k])
 
+        author_string = ", ".join(authors.keys())
+        coder_string = ", ".join(coders.keys())
+
+        author_text = author_string
+        if coder_string != '':
+            author_text += '\nCoders: %s' % coder_string
+
         if new_key != '':
             pk = int(new_key)
         else:
@@ -73,6 +80,7 @@ def save_articles(scrapes, site_owner):
             id=pk,
             site_owner=site_owner,
             status=STATUS.active,
+            authors_text=author_text,
             authorship=json.dumps(authorship),
             title=title,
             paper_abstract=abstract,

@@ -6,6 +6,7 @@ admin.autodiscover()
 
 from envelope.views import ContactView
 from home.views import FaqView
+from compendia.views import ArticleDetailView
 
 urlpatterns = patterns(
     '',
@@ -22,6 +23,9 @@ urlpatterns = patterns(
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^compendia/', include('compendia.urls', namespace="compendia")),
+    # don't ask
+    # some urls got listed in a grant with this url scheme. it can never break.
+    url(r'^2013-11/(?P<pk>\d+)/$', ArticleDetailView.as_view(), name='bitterlegacy'),
 )
 
 urlpatterns += patterns(
