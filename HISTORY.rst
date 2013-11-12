@@ -3,6 +3,12 @@
 History
 -------
 
+1.0.0-beta (2013-11-11)
+++++++++++++++++++++++++
+
+* Many more template changes
+* Site is starting to settle down
+
 1.0.0-alpha (2013-10-24)
 ++++++++++++++++++++++++
 
