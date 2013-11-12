@@ -1,9 +1,10 @@
-from django.contrib.auth.models import User
 from django.test import TestCase
 
 from rest_framework.test import APIRequestFactory
 from rest_framework.test import force_authenticate
+
 from api import views
+from users.models import User
 
 
 class SimpleTest(TestCase):

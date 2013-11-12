@@ -1,36 +1,41 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 admin.autodiscover()
 
 from envelope.views import ContactView
-from home.views import FaqView, HomeView
-from members.forms import MemberForm
+from home.views import FaqView
+from compendia.views import ArticleDetailView
 
 urlpatterns = patterns(
     '',
-    url(r'^$', HomeView.as_view(), name='rmc_home'),
+    url(r'^$', TemplateView.as_view(template_name="base.html"), name='home'),
     url(r'^api/v1/', include('api.urls')),
-    url(r'^members/edit', 'profiles.views.edit_profile', {'form_class': MemberForm, }, name='rmc_edit'),
-    url(r'^members/', include('profiles.urls')),
-    # profiles/create/ named profiles_create_profile
-    # profiles/edit/ named profiles_edit_profile
-    # profiles/username named profiles_profile_detail
-    # profiles/ named profiles_profile_list
-    url(r'^accounts/', include('registration.backends.default.urls')),
+
+    url(r'^users/', include("users.urls", namespace="users")),
+    url(r'^accounts/', include('allauth.urls')),
+    url(r'^avatar/', include('avatar.urls')),
+
     url(r'^contact/', ContactView.as_view(template_name='contact.html'),
         name='envelope-contact'),
-    url(r'^faq/', FaqView.as_view(), name='rmc_faq'),
+    url(r'^faq/', FaqView.as_view(), name='faq'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^compendia/', include('supportingmaterials.urls')),
+    url(r'^compendia/', include('compendia.urls', namespace="compendia")),
+    # don't ask
+    # some urls got listed in a grant with this url scheme. it can never break.
+    url(r'^2013-11/(?P<pk>\d+)/$', ArticleDetailView.as_view(), name='bitterlegacy'),
 )
 
 urlpatterns += patterns(
     'django.contrib.flatpages.views',
+    # hard coded flatpages so that we can reference them with the url template tag
     url(r'^about/', 'flatpage', {'url': '/about/'}, name='about'),
     url(r'^terms/', 'flatpage', {'url': '/terms/'}, name='terms'),
     url(r'^privacy/', 'flatpage', {'url': '/privacy/'}, name='privacy'),
     url(r'^partners/', 'flatpage', {'url': '/partners/'}, name='partners'),
     url(r'^developers/', 'flatpage', {'url': '/developers/'}, name='developers'),
+    # catchall pattern for when you don't want to use the url template tag for some reason
+    url(r'^(?P<url>.*/)$', 'flatpage'),
 )

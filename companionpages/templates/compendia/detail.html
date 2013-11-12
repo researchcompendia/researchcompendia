@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load tz %}
+
+{% block content %}
+
+{% if request.user == article.site_owner %}
+<a class="btn btn-default" href="{% url 'compendia:update' article.id %}"><i class="fa fa-pencil"></i> Edit</a>
+{% endif %}
+
+<h2><a href="{{ article.article_url }}">{{ article.title }}</a></h2>
+
+<p>{{ article.authors_text }}</p>
+
+{% for contributor in article.contributors.all %}
+  {% if contributor.public_name %}
+    <a href="{% url 'users:detail' contributor.id  %}">{{ contributor.firstname }} {{ contributor.lastname }}</a>
+    {% if not forloop.last %}, {% endif %}
+  {% endif %}
+{% endfor %}
+
+<h2>Code and Data Abstract</h2>
+<p>{{ article.code_data_abstract }}</p>
+
+{% if article.code_archive_file %}
+<a class="btn btn-default" href="{{ static_url }}{{ article.code_archive_file}}"><i class="fa fa-code"></i> code</a>
+{% endif %}
+{% if article.data_archive_file %}
+<a class="btn btn-default" href="{{ static_url }}{{ article.data_archive_file}}"><i class="fa fa-bar-chart-o"></i> data</a>
+{% endif %}
+
+{% if article.paper_abstract %}
+<h2>Paper Abstract</h2>
+<p>{{ article.paper_abstract }}</p>
+{% endif %}
+
+{% if article.article_file %}
+<a class="btn btn-default" href="{{ static_url }}{{ article.article_file}}"><i class="fa fa-file-o"></i> article</a>
+{% endif %}
+
+{% if article.compendium_type %}
+<b>Compendium Type:</b>: {{ article.compendium_type}}</br>
+{% endif %}
+{% if article.content_license %}
+<b>Content License:</b>: {{ article.content_license }}</br>
+{% endif %}
+{% if article.code_license %}
+<b>Code License:</b>: {{ article.code_license }}</br>
+{% endif %}
+
+<h2>Page Owner</h2>
+{{ article.site_owner }}
+{% localtime on %}
+<p>created {{ article.created|date:"SHORT_DATE_FORMAT" }}</p>
+{% endlocaltime %}
+
+<p>
+{% if article.legacy_id %}
+<a href="http://www.runshare.org/CompanionSite/site.do?siteId={{ article.legacy_id }}">rmc id</a>
+{% endif %}
+</p>
+
+
+{% endblock content %}
+

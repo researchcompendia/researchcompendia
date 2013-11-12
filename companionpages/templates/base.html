@@ -8,14 +8,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Le styles -->
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,700italic,400italic|Ubuntu:400,500,700,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
-  
+
   <!--
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   -->
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-    
+
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,7 +27,7 @@
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top rmc-navbar-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top rc-navbar-top" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
       <span class="sr-only">Toggle navigation</span>
@@ -36,8 +35,8 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{% url 'rmc_home' %}">
-      <div class="rmc-green-font">ResearchCompendia
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <div>ResearchCompendia
         <div class="fa fa-code"></div>
         <div class="fa fa-bar-chart-o"></div>
         <div class="fa fa-cloud-upload"></div>
@@ -47,30 +46,41 @@
 
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="{% url 'researchcompendia' %}">Browse</a></li>
+      <li><a href="{% url 'compendia:list' %}">Browse compendia</a></li>
     </ul>
     <ul class="nav navbar-nav pull-right">
-      {% if user.is_authenticated %}
+      {% if request.user.is_authenticated %}
       <li>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.email }}<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="{% url 'profiles_profile_detail' user  %}">My Account</a></li>
-            <li><a href="/accounts/logout">Logout</a></li>
+            <li><a href="{% url 'users:detail' request.user.id  %}">My Account</a></li>
+            <li><a href="{% url 'account_logout'  %}">Logout</a></li>
             {% if user.is_staff %}
             <li><a href="{% url 'admin:index' %}">Admin</a></li>
             {% endif %}
           </ul>
       </li>
-        {% else %}
-        <li><a href="/accounts/register">Register</a></li>
-        <li><a href="/accounts/login">Login</a></li>
-        {% endif %}
+      {% else %}
+      <li><a href="{% url 'account_signup' %}">Register</a></li>
+      <li><a href="{% url 'account_login' %}">Login</a></li>
+      {% endif %}
     </ul>
   </div><!--/collapse nav-collapse navbar-ex1-collapse -->
 </nav><!-- navbar -->
 
 
 <div class="container">
+
+{% block messages %}
+{% if messages %}
+<ul class="messagelist">
+  {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock messages %}
+
 {% block content %}
 
 <div class="jumbotron">
@@ -87,8 +97,8 @@
     research.</p>
 
 
-    <form action="{% url 'researchcompendia_creation' %}" method="get">
-        <button type='submit' class='btn btn-success btn-lg'>Create Research Compendium</button>
+    <form action="{% url 'compendia:create' %}" method="get">
+        <button type='submit' class='btn btn-primary btn-lg'>Create Research Compendium</button>
     </form>
 
     <p>Want to know more? Check out our FAQs.</p>
@@ -99,7 +109,7 @@
 
 
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom rmc-navbar-bottom" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-bottom rc-navbar-bottom" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
       <span class="sr-only">Toggle navigation</span>
@@ -107,14 +117,14 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{% url 'rmc_home' %}">
-      <div class="rmc-green-font">ResearchCompendia</div>
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <div>ResearchCompendia</div>
     </a>
   </div>
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li><a href="{% url 'about' %}" class="navbar-link">About</a></li>
-      <li><a href="{% url 'rmc_faq' %}" class="navbar-link">FAQs</a></li>
+      <li><a href="{% url 'faq' %}" class="navbar-link">FAQs</a></li>
       <li><a href="/contact">Contact</a></li>
       <li><a href="{% url 'terms' %}" class="navbar-link">Terms of Use</a></li>
       <li><a href="{% url 'partners' %}" class="navbar-link">Partners</a></li>
@@ -134,5 +144,7 @@
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/project.js' %}"></script>
+{% block extrajs %}
+{% endblock extrajs %}
 </body>
 </html>

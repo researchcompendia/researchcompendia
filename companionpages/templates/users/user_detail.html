@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load avatar_tags %}
+{% load static %}
+
+{% block title %}Research Compendia User/{{ object.id }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+{% if object == request.user %}
+<!-- Action buttons -->     
+<div class="row">
+  <div class="col-sm-12 ">
+    <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
+    <a class="btn btn-info" href="{% url 'avatar_change' %}">Avatar</a>
+  </div>
+</div>
+<!-- End Action buttons -->
+{% endif %}
+
+
+  <div class="row">
+
+    <div class="col-sm-4">
+      {% if object.public_name %}<h2>{{ object.public_name }}</h2>{% endif %}
+      <div class="media">
+        <div class="media_object">{% avatar object %}</div>
+        <div class="media-body">
+          <h4 class="media-heading">{{ object.affiliation }}</h4>
+          {{ object.biography }}
+        </div>
+      </div> <!-- media -->
+    </div> <!-- col -->
+
+    <div class="col-sm-8">
+      <div class="list-group">
+      {% for contributor in object.contributor_set.all %}</li>
+        {% if forloop.first %}<h3>Contributor</h3>{% endif %}
+        <a class="list-group-item" href="{% url 'compendia:detail' contributor.article.id %}">
+            <i class="fa fa-book"></i> {{ contributor.article.title }}
+        </a>
+      {% endfor %}
+      </div> <!-- list group -->
+
+      <div class="list-group">
+      {% for article in object.article_set.all %}</li>
+        {% if forloop.first %}<h3>Moderator</h3>{% endif %}
+        <a class="list-group-item" href="{% url 'compendia:detail' article.id %}">
+            <i class="fa fa-book"></i> {{ article.title }}
+        </a>
+      {% endfor %}
+      </div> <!-- list group -->
+
+    </div> <!-- col -->
+  </div> <!-- row -->
+
+</div>
+{% endblock content %}

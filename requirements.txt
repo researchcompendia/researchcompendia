@@ -2,3 +2,6 @@
 
 # heroku
 django-toolbelt
+# if I want debug on heroku
+django-extensions
+django-debug-toolbar

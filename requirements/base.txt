@@ -1,29 +1,38 @@
-boto
 Django
 dj-database-url
+djangorestframework
+
 django-braces
 -e git+https://github.com/zsiciarz/django-envelope.git#egg=django-envelope
 django-honeypot
 django-mailgun
-django-model-utils
-# heroku doesn't use hg
-#-e hg+https://bitbucket.org/fcurella/django-profiles/commits/branch/views
-# waiting for fcurella's pull request to get merged
-https://bitbucket.org/fcurella/django-profiles/get/views.zip
-django-registration
-django-social-auth
-django-storages
+django-crispy-forms
+django-floppyforms
+django-vanilla-views
+#-e git://github.com/codersquid/django-extra-views.git#egg=django-extra-views
+# Unicode slugification
+unicode-slugify==0.1.1
+django-autoslug==1.7.1  
 django-filter
-logutils
 markdown
-bleach
+# images
+Pillow==2.1.0
+
+django-allauth
+django-avatar
+
+# For the persistance stores
 psycopg2
-django-gravatar
-south
+django-storages
+boto
+South
+django-model-utils
+django-json-field
+
 django-taggit
-djangorestframework
+
+logutils
+
 python-dateutil
 beautifulsoup4
 lxml
-django-crispy-forms
--e git://github.com/codersquid/django-extra-views.git#egg=django-extra-views

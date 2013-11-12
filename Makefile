@@ -18,7 +18,7 @@ lint:
 	flake8 companionpages
 
 test:
-	companionpages/manage.py test
+	companionpages/manage.py test --traceback --debug=DEBUG
 
 docs:
 	rm -f docs/companionpages.rst

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load tz %}
+
+{% block title %}ResearchCompendia Page{% endblock %}
+
+{% block content %}
+
+{% if object_list %}
+
+<h2>Research Compendia</h2>
+
+{{ page_obj.start_index }} through {{ page_obj.end_index }} of {{ paginator.count }} results
+
+{% if page_obj.has_other_pages %}
+<ul class="pagination">
+
+{% if page_obj.has_previous %}
+<li><a href="?page={{ page_obj.previous_page_number }}">&laquo</a></li>
+{% else %}
+<li class="disabled"><a href="#">&laquo</a></li>
+{% endif %}
+
+{% for num in paginator.page_range %}
+<li class="{% if page_obj.number == num %}active{% endif %}">
+  <a href="?page={{num}}">{{ num }}</a>
+</li>
+{% endfor %}
+
+{% if page_obj.has_next %}
+<li><a href="?page={{ page_obj.next_page_number }}">&raquo</a></li>
+{% else %}
+<li class="disabled"><a href="#">&raquo</a></li>
+{% endif %}
+</ul>
+
+{% endif %}
+
+{% for obj in object_list %}
+
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <a href="{% url 'compendia:detail' obj.id %}">
+        {{ obj.title }}
+    </a>
+  </div>
+
+  <div class="panel-body">
+    <p>{% for collaborator in obj.collaborators.all %}
+       {{ collaborator }} {% if not forloop.last %}, {% endif %}
+       {% endfor %}</p>
+    <p>{{ obj.journal }}</p>
+    <p>{{ obj.code_data_abstract|truncatewords:100 }}</p>
+
+    <a class="btn btn-primary" href="{% url 'compendia:detail' obj.id %}"><i class="fa fa-book"></i> Details</a>
+    {% if obj.code_archive_file %}
+    <a class="btn btn-primary" href="{{ static_url }}{{ obj.code_archive_file}}"><i class="fa fa-download"></i> Code</a>
+    {% endif %}
+    {% if obj.data_archive_file %}
+    <a class="btn btn-primary" href="{{ static_url }}{{ obj.data_archive_file}}"><i class="fa fa-download"></i> Data</a>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock content %}

@@ -1,4 +1,5 @@
 import logging
+import re
 
 from bs4 import BeautifulSoup
 import requests
@@ -32,11 +33,11 @@ Publishers return information in unixref1.0 or unixref1.1.
 """
 
 
-def query(pid, doi, timeout=0.60):
+def query(pid, doi_param, timeout=0.60):
     """ returns a dictionary optionally populated with Article and Collaborator attributes
 
     pid: a validated username for the crossref query service
-    doi: a validated doi string
+    doi: a doi query string from the client
     timeout: time in seconds that we are willing to wait for an answer. default is 60 milliseconds.
 
     exceptions: no exception or error from this call should affect the client.
@@ -45,6 +46,7 @@ def query(pid, doi, timeout=0.60):
     response fields
 
     msg: a message about the request.
+      * 'invalid doi parameter' indicates an error due to caller passing a bad parameter
       * 'crossref requests exception' indicates an error due to network timeout, etc.
       * 'crossref exception' indicates a non 2xx response from crossref service
       * 'crossref error' indicates a missing query or status
@@ -57,6 +59,18 @@ def query(pid, doi, timeout=0.60):
     """
 
     try:
+        doi = match_doi(doi_param)
+    except TypeError:
+        msg = 'invalid doi parameter: %s' % doi_param
+        logger.warning(msg)
+        return {'msg': msg, 'status': 400}
+
+    if doi == '':
+        msg = 'invalid doi parameter: %s' % doi_param
+        logger.warning(msg)
+        return {'msg': msg, 'status': 400}
+
+    try:
         r = requests.get('http://doi.crossref.org/servlet/query', params={
             'pid': pid,
             'noredirect': True,
@@ -64,7 +78,6 @@ def query(pid, doi, timeout=0.60):
             'format': 'unixsd', },
             timeout=timeout)
     except requests.exceptions.RequestException:
-        logger.debug('crossref requests exception')
         logger.warning('crossref requests exception')
         return {'msg': 'requests exception', 'status': 500}
 
@@ -82,7 +95,9 @@ def query(pid, doi, timeout=0.60):
 def parse_crossref_output(xml):
     logger.debug('crossref output: %s', xml)
 
-    soup = BeautifulSoup(xml, 'lxml')
+    # I'm using 'xml' instead of 'lxml' because 'lxml' ignores CDATA,
+    # but 'xml' turns CDATA in to text elements
+    soup = BeautifulSoup(xml, 'xml')
 
     # the response is a query that has a resolve status
     if soup.query is None:
@@ -170,3 +185,14 @@ def parse_person(contributor):
     #   we could see about making our model have roles rather than coder, author.
     #   it makes more sense.
     return person
+
+
+def match_doi(query):
+    """ match doi from query """
+    match = re.search(r'\b(10[.][0-9]{4,}(?:[.][0-9]+)*/(?:(?!["&\'<>])\S)+)\b', query)
+    if match is None:
+        logger.debug('Nothing for query %s', query)
+        return ""
+    result = match.group(0)
+    logger.debug('query: %s result: %s', query, result)
+    return result
