@@ -23,7 +23,7 @@ class Article(StatusModel, TimeStampedModel):
     def upload_materials_callback(self, filename):
         return upload_path('materials', filename)
 
-    site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'), help_text=_(u'Site user who moderates this compendium'))
+    site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'), help_text=_(u'Site user who owns this compendium'))
     authors_text = models.TextField(verbose_name=_(u'Authors'), help_text=_(u'Authors listed in paper (max length 500)'), max_length=500)
     authorship = JSONField(blank=True, verbose_name=_(u'Authors'),
         help_text=_(u'Loosely structured info for authorship for authors who do not have site accounts'))
