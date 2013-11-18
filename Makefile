@@ -17,7 +17,7 @@ clean-pyc:
 lint:
 	flake8 companionpages
 
-test:
+test: lint
 	companionpages/manage.py test --traceback --debug=DEBUG
 
 docs:
