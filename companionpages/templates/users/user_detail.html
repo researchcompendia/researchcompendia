@@ -8,8 +8,10 @@
 <div class="container">
 
   <ul class="nav nav-tabs" id="usertabs">
-    <li><a href="#usercompendia" data-toggle="tab">Compendia</a></li>
     <li><a href="#profile" data-toggle="tab">Profile</a></li>
+    {% if object.contributor_set.all or object.article_set.all %}
+    <li><a href="#usercompendia" data-toggle="tab">Compendia</a></li>
+    {% endif %}
     {% if object == request.user %}
     <li><a href="#settings" data-toggle="tab">Settings</a></li>
     {% endif %}
@@ -17,7 +19,19 @@
 
 
   <div class="tab-content">
-    <div class="tab-pane active" id="usercompendia">
+ 
+    <div class="tab-pane active" id="profile">
+      {% if object.public_name %}<h2>{{ object.public_name }}</h2>{% endif %}
+      <div class="media">
+        <div class="media_object">{% avatar object %}</div>
+        <div class="media-body">
+          <h4 class="media-heading">{{ object.affiliation }}</h4>
+          {{ object.biography }}
+        </div>
+      </div> <!-- media -->
+    </div> <!-- profile -->
+
+   <div class="tab-pane" id="usercompendia">
       <div class="list-group">
       {% for contributor in object.contributor_set.all %}</li>
       {% if forloop.first %}<h3>Contributor</h3>{% endif %}
@@ -35,17 +49,6 @@
       {% endfor %}
       </div> <!-- list group -->
     </div> <!-- usercompendia -->
-
-    <div class="tab-pane" id="profile">
-      {% if object.public_name %}<h2>{{ object.public_name }}</h2>{% endif %}
-      <div class="media">
-        <div class="media_object">{% avatar object %}</div>
-        <div class="media-body">
-          <h4 class="media-heading">{{ object.affiliation }}</h4>
-          {{ object.biography }}
-        </div>
-      </div> <!-- media -->
-    </div> <!-- profile -->
 
     {% if object == request.user %}
     <div class="tab-pane" id="settings">
