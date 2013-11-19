@@ -3,6 +3,20 @@
 History
 -------
 
+1.0.0-beta0 (2013-11-19)
+++++++++++++++++++++++++
+
+Changes
+#######
+
+* User page now has tabs for Profile, Compendia (if user has any), and Settings.
+
+Bug fixes
+#########
+
+* added link to change password in user settings `#75 <https://github.com/researchcompendia/tyler/issues/75>`_
+
+
 1.0.0-beta (2013-11-11)
 ++++++++++++++++++++++++
 

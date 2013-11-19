@@ -7,22 +7,20 @@
 {% block content %}
 <div class="container">
 
-{% if object == request.user %}
-<!-- Action buttons -->     
-<div class="row">
-  <div class="col-sm-12 ">
-    <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
-    <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
-    <a class="btn btn-info" href="{% url 'avatar_change' %}">Avatar</a>
-  </div>
-</div>
-<!-- End Action buttons -->
-{% endif %}
+  <ul class="nav nav-tabs" id="usertabs">
+    <li><a href="#profile" data-toggle="tab">Profile</a></li>
+    {% if object.contributor_set.all or object.article_set.all %}
+    <li><a href="#usercompendia" data-toggle="tab">Compendia</a></li>
+    {% endif %}
+    {% if object == request.user %}
+    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+    {% endif %}
+  </ul>
 
 
-  <div class="row">
-
-    <div class="col-sm-4">
+  <div class="tab-content">
+ 
+    <div class="tab-pane active" id="profile">
       {% if object.public_name %}<h2>{{ object.public_name }}</h2>{% endif %}
       <div class="media">
         <div class="media_object">{% avatar object %}</div>
@@ -31,29 +29,52 @@
           {{ object.biography }}
         </div>
       </div> <!-- media -->
-    </div> <!-- col -->
+    </div> <!-- profile -->
 
-    <div class="col-sm-8">
+   <div class="tab-pane" id="usercompendia">
       <div class="list-group">
       {% for contributor in object.contributor_set.all %}</li>
-        {% if forloop.first %}<h3>Contributor</h3>{% endif %}
+      {% if forloop.first %}<h3>Contributor</h3>{% endif %}
         <a class="list-group-item" href="{% url 'compendia:detail' contributor.article.id %}">
-            <i class="fa fa-book"></i> {{ contributor.article.title }}
+          <i class="fa fa-book"></i> {{ contributor.article.title }}
         </a>
       {% endfor %}
       </div> <!-- list group -->
-
       <div class="list-group">
       {% for article in object.article_set.all %}</li>
-        {% if forloop.first %}<h3>Moderator</h3>{% endif %}
+        {% if forloop.first %}<h3>Site Owner</h3>{% endif %}
         <a class="list-group-item" href="{% url 'compendia:detail' article.id %}">
             <i class="fa fa-book"></i> {{ article.title }}
         </a>
       {% endfor %}
       </div> <!-- list group -->
+    </div> <!-- usercompendia -->
 
-    </div> <!-- col -->
-  </div> <!-- row -->
+    {% if object == request.user %}
+    <div class="tab-pane" id="settings">
+      <div class="list-group">
+      <ul>
+        <a class="list-group-item" href="{% url 'users:update' %}"><i class="fa fa-info-circle"></i> My Info</a>
+        <a class="list-group-item" href="{% url 'account_change_password' %}"><i class="fa fa-key"></i> Password</a>
+        <a class="list-group-item" href="{% url 'account_email' %}"><i class="fa fa-envelope"></i> E-Mail</a>
+        <a class="list-group-item" href="{% url 'avatar_change' %}"><i class="fa fa-smile-o"></i> Avatar</a>
+      </ul>
+      </div> <!-- list group -->
+    </div> <!-- settings -->
+    {% endif %}
 
+  </div> <!-- tab-content -->
 </div>
+
 {% endblock content %}
+
+{% block extrajs %}
+<script type="text/javascript">
+  $( "#usertabs a" ).click(function(e) {
+    e.preventDefault();
+    $(this).tab('show');
+    $(this).addClass('active');
+    $(this.relatedTarget).removeClass('active');
+  })
+</script>
+{% endblock %}

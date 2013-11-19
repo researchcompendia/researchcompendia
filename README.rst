@@ -58,8 +58,8 @@ Resources
 
 Development Environments
 ++++++++++++++++++++++++
-* Beta http://researchcompendia.org
-* Pre-prod: http://preprod-researchcompendia.herokuapp.com
+* Live beta http://researchcompendia.org
+* Pre-prod: http://labs.researchcompendia.org
 
 Acknowledgements
 ----------------
