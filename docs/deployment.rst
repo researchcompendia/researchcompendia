@@ -1,5 +1,6 @@
 .. _deployment:
 
+
 ==========
 Deployment
 ==========
@@ -8,15 +9,24 @@ This document section is completely in flux. The process being documented is not
 fully formed. We will eventually have automation worked out. Right now this describes
 a manual process.
 
+Deploying new release on Debian
+-------------------------------
 
-Debian
-------
+For every new release we want to deploy fetch a specific tarball from github
+for that version. Create a new virtualenv for that version.  Tar up the old
+tyler directory in /home/tyler/site/tyler and rotate it out.  Untar the new
+repo in to /home/tyler/site/tyler. cd in to the new tyler directory and run pip
+install -r requirements/production.txt.  (then supervisor something something something)
+
+
+Installing and Setup for Debian
+-------------------------------
 
 Recommended Conventions
 ```````````````````````
 
 The site deployment and management is handled similarly to the recommendations
-suggested in `"Setting up Django with Nginx, Gunicorn, virtualenv, supervisor and PostgreSQL"
+suggested in `Setting up Django with Nginx, Gunicorn, virtualenv, supervisor and PostgreSQL
 <http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/>`_
 by Michal Karzynski.
 
@@ -50,7 +60,7 @@ Using .django.sh
 Environment variables are set in this file, and get used by django for tailoring 
 settings for our environments.
 
-Reason: We are following the `12factor <http://12factor.net/>_` application model (before I 
+Reason: We are following the `12factor <http://12factor.net/>`_ application model (before I 
 saw the fancy page, it was "I'm following the advice of some friends who deploy stuff
 at the Chicago Tribune. Thanks Chicago Tribune friends!")
 
@@ -63,14 +73,20 @@ Create a server VM.
 Users
 :::::
 
-as root, add your sudo user
-`adduser --ingroup sudo someuser`
+as root, add your sudo user::
 
-as *someuser* (you'll probably want to do ssh-keygen and set up authorized_keys)
+  adduser --ingroup sudo someuser
 
-Add your application user and group
+as *someuser* 
 
-`sudo adduser --ingroup tyler tyler`
+Add your application user and group::
+
+  sudo adduser --ingroup tyler tyler
+
+You'll probably want to do ssh-keygen and set up authorized_keys as well. I also
+set up an ssh key with github and checkout my dot files. This may or may not be
+advised.
+
 
 System Dependencies
 :::::::::::::::::::
@@ -109,6 +125,8 @@ Install global python packages::
 
 Conveniences
 ::::::::::::
+
+Install convenient packages::
 
   sudo apt-get install vim
   sudo apt-get install exuberant-ctags
