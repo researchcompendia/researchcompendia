@@ -1,0 +1,4 @@
+-r base.txt
+
+# production application server
+gunicorn==18.0
