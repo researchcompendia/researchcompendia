@@ -1,38 +1,68 @@
-Django
-dj-database-url
-djangorestframework
+Django==1.6
 
-django-braces
--e git+https://github.com/zsiciarz/django-envelope.git#egg=django-envelope
-django-honeypot
-django-mailgun
-django-crispy-forms
-django-floppyforms
-django-vanilla-views
-#-e git://github.com/codersquid/django-extra-views.git#egg=django-extra-views
-# Unicode slugification
-unicode-slugify==0.1.1
-django-autoslug==1.7.1  
-django-filter
-markdown
-# images
+# config helpers
+dj-database-url==0.2.2
+
+
+# api framework
+djangorestframework==2.3.8
+
+
+# database stuff
+South==0.8.3
+django-storages==1.1.8
+# postgres
+psycopg2==2.5.1
+# data models
+django-json-field==0.5.5
+django-model-utils==1.5.0
+
+
+# does what it says on the tin
+# tagging framework
+django-taggit==0.10
+
+
+# service interface for s3 and etc
+boto==2.16.0
+
+
+# search
+django-haystack==2.1.0
+
+
+# user logins and profiles
+django-allauth==0.14.1
+django-avatar==2.0
+
+
+# views and forms
+django-braces==1.2.2
+django-crispy-forms==1.4.0
+-e git://github.com/codersquid/django-extra-views.git@3f78aafb01decdba26d0d05cd5527a44e6d5e60a#egg=django_extra_views-dev
+django-floppyforms==1.1
+django-vanilla-views==1.0.2
+# rendering
+Markdown==2.3.1
 Pillow==2.1.0
+# parsing
+beautifulsoup4==4.3.2
+lxml==3.2.4
 
-django-allauth
-django-avatar
 
-# For the persistance stores
-psycopg2
-django-storages
-boto
-South
-django-model-utils
-django-json-field
+# mail and contacts
+-e git+https://github.com/zsiciarz/django-envelope.git@e85c86ed1c9c27d082f411c5d313d6cce43afa24#egg=django_envelope-dev
+django-honeypot==0.3.0
+django-mailgun==0.2.2
 
-django-taggit
 
-logutils
-
-python-dateutil
-beautifulsoup4
-lxml
+# misc
+django-toolbelt==0.0.1
+logutils==0.3.3
+python-dateutil==2.2
+django-filter==0.7
+unicode-slugify==0.1.1
+dj-static==0.0.5
+#django-appconf==0.6
+django-autocomplete-light==1.4.3
+django-autoslug==1.7.1
