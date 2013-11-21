@@ -34,7 +34,6 @@ Ready to contribute code? Here's how to set up `ResearchCompendia` for local dev
 
 6. When you're done making changes, check that your changes pass style check and tests::
 
-    $ make lint
     $ make test
 
 7. Commit your changes and push your branch to up to your fork on GitHub::

@@ -15,13 +15,23 @@ this fashion. TODO: define some guidelines for what makes something easy to revi
 
 :ref:`devsetup`
 
-Pick up bitesized tasks
-```````````````````````
+Pick up labeled tasks
+`````````````````````
 
-If you see a bitesized task that is not already being worked on, feel free to claim it and
-start working.
+We label some issues to guide contributions.
 
-For more advanced tasks, please talk to us first.
+  `bitesized <https://github.com/researchcompendia/tyler/issues?labels=bitesized&page=1&state=open>`_
+    These bugs can be done by people with a beginning level of skill.
+
+  `intermediate <https://github.com/researchcompendia/tyler/issues?labels=intermediate&page=1&state=open>`_
+    These bugs can be done easily by people with an intermediate level or skill or by patient beginners who get frequent review.
+
+  `fly-by <https://github.com/researchcompendia/tyler/issues?labels=fly-by&page=1&state=open>`_
+    These can be done by people who are experts but don't have much time to devote to long term tasks.
+
+If you see a task that is not already being worked on, feel free to claim it by leaving a comment and start working.
+
+For more advanced tasks and tasks without these labels, please talk to us first.
 
 
 Reviewing Code and Concepts
