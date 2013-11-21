@@ -41,6 +41,11 @@ our runserver.sh script versus his gunicorn_start.sh script. Some difference are
 * using .django.sh
 * binding
 
+Right now the runserver.sh script and conf files are checked in to this 
+`gist <https://gist.github.com/codersquid/7583630>`_. When we have things settled down,
+this will be in our repo.
+
+
 VERSION
 '''''''
 
