@@ -4,6 +4,9 @@
 {% block title %}ResearchCompendia FAQs{% endblock %}
 
 {% block content %}
+{% for faq in faq_list %}
+  <a href="#{{ forloop.counter }}">{{ faq.question }}</a></br>
+{% endfor %}
 
 <div class="panel-group">
 {% for faq in faq_list %}
