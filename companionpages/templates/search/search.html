@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Search ResearchCompendia Pages{% endblock %}
+
+{% block content %}
+
+<h2>Search</h2>
+
+<form method="get" action=".">
+    {{ form|crispy }}
+
+  {% if query %}
+    <h3>Results</h3>
+
+    {% if page.has_previous or page.has_next %}
+    <p>{{ page.start_index }} through {{ page.end_index }} of {{ paginator.count }} results</p>
+      <div>
+        {% if page.has_previous %}
+        <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+        |
+        {% if page.has_next %}
+        <a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+      </div>
+    {% endif %}
+
+
+    {% for result in page.object_list %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+        </div>
+        <div class="panel-body">
+          <p>{% for collaborator in result.object.collaborators.all %}
+            {{ collaborator }} {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+          <p>{{ result.object.journal }}</p>
+          <p>{{ result.object.code_data_abstract|truncatewords:100 }}</p>
+
+          <a class="btn btn-primary" href="{{ result.object.get_absolute_url }}"><i class="fa fa-book"></i> Details</a>
+          {% if result.object.code_archive_file %}
+            <a class="btn btn-primary" href="{{ static_url }}{{ result.object.code_archive_file}}"><i class="fa fa-download"></i> Code</a>
+          {% endif %}
+          {% if result.object.data_archive_file %}
+            <a class="btn btn-primary" href="{{ static_url }}{{ result.object.data_archive_file}}"><i class="fa fa-download"></i> Data</a>
+          {% endif %}
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+
+    {% empty %}
+      <p>No results found.</p>
+    {% endfor %}
+
+    {% if page.has_previous or page.has_next %}
+      <div>
+        {% if page.has_previous %}
+        <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+        |
+        {% if page.has_next %}
+        <a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+      </div>
+    {% endif %}
+
+  {% else %}
+    show example queries here
+  {% endif %}
+
+</form>
+
+
+{% endblock content %}

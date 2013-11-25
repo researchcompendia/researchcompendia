@@ -10,15 +10,15 @@
   <meta name="google-site-verification" content="XAZ083kgqNd3n9GHCotn8k-_9uw4IW5EfsgRDF7sn1k" />
   <script type="text/javascript">
 
-  	var _gaq = _gaq || [];
-  	_gaq.push(['_setAccount', 'UA-44934930-3']);
-  	_gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44934930-3']);
+    _gaq.push(['_trackPageview']);
 
-  	(function() {
-  	  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  	})();
+    })();
 
 </script>
   <!-- Le styles -->
@@ -63,6 +63,13 @@
       <li><a href="{% url 'compendia:list' %}">Browse compendia</a></li>
       <li><a href="{% url 'compendia:create' %}">Create compendia</a></li>
     </ul>
+    <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'haystack_search' %}">
+      <div class="form-group">
+        <label class="sr-only" for="q">Search</label>
+        <input type="text" class="form-control" placeholder="Search" name="q">
+      </div>
+    </form>
+
     <ul class="nav navbar-nav pull-right">
       {% if request.user.is_authenticated %}
       <li>
@@ -101,23 +108,10 @@
 <div class="jumbotron">
     <h1>Research Compendia</h1>
     <p><i>Help science stand on your shoulders</i></p>
-	<p>Irreproducible science is bad science. Research that is easy to build upon is more 
-	citeable and more influential. With ResearchCompendia we provide tools for researchers 
-	to connect their data, code and computational methods to their published or soon to be 
-	published research in an elegant, convenient, and easily citeable form.<p>
-	
-    <p>The term "Research Compendium" coined in <a
-        href="http://biostats.bepress.com/bioconductor/paper2/">
-    re-imagined the scientific paper as bundles with the data and code used to
-    generate the findings. As computational analysis and methods, and digital data archival 
-    have become the standard in scientific research, it is important that this information
-    is archived, curated, and documented in a way that most Scientific journals do not 
-    currently support.</p>
-
-    <p>ResearchCompendia link data, code, and publication to provide a
-    convenient way to understand, evaluate, and build upon computational
-    research.</p>
-
+    <p>Irreproducible science is bad science. Research that is easy to build upon is more 
+    citeable and more influential. With ResearchCompendia we provide tools for researchers 
+    to connect their data, code and computational methods to their published or soon to be 
+    published research in an elegant, convenient, and easily citeable form.<p>
 
     <form action="{% url 'compendia:create' %}" method="get">
         <button type='submit' class='btn btn-primary btn-lg'>Create Research Compendium</button>
