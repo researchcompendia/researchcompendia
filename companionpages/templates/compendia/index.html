@@ -42,7 +42,7 @@
 <div class="panel panel-default">
 
   <div class="panel-heading">
-    <a href="{% url 'compendia:detail' obj.id %}">
+    <a href="{{ obj.get_absolute_url }}">
         {{ obj.title }}
     </a>
   </div>
@@ -54,7 +54,7 @@
     <p>{{ obj.journal }}</p>
     <p>{{ obj.code_data_abstract|truncatewords:100 }}</p>
 
-    <a class="btn btn-primary" href="{% url 'compendia:detail' obj.id %}"><i class="fa fa-book"></i> Details</a>
+    <a class="btn btn-primary" href="{{ obj.get_absolute_url }}"><i class="fa fa-book"></i> Details</a>
     {% if obj.code_archive_file %}
     <a class="btn btn-primary" href="{{ static_url }}{{ obj.code_archive_file}}"><i class="fa fa-download"></i> Code</a>
     {% endif %}

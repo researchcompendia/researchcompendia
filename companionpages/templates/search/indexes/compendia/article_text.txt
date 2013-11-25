@@ -1,0 +1,3 @@
+{{ object.authors_text }}
+{{ object.title }}
+{{ object.code_data_abstract }}

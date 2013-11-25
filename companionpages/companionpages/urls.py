@@ -23,6 +23,7 @@ urlpatterns = patterns(
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^compendia/', include('compendia.urls', namespace="compendia")),
+    url(r'^search/', include('haystack.urls')),
     # don't ask
     # some urls got listed in a grant with this url scheme. it can never break.
     url(r'^2013-11/(?P<pk>\d+)/$', ArticleDetailView.as_view(), name='bitterlegacy'),
