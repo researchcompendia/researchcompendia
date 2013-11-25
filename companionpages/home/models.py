@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -10,6 +11,13 @@ class Faq(TimeStampedModel):
     answer = models.TextField(
         max_length=3000,
         help_text=_(u'The answer to the question can be written in Markdown syntax'))
+    index = models.IntegerField(blank=True, null=True, verbose_name=_(u'Question Order'))
+
+    def get_absolute_url(self):
+        return reverse('faq', args=(self.id,))
 
     def __unicode__(self):
         return self.question[:10]
+
+    class Meta(object):
+        ordering = ['index']

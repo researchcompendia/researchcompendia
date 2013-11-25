@@ -4,22 +4,31 @@
 {% block title %}ResearchCompendia FAQs{% endblock %}
 
 {% block content %}
-{% for faq in faq_list %}
-  <a href="#{{ forloop.counter }}">{{ faq.question }}</a></br>
-{% endfor %}
 
-<div class="panel-group">
-{% for faq in faq_list %}
-<div class="panel">
-  <div class="panel-heading"><h4 class="panel-title"><a href="#{{ forloop.counter }}">{{ faq.question }}</a></h4></div>
-  <div id="{{ forloop.counter }}" class="panel-body">{{ faq.answer|md }}</div>
-</div>
-{% empty %}
-<p>There are no FAQs</p>
-{% endfor %}
+<div class="row">
+
+<div class="col-lg-4">
+  <ul class="nav">
+  {% for faq in faq_list %}
+    <li><a href="#{{ faq.id }}">{{ faq.question }}</a></li>
+  {% endfor %}
+  </ul>
 </div>
 
-<p>
-Please contact us if you have any questions.
-</p>
+<div class="col-lg-8">
+  {% for faq in faq_list %}
+  <div class="panel-group">
+    <div class="panel-heading" id="{{ faq.id }}">
+      <h3 class="panel-title"><i class="fa fa-question-circle"></i> {{ faq.question }}</h3>
+    </div>
+    <div class="panel-body">{{ faq.answer|md }}</div>
+  </div>
+  {% empty %}
+    <p>There are no FAQs</p>
+  {% endfor %}
+
+  <p>Please contact us if you have any questions.</p>
+
+</div>
+</div> <!-- row -->
 {% endblock content %}
