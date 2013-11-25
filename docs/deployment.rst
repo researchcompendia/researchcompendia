@@ -109,6 +109,13 @@ Install system dependencies::
   sudo apt-get install postgresql
   sudo apt-get install postgresql-server-dev-9.1
 
+Install convenient packages::
+
+  sudo apt-get install vim
+  sudo apt-get install exuberant-ctags
+  sudo apt-get install multitail
+  sudo apt-get install tmux
+
 Database
 ::::::::
 
@@ -128,14 +135,6 @@ Install global python packages::
   sudo pip install virtualenvwrapper
   sudo pip install setproctitle (or just in venv?)
 
-Conveniences
-::::::::::::
-
-Install convenient packages::
-
-  sudo apt-get install vim
-  sudo apt-get install exuberant-ctags
-  sudo apt-get install multitail
 
 Directory Layout
 ::::::::::::::::
