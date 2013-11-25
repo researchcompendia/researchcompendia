@@ -11,7 +11,15 @@ Contributing Code
 Before you get started, remember that it is easier for us to accept pull
 requests that are narrow in scope and easy to review. Ideally we want to see
 pull requests with a comment that is a logical changeset so plan to work in
-this fashion. TODO: define some guidelines for what makes something easy to review.
+this fashion.
+
+When committing a change, please include the issue number in your commit comment.
+This helps us track the progress in the related issue. This works like so
+  
+  $ git commit CONTRIBUTING.rst -m 'improved the contributing docs for #1'
+
+TODO: define some guidelines for what makes something easy to review.
+
 
 :ref:`devsetup`
 
@@ -28,6 +36,9 @@ We label some issues to guide contributions.
 
   `fly-by <https://github.com/researchcompendia/tyler/issues?labels=fly-by&page=1&state=open>`_
     These can be done by people who are experts but don't have much time to devote to long term tasks.
+
+  `brainstorming <https://github.com/researchcompendia/tyler/issues?labels=brainstorming&page=1&state=open>`_
+    These are tasks where we welcome discussion about the ideas mentioned in the issue
 
 If you see a task that is not already being worked on, feel free to claim it by leaving a comment and start working.
 
