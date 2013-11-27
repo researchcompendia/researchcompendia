@@ -1,112 +1,123 @@
 [
 {
-  "pk": 1, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "__ResearchCompendia__ is a web service allowing people to share the research software and data associated with a scientific publication (articles and working papers).\r\n\r\nWith __ResearchCompendia__ we provide the tools to publish digital scholarly objects by hosting data, code, and methods in a form that is accessible, trackable, and persistent. It has been a long held principle of academic science that all respectable research must be reproducible. Now that much of that data and analysis is generated computationally, it is natural to expect that code and parameters also be shared. \r\n\r\nWith __ResearchCompendia__ we wish to address these issues facing reproducibility in computational research. We will provide tools to share and archive the data, codes, documentation, parameters, and environmental settings linked with published research all in one place. Soon, we wish to support the verification and validation processes by providing for the remote execution of shared codes in our cloud resources, and the visualization of results. Most of all we wish to make these tools heavily automated, and easy to access and utilize to lessen the exertion required from already overburdened academic researchers in the process of publishing fully reproducible work.\r\n\r\nThe __ResearchCompendia__ website is operated not for profit. The mission is to make research easier to use and easier to replicate. ResearchCompendia is currently funded by several national research agencies and universities.\r\n", 
-    "question": "What is ResearchCompendia?", 
-    "modified": "2013-11-05T07:10:39.590Z", 
-    "created": "2013-08-19T19:34:00.489Z"
-  }
+ "pk": 1, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "__ResearchCompendia__ is a web service allowing people to share the research software and data associated with a scientific publication (articles and working papers).\r\n\r\nWith __ResearchCompendia__ we provide the tools to publish digital scholarly objects by hosting data, code, and methods in a form that is accessible, trackable, and persistent. It has been a long held principle of academic science that all respectable research must be reproducible. Now that much of that data and analysis is generated computationally, it is natural to expect that code and parameters also be shared. \r\n\r\nWith __ResearchCompendia__ we wish to address these issues facing reproducibility in computational research. We will provide tools to share and archive the data, codes, documentation, parameters, and environmental settings linked with published research all in one place. Soon, we wish to support the verification and validation processes by providing for the remote execution of shared codes in our cloud resources, and the visualization of results. Most of all we wish to make these tools heavily automated, and easy to access and utilize to lessen the exertion required from already overburdened academic researchers in the process of publishing fully reproducible work.\r\n\r\nThe __ResearchCompendia__ website is operated not for profit. The mission is to make research easier to use and easier to replicate. ResearchCompendia is currently funded by several national research agencies and universities.\r\n", 
+  "index": null, 
+  "question": "What is ResearchCompendia?", 
+  "modified": "2013-11-05T07:10:39.590Z", 
+  "created": "2013-08-19T19:34:00.489Z"
+ }
 },
 {
-  "pk": 2, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "__ResearchCompendia__ follows three main objectives:\r\n\r\n* To allow researchers to quickly disseminate internationally the results of their research, which will considerably increase the potential of citations of scientific papers.\r\n* To provide a very large community of users with the ability to use the latest scientific methods in a user-friendly environment. This will speed up the process of converting scientific results into productive forces.\r\n* To allow members of the academic community (researchers, editors, referees,  etc.) to replicate scientific results and to demonstrate their robustness. Thus, ResearchCompendia constitutes a revolutionary scientific validation tool.\r\n\r\n\r\nTo do this we hope to provide the following tools:\r\n\r\n* Quick and elegant Compendia Page creation with easy to navigate access to all relevant data, code, documentation, and results, with no coding required by the researcher. [current]\r\n* Free data and code hosting. [current]\r\n* Executable functionality with easy parameter entry that enables users and contributors alike to run compendia codes in our cloud and obtain requested results in an downloadable file with optional results visualizations for some languages (R, MatLab, Python, Cactus, etc.). [planned]", 
-    "question": "What are the goals of ResearchCompendia?", 
-    "modified": "2013-11-05T07:11:12.265Z", 
-    "created": "2013-08-19T19:34:32.068Z"
-  }
+ "pk": 2, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "__ResearchCompendia__ follows three main objectives:\r\n\r\n* To allow researchers to quickly disseminate internationally the results of their research, which will considerably increase the potential of citations of scientific papers.\r\n* To provide a very large community of users with the ability to use the latest scientific methods in a user-friendly environment. This will speed up the process of converting scientific results into productive forces.\r\n* To allow members of the academic community (researchers, editors, referees,  etc.) to replicate scientific results and to demonstrate their robustness. Thus, ResearchCompendia constitutes a revolutionary scientific validation tool.\r\n\r\n\r\nTo do this we hope to provide the following tools:\r\n\r\n* Quick and elegant Compendia Page creation with easy to navigate access to all relevant data, code, documentation, and results, with no coding required by the researcher. [current]\r\n* Free data and code hosting. [current]\r\n* Executable functionality with easy parameter entry that enables users and contributors alike to run compendia codes in our cloud and obtain requested results in an downloadable file with optional results visualizations for some languages (R, MatLab, Python, Cactus, etc.). [planned]", 
+  "index": null, 
+  "question": "What are the goals of ResearchCompendia?", 
+  "modified": "2013-11-05T07:11:12.265Z", 
+  "created": "2013-08-19T19:34:32.068Z"
+ }
 },
 {
-  "pk": 5, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": ">*We introduce the concept of a compendium as both a container for the different elements that make up the document and its computations (i.e. text, code, data,...), and as a means for distributing, managing and updating the collection.*\r\n>\r\n>Gentleman, R. and Temple Lang, D. \r\n[\"Statistical Analyses and Reproducible Research\"](http://biostats.bepress.com/bioconductor/paper2) (May 2004). Bioconductor Project Working Papers.\r\n\r\nA **Research Compendium** is a digital scholarly object comprising all relevant narrative, code, and data required to present and disseminate published research including computational methods as truly reproducible science. So here we provide the tools to easily create such a compendium by allowing you to easily and elegantly link your publications to your data, codes, and detailed computational methods information and parameters, and any further materials necessary to allow other researchers to reproduce your computational procedures.", 
-    "question": "What is a Research Compendium?\r\n", 
-    "modified": "2013-11-05T07:12:07.068Z", 
-    "created": "2013-11-05T06:31:03.728Z"
-  }
+ "pk": 5, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": ">*We introduce the concept of a compendium as both a container for the different elements that make up the document and its computations (i.e. text, code, data,...), and as a means for distributing, managing and updating the collection.*\r\n>\r\n>Gentleman, R. and Temple Lang, D. \r\n[\"Statistical Analyses and Reproducible Research\"](http://biostats.bepress.com/bioconductor/paper2) (May 2004). Bioconductor Project Working Papers.\r\n\r\nA **Research Compendium** is a digital scholarly object comprising all relevant narrative, code, and data required to present and disseminate published research including computational methods as truly reproducible science. So here we provide the tools to easily create such a compendium by allowing you to easily and elegantly link your publications to your data, codes, and detailed computational methods information and parameters, and any further materials necessary to allow other researchers to reproduce your computational procedures.", 
+  "index": null, 
+  "question": "What is a Research Compendium?\r\n", 
+  "modified": "2013-11-05T07:12:07.068Z", 
+  "created": "2013-11-05T06:31:03.728Z"
+ }
 },
 {
-  "pk": 6, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "__ResearchCompendia __ is intended both as a tool to improve the communication of science, and to make the lives of publishing scientists easier. There are many reasons to create a compendium with our site:\r\n\r\n+ Boost your citation rates and recognition, and get credit for your code in addition to your publications.\r\n+ Defend your research.\r\n+ Archive your research and track your computational procedures, with our free provided data, documentation, and code hosting and tracking.\r\n+ Speed up the process of converting scientific results into productive forces. \r\n+ Allow others to build on your work in a highly visible and trackable way.\r\n", 
-    "question": "Why create a Research Compendium?", 
-    "modified": "2013-11-05T07:12:42.145Z", 
-    "created": "2013-11-05T07:02:54.547Z"
-  }
+ "pk": 6, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "__ResearchCompendia __ is intended both as a tool to improve the communication of science, and to make the lives of publishing scientists easier. There are many reasons to create a compendium with our site:\r\n\r\n+ Boost your citation rates and recognition, and get credit for your code in addition to your publications.\r\n+ Defend your research.\r\n+ Archive your research and track your computational procedures, with our free provided data, documentation, and code hosting and tracking.\r\n+ Speed up the process of converting scientific results into productive forces. \r\n+ Allow others to build on your work in a highly visible and trackable way.\r\n", 
+  "index": null, 
+  "question": "Why create a Research Compendium?", 
+  "modified": "2013-11-05T07:12:42.145Z", 
+  "created": "2013-11-05T07:02:54.547Z"
+ }
 },
 {
-  "pk": 7, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "ResearchCompendia does not take a copyright for any computer codes, data, or other documents researchers post on the ResearchCompendia website.\r\n", 
-    "question": "Is there any transfer of copyright from the researchers to the website or any other third party?", 
-    "modified": "2013-11-05T07:44:10.429Z", 
-    "created": "2013-11-05T07:14:02.730Z"
-  }
+ "pk": 7, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "ResearchCompendia does not take a copyright for any computer codes, data, or other documents researchers post on the ResearchCompendia website.\r\n", 
+  "index": null, 
+  "question": "Is there any transfer of copyright from the researchers to the website or any other third party?", 
+  "modified": "2013-11-05T07:44:10.429Z", 
+  "created": "2013-11-05T07:14:02.730Z"
+ }
 },
 {
-  "pk": 8, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "Depending on your interest there are several ways you can get involved:\r\n\r\n* If you have a __publication__ with computational portions or just digital data go to [Create a Compendium](../0/create/) and submit your data code and methods with our easy submission form.\r\n* If you are a __developer__ willing to contribute some code, check out our public repos on at [github.com/researchcompendia/tyler](https://github.com/researchcompendia/tyler) and help to build the site, or [contact](/contact/) us and let us know you want to help. Also check out our [developer](/developers/) guide page.\r\n* If you are a __researcher__ able to review scientific results, help review published results by running codes from [pre-existing compendia](/0/).\r\n* If you work on another __project__ you feel is complementary to our mission please [contact](/contact/) us or visit our [partners](/partners/) page.\r\n* If you feel that you could contribute your __influence or expertise__ to us in some other way or wish to __promote__ for __ResearchCompendia__ we have a [fellows](/partners/#fellows) program which you might be able to join.\r\n* If you want to contribute funds to maintain and develop __ResearchCompendia__ or are part of a potentially interested grant giving organization please visit our [funders](/partners/#funders) page.\r\n* If you work with an __journal__ or research repository and want to connect with us as a way for authors to publish their supplementary materials or simply want to promote good reproducibility practices by linking to us  please [contact](/contact/) us.\r\n* If you have some __insights or questions__ you would like to share, please visit our [contact](/contact/) page.\r\n", 
-    "question": "How can I get involved?", 
-    "modified": "2013-11-07T06:01:15.156Z", 
-    "created": "2013-11-05T07:33:17.831Z"
-  }
+ "pk": 8, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "Depending on your interest there are several ways you can get involved:\r\n\r\n* If you have a __publication__ with computational portions or just digital data go to [Create a Compendium](../0/create/) and submit your data code and methods with our easy submission form.\r\n* If you are a __developer__ willing to contribute some code, check out our public repos on at [github.com/researchcompendia/tyler](https://github.com/researchcompendia/tyler) and help to build the site, or [contact](/contact/) us and let us know you want to help. Also check out our [developer](/developers/) guide page.\r\n* If you are a __researcher__ able to review scientific results, help review published results by running codes from [pre-existing compendia](/0/).\r\n* If you work on another __project__ you feel is complementary to our mission please [contact](/contact/) us or visit our [partners](/partners/) page.\r\n* If you feel that you could contribute your __influence or expertise__ to us in some other way or wish to __promote__ for __ResearchCompendia__ we have a [fellows](/partners/#fellows) program which you might be able to join.\r\n* If you want to contribute funds to maintain and develop __ResearchCompendia__ or are part of a potentially interested grant giving organization please visit our [funders](/partners/#funders) page.\r\n* If you work with an __journal__ or research repository and want to connect with us as a way for authors to publish their supplementary materials or simply want to promote good reproducibility practices by linking to us  please [contact](/contact/) us.\r\n* If you have some __insights or questions__ you would like to share, please visit our [contact](/contact/) page.\r\n", 
+  "index": null, 
+  "question": "How can I get involved?", 
+  "modified": "2013-11-07T06:01:15.156Z", 
+  "created": "2013-11-05T07:33:17.831Z"
+ }
 },
 {
-  "pk": 9, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "We are independent from any of the publishing companies or scientific journals, but are working to support the movement toward more direct access to journals as a tool for the sharing of supplementary materials for the promotion of reproducible research and transparency in publications.\r\n", 
-    "question": "Are you affiliated with scientific journals?", 
-    "modified": "2013-11-05T07:49:04.873Z", 
-    "created": "2013-11-05T07:49:04.872Z"
-  }
+ "pk": 9, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "We are independent from any of the publishing companies or scientific journals, but are working to support the movement toward more direct access to journals as a tool for the sharing of supplementary materials for the promotion of reproducible research and transparency in publications.\r\n", 
+  "index": null, 
+  "question": "Are you affiliated with scientific journals?", 
+  "modified": "2013-11-05T07:49:04.873Z", 
+  "created": "2013-11-05T07:49:04.872Z"
+ }
 },
 {
-  "pk": 10, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "We have an easy to use form for page creation.  You can much of the metadata about your paper is automatically filled in if your publication has a DOI. We offer many ways of linking or uploading your code and data to us.\r\n\r\nThe time required for page creation depends upon how much detail you want to add into the site itself about parameter usage and computational methodology. Page creation can take as little at 10 minutes.\r\n", 
-    "question": "How long does it take to build a Compendium Page?", 
-    "modified": "2013-11-05T07:52:45.817Z", 
-    "created": "2013-11-05T07:52:45.816Z"
-  }
+ "pk": 10, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "We have an easy to use form for page creation.  You can much of the metadata about your paper is automatically filled in if your publication has a DOI. We offer many ways of linking or uploading your code and data to us.\r\n\r\nThe time required for page creation depends upon how much detail you want to add into the site itself about parameter usage and computational methodology. Page creation can take as little at 10 minutes.\r\n", 
+  "index": null, 
+  "question": "How long does it take to build a Compendium Page?", 
+  "modified": "2013-11-05T07:52:45.817Z", 
+  "created": "2013-11-05T07:52:45.816Z"
+ }
 },
 {
-  "pk": 11, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "You can upload or link any kind of code or data related to published scientific research.  When we have remote execution available, we will start with the languages most in demand by our existing users, and languages for which easy APIs and other tools exists (starting with R, MatLab, Python, and Cactus). While this limited but ever expanding language set will be all that is executable on a Compendium page, any type of code may be hosted or linked through us as downloadable content.\r\n\r\nWe do not yet have specific code and data size limitations, but try to keep uploads within reason (<20 GB).", 
-    "question": "What kinds of codes and data can I share with ResearchCompendia?", 
-    "modified": "2013-11-05T07:57:40.862Z", 
-    "created": "2013-11-05T07:57:40.861Z"
-  }
+ "pk": 11, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "You can upload or link any kind of code or data related to published scientific research.  When we have remote execution available, we will start with the languages most in demand by our existing users, and languages for which easy APIs and other tools exists (starting with R, MatLab, Python, and Cactus). While this limited but ever expanding language set will be all that is executable on a Compendium page, any type of code may be hosted or linked through us as downloadable content.\r\n\r\nWe do not yet have specific code and data size limitations, but try to keep uploads within reason (<20 GB).", 
+  "index": null, 
+  "question": "What kinds of codes and data can I share with ResearchCompendia?", 
+  "modified": "2013-11-05T07:57:40.862Z", 
+  "created": "2013-11-05T07:57:40.861Z"
+ }
 },
 {
-  "pk": 12, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "Yes! We started with applications in economics and statistics, but the mission of ResearchCompendia is universal across the sciences and the framework can be extended to any discipline. We plan to cover astrophysics, computational neuroscience, computational biology, and we eventually hope to have contributions from all fields of science using original computational methods! If you have a request for a particular functionality that would be useful to you or your subfield please [tell us](/contact/)!", 
-    "question": "Do you have plans to expand to other fields?", 
-    "modified": "2013-11-05T08:02:20.774Z", 
-    "created": "2013-11-05T08:02:20.773Z"
-  }
+ "pk": 12, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "Yes! We started with applications in economics and statistics, but the mission of ResearchCompendia is universal across the sciences and the framework can be extended to any discipline. We plan to cover astrophysics, computational neuroscience, computational biology, and we eventually hope to have contributions from all fields of science using original computational methods! If you have a request for a particular functionality that would be useful to you or your subfield please [tell us](/contact/)!", 
+  "index": null, 
+  "question": "Do you have plans to expand to other fields?", 
+  "modified": "2013-11-05T08:02:20.774Z", 
+  "created": "2013-11-05T08:02:20.773Z"
+ }
 },
 {
-  "pk": 13, 
-  "model": "home.faq", 
-  "fields": {
-    "answer": "Research without proper citation and attribution is not reproducible research.  Thus, proper attribution is a priority for __ResearchCompendia__.\r\n\r\nEach and every Compendium should have a __Cite Me!__ link that will provide you with multiple formats by which to cite the research, data and code on that page.", 
-    "question": "How do I cite work on ResearchCompendia?", 
-    "modified": "2013-11-05T08:06:51.388Z", 
-    "created": "2013-11-05T08:04:58.002Z"
-  }
+ "pk": 13, 
+ "model": "home.faq", 
+ "fields": {
+  "answer": "Research without proper citation and attribution is not reproducible research.  Thus, proper attribution is a priority for __ResearchCompendia__.\r\n\r\nEach and every Compendium should have a __Cite Me!__ link that will provide you with multiple formats by which to cite the research, data and code on that page.", 
+  "index": null, 
+  "question": "How do I cite work on ResearchCompendia?", 
+  "modified": "2013-11-05T08:06:51.388Z", 
+  "created": "2013-11-05T08:04:58.002Z"
+ }
 }
 ]
