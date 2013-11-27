@@ -3,6 +3,17 @@
 History
 -------
 
+1.0.0-beta1 (2013-11-27)
+++++++++++++++++++++++++
+
+Changes
+#######
+
+* Simple search over authors, title, abstract
+* Faq page template changes
+* Faq admin allows for ordering of questions
+
+
 1.0.0-beta0 (2013-11-19)
 ++++++++++++++++++++++++
 

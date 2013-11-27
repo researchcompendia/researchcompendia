@@ -13,6 +13,8 @@ Contents:
 
    readme
    contributing
+   developmentsetup
+   deployment
    authors
    history
 

@@ -29,6 +29,7 @@ boto==2.16.0
 
 # search
 django-haystack==2.1.0
+pyelasticsearch
 
 
 # user logins and profiles

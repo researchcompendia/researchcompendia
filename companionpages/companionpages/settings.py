@@ -116,6 +116,16 @@ REST_FRAMEWORK = {
      )
 }
 
+ELASTIC_URL = env.get('BONSAI_URL', 'http://127.0.0.1:9200')
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': ELASTIC_URL,
+        'INDEX_NAME': 'haystack',
+    },
+}
+
+
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
@@ -212,6 +222,7 @@ THIRD_PARTY_APPS = (
     'avatar',
     'taggit',
     'json_field',
+    'haystack',
     'south',
 )
 

@@ -11,17 +11,38 @@ Contributing Code
 Before you get started, remember that it is easier for us to accept pull
 requests that are narrow in scope and easy to review. Ideally we want to see
 pull requests with a comment that is a logical changeset so plan to work in
-this fashion. TODO: define some guidelines for what makes something easy to review.
+this fashion.
+
+When committing a change, please include the issue number in your commit comment.
+This helps us track the progress in the related issue. This works like so
+  
+  $ git commit CONTRIBUTING.rst -m 'improved the contributing docs for #1'
+
+TODO: define some guidelines for what makes something easy to review.
+
 
 :ref:`devsetup`
 
-Pick up bitesized tasks
-```````````````````````
+Pick up labeled tasks
+`````````````````````
 
-If you see a bitesized task that is not already being worked on, feel free to claim it and
-start working.
+We label some issues to guide contributions.
 
-For more advanced tasks, please talk to us first.
+  `bitesized <https://github.com/researchcompendia/tyler/issues?labels=bitesized&page=1&state=open>`_
+    These bugs can be done by people with a beginning level of skill.
+
+  `intermediate <https://github.com/researchcompendia/tyler/issues?labels=intermediate&page=1&state=open>`_
+    These bugs can be done easily by people with an intermediate level or skill or by patient beginners who get frequent review.
+
+  `fly-by <https://github.com/researchcompendia/tyler/issues?labels=fly-by&page=1&state=open>`_
+    These can be done by people who are experts but don't have much time to devote to long term tasks.
+
+  `brainstorming <https://github.com/researchcompendia/tyler/issues?labels=brainstorming&page=1&state=open>`_
+    These are tasks where we welcome discussion about the ideas mentioned in the issue
+
+If you see a task that is not already being worked on, feel free to claim it by leaving a comment and start working.
+
+For more advanced tasks and tasks without these labels, please talk to us first.
 
 
 Reviewing Code and Concepts

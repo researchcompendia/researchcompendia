@@ -5,18 +5,33 @@
 
 {% block content %}
 
-<div class="panel-group">
+<div class="row">
+<div class="col-lg-8">
+<div class="panel-group" id="accordion">
 {% for faq in faq_list %}
-<div class="panel">
-  <div class="panel-heading"><h4 class="panel-title"><a href="#{{ forloop.counter }}">{{ faq.question }}</a></h4></div>
-  <div id="{{ forloop.counter }}" class="panel-body">{{ faq.answer|md }}</div>
-</div>
+<div class="panel" >
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ faq.id }}">
+        <div class="fa fa-question-circle" id="iconstate"> {{ faq.question }}</div>
+      </a>
+    </h3>
+    </div> <!-- /panel-heading -->
+    <div id="{{ faq.id }}" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{ faq.answer|md }}
+      </div> <!-- /panel-body -->
+    </div> <!-- /panel-collapse -->
+  </div> <!--/panel-->
 {% empty %}
-<p>There are no FAQs</p>
+<p>
+Please contact us for more information.
+</p>
 {% endfor %}
 </div>
 
-<p>
-Please contact us if you have any questions.
-</p>
+
+</div>
+
+</div> <!-- row -->
 {% endblock content %}
