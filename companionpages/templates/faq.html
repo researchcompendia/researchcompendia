@@ -6,29 +6,32 @@
 {% block content %}
 
 <div class="row">
-
-<div class="col-lg-4">
-  <ul class="nav">
-  {% for faq in faq_list %}
-    <li><a href="#{{ faq.id }}">{{ faq.question }}</a></li>
-  {% endfor %}
-  </ul>
-</div>
-
 <div class="col-lg-8">
-  {% for faq in faq_list %}
-  <div class="panel-group">
-    <div class="panel-heading" id="{{ faq.id }}">
-      <h3 class="panel-title"><i class="fa fa-question-circle"></i> {{ faq.question }}</h3>
-    </div>
-    <div class="panel-body">{{ faq.answer|md }}</div>
-  </div>
-  {% empty %}
-    <p>There are no FAQs</p>
-  {% endfor %}
+<div class="panel-group" id="accordion">
+{% for faq in faq_list %}
+<div class="panel" >
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ faq.id }}">
+        <div class="fa fa-question-circle" id="iconstate"> {{ faq.question }}</div>
+      </a>
+    </h3>
+    </div> <!-- /panel-heading -->
+    <div id="{{ faq.id }}" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{ faq.answer|md }}
+      </div> <!-- /panel-body -->
+    </div> <!-- /panel-collapse -->
+  </div> <!--/panel-->
+{% empty %}
+<p>
+Please contact us for more information.
+</p>
+{% endfor %}
+</div>
 
-  <p>Please contact us if you have any questions.</p>
 
 </div>
+
 </div> <!-- row -->
 {% endblock content %}
