@@ -4,9 +4,9 @@
  "model": "home.faq", 
  "fields": {
   "answer": "__ResearchCompendia__ is a web service allowing people to share the research software and data associated with a scientific publication (articles and working papers).\r\n\r\nWith __ResearchCompendia__ we provide the tools to publish digital scholarly objects by hosting data, code, and methods in a form that is accessible, trackable, and persistent. It has been a long held principle of academic science that all respectable research must be reproducible. Now that much of that data and analysis is generated computationally, it is natural to expect that code and parameters also be shared. \r\n\r\nWith __ResearchCompendia__ we wish to address these issues facing reproducibility in computational research. We will provide tools to share and archive the data, codes, documentation, parameters, and environmental settings linked with published research all in one place. Soon, we wish to support the verification and validation processes by providing for the remote execution of shared codes in our cloud resources, and the visualization of results. Most of all we wish to make these tools heavily automated, and easy to access and utilize to lessen the exertion required from already overburdened academic researchers in the process of publishing fully reproducible work.\r\n\r\nThe __ResearchCompendia__ website is operated not for profit. The mission is to make research easier to use and easier to replicate. ResearchCompendia is currently funded by several national research agencies and universities.\r\n", 
-  "index": 0, 
+  "index": null, 
   "question": "What is ResearchCompendia?", 
-  "modified": "2013-11-25T23:41:20.385Z", 
+  "modified": "2013-11-05T07:10:39.590Z", 
   "created": "2013-08-19T19:34:00.489Z"
  }
 },
@@ -15,32 +15,10 @@
  "model": "home.faq", 
  "fields": {
   "answer": "__ResearchCompendia__ follows three main objectives:\r\n\r\n* To allow researchers to quickly disseminate internationally the results of their research, which will considerably increase the potential of citations of scientific papers.\r\n* To provide a very large community of users with the ability to use the latest scientific methods in a user-friendly environment. This will speed up the process of converting scientific results into productive forces.\r\n* To allow members of the academic community (researchers, editors, referees,  etc.) to replicate scientific results and to demonstrate their robustness. Thus, ResearchCompendia constitutes a revolutionary scientific validation tool.\r\n\r\n\r\nTo do this we hope to provide the following tools:\r\n\r\n* Quick and elegant Compendia Page creation with easy to navigate access to all relevant data, code, documentation, and results, with no coding required by the researcher. [current]\r\n* Free data and code hosting. [current]\r\n* Executable functionality with easy parameter entry that enables users and contributors alike to run compendia codes in our cloud and obtain requested results in an downloadable file with optional results visualizations for some languages (R, MatLab, Python, Cactus, etc.). [planned]", 
-  "index": 1, 
+  "index": null, 
   "question": "What are the goals of ResearchCompendia?", 
-  "modified": "2013-11-25T23:41:42.596Z", 
+  "modified": "2013-11-05T07:11:12.265Z", 
   "created": "2013-08-19T19:34:32.068Z"
- }
-},
-{
- "pk": 3, 
- "model": "home.faq", 
- "fields": {
-  "answer": "A compendia page allows authors to provide the data and source code used in a scientific publication. In future iterations of compendia pages, site visitors will be able to run the code using the data provided by the author to generate results from the publication.", 
-  "index": null, 
-  "question": "What is a compendia page?", 
-  "modified": "2013-09-19T18:04:35.572Z", 
-  "created": "2013-08-27T08:17:49.535Z"
- }
-},
-{
- "pk": 4, 
- "model": "home.faq", 
- "fields": {
-  "answer": "ResearchCompendia does not take a copyright for any computer codes or data (or other documents) researchers post on the ResearchCompendia website.", 
-  "index": null, 
-  "question": "Is there any transfer of copyright from the researchers to the website or any other third party?", 
-  "modified": "2013-09-19T18:05:04.276Z", 
-  "created": "2013-08-27T08:18:39.360Z"
  }
 },
 {
