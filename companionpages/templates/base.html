@@ -49,7 +49,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{% url 'home' %}">
+    <a class="navbar-brand" href="{% url 'home:base' %}">
         <div>ResearchCompendia
         <div class="fa fa-code"></div>
         <div class="fa fa-bar-chart-o"></div>
@@ -138,17 +138,17 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{% url 'home' %}">
+    <a class="navbar-brand" href="{% url 'home:base' %}">
       <div>ResearchCompendia</div>
     </a>
   </div>
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="{% url 'about' %}" class="navbar-link">About</a></li>
-      <li><a href="{% url 'faq' %}" class="navbar-link">FAQs</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="{% url 'home:about' %}" class="navbar-link">About</a></li>
+      <li><a href="{% url 'home:faq' %}" class="navbar-link">FAQs</a></li>
+      <li><a href="{% url 'home:contact' %}">Contact</a></li>
       <li><a href="{% url 'terms' %}" class="navbar-link">Terms of Use</a></li>
-      <li><a href="{% url 'partners' %}" class="navbar-link">Partners</a></li>
+      <li><a href="{% url 'home:partners' %}" class="navbar-link">Partners</a></li>
       <li><a href="{% url 'developers' %}" class="navbar-link">Developers</a></li>
     </ul>
   </div>
