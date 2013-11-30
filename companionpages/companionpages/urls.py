@@ -11,6 +11,7 @@ from compendia.views import ArticleDetailView
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name="base.html"), name='home'),
+    url(r'^partners/', TemplateView.as_view(template_name="partners.html"), name='partners'),
     url(r'^api/v1/', include('api.urls')),
 
     url(r'^users/', include("users.urls", namespace="users")),
@@ -35,7 +36,7 @@ urlpatterns += patterns(
     url(r'^about/', 'flatpage', {'url': '/about/'}, name='about'),
     url(r'^terms/', 'flatpage', {'url': '/terms/'}, name='terms'),
     url(r'^privacy/', 'flatpage', {'url': '/privacy/'}, name='privacy'),
-    url(r'^partners/', 'flatpage', {'url': '/partners/'}, name='partners'),
+    #url(r'^partners/', 'flatpage', {'url': '/partners/'}, name='partners'),
     url(r'^developers/', 'flatpage', {'url': '/developers/'}, name='developers'),
     # catchall pattern for when you don't want to use the url template tag for some reason
     url(r'^(?P<url>.*/)$', 'flatpage'),
