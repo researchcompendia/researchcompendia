@@ -15,6 +15,11 @@ class ArticleListView(generic.ListView):
     template_name = 'compendia/index.html'
     paginate_by = 25
 
+    def get_context_data(self, **kwargs):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        context['static_url'] = settings.STATIC_URL.rstrip('/')
+        return context
+
     def get_queryset(self):
         return Article.objects.filter(status__iexact=Article.STATUS.active)
 
