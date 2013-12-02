@@ -43,6 +43,8 @@
         <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
       </form>
+
+      <p>Not already a member? <a href="{% url 'account_signup' %}">Sign up</a>!</p>
     </div>
   </div>
 </div>
