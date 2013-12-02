@@ -3,6 +3,20 @@
 History
 -------
 
+1.0.0-beta2 (2013-12-02)
+++++++++++++++++++++++++
+
+Minor Changes
+#############
+
+* Moved About, Partners, and Developers pages from flatpages to templates
+* Template changed to make side navs fixed on About and Partners
+
+Bug fixes
+#########
+
+* Fixes for broken download links on compendia index
+
 1.0.0-beta1 (2013-11-27)
 ++++++++++++++++++++++++
 
