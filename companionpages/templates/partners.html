@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}ResearchCompendia Partners{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-lg-2">
+<div class="bs-sidebar hidden-print affix" role="complementary">
+<ul class="nav bs-sidenav">
+<li><a href="#partners">Partners</a></li>
+<li><a href="#fellows">Fellows</a></li>
+<li><a id="partners" href="#funders">Funders</a></li>
+<li><a href="#journals">Journals</a></li>
+<li><a href="#institutions">Institutions</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="col-lg-8">
+
+<h2>The <b>ResearchCompendia</b> team is extremely grateful to all of our partners for their support, advice, and assistance.</h2>
+
+</br>
+<table align="center">
+<tr id="current">
+<td>
+<a href="http://www.sloan.org"><img src="{% static 'img/sloan.png' %}" width=600/></a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://rackspace.com"><img src="{% static 'img/rackspace.png' %}"/></a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://academiccommons.columbia.edu/"><img src="{% static 'img/columbiaacademiccommons.jpg' %}"/></a>
+</td>
+</tr>
+</table>
+</p>
+<!-- add github, and PURR soon-->
+
+<h1>Want to help?</h1>
+
+<h2>Partners</h2>
+
+<p>Organizations committed to promoting reproducibility and openness in the
+sciences, understand completely the mission we are attempting to further with
+<b>ResearchCompendia</b>.  Researchers and institutions know full well the
+strain they are under to publish quickly and concisely, and are therefore
+pressured to share the minimum required of them in terms of data code and
+documentation. We wish to ease the burden on researchers while promoting a
+culture of well documented, sustainable and reproducible research, by making it
+easy and quick for them to publish, track, archive and link all relevant
+digital data and methods in one place.</p>
+
+
+
+<p id="fellows">Therefore, we are very interested in partnering with any
+institutions and organizations that make complementary efforts or have similar
+missions. We are eager to partner with groups and projects in all relevant
+realms, whether that be policy, promotion, technical tools for researchers,
+archival resources, research workflow improvement and tracking tools, or any
+other project, service or mission you might think also promotes this cause.</p>
+
+<p>If you are interested in working with us or just wish to discuss plans and
+ideas, please <a href="/contact/">contact us</a>.
+
+<h2 id="funders">Fellows</h2>
+
+<p>Any individuals who believe they have skills, connections, or resources
+relevant to the mission of ResearchCompendia for the promotion of open and
+reproducible research.  Please <a href="/contact/">contact us</a>.  We have an
+active fellows program and we would be eager to have you join our team. We can
+offer unique research experiences, and experience in the promotion and
+development of an advanced web app. We will only ask for whatever time and
+resource commitment you are comfortable with.</p>
+
+<h2>Funders</h2>
+
+<p>We are attempting to offer a valuable service to the world of academic
+research.  The mission of reproducibility is not only directly beneficial to
+the careers of researchers, and to the advancement of science, but it is also
+incredibly important for the reconstruction of trust in the scientific and
+academic world.  As retraction rates increase and more and more subfields are
+rocked by scandals or irreproducible research, support for the sciences in
+society also drops. We wish to show verifiably the rigor, impartiality, and
+integrity that we know most published research displays. To do this, we need to
+be able to provide the tools offered by <b>ResearchCompendia</b> reliably and
+stably. </p>
+
+<p>For <b>ResearchCompendia</b> to sustainably host, archive, and track an
+increasingly large number of contributions, as well as support a growing active
+user base for our cloud resources, we need sustainable funding for data and
+code hosting, computational resources, promotional resources, and human
+resources. If you or your organization is interested in supporting our mission
+please <a href="/contact/">contact us</a>.</p>
+
+<p></p>  <span id="journals"></span>
+
+<h2>Journals</h2>
+
+<p><b>ResearchCompendia</b> hosts code and data associated with articles published
+in scientific journals.  Journal editors are welcome to invite  and encourage
+the authors who publish in their journals to upload their code and data to
+ResearchCompendia. This invitation can be mentioned on the journal website and
+in the revision and acceptance letters. A example is provided below: </p>
+
+<p>"The JOURNAL OF XXX would like to invite you to enrich and defend your article
+by uploading relevant computer code, data, and supplementary materials on the
+ResearchCompendia online repository. Your article will be then linked to a
+dedicated and easily citable ResearchCompendia website. To create a compendium,
+please go to: <a href="{% url 'compendia:create' %}" >http://www.researchcompendia.org</a>"</p>
+
+<p>The service is completely free. Please <a href="/contact/">contact us</a> if
+you need more information.</p>
+
+<p>It is in the interest of all scientific publications that the research they
+promote be fully verifiable and reproducible. The sharing of data and code has
+not only been shown to increase a journal's impact factor, by increasing
+citation rates, but also increases the trust in that journal because data
+sharing policies reduce the number of retractions published.</p>
+
+<h2 id="institutions">Institutions</h2>
+
+<p>It is partly the responsibility of employing institutions to encourage a
+culture of responsible and reproducible research. It is important for the
+reputations of both the researchers and their host institutions. If you are a
+part of an institution that wishes to promote such values, we implore you to
+encourage your researchers to share their data, code and methods for all
+publications. Toward that goal, we would hope that you would list
+<b>ResearchCompendia</b> among the many other useful tools for researchers on
+any institutional documents or websites discussing such policies and practices.</p>
+
+<p>If you wish to promote for, collaborate with, or to support
+<b>ResearchCompendia</b> in any other ways, please <a href="/contact/">contact
+  us</a>.</p>
+
+
+<h2 id="researchers">Researchers</h2>
+
+<p>ResearchCompendia is intended both as a tool to improve the communication of
+science, and to make the lives of publishing scientists easier. There are many
+reasons to create a compendium with our site:</p>
+
+<ul>
+<li>Boost your citation rates and recognition, and get credit for your code in addition to your publications.</li>
+<li> Defend your research.</li>
+<li>Archive your research and track your computational procedures, with our free provided data, documentation, and code hosting and tracking.</li>
+<li>Speed up the process of converting scientific results into productive forces.</li>
+<li>Allow others to build on your work in a highly visible and trackable way.</li>
+</ul>
+
+<p>Please <a href="{% url 'compendia:create' %}"> create a compendium</a> here
+if you wish to share data and code from your publications in a convenient and
+easily citable way. Please <a href="/contact/">contact us</a> if you have any
+questions, comments, or feature requests.<p></p>
+
+<p>If you wish to verify, reproduce, or build on previous research, please <a
+ href="{% url 'compendia:list' %}">browse</a> our existing compendia and see if we have
+anything of interest.  We will be adding remote execution and commenting
+functionality shortly.</p>
+
+</div>
+
+</div>
+
+{% endblock content %}
