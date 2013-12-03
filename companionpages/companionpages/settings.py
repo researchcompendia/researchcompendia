@@ -125,6 +125,13 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
+# Celery
+CELERY_RESULT_BACKEND = env.get('DJANGO_CELERY_RESULT_BACKEND', 'cache+memcached://127.0.0.1:11211/')
+BROKER_URL = env.get('DJANGO_BROKER_URL', 'amqp://guest:guest@localhost:5672//')
+CELERY_TIMEZONE = env.get('DJANGO_CELERY_TIMEZONE', 'US/Central')
+CELERY_RESULT_SERIALIZER = env.get('DJANGO_CELERY_RESULT_SERIALIZER', 'json')
+CELERY_TASK_SERIALIZER = env.get('DJANGO_CELERY_TASK_SERIALIZER', 'json')
+CELERY_DISABLE_RATE_LIMITS = env.get('DJANGO_CELERY_DISABLE_RATE_LIMITS', True)
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
