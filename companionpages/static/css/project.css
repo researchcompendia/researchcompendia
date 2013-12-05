@@ -7,6 +7,12 @@ body {
   padding-bottom: 70px;
 }
 
+/*
+ * tweaking things the way I am doing so here will lead to
+ * sloppiness. If we need to tweak much more we should use
+ * the less variables from bootstrap, yadda yadda.
+ */
+
 .rc-navbar-top {
   margin-bottom: 50px;
   /* min-height: 70px;*/
@@ -16,4 +22,18 @@ body {
 .rc-navbar-bottom {
   margin-top: 50px;
   margin-bottom: 0px;
+}
+
+.rc-jumbotron {
+  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+.rc-jumbotron h1 {
+  font-size: 42px;
 }
