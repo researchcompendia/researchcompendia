@@ -104,7 +104,9 @@
 {% endblock messages %}
 
 {% block content %}
+<div class="row">
 
+<div class="col-lg-8">
 <div class="jumbotron">
     <h1>Research Compendia</h1>
     <p><i>Help science stand on your shoulders</i></p>
@@ -124,12 +126,28 @@
 
     <p>Want to know more? Check out our <a href="./faq/">FAQs</a>.</p>
 </div> <!-- /jumbotron -->
+</div>
 
+
+<div class="col-lg-4">
+<a class="twitter-timeline"
+  data-chrome="nofooter noborder transparent"
+  href="https://twitter.com/codersquid/researchcompendia"
+  data-widget-id="408680996741996545">Tweets from https://twitter.com/codersquid/researchcompendia
+</a>
+<!--
+  data-tweet-limit="5"
+
+  href="https://twitter.com/researchcompend"
+  data-widget-id="408673228198903808">Tweets by @researchcompend
+-->
+</div>
+
+
+
+</div> <!-- /row -->
 {% endblock content %}
 </div> <!-- /container -->
-
-
-
 <nav class="navbar navbar-inverse navbar-fixed-bottom rc-navbar-bottom" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -166,6 +184,7 @@
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/project.js' %}"></script>
 {% block extrajs %}
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 {% endblock extrajs %}
 </body>
 </html>
