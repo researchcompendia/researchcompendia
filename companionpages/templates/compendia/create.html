@@ -8,6 +8,24 @@
 
 {% block content %}
 
+<div class="row">
+
+
+<div class="col-sm-2">
+</div>
+
+
+<div class="col-sm-8">
+<form class="form-horizontal" id="doi_form" role="form">
+<div class="input-group" id="doi_group">
+  <input type="text" class="form-control" placeholder="Input DOI and return">
+</div>
+</form>
+</div>
+
+
+</div>
+
 
 {% crispy form %}
 
@@ -31,10 +49,31 @@ $( "#doi_form" ).submit(function(event) {
       data: { doi: doi_query },
       headers: { "X-CSRFToken": csrftoken }
   })
-  .done(function (msg ) {
+  .done(function (msg) {
       console.log(msg);
+      if (msg.msg != "ok") {
+        console.log(msg.msg);
+        return;
+      }
+      if (msg.doi) {
+        $("#id_doi").attr("value", msg.doi);
+      }
+      if (msg.compendia.title) {
+        $("#id_title").attr("value", msg.compendia.title);
+      }
+      if (msg.compendia.article_url) {
+        $("#id_article_url").attr("value", msg.compendia.article_url);
+      }
+      if (msg.compendia.journal) {
+        $("#id_journal").attr("value", msg.compendia.journal);
+      }
+      if (msg.compendia.authortext) {
+        $("#id_authors_text").text(msg.compendia.authortext);
+      }
+      if (msg.compendia.collaborators) {
+        $("#id_authorship").attr("value", JSON.stringify(msg.compendia.collaborators));
+      }
   });
-
 });
 
 </script>
