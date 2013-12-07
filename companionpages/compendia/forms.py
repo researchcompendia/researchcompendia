@@ -44,9 +44,14 @@ class ArticleUpdateForm(forms.ModelForm):
             'secondary_research_field',
             'notes_for_staff',
             'tags',
+            'authorship',
             'paper_abstract',
             'article_file',
         )
+        widgets = {
+            # set this via javascript
+            'authorship': forms.HiddenInput(),
+        }
 
 
 class ArticleForm(forms.ModelForm):
@@ -89,15 +94,15 @@ class ArticleForm(forms.ModelForm):
             'compendium_type',
             'primary_research_field',
             'secondary_research_field',
-            'paper_abstract',
             'notes_for_staff',
             'tags',
             # hidden elements
-            'site_owner',
+            'authorship',
             'paper_abstract',
         )
-        #widgets = {
-            # set this via javascript or allow the user to enter it
-            # set all these via javascript
+        widgets = {
+            # set this via javascript
+            'authorship': forms.HiddenInput(),
+            'paper_abstract': forms.HiddenInput(),
             #'site_owner': forms.MultipleHiddenInput(),
-        #}
+        }

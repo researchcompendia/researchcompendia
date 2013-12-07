@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+import argparse, json
+import requests
+
+
+def dois(dois=['10.1109/UKSIM.2011.38'], host='localhost:8000'):
+    url = 'http://{}/api/v1/dois'.format(host)
+    payload = {'doi':dois}
+    r = requests.post(url, data=payload)
+    return r.json()
+
+
+def pretty_json(uglyjson, suppressunixsd=True):
+    if suppressunixsd is True:
+        uglyjson['unixsd'] = 'suppressed'
+    return json.dumps(uglyjson, sort_keys=True, indent=2)
+
+
+def build_parser():
+    parser = argparse.ArgumentParser(description="""
+    """)
+    parser.add_argument('dois', metavar='doi', nargs='+', help='well-formed DOIs for query')
+    parser.add_argument('--host', default='localhost:8000', help='host, default localhost:8000')
+    parser.add_argument('--suppress', default=True, help='suppress unixsd dump')
+    return parser
+
+
+if __name__ == '__main__':
+    parser = build_parser()
+    args = parser.parse_args()
+    r = dois(args.dois, host=args.host)
+    print(pretty_json(r, args.suppress))
