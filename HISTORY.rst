@@ -3,6 +3,19 @@
 History
 -------
 
+1.0.0-beta3 (2013-12-07)
+++++++++++++++++++++++++
+
+Changes
+#######
+
+* added DOI autocomplete to Create page `#43 <https://github.com/researchcompendia/tyler/issues/43>`_
+
+Minor Changes
+#############
+
+* Added information about fetch and rebase to the developer docs.
+
 1.0.0-beta2 (2013-12-02)
 ++++++++++++++++++++++++
 
