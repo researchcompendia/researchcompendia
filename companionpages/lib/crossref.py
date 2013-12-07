@@ -85,7 +85,7 @@ def query(pid, doi_param, timeout=0.60):
         logger.warning('crossref exception %s', r)
         return {'msg': 'crossref exception', 'status': r.status_code, 'xml': r.text}
 
-    response = {'msg': 'ok', 'status': r.status_code, 'unixsd': r.text}
+    response = {'msg': 'ok', 'status': r.status_code, 'doi': doi}
 
     response.update(parse_crossref_output(r.text))
 
@@ -163,10 +163,17 @@ def parse_journal_article(soup):
 
 def parse_contributors(soup):
     collaborators = []
+    names = []
     for contributor in soup.find_all('person_name'):
         person = parse_person(contributor)
         collaborators.append(person)
-    return {'collaborators': collaborators}
+        names.append(parse_name(person))
+    authortext = ', '.join([name for name in names if name != ' '])
+    return {'collaborators': collaborators, 'authortext': authortext}
+
+
+def parse_name(person):
+    return ' '.join([person.get('given_name', ''), person.get('surname', '')])
 
 
 def parse_person(contributor):

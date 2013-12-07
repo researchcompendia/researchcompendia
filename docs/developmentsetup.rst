@@ -6,10 +6,15 @@ Getting Started with Development
 
 Ready to contribute code? Here's how to set up `ResearchCompendia` for local development.
 
+Getting Code
+------------
+
 1. Fork the `tyler` repo on GitHub.
 2. Clone your fork locally::
 
     $ git clone git@github.com:your_username_here/tyler.git
+    $ cd tyler
+    $ git remote add upstream https://github.com/researchcompendia/tyler.git
 
 3. Install your local copy into a virtualenv. Here is one way to do it::
 
@@ -28,23 +33,36 @@ Ready to contribute code? Here's how to set up `ResearchCompendia` for local dev
    the django settings have some sensible defaults for running without environment variables,
    but not all of them have sensible defaults.
 
-5. Make your changes.
+Making Changes
+--------------
+
+1. Make your changes.
 
    Now that you have the code, a virtualenv, and the proper environment variables, you are ready to make your changes locally.
 
-6. When you're done making changes, check that your changes pass style check and tests::
+2. Periodically update your branch from the parent repo. Use git rebase (not git merge)::
+
+    $ git fetch upstream
+    $ git rebase upstream/develop
+
+You may want to do an `interactive rebase <https://help.github.com/articles/interactive-rebase>`_
+in order to squash or fix small commits.
+
+3. Check that your changes pass style check and tests::
 
     $ make test
 
-7. Commit your changes and push your branch to up to your fork on GitHub::
+4. Commit your changes and push your branch to up to your fork on GitHub::
 
     $ git add .
-    $ git commit -m "Your detailed description of your changes."
+    $ git commit -m "Your detailed description of your changes for #123"
     $ git push
 
-8. Submit a pull request through the GitHub website.
+Reviewing Changes
+-----------------
 
-  Before you submit a pull request, check that it meets these guidelines:
+Submit a pull request through the GitHub website to submit it for review. Before you submit
+a pull request, check that it meets these guidelines:
 
   0. The pull request should be easy to review.
   1. The pull request should include tests
