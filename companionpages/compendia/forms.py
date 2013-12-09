@@ -3,7 +3,7 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
-from .models import Article, Contributor
+from .models import Article
 
 
 class ArticleUpdateForm(forms.ModelForm):
@@ -17,12 +17,15 @@ class ArticleUpdateForm(forms.ModelForm):
         self.helper.attrs = {'enctype': 'multipart/form-data'}
         self.helper.add_input(Submit('submit', 'Update'))
 
+    """
+    # BROKEN this causes issue 74 ImproperlyConfigured: No URL to redirect to during a compendia
     def save(self):
         article = super(ArticleUpdateForm, self).save(commit=False)
         article.save()
         article.contributors.clear()
         for user in self.cleaned_data.get('contributors', []):
             Contributor.objects.create(article=article, user=user)
+    """
 
     class Meta:
         model = Article
