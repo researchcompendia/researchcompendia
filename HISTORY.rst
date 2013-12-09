@@ -3,6 +3,13 @@
 History
 -------
 
+1.0.0-beta3 (2013-12-09)
+++++++++++++++++++++++++
+
+Works around known issue `#74 <https://github.com/researchcompendia/tyler/issues/74>`_
+"getting ImproperlyConfigured: No URL to redirect to during a compendia update"
+
+
 1.0.0-beta3 (2013-12-07)
 ++++++++++++++++++++++++
 
