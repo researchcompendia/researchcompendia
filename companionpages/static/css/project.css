@@ -7,6 +7,10 @@ body {
   /* padding-bottom: 70px; */
 }
 
+.rc-navbar-brand {
+  font-size: 14px;
+}
+
 .rc-navbar-top {
   margin-bottom: 50px;
   /* min-height: 70px;*/
