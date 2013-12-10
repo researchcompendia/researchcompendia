@@ -1,8 +1,8 @@
 .. _deployment:
 
-============
-Introduction
-============
+==========
+Deployment
+==========
 
 .. Note:: If you are not a core developer you likely do not need these instructions.
    These are instructions for production deployment. You may be looking for:
@@ -13,9 +13,8 @@ Introduction
    instructions for different platforms and environments, but for now this
    describes a manual process on a debian server for a production environment.
 
-=========
 Releasing
-=========
+---------
 
 Each release corresponds to a tag in our repo. For a new release checkout the
 corresponding tag and create a new virtualenv for the tag. As the tyler user::
@@ -35,9 +34,8 @@ As a sudo user (not tyler) restart the app::
 
   sudo supervisorctl restart tyler
 
-=============
 Configuration
-=============
+-------------
 
 The site deployment and management is handled similarly to the recommendations
 suggested in `Setting up Django with Nginx, Gunicorn, virtualenv, supervisor and PostgreSQL
@@ -64,9 +62,8 @@ page, it was "I'm following the advice of some friends who deploy stuff at the
 Chicago Tribune. Thanks Chicago Tribune friends!") Later we might use jezdez's
 `envdir <https://github.com/jezdez/envdir>`_.  I've been trying it out locally.
 
-============
 Installation
-============
+------------
 
 Create a server VM using your favorite method and platform.
 
@@ -165,9 +162,8 @@ Once you add a supervisor conf for tyler reload and update conf files::
   sudo supervisorctl update
 
 
-======
 Heroku
-======
+------
 
 Everything is different for running this on Heroku.  Heroku deployment has been
 straightforward for the most part. I need to document how to check out a repo
