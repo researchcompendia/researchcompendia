@@ -1,19 +1,19 @@
 
 body {
-  /*! body padding needed with fixed navbar */
+  /* body padding needed with fixed navbar */
   padding-top: 70px;
  
   /* for fixed bottom navbar */
-  padding-bottom: 70px;
+  /* padding-bottom: 70px; */
 }
 
 .rc-navbar-top {
   margin-bottom: 50px;
   /* min-height: 70px;*/
-  padding-left: 0px;
+  padding-left: 1px;
   padding-right: 0px;
 }
 .rc-navbar-bottom {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   margin-bottom: 0px;
 }

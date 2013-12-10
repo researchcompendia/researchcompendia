@@ -60,6 +60,17 @@
 
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
+      <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+      <li><a href="{% url 'home:about' %}">About</a></li>
+      <li><a href="{% url 'home:faq' %}">FAQs</a></li>
+      <li><a href="{% url 'home:contact' %}">Contact</a></li>
+      <li><a href="{% url 'terms' %}">Terms of Use</a></li>
+      <li><a href="{% url 'home:partners' %}">Partners</a></li>
+      <li><a href="{% url 'home:developers' %}">Developers</a></li>
+      </ul>
+      </li>
       <li><a href="{% url 'compendia:list' %}">Browse compendia</a></li>
       <li><a href="{% url 'compendia:create' %}">Create compendia</a></li>
     </ul>
@@ -148,7 +159,7 @@
 </div> <!-- /row -->
 {% endblock content %}
 </div> <!-- /container -->
-<nav class="navbar navbar-inverse navbar-fixed-bottom rc-navbar-bottom" role="navigation">
+<nav class="navbar navbar-inverse rc-navbar-bottom" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
       <span class="sr-only">Toggle navigation</span>
