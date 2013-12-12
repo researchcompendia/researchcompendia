@@ -70,9 +70,6 @@ $( "#doi_form" ).submit(function(event) {
       if (msg.compendia.authortext) {
         $("#id_authors_text").text(msg.compendia.authortext);
       }
-      if (msg.compendia.collaborators) {
-        $("#id_authorship").attr("value", JSON.stringify(msg.compendia.collaborators));
-      }
   });
 });
 

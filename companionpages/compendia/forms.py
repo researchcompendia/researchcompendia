@@ -47,14 +47,14 @@ class ArticleUpdateForm(forms.ModelForm):
             'secondary_research_field',
             'notes_for_staff',
             'tags',
-            'authorship',
+            #'authorship',
             'paper_abstract',
             'article_file',
         )
-        widgets = {
+        #widgets = {
             # set this via javascript
-            'authorship': forms.HiddenInput(),
-        }
+        #    'authorship': forms.HiddenInput(),
+        #}
 
 
 class ArticleForm(forms.ModelForm):
@@ -100,12 +100,12 @@ class ArticleForm(forms.ModelForm):
             'notes_for_staff',
             'tags',
             # hidden elements
-            'authorship',
-            'paper_abstract',
+            #'authorship',
+            #'paper_abstract',
         )
         widgets = {
             # set this via javascript
-            'authorship': forms.HiddenInput(),
-            'paper_abstract': forms.HiddenInput(),
+            #'authorship': forms.HiddenInput(),
+            #'paper_abstract': forms.HiddenInput(),
             #'site_owner': forms.MultipleHiddenInput(),
         }

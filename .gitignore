@@ -3,6 +3,8 @@
 *.swp
 *~
 
+.vagrant
+
 # heroku admin settings
 .env
 env
