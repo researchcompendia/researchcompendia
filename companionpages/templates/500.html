@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}Whoops!{% endblock %}
+{% block title %}Research Compendia Server Error{% endblock %}
 
 {% block content %}
-<h1>Whoops!</h1>
+<h1>Server Error</h1>
+
+<p>Looks like something went wrong. We get notified when this happens, but please
+feel free to contact us to describe what you are doing. We are still in beta
+and love feedback.</p>
+
+<p><a href="{% url 'home:contact' %}">Contact</a></p>
+
+
 {% endblock content %}
