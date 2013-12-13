@@ -48,7 +48,7 @@ class ArticleCreateView(LoginRequiredMixin, FormMessagesMixin, generic.edit.Crea
         return 'The article was not created, and the site administrators have been notified.'
 
     def get_form_valid_message(self):
-        return "Article '{0}' created!".format(self.object.title)
+        return "Article created!"
 
 
 class ArticleUpdateView(LoginRequiredMixin, FormMessagesMixin, generic.UpdateView):
@@ -58,7 +58,7 @@ class ArticleUpdateView(LoginRequiredMixin, FormMessagesMixin, generic.UpdateVie
 
     def get_form_invalid_message(self):
         logger.error('An attempt to update article %s has failed.', self.object.id)
-        return "Article '{0}' was not updated! The administrators have been notified.".format(self.object.title)
+        return "Article was not updated! The administrators have been notified."
 
     def get_form_valid_message(self):
-        return "Article '{0}' updated!".format(self.object.title)
+        return "Article updated!"
