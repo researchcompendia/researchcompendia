@@ -16,22 +16,31 @@ Getting Code
     $ cd tyler
     $ git remote add upstream https://github.com/researchcompendia/tyler.git
 
-3. Install your local copy into a virtualenv. Here is one way to do it::
+Installing Dependencies
+-----------------------
+
+1. Install your local copy into a virtualenv. Here is one way to do it::
 
     $ cd tyler/
     $ virtualenv venv
     $ source venv/bin/activate
-    $ pip install -r requirements/local.txt
+    $ pip install -r requirements/ci.txt
 
    You can also use `virtualenvwrapper
    <http://virtualenvwrapper.readthedocs.org/en/latest/>`_ if you have it is
    installed. It is convenient, though not required.
 
-4. Get help from someone to set up the environment variables for running locally.
+2. Get help from someone to set up the environment variables for running
+   locally. Once you have the environment varialbes set up, you are ready to
+   set up the database.
 
-   We can give you a .env file that works with foreman. We've tried to make it so that
-   the django settings have some sensible defaults for running without environment variables,
-   but not all of them have sensible defaults.
+3. Set up the database by running::
+
+   $ cd companionpages
+   $ ./manage.py syncdb
+   $ ./manage.py loaddata fixtures/sites.json
+   $ ./manage.py migrate
+
 
 Making Changes
 --------------
