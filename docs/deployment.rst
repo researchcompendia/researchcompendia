@@ -62,10 +62,12 @@ page, it was "I'm following the advice of some friends who deploy stuff at the
 Chicago Tribune. Thanks Chicago Tribune friends!") Later we might use jezdez's
 `envdir <https://github.com/jezdez/envdir>`_.  I've been trying it out locally.
 
+
+
 Installation
 ------------
 
-Create a server VM using your favorite method and platform.
+Create a new VM using your favorite method and platform.
 
 As *root*, add your sudo user::
 
@@ -73,64 +75,16 @@ As *root*, add your sudo user::
 
 Now stop being root and become *someuser* from now on.
 
-Add the tyler application user and group::
 
-  sudo addgroup tyler
-  sudo adduser --ingroup tyler tyler
+Run `bootstrap.sh
+<https://github.com/researchcompendia/tyler/blob/develop/bootstrap.sh>`_ as
+sudo.  This script will install dependencies, set up postgresql and the site
+database, and create the tyler user from which ResearchCompendia is run.
 
-You'll want to go through the steps of setting up ssh keys.
-
-
-System Dependencies
+Installation Layout
 :::::::::::::::::::
 
-Install required package dependencies::
-
-  sudo apt-get install python-dev \
-    build-essential \
-    curl \
-    python-pip \
-    nginx \
-    libxslt1-dev \
-    supervisor \
-    git \
-    postgresql \
-    postgresql-server-dev-9.1
-
-Install convenient package dependencies::
-
-  sudo apt-get install vim \
-    exuberant-ctags \
-    multitail \
-    install tmux \
-    ack-grep
-
-Install global python packages::
-
-  sudo pip install virtualenvwrapper
-  sudo pip install setproctitle # or just in a virtualenv?
-
-
-Database
-::::::::
-
-Set up database as postgres::
-
-  sudo su postgres -c 'createuser -S -D -R -w tyler'
-  sudo su postgres -c 'createdb -w -O tyler tyler'
-
-Add an entry to /etc/postgresql/9.1/main/pg_hba.conf,
-*local   sameuser    all         ident*
-
-restart postgres::
-
-  sudo service postgresql restart
-
-
-Directory Layout
-::::::::::::::::
-
-Create a directory layout organized in the following way::
+The bootstrap.sh script create a directory layout organized in the following way::
 
  /home/tyler/
  site
@@ -143,20 +97,31 @@ Create a directory layout organized in the following way::
  │   └── tyler.error.log
  └── tyler
 
-Configurations
-::::::::::::::
+Until the deployment and configuration process is automated, there are manual
+steps to go through for a first install and deployment.
 
-Configuration files will be checked in to a repo, but for now I have
-them in `this gist <https://gist.github.com/codersquid/7583630>`_.
+* Obtain `environment.sh` and copy it to to `/home/tyler/bin/`
+* Verify accuracy of `VERSION` in `runserver.sh`.
+* activate the appropriate virtualenv, for example, if it is named `tyler`
+  you'd activate it by typing `workon tyler`
+.. warning:: There is an issue that requires apps to be migrated explicitely versus calling `./manage.py migrate`.
+* Set up the database::
 
-* /etc/supervisor/conf.d/tyler.conf
-* /etc/nginx/sites-available/researchcompendia
+    source /home/tyler/site/bin/environment.sh
+    cd /home/tyler/site/tyler/companionpages
+    ./manage.py syncdb
+    ./manage.py loaddata fixtures/*
+    ./manage.py migrate taggit
+    ./manage.py migrate users
+    ./manage.py migrate home
+    ./manage.py migrate compendia
+    ./manage.py migrate allauth.socialaccount
 
-Once you link up researchcompendia in sites-enabled, restart nginx::
 
-  sudo service nginx restart
+Controlling tyler
+:::::::::::::::::
 
-Once you add a supervisor conf for tyler reload and update conf files::
+Once you've set tyler, update supervisor so that it can launch the site::
 
   sudo supervisorctl reread
   sudo supervisorctl update
