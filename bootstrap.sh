@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
-# This bootstrap is for use in vagrant.
+# Warning: This script is completely in flux. Furthermore, all of the steps
+# to deploy things are not automated by this script. Manual steps are 
+# still required.
+#
+# This automates things according to suggestions from "Setting up Django with Nginx,
+# Gunicorn, virtualenv, supervisor and PostgreSQL" but with a few differences.
+# http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/
 
-wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
-sudo apt-key add rabbitmq-signing-key-public.asc
-sudo add-apt-repository 'deb http://www.rabbitmq.com/debian/ testing main'
 
 apt-get update -y
 
-apt-get install -y python-dev \
+apt-get install -y python-software-properties \
+    python-dev \
     build-essential \
     python-pip \
     nginx \
@@ -26,8 +30,14 @@ apt-get install -y python-dev \
     htop \
     memcached \
     libmemcached-dev \
-    rabbitmq-server \
     ack-grep
+
+# get a more recent version of rabbitmq than is in the debian repo
+wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+sudo apt-key add rabbitmq-signing-key-public.asc
+sudo add-apt-repository 'deb http://www.rabbitmq.com/debian/ testing main'
+apt-get update -y
+apt-get install -y rabbitmq-server
 
 pip install virtualenvwrapper
 pip install setproctitle # or just in a virtualenv?
@@ -108,7 +118,7 @@ mkdir bin logs
 
 echo export SECRET_KEY=\"`dd if=/dev/urandom bs=512 count=1 | tr -dc 'a-zA-Z0-9~@#%^&*-_'`\" >> bin/environment.sh
 
-# need to work out how to get all of the env vars here
+# TODO: need to work out how to get all of the env vars here
 source bin/environment.sh
 
 cp ~/7583630/runserver.sh bin/
@@ -120,9 +130,16 @@ pip install -r requirements/production.txt
 cd companionpages
 
 # don't run these until we work out getting the env vars
+# Warning: There is an issue that requires apps to be migrated explicitely
+# versus calling ./manage.py migrate
+
 #./manage.py syncdb --noinput
-#./manage.py loaddata fixtures/sites.json
-#./manage.py migrate
+#./manage.py loaddata fixtures/*
+#./manage.py migrate taggit
+#./manage.py migrate users
+#./manage.py migrate home
+#./manage.py migrate compendia
+#./manage.py migrate allauth.socialaccount
 TYLER_BOOTSTRAP
 
 cd ~tyler
@@ -131,4 +148,4 @@ su tyler -c 'bash ~/bootstrap.sh'
 # don't run these until we work out getting the env vars
 #supervisorctl reread
 #supervisorctl update
-#supervisorctl start tyler
+# TODO: add a check to make sure everything started okay
