@@ -12,9 +12,9 @@ Getting Code
 
 Fork the repository and check out your fork and add our repo as a remote::
 
-   $ git clone https://github.com/YOURACCOUNT/tyler.git
-   $ cd tyler
-   $ git remote add parent https://github.com/researchcompendia/tyler.git
+   $ git clone https://github.com/YOURACCOUNT/researchcompendia.git
+   $ cd researchcompendia
+   $ git remote add parent https://github.com/researchcompendia/researchcompendia.git
 
 
 Installing Dependencies
@@ -22,7 +22,7 @@ Installing Dependencies
 
 1. Install your local copy into a virtualenv. Here is one way to do it::
 
-    $ cd tyler/
+    $ cd researchcompendia/
     $ virtualenv venv
     $ source venv/bin/activate
     $ pip install -r requirements/ci.txt
@@ -106,7 +106,7 @@ Before you submit a pull request, check that it meets these guidelines:
 
   0. The pull request should be easy to review.
   1. The pull request should include tests
-  2. Check https://travis-ci.org/researchcompendia/tyler/pull_requests
+  2. Check https://travis-ci.org/researchcompendia/researchcompendia/pull_requests
      and make sure that the tests pass
   3. If the pull request adds functionality, the docs and/or comments should be updated.
 
@@ -147,11 +147,11 @@ Once the VM is running, you can login::
     permitted by applicable law.
     Last login: Sun Dec 15 20:20:08 2013 from 10.0.2.2
 
-The bootstrap.sh script will have created a `tyler` user which you can
+The bootstrap.sh script will have created a `researchcompendia` user which you can
 become::
 
-    vagrant@debian-70rc1-x64-vbox4210:~$ sudo su tyler
+    vagrant@debian-70rc1-x64-vbox4210:~$ sudo su researchcompendia
 
-Take a look around the `site` directory, which has a checkout of tyler
-and other directories and files that mimic how we have tyler run on
+Take a look around the `site` directory, which has a checkout of researchcompendia
+and other directories and files that mimic how we have researchcompendia run on
 a production VM.

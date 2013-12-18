@@ -28,16 +28,16 @@ Pick up labeled tasks
 
 We label some issues to guide contributions.
 
-  `bitesized <https://github.com/researchcompendia/tyler/issues?labels=bitesized&page=1&state=open>`_
+  `bitesized <https://github.com/researchcompendia/researchcompendia/issues?labels=bitesized&page=1&state=open>`_
     These bugs can be done by people with a beginning level of skill.
 
-  `intermediate <https://github.com/researchcompendia/tyler/issues?labels=intermediate&page=1&state=open>`_
+  `intermediate <https://github.com/researchcompendia/researchcompendia/issues?labels=intermediate&page=1&state=open>`_
     These bugs can be done easily by people with an intermediate level or skill or by patient beginners who get frequent review.
 
-  `fly-by <https://github.com/researchcompendia/tyler/issues?labels=fly-by&page=1&state=open>`_
+  `fly-by <https://github.com/researchcompendia/researchcompendia/issues?labels=fly-by&page=1&state=open>`_
     These can be done by people who are experts but don't have much time to devote to long term tasks.
 
-  `brainstorming <https://github.com/researchcompendia/tyler/issues?labels=brainstorming&page=1&state=open>`_
+  `brainstorming <https://github.com/researchcompendia/researchcompendia/issues?labels=brainstorming&page=1&state=open>`_
     These are tasks where we welcome discussion about the ideas mentioned in the issue
 
 If you see a task that is not already being worked on, feel free to claim it by leaving a comment and start working.
@@ -54,14 +54,14 @@ and alternatives to our approaches.
 Look through pull requests and review the changes. 
 
 Help us by discussing issues we've tagged with the `brainstorming
-<https://github.com/researchcompendia/tyler/issues?labels=brainstorming&page=1&state=open>`_
+<https://github.com/researchcompendia/researchcompendia/issues?labels=brainstorming&page=1&state=open>`_
 label
 
 
 Reporting Bugs
 --------------
 
-Report bugs in our issue tracker. https://github.com/researchcompendia/tyler/issues.
+Report bugs in our issue tracker. https://github.com/researchcompendia/researchcompendia/issues.
 
 If you are reporting a bug, please include:
 
@@ -74,7 +74,7 @@ Give us feeback
 
 Talk to us about features you'd like. Let us know how we are doing. You can send
 us email from the `contact form <http://researchcompendia.org/contact/>`_ or
-let us know by filing an issue in the `issue tracker <https://github.com/researchcompendia/tyler/issues>`_.
+let us know by filing an issue in the `issue tracker <https://github.com/researchcompendia/researchcompendia/issues>`_.
 
 
 Write Documentation
