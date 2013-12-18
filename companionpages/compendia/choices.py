@@ -3,6 +3,8 @@ from model_utils.choices import Choices
 
 STATUS = Choices('draft', 'active')
 
+TAG_TYPES = Choices('folksonomic', 'taxonomic')
+
 RESEARCH_FIELDS = Choices(
     ("accounting", _("Accounting")),
     ("agricultural_environment_energy_economics", _("Agricultural, Environmental, and Energy Economics")),
