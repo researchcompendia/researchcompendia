@@ -46,7 +46,7 @@ class ArticleUpdateForm(forms.ModelForm):
             'primary_research_field',
             'secondary_research_field',
             'notes_for_staff',
-            'tags',
+            'article_tags',
             #'authorship',
             'paper_abstract',
             'article_file',
@@ -98,7 +98,7 @@ class ArticleForm(forms.ModelForm):
             'primary_research_field',
             'secondary_research_field',
             'notes_for_staff',
-            'tags',
+            'article_tags',
             # hidden elements
             #'authorship',
             #'paper_abstract',

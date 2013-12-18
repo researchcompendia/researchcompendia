@@ -22,13 +22,13 @@ REMOTE_DEBUG = True if env.get('REMOTE_DEBUG', False) == 'True' else False
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-ADMINS = [(admin.split('@')[0], admin) for admin in env.get('ADMINS', 'tyler@starkravingsane.org').split(',')]
+ADMINS = [(admin.split('@')[0], admin) for admin in env.get('ADMINS', 'compendia@starkravingsane.org').split(',')]
 MANAGERS = ADMINS
 
 # dj_database_url will pull from the DATABASE_URL environment variable
 DATABASES = {
-        'default': dj_database_url.config(default='postgres://localhost:5432/tyler'),
-        #'default': dj_database_url.config(default='sqlite:////' + SITE_ROOT + '/tyler.db'),
+        'default': dj_database_url.config(default='postgres://:5432/researchcompendia'),
+        #'default': dj_database_url.config(default='sqlite:////' + SITE_ROOT + '/researchcompendia.db'),
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -57,7 +57,7 @@ USE_TZ = True
 EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 
 # django-envelope contact page settings
-DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'devtyler@codersquid.com')
+DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'compendia@codersquid.com')
 ENVELOPE_CONTACT_CHOICES = (
     ('',    u"Choose"),
     (10,    u"A question regarding the website"),

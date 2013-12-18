@@ -1,9 +1,9 @@
 ===============================
-Tyler
+ResearchCompendia
 ===============================
 
-.. image:: https://travis-ci.org/researchcompendia/tyler.png?branch=master
-        :target: https://travis-ci.org/researchcompendia/tyler
+.. image:: https://travis-ci.org/researchcompendia/researchcompendia.png?branch=master
+        :target: https://travis-ci.org/researchcompendia/researchcompendia
 
 A proof of concept for a research compendia webapp.
 
@@ -33,7 +33,7 @@ If you are a programmer, you may find yourself thinking that some of these goals
 a continuous integration and build system. And yes, in some sense the goal with this
 prototype is to create a continuous integrations system for computational research.
 
-Project milestones are loosely organized on our `planning wiki page <https://github.com/researchcompendia/tyler/wiki/planning-scratchpads>`_.
+Project milestones are loosely organized on our `planning wiki page <https://github.com/researchcompendia/researchcompendia/wiki/planning-scratchpads>`_.
 
 Project Structure
 -----------------
@@ -50,10 +50,10 @@ Resources
 ---------
 
 * Free software: `MIT License <http://opensource.org/licenses/MIT>`_
-* Technical Documentation: http://tyler.rtfd.org
-* Issue tracker: https://github.com/researchcompendia/tyler/issues
-* Issue kanban: https://huboard.com/researchcompendia/tyler
-* Wiki: https://github.com/researchcompendia/tyler/wiki
+* Technical Documentation: http://researchcompendia.rtfd.org
+* Issue tracker: https://github.com/researchcompendia/researchcompendia/issues
+* Issue kanban: https://huboard.com/researchcompendia/researchcompendia
+* Wiki: https://github.com/researchcompendia/researchcompendia/wiki
 * IRC: #hackingscience on freenode.net
 
 Development Environments

@@ -5,10 +5,18 @@ from django.utils.translation import ugettext_lazy as _
 from json_field import JSONField
 from model_utils.models import StatusModel, TimeStampedModel
 from taggit.managers import TaggableManager
+from taggit.models import TaggedItemBase
 
 from users.models import User
 from lib.storage import upload_path
 from . import choices
+
+
+class TaggedArticle(TaggedItemBase):
+    content_object = models.ForeignKey('Article')
+    tag_type = models.CharField(max_length=50, choices=choices.TAG_TYPES,
+        verbose_name=_(u'Tag Type'), default=choices.TAG_TYPES.folksonomic,
+        blank=True)
 
 
 class Article(StatusModel, TimeStampedModel):
@@ -58,9 +66,12 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'File containing an archive of the code. Please include a README in the archive according to site recommendations.'))
     data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
         help_text=_(u'File containing an archive of the data. Please include a README in the archive according to site recommendations.'))
-    tags = TaggableManager(blank=True,
-        help_text=_(u'Share keywords about the research, code and data. For example, use keywords for the languages used in the project code.'))
+    # deprecated, use article_tags
+    tags = TaggableManager(related_name="deprecated_tags", blank=True, help_text=_(u'Deprecated. Use article tags.'))
     legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
+    article_tags = TaggableManager(blank=True,
+        through=TaggedArticle,
+        help_text=_(u'Share keywords about the research, code and data. For example, use keywords for the languages used in the project code.'))
 
     def __unicode__(self):
         return self.title

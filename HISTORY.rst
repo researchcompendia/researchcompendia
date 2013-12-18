@@ -3,10 +3,34 @@
 History
 -------
 
-1.0.0-beta3 (2013-12-09)
+
+1.0.0 (2013-12-18)
+++++++++++++++++++
+
+First talk! Now that we've had the first talk about this, let's have 1.0.0!
+
+Not a lot of user-facing changes for this release. We've Renamed project ResearchCompendia
+from the pre-release *tyler* name, and renamed the repo to go with that.
+
+* We now tag things with a custom tag class.
+* We've got some preliminary vagrant and boostrap scripts to allow people to stand up and deploy a researchcompendia site on their own vm.
+
+
+
+1.0.0-beta6
++++++++++++
+
+May docs changes
+
+1.0.0-beta5
++++++++++++
+
+Removed title from form message due to unicode error `#120 <https://github.com/researchcompendia/researchcompendia/issues/120>`_
+
+1.0.0-beta4 (2013-12-09)
 ++++++++++++++++++++++++
 
-Works around known issue `#74 <https://github.com/researchcompendia/tyler/issues/74>`_
+Works around known issue `#74 <https://github.com/researchcompendia/researchcompendia/issues/74>`_
 "getting ImproperlyConfigured: No URL to redirect to during a compendia update"
 
 
@@ -16,7 +40,7 @@ Works around known issue `#74 <https://github.com/researchcompendia/tyler/issues
 Changes
 #######
 
-* added DOI autocomplete to Create page `#43 <https://github.com/researchcompendia/tyler/issues/43>`_
+* added DOI autocomplete to Create page `#43 <https://github.com/researchcompendia/researchcompendia/issues/43>`_
 
 Minor Changes
 #############
@@ -59,7 +83,7 @@ Changes
 Bug fixes
 #########
 
-* added link to change password in user settings `#75 <https://github.com/researchcompendia/tyler/issues/75>`_
+* added link to change password in user settings `#75 <https://github.com/researchcompendia/researchcompendia/issues/75>`_
 
 
 1.0.0-beta (2013-11-11)
