@@ -4,6 +4,17 @@ History
 -------
 
 
+1.0.0 (2013-12-18)
+++++++++++++++++++
+
+First talk! Now that we've had the first talk about this, let's have 1.0.0!
+
+Not a lot of user-facing changes for this release. We've Renamed project ResearchCompendia
+from the pre-release *tyler* name, and renamed the repo to go with that.
+
+* We now tag things with a custom tag class.
+* We've got some preliminary vagrant and boostrap scripts to allow people to stand up and deploy a researchcompendia site on their own vm.
+
 
 
 1.0.0-beta6
