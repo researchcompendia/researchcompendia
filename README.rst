@@ -10,12 +10,11 @@ A proof of concept for a research compendia webapp.
 Introduction and Goals
 ----------------------
 
-ResearchCompendia is a project to allow scientists to create compendium as
-introduced by Gentleman and Temple Lang [#]_. Now that much of that data and analysis is generated
-computationally, it is natural to expect that code and parameters also be
-shared. Additionally, it is right to expect that researchers ought to document
-the computational portions of their research methods as thoroughly as they
-would document a tabletop experiment.
+This is a project to allow scientists to create research compendium [#]_ comprising all
+relevant narrative, code, and data to make their research truly reproducible.
+Our goal is allow and teach researchers to document the computational portions of
+their research methods as thoroughly as they would document a tabletop
+experiment. We want our tools to fulfill these goals:
 
 The application has the following goals.
 
@@ -29,9 +28,9 @@ The application has the following goals.
   publishing fully reproducible work.
 
 
-If you are a programmer, you may find yourself thinking that some of these goals remind you of
-a continuous integration and build system. And yes, in some sense the goal with this
-prototype is to create a continuous integrations system for computational research.
+Imagine if all the materials in a research project could be continuously
+packaged and deployed with no snags preventing use and refinement by anyone. We
+could help make research accessible to everyone.
 
 Project milestones are loosely organized on our `planning wiki page <https://github.com/researchcompendia/researchcompendia/wiki/planning-scratchpads>`_.
 
@@ -58,7 +57,7 @@ Resources
 
 Development Environments
 ++++++++++++++++++++++++
-* Live beta http://researchcompendia.org
+* http://researchcompendia.org
 * Pre-prod: http://labs.researchcompendia.org
 
 Acknowledgements
