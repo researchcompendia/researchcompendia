@@ -5,8 +5,9 @@ Credits
 Core Team
 ---------
 
-* Sheila Miguez <tyler@codersquid.com>
+* Sheila Miguez <compendia@codersquid.com>
 * Jennifer Seiler
+* Victoria Stodden
 
 Contributors
 ------------

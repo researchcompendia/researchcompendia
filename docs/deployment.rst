@@ -17,22 +17,22 @@ Releasing
 ---------
 
 Each release corresponds to a tag in our repo. For a new release checkout the
-corresponding tag and create a new virtualenv for the tag. As the tyler user::
+corresponding tag and create a new virtualenv for the tag. As the researchcompendia user::
 
-  cd /home/tyler/site/tyler
+  cd /home/researchcompendia/site/researchcompendia
   git checkout tags/1.0.0-beta4
-  mkvirtualenv tyler_1.0.0-beta4
+  mkvirtualenv researchcompendia_1.0.0-beta4
   pip install -r requirements/production.txt
 
-Edit /home/tyler/site/bin/runserver.sh to change the VERSION.
+Edit /home/researchcompendia/site/bin/runserver.sh to change the VERSION.
 
 Check release notes for any required updates to environment variables or any
-migrations for the database. Review /home/tyler/site/bin/environment.sh for
+migrations for the database. Review /home/researchcompendia/site/bin/environment.sh for
 accurate environment settings.
 
-As a sudo user (not tyler) restart the app::
+As a sudo user (not researchcompendia) restart the app::
 
-  sudo supervisorctl restart tyler
+  sudo supervisorctl restart researchcompendia
 
 Configuration
 -------------
@@ -77,38 +77,40 @@ Now stop being root and become *someuser* from now on.
 
 
 Run `bootstrap.sh
-<https://github.com/researchcompendia/tyler/blob/develop/bootstrap.sh>`_ as
+<https://github.com/researchcompendia/researchcompendia/blob/develop/bootstrap.sh>`_ as
 sudo.  This script will install dependencies, set up postgresql and the site
-database, and create the tyler user from which ResearchCompendia is run.
+database, and create the researchcompendia user from which ResearchCompendia is run.
 
 Installation Layout
 :::::::::::::::::::
 
 The bootstrap.sh script create a directory layout organized in the following way::
 
- /home/tyler/
+ /home/researchcompendia/
  site
  ├── bin
  │   ├── README
  │   └── runserver.sh
  ├── logs
  │   ├── gunicorn_supervisor.log
- │   ├── tyler.access.log
- │   └── tyler.error.log
- └── tyler
+ │   ├── researchcompendia.access.log
+ │   └── researchcompendia.error.log
+ └── researchcompendia
 
 Until the deployment and configuration process is automated, there are manual
 steps to go through for a first install and deployment.
 
-* Obtain `environment.sh` and copy it to to `/home/tyler/bin/`
+* Obtain `environment.sh` and copy it to to `/home/researchcompendia/bin/`
 * Verify accuracy of `VERSION` in `runserver.sh`.
-* activate the appropriate virtualenv, for example, if it is named `tyler`
-  you'd activate it by typing `workon tyler`
+* activate the appropriate virtualenv, for example, if it is named `researchcompendia`
+  you'd activate it by typing `workon researchcompendia`
+
 .. warning:: There is an issue that requires apps to be migrated explicitely versus calling `./manage.py migrate`.
+
 * Set up the database::
 
-    source /home/tyler/site/bin/environment.sh
-    cd /home/tyler/site/tyler/companionpages
+    source /home/researchcompendia/site/bin/environment.sh
+    cd /home/researchcompendia/site/researchcompendia/companionpages
     ./manage.py syncdb
     ./manage.py loaddata fixtures/*
     ./manage.py migrate taggit
@@ -118,10 +120,10 @@ steps to go through for a first install and deployment.
     ./manage.py migrate allauth.socialaccount
 
 
-Controlling tyler
-:::::::::::::::::
+Controlling researchcompendia
+:::::::::::::::::::::::::::::
 
-Once you've set tyler, update supervisor so that it can launch the site::
+Once you've set researchcompendia, update supervisor so that it can launch the site::
 
   sudo supervisorctl reread
   sudo supervisorctl update
@@ -133,5 +135,5 @@ Heroku
 Everything is different for running this on Heroku.  Heroku deployment has been
 straightforward for the most part. I need to document how to check out a repo
 and hook it up to our heroku env.  I've got `working notes
-<https://github.com/researchcompendia/tyler/wiki/Development-environments>`_ in
+<https://github.com/researchcompendia/researchcompendia/wiki/Development-environments>`_ in
 the wiki.

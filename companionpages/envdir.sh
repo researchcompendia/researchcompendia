@@ -13,7 +13,7 @@
 # ├── prod
 #
 # and that filenames exist in each directory that correspond
-# to environment variables used by tyler in settings.py 
+# to environment variables used by researchcompendia in settings.py 
 
 if [ -z "$1" ]; then
     echo "usage: envdir.sh <environment>"
