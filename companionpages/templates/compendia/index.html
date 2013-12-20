@@ -52,6 +52,7 @@
        {{ collaborator }} {% if not forloop.last %}, {% endif %}
        {% endfor %}</p>
     <p>{{ obj.journal }}</p>
+    <p>{{ obj.authors_text|truncatewords:100 }}</p>
     <p>{{ obj.code_data_abstract|truncatewords:100 }}</p>
 
     <a class="btn btn-primary" href="{{ obj.get_absolute_url }}"><i class="fa fa-book"></i> Details</a>
