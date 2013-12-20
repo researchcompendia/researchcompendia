@@ -43,6 +43,10 @@ class ArticleCreateView(LoginRequiredMixin, FormMessagesMixin, generic.edit.Crea
     form_class = ArticleForm
     template_name = 'compendia/create.html'
 
+    def form_valid(self, form):
+        form.instance.site_owner = self.request.user
+        return super(ArticleCreateView, self).form_valid(form)
+
     def get_form_invalid_message(self):
         logger.error('An attempt to create an article has failed. PATH: %s GET: %s POST: %s', self.request.path, self.request.GET, self.request.POST)
         return 'The article was not created, and the site administrators have been notified.'
