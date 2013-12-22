@@ -31,7 +31,6 @@ class ArticleUpdateForm(forms.ModelForm):
         model = Article
         fields = (
             'status',
-            'site_owner',
             'authors_text',
             'article_url',
             'doi',
@@ -70,18 +69,9 @@ class ArticleForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Save'))
         # NOTE: I had a crispy Layout, but it seemed to have a weird interaction with save().
 
-    """
-    def save(self):
-        article = super(ArticleForm, self).save(commit=False)
-        article.save()
-        for user in self.cleaned_data.get('contributors', []):
-            Contributor.objects.create(article=article, user=user)
-    """
-
     class Meta:
         model = Article
         fields = (
-            'site_owner',
             'status',
             'title',
             'authors_text',
@@ -107,5 +97,4 @@ class ArticleForm(forms.ModelForm):
             # set this via javascript
             #'authorship': forms.HiddenInput(),
             #'paper_abstract': forms.HiddenInput(),
-            #'site_owner': forms.MultipleHiddenInput(),
         }
