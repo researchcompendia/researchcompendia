@@ -3,6 +3,11 @@
 History
 -------
 
+1.0.1-beta0 (2013-12-23)
+++++++++++++++++++++++++
+
+* Users can no longer select a different compendia owner
+
 
 1.0.0 (2013-12-18)
 ++++++++++++++++++

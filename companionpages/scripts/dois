@@ -3,6 +3,12 @@ import argparse, json
 import requests
 
 
+def randoims(count=1, doitype='journal'):
+    r = requests.get('http://random.labs.crossref.org/dois',
+            params={'count': count, 'type': doitype})
+    return r.json()
+
+
 def dois(dois=['10.1109/UKSIM.2011.38'], host='localhost:8000'):
     url = 'http://{}/api/v1/dois'.format(host)
     payload = {'doi':dois}
@@ -10,23 +16,36 @@ def dois(dois=['10.1109/UKSIM.2011.38'], host='localhost:8000'):
     return r.json()
 
 
-def pretty_json(uglyjson, suppressunixsd=True):
-    if suppressunixsd is True:
-        uglyjson['unixsd'] = 'suppressed'
+def pretty_json(uglyjson):
     return json.dumps(uglyjson, sort_keys=True, indent=2)
 
 
 def build_parser():
     parser = argparse.ArgumentParser(description="""
+
+    Prints results from DOI services. If DOIs are supplied, fetches metadata
+    from the researchcompendia service.  If DOIs are not supplied, fetches
+    random DOIs from crossref, then calls the researchcompendia service.  If
+    --randoim is used, only the crossref service is queried.
+
     """)
-    parser.add_argument('dois', metavar='doi', nargs='+', help='well-formed DOIs for query')
+    parser.add_argument('dois', metavar='doi', nargs='*', help='well-formed DOIs for query')
     parser.add_argument('--host', default='localhost:8000', help='host, default localhost:8000')
-    parser.add_argument('--suppress', default=True, help='suppress unixsd dump')
+    parser.add_argument('--randoim', action='store_true', help='fetch random DOIs from crossref') 
+    parser.add_argument('--count', type=int, default=1, help='number of randoim DOIs to fetch')
+    parser.add_argument('--doitype', default='journal', help='type of DOIs to fetch')
     return parser
 
 
 if __name__ == '__main__':
     parser = build_parser()
     args = parser.parse_args()
-    r = dois(args.dois, host=args.host)
-    print(pretty_json(r, args.suppress))
+    if args.randoim:
+        r = randoims(args.count, args.doitype)
+    elif len(args.dois) > 0:
+        r = dois(args.dois, host=args.host)
+    else:
+        doims = randoims(args.count, args.doitype)
+        r = dois(doims)
+
+    print(pretty_json(r))
