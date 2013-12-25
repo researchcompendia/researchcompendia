@@ -8,6 +8,24 @@
 # Gunicorn, virtualenv, supervisor and PostgreSQL" but with a few differences.
 # http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/
 
+ENVIRONMENT="staging"
+if [ -z "$1" ]; then
+    echo "using default environment: staging"
+else
+    case "$1" in
+        local) ;;
+        prod) ;;
+        staging) ;;
+        *) echo "invalid environment: $1"; echo "usage: bootstrap.sh <local|prod|staging>"; exit ;;
+    esac
+    ENVIRONMENT="$1"
+fi
+
+ENVIRONMENT_FILE=/env/${ENVIRONMENT}.sh
+if [ ! -f "$ENVIRONMENT_FILE" ]; then
+    echo "stop! missing environment file: $ENVIRONMENT_FILE"
+    exit
+fi
 
 apt-get update -y
 
@@ -59,6 +77,7 @@ su postgres -c 'createdb -w -O tyler tyler'
 #EOF
 #service postgresql restart
 
+
 cat << 'NGINX' > /etc/nginx/sites-available/rehackable
 upstream rehackable_org {
     server 127.0.0.1:8000;
@@ -86,13 +105,29 @@ server {
 NGINX
 unlink /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/rehackable /etc/nginx/sites-enabled/
+service nginx restart
 
 cat << 'SUPERVISOR' > /etc/supervisor/conf.d/tyler.conf
 [program:tyler]
 command = /home/tyler/site/bin/runserver.sh
 user = tyler
+group = tyler
+autostart = true
+autorestart = true
 stdout_logfile = /home/tyler/site/logs/gunicorn_supervisor.log
 redirect_stderr = true
+SUPERVISOR
+
+cat << 'SUPERVISOR' > /etc/supervisor/conf.d/remote_syslog.conf
+[program:remote_syslog]
+
+command=/home/tyler/.rvm/bin/bootup_remote_syslog --configfile /home/tyler/site/logs/log_files.yml --pid-file /home/tyler/site/logs/remote_syslog.pid --no-detach
+user=tyler
+group=tyler
+autostart=true
+autorestart=true
+stdout_logfile = /home/tyler/remote_syslog_supervisor.log
+redirect_stderr=true
 SUPERVISOR
 
 cat << 'TYLER_BOOTSTRAP' > ~tyler/bootstrap.sh
@@ -123,7 +158,7 @@ source bin/environment.sh
 
 cp ~/7583630/runserver.sh bin/
 chmod +x bin/runserver.sh
-git clone git://github.com/researchcompendia/tyler.git
+git clone git://github.com/researchcompendia/researchcompendia.git tyler
 cd tyler
 
 pip install -r requirements/production.txt
@@ -134,12 +169,12 @@ cd companionpages
 # versus calling ./manage.py migrate
 
 #./manage.py syncdb --noinput
-#./manage.py loaddata fixtures/*
 #./manage.py migrate taggit
 #./manage.py migrate users
 #./manage.py migrate home
 #./manage.py migrate compendia
 #./manage.py migrate allauth.socialaccount
+#./manage.py loaddata fixtures/*
 TYLER_BOOTSTRAP
 
 cd ~tyler
