@@ -165,19 +165,13 @@ pip install -r requirements/production.txt
 cd companionpages
 
 # don't run these until we work out getting the env vars
-# Warning: There is an issue that requires apps to be migrated explicitely
-# versus calling ./manage.py migrate
-
-#./manage.py syncdb --noinput
-#./manage.py migrate taggit
-#./manage.py migrate users
-#./manage.py migrate home
-#./manage.py migrate compendia
-#./manage.py migrate allauth.socialaccount
-#./manage.py loaddata fixtures/*
+#./manage.py syncdb --noinput --migrate
+#./manage.py loaddata fixtures/sites.json
+#./manage.py loaddata fixtures/home.json
 TYLER_BOOTSTRAP
 
 cd ~tyler
+cat $ENVIRONMENT_FILE >> site/bin/environment.sh
 su tyler -c 'bash ~/bootstrap.sh'
 
 # don't run these until we work out getting the env vars
