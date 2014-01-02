@@ -8,9 +8,9 @@
 # Gunicorn, virtualenv, supervisor and PostgreSQL" but with a few differences.
 # http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/
 
-ENVIRONMENT="staging"
+ENVIRONMENT="local"
 if [ -z "$1" ]; then
-    echo "using default environment: staging"
+    echo "using default environment: local"
 else
     case "$1" in
         local) ;;
@@ -21,9 +21,9 @@ else
     ENVIRONMENT="$1"
 fi
 
-ENVIRONMENT_FILE=/env/${ENVIRONMENT}.sh
-if [ ! -f "$ENVIRONMENT_FILE" ]; then
-    echo "stop! missing environment file: $ENVIRONMENT_FILE"
+ENVIRONMENT_DIR=/env/${ENVIRONMENT}
+if [ ! -d "$ENVIRONMENT_DIR" ]; then
+    echo "stop! missing environment: $ENVIRONMENT_DIR"
     exit
 fi
 
@@ -37,6 +37,7 @@ apt-get install -y python-software-properties \
     libxslt1-dev \
     supervisor \
     git \
+    tig \
     postgresql \
     postgresql-server-dev-9.1 \
     memcached \
@@ -52,8 +53,8 @@ apt-get install -y python-software-properties \
 
 # get a more recent version of rabbitmq than is in the debian repo
 wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
-sudo apt-key add rabbitmq-signing-key-public.asc
-sudo add-apt-repository 'deb http://www.rabbitmq.com/debian/ testing main'
+apt-key add rabbitmq-signing-key-public.asc
+add-apt-repository 'deb http://www.rabbitmq.com/debian/ testing main'
 apt-get update -y
 apt-get install -y rabbitmq-server
 
@@ -63,7 +64,13 @@ pip install setproctitle # or just in a virtualenv?
 # Lock things down a little
 sed -i -e 's/# server_tokens off;/server_tokens off;/g' /etc/nginx/nginx.conf
 sed -i -e 's/^#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
-echo DebianBanner no >> /etc/ssh/sshd_config
+echo << 'SSHD_CONFIG' >> /etc/ssh/sshd_config
+UseDNS no
+PermitRootLogin no
+DebianBanner no
+TcpKeepAlive yes
+PermitGroups users vagrant
+SSHD_CONFIG
 service ssh restart
 
 useradd -s/bin/bash -d/home/tyler -m tyler
@@ -103,9 +110,6 @@ server {
     }
 }
 NGINX
-unlink /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/rehackable /etc/nginx/sites-enabled/
-service nginx restart
 
 cat << 'SUPERVISOR' > /etc/supervisor/conf.d/tyler.conf
 [program:tyler]
@@ -149,12 +153,9 @@ mkvirtualenv tyler
 git clone https://gist.github.com/7583630.git
 mkdir site
 cd site
-mkdir bin logs
-
-echo export SECRET_KEY=\"`dd if=/dev/urandom bs=512 count=1 | tr -dc 'a-zA-Z0-9~@#%^&*-_'`\" >> bin/environment.sh
 
 # TODO: need to work out how to get all of the env vars here
-source bin/environment.sh
+mkdir bin logs env
 
 cp ~/7583630/runserver.sh bin/
 chmod +x bin/runserver.sh
@@ -171,10 +172,18 @@ cd companionpages
 TYLER_BOOTSTRAP
 
 cd ~tyler
-cat $ENVIRONMENT_FILE >> site/bin/environment.sh
 su tyler -c 'bash ~/bootstrap.sh'
+cp ${ENVIRONMENT_DIR}/* /home/tyler/site/env/
+tr -dc '[:alnum:]~@#%^&*-_' < /dev/urandom | head -c 128 > /home/tyler/SECRET_KEY
+su tyler -c 'mv /home/tyler/SECRET_KEY /home/tyler/site/env/'
 
 # don't run these until we work out getting the env vars
+#
+#unlink /etc/nginx/sites-enabled/default
+#ln -s /etc/nginx/sites-available/rehackable /etc/nginx/sites-enabled/
+#service nginx restart
+#
 #supervisorctl reread
 #supervisorctl update
+#
 # TODO: add a check to make sure everything started okay
