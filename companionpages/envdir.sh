@@ -16,7 +16,7 @@
 # to environment variables used by researchcompendia in settings.py 
 
 if [ -z "$1" ]; then
-    echo "usage: envdir.sh <environment>"
+    echo "usage: envdir.sh <local|prod|staging>"
     exit
 fi
 
@@ -24,7 +24,7 @@ ENV=$1
 case "$ENV" in
     local) ;;
     prod) ;;
-    preprod) ;;
+    staging) ;;
     *) echo "invalid environment: $ENV"; exit ;;
 esac
 
