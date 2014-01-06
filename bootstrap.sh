@@ -69,7 +69,7 @@ UseDNS no
 PermitRootLogin no
 DebianBanner no
 TcpKeepAlive yes
-PermitGroups users vagrant
+#PermitGroups users vagrant
 SSHD_CONFIG
 service ssh restart
 
@@ -92,7 +92,8 @@ upstream rehackable_org {
 
 server {
     listen 80;
-    server_name rehackable.org;
+    server_name .researchcompendia.org .rehackable.org;
+    client_max_body_size 100M;
 
     access_log /home/tyler/site/logs/tyler.access.log;
     error_log /home/tyler/site/logs/tyler.error.log;
