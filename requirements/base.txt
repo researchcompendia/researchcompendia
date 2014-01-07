@@ -73,3 +73,4 @@ dj-static==0.0.5
 #django-appconf==0.6
 #django-autocomplete-light==1.4.3
 django-autoslug==1.7.1
+envdir==0.6.1

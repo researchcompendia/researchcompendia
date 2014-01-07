@@ -61,17 +61,23 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'Private notes to the staff for help in creating your research'
                     u'compendium, including links to data and code if not uploaded'))
     article_file = models.FileField(blank=True, upload_to=upload_article_callback,
-        help_text=_(u'File containing the article. Optional.'))
+        help_text=_(u'File containing the article. Size limit for the form is 100MB. '
+                    u'Please contact us for larger files.'))
     code_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
-        help_text=_(u'File containing an archive of the code. Please include a README in the archive according to site recommendations.'))
+        help_text=_(u'File containing an archive of the code. Please include a README '
+                    u'in the archive according to site recommendations. Size limit for the '
+                    u'form is 100MB. Please contact us for larger files.'))
     data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
-        help_text=_(u'File containing an archive of the data. Please include a README in the archive according to site recommendations.'))
+        help_text=_(u'File containing an archive of the data. Please include a README in the '
+                    u'archive according to site recommendations. Size limit for the form is 100MB. '
+                    u'Please contact us for larger files.'))
     # deprecated, use article_tags
     tags = TaggableManager(related_name="deprecated_tags", blank=True, help_text=_(u'Deprecated. Use article tags.'))
     legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
     article_tags = TaggableManager(blank=True,
         through=TaggedArticle,
-        help_text=_(u'Share keywords about the research, code and data. For example, use keywords for the languages used in the project code.'))
+        help_text=_(u'Share keywords about the research, code and data. For example, use keywords for '
+                    u'the languages used in the project code.'))
 
     def __unicode__(self):
         return self.title
