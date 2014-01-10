@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}ResearchCompendia Resources{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-lg-2">
+<div class="bs-sidebar hidden-print affix" role="complementary">
+<ul class="nav bs-sidenav">
+  <li><a href="#thing">A Thing</a></li>
+  <li><a href="#anotherthing">Another Thing</a></li>
+</ul>
+</div>
+</div>
+
+<div class="col-lg-8">
+
+<h1 id="thing">A Thing</h1>
+
+<p>
+You might not want to use the colomns and sidenav due to issue
+<a href="https://github.com/researchcompendia/researchcompendia/issues/117">117</a>.
+</p>
+
+<h1 id="anotherthing">Another Thing</h1>
+
+<p>
+<div class="alert alert-info">
+You can also use <a href="http://getbootstrap.com/">twitter-boostrap</a>
+components for fancy stuff, but keep in mind that we already do some things in
+base.html, like the top and bottom navbars.
+</div>
+</p>
+
+<p>
+If you don't think we need a lot of styling and markup, we could just use
+<a href="https://docs.djangoproject.com/en/1.6/ref/contrib/flatpages/">flatpages</a>.
+The editing experience isn't that great and I'd like to use something like
+<a href="https://github.com/mjr27/django-flatpages-tinymce/">django-flatpages-tinymce</a>,
+but that project hasn't accepted a pull request in a while. I'm worried it is
+abandoned.
+</p>
+
+<p>
+If you want to refer to another address on our site, it is likely that you can use
+the name for it with a django url tag. Like this: <a href="{% url 'home:resources' %}">resources</a>.
+That name is defined in home/urls.py.
+</p>
+
+</div>
+
+</div>
+
+{% endblock content %}
