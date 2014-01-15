@@ -1,10 +1,11 @@
 import logging
 import re
+from urllib import quote
 
 from bs4 import BeautifulSoup
 import requests
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('researchcompendia.lib')
 
 """
 This is an unsophisticated library to parse responses from the crossref query servlet.
@@ -93,7 +94,7 @@ def query(pid, doi_param, timeout=0.60):
 
 
 def parse_crossref_output(xml):
-    logger.debug('crossref output: %s', xml)
+    logger.debug('crossref output: %s', quote(xml))
 
     # I'm using 'xml' instead of 'lxml' because 'lxml' ignores CDATA,
     # but 'xml' turns CDATA in to text elements
