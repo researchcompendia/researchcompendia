@@ -15,7 +15,7 @@ from rest_framework import status
 from lib.storage import upload_path
 from lib import crossref
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('researchcompendia.api')
 
 
 @api_view(['GET'])

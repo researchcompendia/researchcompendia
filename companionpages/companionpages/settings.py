@@ -286,7 +286,8 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            'format': '%(asctime)s|%(levelname)s|%(name)s|%(module)s|%(funcName)s|%(process)d|%(thread)d|%(message)s',
+            'datefmt': '%Y%m%d-%H:%M:%S',
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
@@ -314,17 +315,14 @@ LOGGING = {
         'django.request': {
             'handlers': ['mail_admins', 'console'],
             'level': 'INFO',
-            'propagate': True,
         },
         'django.db.backends': {
             'handlers': ['console'],
             'level': 'INFO',
-            'propagate': True,
         },
-        'compendia': {
-            'handlers': ['console'],
+        'researchcompendia': {
+            'handlers': ['mail_admins', 'console'],
             'level': 'DEBUG',
-            'propagate': True,
         },
     },
 }

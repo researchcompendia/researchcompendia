@@ -7,7 +7,7 @@ import requests
 
 from . import models
 
-logger = get_task_logger(__name__)
+logger = get_task_logger('researchcompendia.tasks')
 
 
 @shared_task
@@ -44,24 +44,23 @@ def check_queryset_downloads(queryset):
 def check_article_downloads(article):
     """ verify that urls to all files in an Article are still available
     """
-    logger.info('begin checking downloads for article %s', article.id)
+    logger.info('checking downloads for article %s', article.id)
     for archive_file, archive_type in [(article.code_archive_file, 'code'), (article.data_archive_file, 'data')]:
         if archive_file != '':
             check_file_availability(archive_file)
         else:
-            logger.info('article %s has no %s archive file', article.id, archive_type)
-    logger.info('done checking downloads for article %s', article.id)
+            logger.debug('article %s has no %s archive file', article.id, archive_type)
 
 
 def check_file_availability(file_field):
     # TODO: should it use the url attribute for FileFields rather than constructing it by hand?
     file_url = settings.S3_URL + file_field.name.lstrip('/')
-    logger.info('checking %s', file_url)
+    logger.debug('checking file %s', file_url)
     try:
         r = requests.head(file_url)
         if not r.ok:
-            logger.critical('Unavailable file. Status: %s %s URL: %s', r.status_code, status_names[r.status_code], file_url)
+            logger.critical('unavailable file. Status: %s %s URL: %s', r.status_code, status_names[r.status_code], file_url)
     except requests.exception.RequestsException:
         logger.exception('a requests exception occured while trying to access the url: %s', file_url)
     else:
-        logger.info('OK file. URL: %s', file_url)
+        logger.info('available file. URL: %s', file_url)

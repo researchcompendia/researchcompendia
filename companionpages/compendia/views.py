@@ -7,7 +7,7 @@ from braces.views import FormMessagesMixin, LoginRequiredMixin
 from .models import Article
 from .forms import ArticleForm, ArticleUpdateForm
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('researchcompendia.compendia')
 
 
 class ArticleListView(generic.ListView):
@@ -48,7 +48,8 @@ class ArticleCreateView(LoginRequiredMixin, FormMessagesMixin, generic.edit.Crea
         return super(ArticleCreateView, self).form_valid(form)
 
     def get_form_invalid_message(self):
-        logger.error('An attempt to create an article has failed. PATH: %s GET: %s POST: %s', self.request.path, self.request.GET, self.request.POST)
+        logger.error('An attempt to create an article has failed. USER: %s PATH: %s GET: %s POST: %s',
+                self.request.user, self.request.path, self.request.GET, self.request.POST)
         return 'The article was not created, and the site administrators have been notified.'
 
     def get_form_valid_message(self):
