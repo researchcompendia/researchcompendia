@@ -2,5 +2,5 @@
 # -*- coding: utf-8 -*-
 
 __author__ = 'Research Compendia Contributors'
-__email__ = 'researchcompendia@gmail.com'
-__version__ = '1.0.1-b1'
+__email__ = 'contact@researchcompendia.org'
+__version__ = '1.0.1-b2'

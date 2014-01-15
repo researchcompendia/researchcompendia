@@ -3,6 +3,18 @@
 History
 -------
 
+1.0.1-b2 (2014-01-15)
+++++++++++++++++++++++++
+
+* Minor but useful settings changes for logging
+* Added "dark" /resources url to serve as example for a mostly static page
+
+
+1.0.1-b1 (2014-01-07)
+++++++++++++++++++++++++
+
+* Minor change to add help text indicating file upload size limitation in creation form
+
 1.0.1-beta0 (2013-12-23)
 ++++++++++++++++++++++++
 
