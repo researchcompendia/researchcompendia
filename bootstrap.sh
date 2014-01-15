@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Warning: This script is completely in flux. Furthermore, all of the steps
-# to deploy things are not automated by this script. Manual steps are 
-# still required.
+# Warning: This script is being replaced by work in
+# https://github.com/researchcompendia/researchcompendia-deployment
 #
-# This automates things according to suggestions from "Setting up Django with Nginx,
+# This script automates things according to suggestions from "Setting up Django with Nginx,
 # Gunicorn, virtualenv, supervisor and PostgreSQL" but with a few differences.
 # http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/
 

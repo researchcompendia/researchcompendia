@@ -3,7 +3,7 @@ import logging
 from bs4 import BeautifulSoup
 import requests
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('researchcompendia.lib')
 
 
 def scrape_abstract(article_url, timeout=3):
