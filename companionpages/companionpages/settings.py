@@ -133,6 +133,15 @@ CELERY_RESULT_SERIALIZER = env.get('DJANGO_CELERY_RESULT_SERIALIZER', 'json')
 CELERY_TASK_SERIALIZER = env.get('DJANGO_CELERY_TASK_SERIALIZER', 'json')
 CELERY_DISABLE_RATE_LIMITS = env.get('DJANGO_CELERY_DISABLE_RATE_LIMITS', True)
 
+# django-markitup
+MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': True})
+#MARKITUP_PREVIEW_FILTER, by default set to MARKITUP_FILTER
+MARKITUP_AUTO_PREVIEW = True
+#JQUERY_URL = None # we include jquery manually in base.html template
+JQUERY_URL = 'jquery.min.js' # default is http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js
+
+
+
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
@@ -231,6 +240,7 @@ THIRD_PARTY_APPS = (
     'json_field',
     'haystack',
     'south',
+    'markitup',
 )
 
 # Apps specific for this project go here.

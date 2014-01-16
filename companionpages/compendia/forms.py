@@ -2,6 +2,7 @@ from django import forms
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+from markitup.widgets import MarkItUpWidget
 
 from .models import Article
 
@@ -50,10 +51,10 @@ class ArticleUpdateForm(forms.ModelForm):
             'paper_abstract',
             'article_file',
         )
-        #widgets = {
-            # set this via javascript
-        #    'authorship': forms.HiddenInput(),
-        #}
+        widgets = {
+            'code_data_abstract': MarkItUpWidget(),
+            'paper_abstract': MarkItUpWidget(),
+        }
 
 
 class ArticleForm(forms.ModelForm):
@@ -94,6 +95,7 @@ class ArticleForm(forms.ModelForm):
             #'paper_abstract',
         )
         widgets = {
+            'code_data_abstract': MarkItUpWidget(),
             # set this via javascript
             #'authorship': forms.HiddenInput(),
             #'paper_abstract': forms.HiddenInput(),
