@@ -4,8 +4,11 @@
 {% load envelope_tags %}
 {% load staticfiles %}
 {% load crispy_forms_tags %}
+{% load markitup_tags %}
 {% block title %}Create A Compendium{% endblock %}
-
+{% block extra_css %}
+{% markitup_media %}
+{% endblock extra_css %}
 {% block content %}
 
 <div class="row">
@@ -26,9 +29,9 @@
 
 </div>
 
+{{ form.media }}
 
 {% crispy form %}
-
 
 {% endblock %}
 
