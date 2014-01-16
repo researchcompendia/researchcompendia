@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from json_field import JSONField
+from markitup.fields import MarkupField
 from model_utils.models import StatusModel, TimeStampedModel
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
@@ -42,10 +43,11 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'Please share your paper DOI if applicable'))
     title = models.CharField(max_length=500, verbose_name=_(u'Title'),
         help_text=_(u'Please title your compendium. Does not have to match the title of the paper.'))
-    paper_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Paper Abstract'),
-        help_text=_(u'Please share the abstract of the paper (5000 characters maximum) (Optional)'))
-    code_data_abstract = models.TextField(max_length=5000, blank=True, verbose_name=_(u'Code and Data Abstract'),
-        help_text=_(u'Please write an abstract for the code and data. Does not need to match paper abstract. (5000 characters maximum)'))
+    paper_abstract = MarkupField(max_length=5000, blank=True, verbose_name=_(u'Paper Abstract'),
+        help_text=_(u'Please share the abstract of the paper. Markdown is allowed. (5000 characters maximum) (Optional)'))
+    code_data_abstract = MarkupField(max_length=5000, blank=True, verbose_name=_(u'Code and Data Abstract'),
+        help_text=_(u'Please write an abstract for the code and data. Does not need to match paper abstract.'
+                    u'Markdown is allowed. (5000 characters maximum)'))
     journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'),
         help_text=_(u'Please share the name of the journal if applicable'))
     article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))

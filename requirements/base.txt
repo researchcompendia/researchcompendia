@@ -55,7 +55,7 @@ Pillow==2.2.0
 # parsing
 beautifulsoup4==4.3.2
 lxml==3.2.4
-
+django-markitup==2.1
 
 # mail and contacts
 -e git+https://github.com/zsiciarz/django-envelope.git@e85c86ed1c9c27d082f411c5d313d6cce43afa24#egg=django_envelope-dev
