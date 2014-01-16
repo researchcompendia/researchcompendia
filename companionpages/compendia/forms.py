@@ -54,8 +54,6 @@ class ArticleUpdateForm(forms.ModelForm):
         widgets = {
             'code_data_abstract': MarkItUpWidget(),
             'paper_abstract': MarkItUpWidget(),
-            # set this via javascript
-        #    'authorship': forms.HiddenInput(),
         }
 
 
