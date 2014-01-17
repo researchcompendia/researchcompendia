@@ -3,7 +3,12 @@
 History
 -------
 
-1.0.1-b2 (2014-01-16)
+1.0.1-b4 (2014-01-17)
+++++++++++++++++++++++++
+
+* Removing Resources link from nav, it was added by accident
+
+1.0.1-b3 (2014-01-16)
 ++++++++++++++++++++++++
 
 * Allows markdown in compendia abstracts
