@@ -1,19 +1,34 @@
+/*
+ * if we get some refactoring time, consider using lesscss
+ */
 
 body {
   /*! body padding needed with fixed navbar */
   padding-top: 70px;
- 
+
   /* for fixed bottom navbar */
-  padding-bottom: 70px;
+  padding-bottom: 50px;
+}
+
+.rc-navbar-brand {
+  font-size: 14px;
 }
 
 .rc-navbar-top {
   margin-bottom: 50px;
-  /* min-height: 70px;*/
   padding-left: 0px;
   padding-right: 0px;
 }
+
 .rc-navbar-bottom {
-  margin-top: 50px;
-  margin-bottom: 0px;
+}
+
+.rc-jumbotron {
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+.rc-jumbotron h1 {
+  font-size: 42px;
 }
