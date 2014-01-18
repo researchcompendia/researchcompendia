@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.test import TestCase
 
 from lib import crossref
@@ -65,6 +66,10 @@ class DoiTests(TestCase):
 
         assert compendia['title'] == 'Specific interaction between anticodon nuclease and the tRNALys wobble base'
 
+    def test_nonbarfing_unicode(self):
+        # 10.12688/f1000research.2-217.v1
+        xml = self.get_record_with_unicode_character()
+        r = crossref.parse_crossref_output(xml)
 
     def get_conference_paper(self):
         return """
@@ -225,6 +230,216 @@ class DoiTests(TestCase):
                 <doi_data>
                   <doi>10.1006/jmbi.2000.4282</doi>
                   <resource>http://linkinghub.elsevier.com/retrieve/pii/S0022283600942827</resource>
+                </doi_data>
+              </journal_article>
+            </journal>
+          </crossref>
+        </doi_record>
+      </query>
+    </body>
+  </query_result>
+</crossref_result>
+"""
+
+    def get_record_with_unicode_character(self):
+        return """
+<?xml version="1.0" encoding="UTF-8"?>
+<crossref_result xmlns="http://www.crossref.org/qrschema/3.0" version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/qrschema/3.0 http://www.crossref.org/schema/queryResultSchema/crossref_query_output3.0.xsd">
+  <query_result>
+    <head>
+      <doi_batch_id>none</doi_batch_id>
+    </head>
+    <body>
+      <query status="resolved">
+        <doi type="journal_article">10.12688/f1000research.2-217.v1</doi>
+        <crm-item name="publisher-name" type="string">F1000 Research, Ltd.</crm-item>
+        <crm-item name="prefix-name" type="string">F1000 Research, Ltd.</crm-item>
+        <crm-item name="citation-id" type="number">64814802</crm-item>
+        <crm-item name="journal-id" type="number">175545</crm-item>
+        <crm-item name="deposit-timestamp" type="number">1382710500301</crm-item>
+        <crm-item name="owner-prefix" type="string">10.12688</crm-item>
+        <crm-item name="last-update" type="date">2013-10-25 10:26:36.0</crm-item>
+        <crm-item name="citedby-count" type="number">0</crm-item>
+        <doi_record>
+          <crossref xmlns="http://www.crossref.org/xschema/1.1" xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd">
+            <journal>
+              <journal_metadata language="en">
+                <full_title>F1000Research</full_title>
+                <abbrev_title>F1000Res</abbrev_title>
+                <issn media_type="electronic">2046-1402</issn>
+                <doi_data>
+                  <doi>10.12688/f1000research</doi>
+                  <resource>http://www.f1000research.com/</resource>
+                </doi_data>
+              </journal_metadata>
+              <journal_article>
+                <titles>
+                  <title>MethylExtract: High-Quality methylation maps and SNV calling from whole genome bisulfite sequencing data</title>
+                </titles>
+                <contributors>
+                  <person_name sequence="first" contributor_role="author">
+                    <given_name>Guillermo</given_name>
+                    <surname>Barturen</surname>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Antonio</given_name>
+                    <surname>Rueda</surname>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>José L.</given_name>
+                    <surname>Oliver</surname>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Michael</given_name>
+                    <surname>Hackenberg</surname>
+                  </person_name>
+                </contributors>
+                <publication_date media_type="online">
+                  <month>10</month>
+                  <day>15</day>
+                  <year>2013</year>
+                </publication_date>
+                <publisher_item>
+                  <item_number item_number_type="r-v-db-id">2616</item_number>
+                </publisher_item>
+                <crossmark>
+                  <crossmark_policy>10.12688/f1000research.crossmark-policy</crossmark_policy>
+                  <crossmark_domains>
+                    <crossmark_domain>
+                      <domain>f1000research.com</domain>
+                    </crossmark_domain>
+                  </crossmark_domains>
+                  <crossmark_domain_exclusive>true</crossmark_domain_exclusive>
+                  <custom_metadata>
+                    <assertion group_label="Current Referee Status"
+                    group_name="current-referee-status" label="Referee status"
+                    name="referee-status" order="0"
+                    href="http://f1000research.com/articles/2-217/v1#article-reports">Approved
+                    with reservations</assertion>
+                  
+                  <assertion group_label="Article Reports"
+                  group_name="article-reports" label="Referee Report"
+                  name="referee-response-2103" order="1"
+                  href="http://f1000research.com/articles/2-217/v1#referee-response-2103">&lt;b&gt;Michael
+                  Stadler&lt;/b&gt; Friedrich-Miescher Institute for Biomedical
+                  Research, Basel, Switzerland Approved with reservations: 25
+                  Oct 2013 (v1); 
+                  I have read this submission. I believe that I have an
+                  appropriate level of expertise to confirm that it is of an
+                  acceptable scientific standard, however I have significant
+                  reservations, as outlined above.; The authors present the
+                  tool MethylExtract that combines extraction of methylation
+                  states and SNV calling, given alignments of
+                  bisulfite-converted reads to a reference in SAM/BAM format.
+                  Methylated CpG are mutation hotspots - dealing with SNVs is
+                  therefore an important part of any analysis of Bis-seq
+                  data.The main functions of MethylExtract are implemented in a
+                  single Perl script, which should make it easy to use -
+                  unfortunately I could not verify this because it failed to
+                  run in my environment (see below).The performance of
+                  MethylExtract is evaluated using simulated sequence data
+                  (completely methylated or completely unmethylated containing
+                          sequencing errors and SNVs) and compared to Bis-SNP,
+                  a conceptually similar tool that is based on the GATK variant
+                  calling package. The simulations cover most important aspects
+                  of the tool; however, the paper would benefit from extended
+                  simulations and a test on a real dataset. For example, the
+                  current evaluation does not cover Bis-seq datasets with very
+                  low or very high coverage or intermediate methylation levels
+                  (see minor issues below).The paper is clearly written, and
+                  the conclusions are supported by the presented results.
+                  &lt;b&gt;Major issues:&lt;/b&gt;The &lt;b&gt;MethylExtract
+                  perl script&lt;/b&gt; (version 1.3) did not run in my
+                  environment (RHEL 6, with Kernel 2.6.32-220.7.1.el6.x86_64,
+                          perl 5.10.1 built for x86_64-linux-thread-multi).
+                  Trying to run the main script resulted in a compilation
+                  error:&amp;nbsp; &amp;gt;perl MethylExtract_1.3.pl&amp;nbsp;
+                  Type of arg 1 to keys must be hash (not hash element) at
+                  MethylExtract_1.3.pl line 318, near &amp;quot;})
+                  &amp;quot;&amp;nbsp; Execution of MethylExtract_1.3.pl
+                  aborted due to compilation errors.It is possible that the
+                  problem lies in the combination of the script and the test
+                  environment. However, the test environment fulfills the
+                  stated requirements and dependencies.&amp;nbsp;
+                  &lt;b&gt;Figure 6&lt;/b&gt; and corresponding text: A single
+                  point comparison of Sn/PPV between MethylExtract and Bis-SNP,
+                  both with default parameters, is not very informative.
+                  Typically there is a trade-off between sensitivity and
+                  specificity which can be influenced by the choice of
+                  parameter values such as the score or P value cutoffs. It is
+                  possible that with slightly altered parameter values, the
+                  improved Sn/reduced PPV of MethylExtract compared to Bis-SNP
+                  turn into the opposite. The two tools should therefore be
+                  compared using varying parameter settings or cutoffs
+                  (altering the trade-off between Sn and PPV) and then relating
+                  the resulting specificity and sensitivity in an ROC analysis.
+                  The same applies in principle to the results presented in
+                  Figure 3. &lt;b&gt;Minor issues:&lt;/b&gt;
+                  &lt;b&gt;Simulations - readout:&lt;/b&gt; The current
+                  evaluation of &amp;quot;correct methylation&amp;quot;
+                  requires exact identity of simulated and estimated
+                  methylation states. This criterium is very stringent yet may
+                  not be able to uncover systematic problems. In practice, a
+                  very small deviation from the true methylation level may be
+                  tolerable. For illustration: A tool that produces many
+                  incorrect values that are off only by a small amount may be
+                  preferable to a tool that produces fewer incorrect values
+                  that are several-fold off. I would suggest using a continuous
+                  measure of performance (e.g. the differences between true and
+                          estimated methylation levels) or to allow for a
+                  minimum deviation.&amp;nbsp; &lt;b&gt;Simulations -
+                  methylation levels:&lt;/b&gt; In the introduction, the
+                  authors point out the value of methylation levels as opposed
+                  to methylation states. Also, intermediate methylation is
+                  present in virtually all real world Bis-seq data sets. The
+                  simulations should take this into account and also contain
+                  C's with intermediate methylation levels (e.g. around 50%
+                  methylation).&amp;nbsp; &lt;b&gt;Simulations -
+                  coverage:&lt;/b&gt; The current simulations are performed at
+                  15- and 20 fold coverage and the two yield very similar
+                  results. More informative differences in performance may be
+                  observed when simulating data at even lower (~5-fold) or
+                  higher (&amp;gt;30-fold) coverage, which are commonly found
+                  in published Bis-seq datasets.&amp;nbsp; &lt;b&gt;Runtime
+                  comparison:&lt;/b&gt; It's surprising that even though
+                  MethylExtract supports BAM input, SAM.gz was used for runtime
+                  measurements, while Bis-SNP was reading from BAM input.
+                  Unpacking of alignments from BAM files is CPU-intensive, and
+                  I wonder if MethylExtract would take more time if it was run
+                  on the same input as Bis-SNP.&amp;nbsp; &lt;b&gt;Table
+                  1:&lt;/b&gt; MethylExtract is listed to support both SAM and
+                  BAM inputs. However, it does not directly read BAM files, but
+                  converts them to SAM using SAMtools. Using such a conversion,
+                  BSMAP and Bismark also support BAM input. I would suggest not
+                  to discriminate between SAM and BAM inputs in the table to
+                  avoid confusion based on this subtle difference.&amp;nbsp;
+                  &lt;b&gt;Impact of parameter choice when analyzing real world
+                  data:&lt;/b&gt; For some parameters (e.g.
+                          &amp;quot;duplicated reads filter&amp;quot; and
+                          &amp;quot;elimination of bisulfite conversion
+                          failure&amp;quot;), it is unclear how they would
+                  impact results in a real world analysis. A comparison of the
+                  results obtained on an experimental dataset with different
+                  parameter values could identify sensitive parameters and
+                  guide users when choosing parameters for their own
+                  analysis.&amp;nbsp; &lt;b&gt;Figure 5:&lt;/b&gt; The labels
+                  of the two y-axes are missing. In addition, CpG coverage
+                  (blue line) was probably scaled to be plotted on the same
+                  axis; if that is the case, it should be described in the
+                  legend and/or indicated in the plot.; &lt;b&gt;Competing
+                  Interests:&lt;/b&gt;No competing interests were
+                  disclosed.</assertion>
+
+                  </custom_metadata>
+                </crossmark>
+                <doi_data>
+                  <doi>10.12688/f1000research.2-217.v1</doi>
+                  <resource>http://f1000research.com/articles/2-217/v1</resource>
+                  <collection property="crawler-based" setbyID="fres">
+                    <item crawler="iParadigms">
+                      <resource>http://f1000research.com/articles/2-217/v1/iparadigms</resource>
+                    </item>
+                  </collection>
                 </doi_data>
               </journal_article>
             </journal>
