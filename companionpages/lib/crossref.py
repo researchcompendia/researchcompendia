@@ -88,14 +88,12 @@ def query(pid, doi_param, timeout=0.60):
 
     response = {'msg': 'ok', 'status': r.status_code, 'doi': doi}
 
-    response.update(parse_crossref_output(r.text))
-
+    logger.debug(quote(r.content))
+    response.update(parse_crossref_output(r.content))
     return response
 
 
 def parse_crossref_output(xml):
-    logger.debug('crossref output: %s', quote(xml))
-
     # I'm using 'xml' instead of 'lxml' because 'lxml' ignores CDATA,
     # but 'xml' turns CDATA in to text elements
     soup = BeautifulSoup(xml, 'xml')
@@ -204,3 +202,13 @@ def match_doi(query):
     result = match.group(0)
     logger.debug('query: %s result: %s', query, result)
     return result
+
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('doi', help='well-formed DOI for query')
+    parser.add_argument('--pid', help='crossref account')
+    args = parser.parse_args()
+    r = query(args.pid, args.doi)
+    print(r)

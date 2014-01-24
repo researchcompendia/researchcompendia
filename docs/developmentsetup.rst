@@ -38,19 +38,11 @@ Installing Dependencies
 Setting up the Database
 -----------------------
 
-.. warning:: There is an issue that requires apps to be migrated explicitely
-   versus calling `./manage.py migrate`.
-
 Set up the database by running::
 
    $ cd companionpages
-   $ ./manage.py syncdb
-   $ ./manage.py loaddata fixtures/sites.json
-   $ ./manage.py migrate taggit
-   $ ./manage.py migrate users
-   $ ./manage.py migrate home
-   $ ./manage.py migrate compendia
-   $ ./manage.py migrate allauth.socialaccount
+   $ ./manage.py syncdb --migrate
+   $ ./manage.py loaddata fixtures/*
 
 
 Launching ResearchCompendia

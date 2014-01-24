@@ -13,127 +13,128 @@ Deployment
    instructions for different platforms and environments, but for now this
    describes a manual process on a debian server for a production environment.
 
+
 Releasing
 ---------
 
 Each release corresponds to a tag in our repo. For a new release checkout the
-corresponding tag and create a new virtualenv for the tag. As the researchcompendia user::
+corresponding tag and create a new virtualenv for the tag. As the tyler user::
 
-  cd /home/researchcompendia/site/researchcompendia
-  git checkout tags/1.0.0-beta4
-  mkvirtualenv researchcompendia_1.0.0-beta4
+  cd /home/tyler/site/tyler
+  git checkout tags/1.0.1-b4
+  mkvirtualenv 1.0.1-b4
   pip install -r requirements/production.txt
 
-Edit /home/researchcompendia/site/bin/runserver.sh to change the VERSION.
+Edit /home/tyler/site/bin/runnerenv/SITE_VERSION to update the version.
 
-Check release notes for any required updates to environment variables or any
-migrations for the database. Review /home/researchcompendia/site/bin/environment.sh for
-accurate environment settings.
+Check release notes for any required updates to environment variables, database
+migrations, static files changes.
 
-As a sudo user (not researchcompendia) restart the app::
+As a sudo user (not tyler) restart the app::
 
-  sudo supervisorctl restart researchcompendia
+  sudo supervisorctl restart tyler 
 
-Configuration
--------------
+Tail the gunicorn log to make sure everything goes smoothly.::
 
-The site deployment and management is handled similarly to the recommendations
-suggested in `Setting up Django with Nginx, Gunicorn, virtualenv, supervisor and PostgreSQL
-<http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/>`_
-by Michal Karzynski.
+  tail -f /home/tyler/site/logs/gunicorn_worker.log
 
-There are some differences from Michal's recommended layout.  You can see the
-differences in our `runserver.sh
-<https://gist.github.com/codersquid/7583630#file-runserver-sh>`_ script versus
-his gunicorn_start.sh script. Some difference are:
+Use `sudo htop` for a handy way to observe and control running processes.
+  
 
-* $VERSION
-* $VIRTUALENV
-* environment.sh
-
-Right now the runserver.sh script and conf files are checked in to this `gist
-<https://gist.github.com/codersquid/7583630>`_. When we have things settled
-down, thise will be in our repo.
-
-Environment variables are set in environment.sh file, and get used by django
-for tailoring settings for our environments.  Reason: We are following the
-`12factor <http://12factor.net/>`_ application model (before I saw the fancy
-page, it was "I'm following the advice of some friends who deploy stuff at the
-Chicago Tribune. Thanks Chicago Tribune friends!") Later we might use jezdez's
-`envdir <https://github.com/jezdez/envdir>`_.  I've been trying it out locally.
+Operations
+----------
 
 
+Logs for the webapp are here /home/tyler/site/logs. Logs are also streamed to
+a `papertrail <https://papertrailapp.com/dashboard>`_ account and archived in s3 after a week.::
 
-Installation
+ logs
+ ├── celery_worker.log         logs for celery and tasks
+ ├── cron_checkdownloads.log   logs to see that the download link checker was called
+ ├── gunicorn_supervisor.log   gunicorn/django console logs
+ ├── log_files.yml             papertrail remote_syslog config file
+ ├── tyler.access.log          nginx access log
+ └── tyler.error.log           nginx error log
+
+collectd is sending metrics to `graphite <https://162.242.230.222/>`_, nothing fancy yet.
+
+Convenient packages like `htop` and `multitail` are installed.
+
+Remote logging, the webapp, and celery are controled by supervisor. run `sudo supervisorctl status`
+to see a list of statuses.::
+
+ $ sudo supervisorctl status
+ celery                           EXITED     Jan 16 11:21 PM
+ remote_syslog                    RUNNING    pid 13411, uptime 1 day, 0:05:17
+ tyler                            RUNNING    pid 13828, uptime 1 day, 0:01:17
+
+
+Provisioning
 ------------
 
-Create a new VM using your favorite method and platform.
+The site deployment and management is handled similarly to the recommendations
+suggested in `Setting up Django with Nginx, Gunicorn, virtualenv, supervisor
+and PostgreSQL
+<http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/>`_
+by Michal Karzynski.  Automated configuration is being worked on in the
+`researchcompendia-deployment
+<https://github.com/researchcompendia/researchcompendia-deployment>`_ repo.
+This repo contains templates and scripts used to run the site.
+
+To start provisioning a new system, create a new VM using your favorite method and platform.
 
 As *root*, add your sudo user::
 
   adduser --ingroup sudo someuser
 
-Now stop being root and become *someuser* from now on.
+Now stop being root and become *someuser*.
 
 
-Run `bootstrap.sh
-<https://github.com/researchcompendia/researchcompendia/blob/develop/bootstrap.sh>`_ as
+Run `bootstrap.sh <https://github.com/researchcompendia/researchcompendia/blob/develop/bootstrap.sh>`_ as
 sudo.  This script will install dependencies, set up postgresql and the site
 database, and create the researchcompendia user from which ResearchCompendia is run.
+
+This will soon be replaced by a provisioning fabric task in the
+`researchcompendia-deployment
+<https://github.com/researchcompendia/researchcompendia-deployment>`_ repo.
 
 Installation Layout
 :::::::::::::::::::
 
-The bootstrap.sh script create a directory layout organized in the following way::
+The bootstrap.sh script creates a directory layout organized in the following way::
 
- /home/researchcompendia/
+ /home/tyler/
  site
  ├── bin
  │   ├── README
  │   └── runserver.sh
  ├── logs
  │   ├── gunicorn_supervisor.log
- │   ├── researchcompendia.access.log
- │   └── researchcompendia.error.log
- └── researchcompendia
+ │   ├── tyler.access.log
+ │   └── tyler.error.log
+ └── tyler
 
 Until the deployment and configuration process is automated, there are manual
 steps to go through for a first install and deployment.
 
-* Obtain `environment.sh` and copy it to to `/home/researchcompendia/bin/`
-* Verify accuracy of `VERSION` in `runserver.sh`.
+* Obtain an envdir directory and copy it to to `/home/tyler/site/env/`
+* Verify accuracy of `SITE_VERSION` in `/home/tyler/site/bin/runnerenv/`
 * activate the appropriate virtualenv, for example, if it is named `researchcompendia`
   you'd activate it by typing `workon researchcompendia`
-
-.. warning:: There is an issue that requires apps to be migrated explicitely versus calling `./manage.py migrate`.
-
 * Set up the database::
 
-    source /home/researchcompendia/site/bin/environment.sh
-    cd /home/researchcompendia/site/researchcompendia/companionpages
-    ./manage.py syncdb
-    ./manage.py loaddata fixtures/*
-    ./manage.py migrate taggit
-    ./manage.py migrate users
-    ./manage.py migrate home
-    ./manage.py migrate compendia
-    ./manage.py migrate allauth.socialaccount
+    cd /home/tyler/site/tyler/companionpages
+    envdir /home/tyler/site/env/ ./manage.py syncdb --migrate
+    envdir /home/tyler/site/env/ ./manage.py loaddata fixtures/*
 
+You may also want to create a superuser. createsuperuser::
+
+    envdir /home/tyler/site/env/ ./manage.py createsuperuser
 
 Controlling researchcompendia
 :::::::::::::::::::::::::::::
 
-Once you've set researchcompendia, update supervisor so that it can launch the site::
+Once you've set up researchcompendia, update supervisor so that it can launch the site::
 
   sudo supervisorctl reread
   sudo supervisorctl update
-
-
-Heroku
-------
-
-Everything is different for running this on Heroku.  Heroku deployment has been
-straightforward for the most part. I need to document how to check out a repo
-and hook it up to our heroku env.  I've got `working notes
-<https://github.com/researchcompendia/researchcompendia/wiki/Development-environments>`_ in
-the wiki.
