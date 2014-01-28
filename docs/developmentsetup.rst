@@ -56,7 +56,6 @@ Or perhaps you would like to have detailed stacktraces and messages::
 
     $ ./manage.py runserver --traceback -v 3 
 
-
 Making Changes
 --------------
 
@@ -78,11 +77,13 @@ Now that you have the code, a virtualenv, and the proper environment variables, 
 
     $ git rebase -i parent/develop
 
-3. Check that your changes pass style check and tests::
+3. Check that your changes pass style check and automated tests::
 
     $ make test
 
-4. Commit your changes and push your branch to up to your fork on GitHub.::
+4. Demonstrate your changes. It can be helpful to share work you are running locally from your own machine so that other people can help test.  `PageKite <https://pagekite.net/>`_ is a free/libre open source software project that can do this for you. This `QuickStart <http://pagekite.net/support/quickstart/>`_ shows how.
+
+5. Commit your changes and push your branch to up to your fork on GitHub.::
 
     $ git add .
     $ git commit -m "Adds twitter login for #123"
