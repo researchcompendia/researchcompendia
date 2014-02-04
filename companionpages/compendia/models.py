@@ -104,7 +104,6 @@ class Article(StatusModel, TimeStampedModel):
                                               u'Markdown is allowed. (500 characters maximum)'))
     bibjson = jsonfield.JSONField(blank=True, verbose_name=_(u'Citation in bibjson form'))
 
-
     def __unicode__(self):
         return self.title
 
