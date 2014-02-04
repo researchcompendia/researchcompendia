@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load tz %}
+{% load flatblock_tags %}
 
+{%  block extra_head_js %}
+
+{%  endblock extra_head_js %}
 {% block content %}
 
 {% if request.user == article.site_owner %}
@@ -22,10 +26,54 @@
 <p>{{ article.code_data_abstract }}</p>
 
 {% if article.code_archive_file %}
-<a class="btn btn-default" href="{{ static_url }}{{ article.code_archive_file}}"><i class="fa fa-code"></i> code</a>
+  <button class="btn btn-default" data-toggle="modal" data-target="#citecode">
+  <i class="fa fa-code"></i> code
+  </button>
+  <div class="modal fade" id="citecode" tabindex="-1" role="dialog" aria-labelledby="citeCodeAndDownloadLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="citeCodeAndDownloadLabel">Download Code</h4>
+            </div>
+            <div class="modal-body">
+                {%  flatblock "cite_reminder" %}
+                {% include "compendia/citation.html" %}
+
+                <a class="btn btn-primary" href="{{ static_url }}{{ article.code_archive_file}}"><i class="fa fa-code"></i> code</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+  </div>
 {% endif %}
-{% if article.data_archive_file %}
-<a class="btn btn-default" href="{{ static_url }}{{ article.data_archive_file}}"><i class="fa fa-bar-chart-o"></i> data</a>
+
+
+ {% if article.data_archive_file %}
+  <button class="btn btn-default" data-toggle="modal" data-target="#citedata">
+  <i class="fa fa-bar-chart-o"></i> data
+  </button>
+  <div class="modal fade" id="citedata" tabindex="-1" role="dialog" aria-labelledby="citeDataAndDownloadLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="citeDataAndDownloadLabel">Download Data</h4>
+            </div>
+            <div class="modal-body">
+                {%  flatblock "cite_reminder" %}
+                {% include "compendia/citation.html" %}
+
+                <a class="btn btn-primary" href="{{ static_url }}{{ article.data_archive_file}}"><i class="fa fa-bar-chart-o"></i> data</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+  </div>
 {% endif %}
 
 {% if article.paper_abstract %}
@@ -37,8 +85,9 @@
 <a class="btn btn-default" href="{{ static_url }}{{ article.article_file}}"><i class="fa fa-file-o"></i> article</a>
 {% endif %}
 
+<p>
 {% if article.compendium_type %}
-<b>Compendium Type:</b>: {{ article.compendium_type}}</br>
+</br><b>Compendium Type:</b>: {{ article.compendium_type}}</br>
 {% endif %}
 {% if article.content_license %}
 <b>Content License:</b>: {{ article.content_license }}</br>
@@ -46,6 +95,9 @@
 {% if article.code_license %}
 <b>Code License:</b>: {{ article.code_license }}</br>
 {% endif %}
+</p>
+
+{% include "compendia/citation.html" %}
 
 <h2>Page Owner</h2>
 {{ article.site_owner }}

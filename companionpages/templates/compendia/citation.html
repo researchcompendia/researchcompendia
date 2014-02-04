@@ -1,0 +1,13 @@
+{% if article %}
+<p>
+{% if article.authors_text %}{{ article.authors_text }}.{% endif %}
+{% if article.year %}{{ article.year }}.{% endif %}
+{% if article.title %}"{{ article.title }}{% if entrylabel %} {{ entrylabel }}{% endif %}."{% endif %}
+{% if article.journal %}<em>{{ article.journal }}</em>.{% endif %}
+{% if article.volume %}{{ article.volume}}{% endif %}
+{% if article.number %}({{ article.number }}){% endif %}
+{% if article.pages %}{{ article.pages }}.{% endif %}
+{% if article.doi %}<a href="http://dx.doi.org/{{ article.doi }}">doi:{{ article.doi }}</a>.{% endif %}
+Retrieved {{ now|date:"SHORT_DATE_FORMAT" }} from <a href="{{ article.get_absolute_url }}">{{ domain }}{{ article.get_absolute_url }}</a>
+</p>
+{% endif %}

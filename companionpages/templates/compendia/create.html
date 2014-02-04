@@ -1,13 +1,11 @@
-{% extends "base.html" %}    
+{% extends "base.html" %}
 {% load i18n %}
 {% load home_tags %}
 {% load envelope_tags %}
 {% load staticfiles %}
 {% load crispy_forms_tags %}
-{% load markitup_tags %}
 {% block title %}Create A Compendium{% endblock %}
 {% block extra_css %}
-{% markitup_media %}
 {% endblock extra_css %}
 {% block content %}
 
@@ -28,10 +26,10 @@
 
 
 </div>
-
 {{ form.media }}
 
 {% crispy form %}
+
 
 {% endblock %}
 
@@ -72,6 +70,9 @@ $( "#doi_form" ).submit(function(event) {
       }
       if (msg.compendia.authortext) {
         $("#id_authors_text").text(msg.compendia.authortext);
+      }
+      if (msg.compendia.collaborators) {
+        $("#id_authorship").text({"collaborators": [msg.compendia.collaborators]});
       }
   });
 });

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DBNAME=`whoami`
+cmd="'createdb -w -O $DBNAME $DBNAME'"
+dropdb $DBNAME
+sudo su postgres -c $cmd

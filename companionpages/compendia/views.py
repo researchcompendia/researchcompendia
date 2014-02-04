@@ -1,5 +1,7 @@
+from datetime import datetime
 import logging
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.views import generic
 
 from braces.views import FormMessagesMixin, LoginRequiredMixin
@@ -18,6 +20,8 @@ class ArticleListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
         context['static_url'] = settings.STATIC_URL.rstrip('/')
+        context['domain'] = Site.objects.get_current().domain
+        context['now'] = datetime.now()
         return context
 
     def get_queryset(self):
@@ -35,6 +39,8 @@ class ArticleDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
         context['static_url'] = settings.STATIC_URL.rstrip('/')
+        context['domain'] = Site.objects.get_current().domain
+        context['now'] = datetime.now()
         return context
 
 
