@@ -3,6 +3,13 @@
 History
 -------
 
+1.0.1-b7 (2014-02-04)
++++++++++++++++++++++
+
+* Added cite-me display and dialog for journals `#60 <https://github.com/researchcompendia/researchcompendia/issues/60>`_
+* Added additional fields for journals to the create and update compendia pages
+
+
 1.0.1-b6 (2014-01-17)
 ++++++++++++++++++++++++
 

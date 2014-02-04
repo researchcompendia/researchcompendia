@@ -1,8 +1,10 @@
+import collections
+
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from json_field import JSONField
+import jsonfield
 from markitup.fields import MarkupField
 from model_utils.models import StatusModel, TimeStampedModel
 from taggit.managers import TaggableManager
@@ -34,7 +36,8 @@ class Article(StatusModel, TimeStampedModel):
 
     site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'), help_text=_(u'Site user who owns this compendium'))
     authors_text = models.TextField(verbose_name=_(u'Authors'), help_text=_(u'Authors listed in paper (max length 500)'), max_length=500)
-    authorship = JSONField(blank=True, verbose_name=_(u'Authors'),
+    authorship = jsonfield.JSONField(blank=True, verbose_name=_(u'Authors'),
+        load_kwargs={'object_pairs_hook': collections.OrderedDict},
         help_text=_(u'Loosely structured info for authorship for authors who do not have site accounts'))
     contributors = models.ManyToManyField(User, blank=True, null=True, through='Contributor', related_name='contributors',
         help_text=_(u'ResearchCompendia users who have contributed to this compendium'))
@@ -51,10 +54,12 @@ class Article(StatusModel, TimeStampedModel):
     journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'),
         help_text=_(u'Please share the name of the journal if applicable'))
     article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
-    related_urls = JSONField(blank=True, verbose_name=_(u'Related URLs'))
+    related_urls = jsonfield.JSONField(blank=True,
+        load_kwargs={'object_pairs_hook': collections.OrderedDict},
+        verbose_name=_(u'Related URLs'))
     content_license = models.CharField(max_length=100, choices=choices.CONTENT_LICENSES, blank=True)
     code_license = models.CharField(max_length=100, choices=choices.CODE_LICENSES, blank=True)
-    compendium_type = models.CharField(max_length=100, choices=choices.PAPER_TYPES, blank=True)
+    compendium_type = models.CharField(max_length=100, choices=choices.ENTRY_TYPES, blank=True)
     primary_research_field = models.CharField(max_length=300, choices=choices.RESEARCH_FIELDS,
         verbose_name=_(u'Primary research field'), blank=True)
     secondary_research_field = models.CharField(max_length=300, choices=choices.RESEARCH_FIELDS,
@@ -80,6 +85,24 @@ class Article(StatusModel, TimeStampedModel):
         through=TaggedArticle,
         help_text=_(u'Share keywords about the research, code and data. For example, use keywords for '
                     u'the languages used in the project code.'))
+
+    # HACK, in the interest of getting a slice of something out quickly i'm adding non-repeating fields
+    # from bibtex for journals rather than using the bibjson field for everything/bibjson formatter stuff. a TODO
+    month = models.CharField(max_length=500, blank=True,
+        help_text=_(u'The month of publication (or, if unpublished, the month of creation)'))
+    year = models.CharField(max_length=500, blank=True,
+                            help_text=_(u'The year of publication (or, if unpublished, the year of creation)'))
+    volume = models.CharField(max_length=500, blank=True, help_text=_(u'The volume of a journal or multi-volume book'))
+    number = models.CharField(max_length=500, blank=True,
+        help_text=_(u'The "(issue) number" of a journal, magazine, or tech-report, if applicable. '
+                    u'(Most publications have a "volume", but no "number" field.)'))
+    pages = models.CharField(max_length=500, blank=True,
+        help_text=_(u'Page numbers, separated either by commas or double-hyphens.'))
+
+    manual_citation = MarkupField(max_length=500, blank=True, verbose_name=_(u'Manual Citation'),
+                                  help_text=_(u'Citation created by ResearchCompendia site admins.'
+                                              u'Markdown is allowed. (500 characters maximum)'))
+    bibjson = jsonfield.JSONField(blank=True, verbose_name=_(u'Citation in bibjson form'))
 
     def __unicode__(self):
         return self.title

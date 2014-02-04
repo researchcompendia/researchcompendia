@@ -2,7 +2,6 @@ from django import forms
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-from markitup.widgets import MarkItUpWidget
 
 from .models import Article
 
@@ -32,6 +31,8 @@ class ArticleUpdateForm(forms.ModelForm):
         model = Article
         fields = (
             'status',
+            'compendium_type',
+            'title',
             'authors_text',
             'article_url',
             'doi',
@@ -39,22 +40,19 @@ class ArticleUpdateForm(forms.ModelForm):
             'code_data_abstract',
             'code_archive_file',
             'data_archive_file',
-            'related_urls',
+            'month',
+            'year',
+            'pages',
+            'volume',
+            'number',
+            'article_file',
             'content_license',
             'code_license',
-            'compendium_type',
             'primary_research_field',
             'secondary_research_field',
             'notes_for_staff',
-            'article_tags',
-            #'authorship',
-            'paper_abstract',
-            'article_file',
+            'article_tags'
         )
-        widgets = {
-            'code_data_abstract': MarkItUpWidget(),
-            'paper_abstract': MarkItUpWidget(),
-        }
 
 
 class ArticleForm(forms.ModelForm):
@@ -68,12 +66,13 @@ class ArticleForm(forms.ModelForm):
         self.helper.field_class = 'col-lg-8'
         self.helper.attrs = {'enctype': 'multipart/form-data'}
         self.helper.add_input(Submit('submit', 'Save'))
-        # NOTE: I had a crispy Layout, but it seemed to have a weird interaction with save().
+        # NOTE: I had a crispy Layout, but it kept failing on save and I need to troubleshoot if we want to use Layout
 
     class Meta:
         model = Article
         fields = (
             'status',
+            'compendium_type',
             'title',
             'authors_text',
             'article_url',
@@ -82,21 +81,16 @@ class ArticleForm(forms.ModelForm):
             'code_data_abstract',
             'code_archive_file',
             'data_archive_file',
+            'month',
+            'year',
+            'pages',
+            'volume',
+            'number',
             'article_file',
             'content_license',
             'code_license',
-            'compendium_type',
             'primary_research_field',
             'secondary_research_field',
             'notes_for_staff',
             'article_tags',
-            # hidden elements
-            #'authorship',
-            #'paper_abstract',
         )
-        widgets = {
-            'code_data_abstract': MarkItUpWidget(),
-            # set this via javascript
-            #'authorship': forms.HiddenInput(),
-            #'paper_abstract': forms.HiddenInput(),
-        }
