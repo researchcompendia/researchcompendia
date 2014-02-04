@@ -137,8 +137,8 @@ CELERY_DISABLE_RATE_LIMITS = env.get('DJANGO_CELERY_DISABLE_RATE_LIMITS', True)
 MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': True})
 #MARKITUP_PREVIEW_FILTER, by default set to MARKITUP_FILTER
 MARKITUP_AUTO_PREVIEW = True
-#JQUERY_URL = None # we include jquery manually in base.html template
-JQUERY_URL = 'jquery.min.js' # default is http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js
+JQUERY_URL = None # we include jquery manually in base.html template
+#QUERY_URL = 'jquery.min.js' # default is http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js
 
 
 
@@ -241,6 +241,7 @@ THIRD_PARTY_APPS = (
     'haystack',
     'south',
     'markitup',
+    'flatblocks',
 )
 
 # Apps specific for this project go here.
@@ -324,7 +325,7 @@ LOGGING = {
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins', 'console'],
-            'level': 'INFO',
+            'level': 'DEBUG',
         },
         'django.db.backends': {
             'handlers': ['console'],
