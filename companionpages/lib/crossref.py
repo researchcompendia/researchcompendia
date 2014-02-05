@@ -34,12 +34,12 @@ Publishers return information in unixref1.0 or unixref1.1.
 """
 
 
-def query(pid, doi_param, timeout=0.60):
+def query(pid, doi_param, timeout=0.8):
     """ returns a dictionary optionally populated with Article and Collaborator attributes
 
     pid: a validated username for the crossref query service
     doi: a doi query string from the client
-    timeout: time in seconds that we are willing to wait for an answer. default is 60 milliseconds.
+    timeout: time in seconds that we are willing to wait for an answer. default is 800 milliseconds.
 
     exceptions: no exception or error from this call should affect the client.
     It catches problems and moves on.
@@ -77,9 +77,10 @@ def query(pid, doi_param, timeout=0.60):
             'noredirect': True,
             'id': doi,
             'format': 'unixsd', },
-            timeout=timeout)
+            timeout=timeout
+        )
     except requests.exceptions.RequestException:
-        logger.warning('crossref requests exception')
+        logger.warning('crossref requests exception', exc_info=True)
         return {'msg': 'requests exception', 'status': 500}
 
     if not r.ok:
@@ -209,6 +210,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('doi', help='well-formed DOI for query')
     parser.add_argument('--pid', help='crossref account')
+    parser.add_argument('--timeout', default=0.8, type=float, help='requests timeout')
     args = parser.parse_args()
-    r = query(args.pid, args.doi)
+    r = query(args.pid, args.doi, timeout=args.timeout)
     print(r)
