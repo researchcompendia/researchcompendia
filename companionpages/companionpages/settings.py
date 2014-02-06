@@ -148,9 +148,11 @@ JQUERY_URL = None # we include jquery manually in base.html template
 STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles'))
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = S3_URL
+if STATICFILES_STORAGE == 'storages.backends.s3boto.S3BotoStorage':
+    STATIC_URL = S3_URL
+else:
+    STATIC_URL = '/static/'
 
-#STATIC_URL = '/static/'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
@@ -279,12 +281,8 @@ if DEBUG:
     )
     TEMPLATE_STRING_IF_INVALID = 'template_error'
     DEBUG_TOOLBAR_CONFIG = {
-        'INTERCEPT_REDIRECTS':False,
+        'INTERCEPT_REDIRECTS': False,
     }
-    # use local files for static rather than amazon s3
-    STATIC_URL = '/static/'
-    MEDIA_URL = STATIC_URL + 'media/'
-    ADMIN_MEDIA_PREFIX = join(STATIC_URL, "admin/")
 
 
 # A sample logging configuration. The only tangible logging
@@ -303,7 +301,7 @@ LOGGING = {
         'simple': {
             'format': '%(levelname)s %(message)s'
         },
-     },
+    },
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
