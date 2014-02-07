@@ -12,38 +12,44 @@ Deployment
    documented is not fully formed. We will have automation worked out and
    instructions for different platforms and environments, but for now this
    describes a manual process on a debian server for a production environment.
+   `researchcompendia-deployment <https://github.com/researchcompendia/researchcompendia-deployment>`_ is a work in progress for automating these steps.
 
 
 Releasing
 ---------
 
-Each release corresponds to a tag in our repo. For a new release checkout the
-corresponding tag and create a new virtualenv for the tag. As the tyler user::
+Log in to the box that houses the site. Each release corresponds to a tag in
+our repo. For a new release checkout the corresponding tag and create a new
+virtualenv for the tag.  Edit /home/tyler/site/bin/environment.sh to update the
+SITE_VERSION.  As the tyler user::
 
+  cd /home/tyler/site
+  source bin/environment.sh
   cd /home/tyler/site/tyler
-  git checkout tags/1.0.1-b4
+  git checkout 1.0.1-b4
   mkvirtualenv 1.0.1-b4
   pip install -r requirements/production.txt
 
-Edit /home/tyler/site/bin/runnerenv/SITE_VERSION to update the version.
 
 Check release notes for any required updates to environment variables, database
 migrations, static files changes.
 
 As a sudo user (not tyler) restart the app::
 
-  sudo supervisorctl restart tyler 
+  sudo supervisorctl restart researchcompendia 
 
 Tail the gunicorn log to make sure everything goes smoothly.::
 
   tail -f /home/tyler/site/logs/gunicorn_worker.log
 
 Use `sudo htop` for a handy way to observe and control running processes.
-  
+
+.. Note:: fabric.py in the researchcompendia-deployment repo defines a `deploy`
+   task that automates these steps. This is experimental.
+
 
 Operations
 ----------
-
 
 Logs for the webapp are here /home/tyler/site/logs. Logs are also streamed to
 a `papertrail <https://papertrailapp.com/dashboard>`_ account and archived in s3 after a week.::
@@ -66,7 +72,7 @@ to see a list of statuses.::
  $ sudo supervisorctl status
  celery                           EXITED     Jan 16 11:21 PM
  remote_syslog                    RUNNING    pid 13411, uptime 1 day, 0:05:17
- tyler                            RUNNING    pid 13828, uptime 1 day, 0:01:17
+ researchcompendia                RUNNING    pid 13828, uptime 1 day, 0:01:17
 
 
 Provisioning
@@ -87,54 +93,56 @@ As *root*, add your sudo user::
 
   adduser --ingroup sudo someuser
 
-Now stop being root and become *someuser*.
+Now stop being root and become *someuser*. Log out of the box. Navigate to the
+directory that contains the cloned researchcompendia-deployment. Let's consider the
+case where you want to provision `staging` Run::
 
+  fab staging provision
 
-Run `bootstrap.sh <https://github.com/researchcompendia/researchcompendia/blob/develop/bootstrap.sh>`_ as
-sudo.  This script will install dependencies, set up postgresql and the site
-database, and create the researchcompendia user from which ResearchCompendia is run.
+This task installs dependencies, installs postgresql and the site
+database, and creates the researchcompendia user from which ResearchCompendia is run.
 
-This will soon be replaced by a provisioning fabric task in the
-`researchcompendia-deployment
-<https://github.com/researchcompendia/researchcompendia-deployment>`_ repo.
 
 Installation Layout
 :::::::::::::::::::
 
-The bootstrap.sh script creates a directory layout organized in the following way::
+The provision task creates a directory layout organized in the following way::
 
- /home/tyler/
- site
- ├── bin
- │   ├── README
- │   └── runserver.sh
- ├── logs
- │   ├── gunicorn_supervisor.log
- │   ├── tyler.access.log
- │   └── tyler.error.log
- └── tyler
+  
+  $ tree -L 2 site
+  site
+  ├── bin
+  │   ├── celeryworker.sh
+  │   ├── check_downloads.sh
+  │   ├── environment.sh
+  │   └── runserver.sh
+  ├── logs
+  │   ├── log_files.yml
+  └── tyler
 
 Until the deployment and configuration process is automated, there are manual
 steps to go through for a first install and deployment.
 
-* Obtain an envdir directory and copy it to to `/home/tyler/site/env/`
-* Verify accuracy of `SITE_VERSION` in `/home/tyler/site/bin/runnerenv/`
+* Obtain an `environment.sh` file
+* Verify accuracy of `SITE_VERSION`
 * activate the appropriate virtualenv, for example, if it is named `researchcompendia`
   you'd activate it by typing `workon researchcompendia`
 * Set up the database::
 
+    cd /home/tyler/site/
+    source bin/environment.sh
     cd /home/tyler/site/tyler/companionpages
-    envdir /home/tyler/site/env/ ./manage.py syncdb --migrate
-    envdir /home/tyler/site/env/ ./manage.py loaddata fixtures/*
+    ./manage.py syncdb --migrate
+    ./manage.py loaddata fixtures/*
 
 You may also want to create a superuser. createsuperuser::
 
-    envdir /home/tyler/site/env/ ./manage.py createsuperuser
+    ./manage.py createsuperuser
 
 Controlling researchcompendia
 :::::::::::::::::::::::::::::
 
-Once you've set up researchcompendia, update supervisor so that it can launch the site::
+Once you've set up researchcompendia, update supervisor so that it launches the site::
 
   sudo supervisorctl reread
   sudo supervisorctl update
