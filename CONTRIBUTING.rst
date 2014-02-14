@@ -10,7 +10,7 @@ Contributing Code
 
 Before you get started, remember that it is easier for us to accept pull
 requests that are narrow in scope and easy to review. Ideally we want to see
-pull requests with a comment that is a logical changeset so plan to work in
+pull requests with a commit that is a logical changeset so plan to work in
 this fashion.
 
 When committing a change, please include the issue number in your commit comment.
