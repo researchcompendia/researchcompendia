@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load webdesign %}
+{% load flatblock_tags %}
 
 <html lang="en">
 <head>
@@ -106,23 +107,14 @@
 {% block content %}
 
 <div class="jumbotron rc-jumbotron">
-    <h1>Research Compendia</h1>
-    <p><i>Help science stand on your shoulders</i></p>
-    <p>Irreproducible science is bad science. Research that is easy to build upon is more 
-    citeable and more influential. As computational analysis and methods, and digital data archival 
-    have become the standard in scientific research, it is important that this information
-    is archived, curated, and documented in a way that most Scientific journals do not 
-    currently support.</p>
-    
-    <p>With ResearchCompendia we provide tools for researchers 
-    to connect their data, code and computational methods to their published or soon to be 
-    published research in an elegant, convenient, and easily citeable form.</p>
 
-    <form action="{% url 'compendia:create' %}" method="get">
-        <button type='submit' class='btn btn-primary btn-lg'>Create Research Compendium</button>
-    </form>
+  {% flatblock "front_page.info" %}
 
-    <p>Want to know more? Check out our <a href="./faq/">FAQs</a>.</p>
+  <form action="{% url 'compendia:create' %}" method="get">
+    <button type='submit' class='btn btn-primary btn-lg'>Create Research Compendium</button>
+  </form>
+
+  <p>Want to know more? Check out our <a href="./faq/">FAQs</a>.</p>
 </div> <!-- /jumbotron -->
 
 

@@ -35,6 +35,12 @@ Installing Dependencies
    locally. Once you have the environment varialbes set up, you are ready to
    set up the database.
 
+3. We use Postgres as our database backend. We haven't written docs to
+   walk though setting up Postgres yet. If you are unfamiliar with this
+   process, you could consider using sqlite locally event thought our
+   preferences is to use postgres in all environments.
+   
+
 Setting up the Database
 -----------------------
 
@@ -107,8 +113,10 @@ Before you submit a pull request, check that it meets these guidelines:
 Trying out Vagrant
 ------------------
 
+.. Note:: This section is for developers who have experience with Vagrant and Fabric
+
 Vagrant is not completely supported yet, but if you would like to try out
-what I've done so far, check out the repo and run `vagrant up`. This will
+what I've done so far, check out the `researchcompendia-deployment <https://github.com/researchcompendia/researchcompendia-deploymentrepo>`_ and run `vagrant up`. This will
 pull down a debian wheezy VM from puppetlabs if you don't already have it
 and launch the VM::
 
@@ -140,11 +148,5 @@ Once the VM is running, you can login::
     permitted by applicable law.
     Last login: Sun Dec 15 20:20:08 2013 from 10.0.2.2
 
-The bootstrap.sh script will have created a `researchcompendia` user which you can
-become::
-
-    vagrant@debian-70rc1-x64-vbox4210:~$ sudo su researchcompendia
-
-Take a look around the `site` directory, which has a checkout of researchcompendia
-and other directories and files that mimic how we have researchcompendia run on
-a production VM.
+Read through the fabfile.py script and take a look at the `provision` task. This task
+provisions a box to install all the dependencies and prepares a box for site deployment.
