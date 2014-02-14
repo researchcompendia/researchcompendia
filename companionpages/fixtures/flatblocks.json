@@ -1,1 +1,20 @@
-[{"pk": 1, "model": "flatblocks.flatblock", "fields": {"content": "<p>Please remember to cite code and data.</p>", "header": "", "slug": "cite_reminder"}}]
+[
+    {
+        "fields": {
+            "content": "<p>Please remember to cite code and data.</p>",
+            "header": "",
+            "slug": "cite_reminder"
+        },
+        "model": "flatblocks.flatblock",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "content": "<p><em>Help science stand on your shoulders</em></p>\r\n\r\n<p>Science should be reproducible. Reproducible research is easy to build upon, is more citeable and more influential. As computational analysis, methods and digital data archival have become the standard in scientific research, it is important that this information is archived, curated, and documented in a way that most Scientific journals do not currently support.</p>\r\n\r\n<p>With ResearchCompendia, we provide tools for researchers to connect their data, code and computational methods to their published or soon to be published research in an elegant, convenient, and easily citeable form.</p>",
+            "header": "Research Compendia",
+            "slug": "front_page.info"
+        },
+        "model": "flatblocks.flatblock",
+        "pk": 2
+    }
+]
