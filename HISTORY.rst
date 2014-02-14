@@ -3,6 +3,14 @@
 History
 -------
 
+1.0.1-b8 (2014-02-14)
++++++++++++++++++++++
+
+* Adds fixtures for flatblocks for the text on the front page and the cite-me reminder.
+* Front page explanation is now editable in the admin
+* Fixes typos in faq
+
+
 1.0.1-b7 (2014-02-04)
 +++++++++++++++++++++
 
