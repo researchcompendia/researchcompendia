@@ -80,7 +80,7 @@ def query(pid, doi_param, timeout=1.0):
             'noredirect': True,
             'id': doi,
             'format': 'unixsd', },
-            timeout=timeout
+            #timeout=timeout
         )
     except requests.exceptions.RequestException:
         logger.warning('crossref requests exception', exc_info=True)
