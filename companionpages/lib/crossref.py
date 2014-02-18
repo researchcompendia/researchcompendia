@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import logging
 import re
 from urllib import quote
@@ -34,7 +37,7 @@ Publishers return information in unixref1.0 or unixref1.1.
 """
 
 
-def query(pid, doi_param, timeout=0.8):
+def query(pid, doi_param, timeout=1.0):
     """ returns a dictionary optionally populated with Article and Collaborator attributes
 
     pid: a validated username for the crossref query service
@@ -155,7 +158,21 @@ def parse_journal_article(soup):
 
     if soup.full_title is not None:
         result['journal'] = soup.full_title.text
-
+    if soup.month is not None:
+        result['month'] = soup.month.text
+    if soup.year is not None:
+        result['year'] = soup.year.text
+    if soup.volume is not None:
+        result['volume'] = soup.volume.text
+    if soup.issue is not None:
+        result['issue'] = soup.issue.text
+        result['number'] = soup.issue.text
+    if soup.first_page is not None:
+        pages = soup.first_page.text
+        if soup.last_page is not None:
+            endash = u'\u2013'
+            pages = u'%s%s%s' % (pages, endash, soup.last_page.text)
+        result['pages'] = pages
     if soup.journal_article is not None and 'publication_type' in soup.journal_article.attrs:
         result['publication_type'] = soup.journal_article['publication_type']
     return result

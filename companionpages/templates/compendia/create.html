@@ -74,6 +74,21 @@ $( "#doi_form" ).submit(function(event) {
       if (msg.compendia.collaborators) {
         $("#id_authorship").text({"collaborators": [msg.compendia.collaborators]});
       }
+      if (msg.compendia.month) {
+        $("#id_month").attr("value", msg.compendia.month);
+      }
+      if (msg.compendia.year) {
+        $("#id_year").attr("value", msg.compendia.year);
+      }
+      if (msg.compendia.volume) {
+        $("#id_volume").attr("value", msg.compendia.volume);
+      }
+      if (msg.compendia.issue) {
+        $("#id_number").attr("value", msg.compendia.issue);
+      }
+      if (msg.compendia.pages) {
+        $("#id_pages").attr("value", msg.compendia.pages);
+      }
   });
 });
 
