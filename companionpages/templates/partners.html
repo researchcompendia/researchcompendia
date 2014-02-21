@@ -5,10 +5,9 @@
 
 
 {% block content %}
-
 <div class="row">
 
-<div class="col-lg-2">
+<div class="span1 sidebar-width">
 <div class="bs-sidebar hidden-print affix" role="complementary">
 <ul class="nav bs-sidenav">
 <li><a href="#partners">Partners</a></li>
@@ -21,7 +20,7 @@
 </div>
 
 
-<div class="col-lg-8">
+<div class="span8 span-fixed-sidebar">
 
 <h2>The <b>ResearchCompendia</b> team is extremely grateful to all of our partners for their support, advice, and assistance.</h2>
 
@@ -173,9 +172,7 @@ questions, comments, or feature requests.<p></p>
  href="{% url 'compendia:list' %}">browse</a> our existing compendia and see if we have
 anything of interest.  We will be adding remote execution and commenting
 functionality shortly.</p>
-
 </div>
-
 </div>
 
 {% endblock content %}
