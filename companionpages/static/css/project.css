@@ -32,3 +32,38 @@ body {
 .rc-jumbotron h1 {
   font-size: 42px;
 }
+
+
+@media (min-width: 992px) {
+.bs-sidebar {
+    float: left;
+    width: auto;
+    padding-top:20px;
+    display: inline;
+    position:fixed;
+}
+
+.sidebar-nav-fixed {
+     position:fixed;
+     top:60px;
+     width:16.97%;
+ }
+}
+
+ @media (max-width: 767px) {
+     .sidebar-nav-fixed {
+         width:auto;
+     }
+ }
+
+
+@media (max-width: 979px) {
+     .sidebar-nav-fixed {
+        position:static;
+        width: auto;
+     }
+
+}
+.span-fixed-sidebar {
+margin-left:100px;
+}
