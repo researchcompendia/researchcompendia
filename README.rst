@@ -32,7 +32,7 @@ Imagine if all the materials in a research project could be continuously
 packaged and deployed with no snags preventing use and refinement by anyone. We
 could help make research accessible to everyone.
 
-Project milestones are loosely organized on our `planning wiki page <https://github.com/researchcompendia/researchcompendia/wiki/planning-scratchpads>`_.
+
 
 Project Structure
 -----------------
@@ -58,7 +58,7 @@ Resources
 Development Environments
 ++++++++++++++++++++++++
 * http://researchcompendia.org
-* Pre-prod: http://labs.researchcompendia.org
+
 
 Acknowledgements
 ----------------
