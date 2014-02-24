@@ -40,7 +40,7 @@
                 {%  flatblock "cite_reminder" %}
                 {% include "compendia/citation.html" %}
 
-                <a class="btn btn-primary" href="{{ static_url }}{{ article.code_archive_file}}"><i class="fa fa-code"></i> code</a>
+                <a class="btn btn-primary" href="{{ article.code_archive_file.url }}"><i class="fa fa-code"></i> code</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -66,7 +66,7 @@
                 {%  flatblock "cite_reminder" %}
                 {% include "compendia/citation.html" %}
 
-                <a class="btn btn-primary" href="{{ static_url }}{{ article.data_archive_file}}"><i class="fa fa-bar-chart-o"></i> data</a>
+                <a class="btn btn-primary" href="{{ article.data_archive_file.url }}"><i class="fa fa-bar-chart-o"></i> data</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -82,7 +82,7 @@
 {% endif %}
 
 {% if article.article_file %}
-<a class="btn btn-default" href="{{ static_url }}{{ article.article_file}}"><i class="fa fa-file-o"></i> article</a>
+<a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> article</a>
 {% endif %}
 
 <p>
