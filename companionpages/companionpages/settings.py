@@ -9,6 +9,7 @@ import dj_database_url
 
 DJANGO_ROOT = dirname(abspath(__file__))
 SITE_ROOT = dirname(DJANGO_ROOT)
+PROJECT_ROOT = dirname(SITE_ROOT)
 SITE_TITLE = 'ResearchCompendia'
 
 sys.path.append(DJANGO_ROOT)
@@ -145,19 +146,23 @@ JQUERY_URL = None # we include jquery manually in base.html template
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
-STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles'))
+STATIC_ROOT = env.get('STATIC_ROOT', normpath(join(PROJECT_ROOT, 'staticfiles')))
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 if STATICFILES_STORAGE == 'storages.backends.s3boto.S3BotoStorage':
-    STATIC_URL = S3_URL
+    STATIC_URL = '%s/static/' % S3_URL
 else:
     STATIC_URL = '/static/'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
+MEDIA_ROOT = env.get('MEDIA_ROOT', normpath(join(PROJECT_ROOT, 'media')))
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
 #MEDIA_URL = '/media/'
-MEDIA_URL = STATIC_URL + 'media/'
+if DEFAULT_FILE_STORAGE == 'storages.backends.s3boto.S3BotoStorage':
+    MEDIA_URL = '/media/'
+else:
+    MEDIA_URL = '%s/media/' % S3_URL
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     normpath(join(SITE_ROOT, 'static')),
