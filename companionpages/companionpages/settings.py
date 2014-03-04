@@ -159,9 +159,9 @@ MEDIA_ROOT = env.get('MEDIA_ROOT', normpath(join(PROJECT_ROOT, 'media')))
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
 #MEDIA_URL = '/media/'
 if DEFAULT_FILE_STORAGE == 'storages.backends.s3boto.S3BotoStorage':
-    MEDIA_URL = '/media/'
-else:
     MEDIA_URL = '%s/media/' % S3_URL
+else:
+    MEDIA_URL = '/media/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
