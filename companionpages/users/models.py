@@ -17,7 +17,7 @@ class User(AbstractUser):
     biography = models.TextField(max_length=400, blank=True, verbose_name=_(u'Biography'))
     affiliation = models.CharField(max_length=200, verbose_name=_(u'Affiliation'), blank=True)
     country = models.CharField(max_length=200, verbose_name=_(u'Country'), blank=True)
-    urls = JSONField(blank=True, verbose_name=_(u'URLs'))
+    urls = JSONField(default="{}", verbose_name=_(u'URLs'))
 
     def __unicode__(self):
         return self.email
