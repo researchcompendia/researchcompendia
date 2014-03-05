@@ -36,9 +36,8 @@ class Article(StatusModel, TimeStampedModel):
 
     site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'), help_text=_(u'Site user who owns this compendium'))
     authors_text = models.TextField(verbose_name=_(u'Authors'), help_text=_(u'Authors listed in paper (max length 500)'), max_length=500)
-    authorship = jsonfield.JSONField(blank=True, verbose_name=_(u'Authors'),
-        load_kwargs={'object_pairs_hook': collections.OrderedDict},
-        help_text=_(u'Loosely structured info for authorship for authors who do not have site accounts'))
+    authorship = jsonfield.JSONField(verbose_name=_(u'Authors'), load_kwargs={'object_pairs_hook': collections.OrderedDict},
+        help_text=_(u'Loosely structured info for authorship for authors who do not have site accounts'), default="{}")
     contributors = models.ManyToManyField(User, blank=True, null=True, through='Contributor', related_name='contributors',
         help_text=_(u'ResearchCompendia users who have contributed to this compendium'))
     STATUS = choices.STATUS
@@ -54,9 +53,7 @@ class Article(StatusModel, TimeStampedModel):
     journal = models.CharField(blank=True, max_length=500, verbose_name=_(u'Journal Name'),
         help_text=_(u'Please share the name of the journal if applicable'))
     article_url = models.URLField(blank=True, max_length=2000, verbose_name=_(u'Article URL'))
-    related_urls = jsonfield.JSONField(blank=True,
-        load_kwargs={'object_pairs_hook': collections.OrderedDict},
-        verbose_name=_(u'Related URLs'))
+    related_urls = jsonfield.JSONField(load_kwargs={'object_pairs_hook': collections.OrderedDict}, verbose_name=_(u'Related URLs'), default="{}")
     content_license = models.CharField(max_length=100, choices=choices.CONTENT_LICENSES, blank=True)
     code_license = models.CharField(max_length=100, choices=choices.CODE_LICENSES, blank=True)
     compendium_type = models.CharField(max_length=100, choices=choices.ENTRY_TYPES, blank=True)
@@ -102,7 +99,7 @@ class Article(StatusModel, TimeStampedModel):
     manual_citation = MarkupField(max_length=500, blank=True, verbose_name=_(u'Manual Citation'),
                                   help_text=_(u'Citation created by ResearchCompendia site admins.'
                                               u'Markdown is allowed. (500 characters maximum)'))
-    bibjson = jsonfield.JSONField(blank=True, verbose_name=_(u'Citation in bibjson form'))
+    bibjson = jsonfield.JSONField(verbose_name=_(u'Citation in bibjson form'), default="{}")
 
     def __unicode__(self):
         return self.title
