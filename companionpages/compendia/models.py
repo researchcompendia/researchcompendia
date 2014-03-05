@@ -36,8 +36,8 @@ class Article(StatusModel, TimeStampedModel):
 
     site_owner = models.ForeignKey(User, verbose_name=_(u'Compendia Owner'), help_text=_(u'Site user who owns this compendium'))
     authors_text = models.TextField(verbose_name=_(u'Authors'), help_text=_(u'Authors listed in paper (max length 500)'), max_length=500)
-    authorship = jsonfield.JSONField(verbose_name=_(u'Authors'), load_kwargs={'object_pairs_hook': collections.OrderedDict}, 
-    	help_text=_(u'Loosely structured info for authorship for authors who do not have site accounts'), default="{}")
+    authorship = jsonfield.JSONField(verbose_name=_(u'Authors'), load_kwargs={'object_pairs_hook': collections.OrderedDict},
+        help_text=_(u'Loosely structured info for authorship for authors who do not have site accounts'), default="{}")
     contributors = models.ManyToManyField(User, blank=True, null=True, through='Contributor', related_name='contributors',
         help_text=_(u'ResearchCompendia users who have contributed to this compendium'))
     STATUS = choices.STATUS
