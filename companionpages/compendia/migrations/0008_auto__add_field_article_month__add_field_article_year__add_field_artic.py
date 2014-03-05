@@ -40,7 +40,7 @@ class Migration(SchemaMigration):
 
         # Adding field 'Article.bibjson'
         db.add_column(u'compendia_article', 'bibjson',
-                      self.gf('jsonfield.fields.JSONField')(default='{}',
+                      self.gf('jsonfield.fields.JSONField')(default='{}'),
                       keep_default=False)
 
         # Adding field 'Article._manual_citation_rendered'
