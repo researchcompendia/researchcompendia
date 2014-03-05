@@ -50,14 +50,15 @@ class Migration(SchemaMigration):
 
         #Changing field 'Article.related_urls'
         #db.execute('alter table compendia_article alter column related_urls type json using (related_urls::json)')
-        db.execute("ALTER TABLE %s ALTER COLUMN %s TYPE json USING %s::json",[u'compendia_article',u'related_urls',u'related_urls'])
+        db.execute("ALTER TABLE compendia_article ALTER COLUMN related_urls TYPE json USING related_urls::json")
 
         db.alter_column(u'compendia_article', 'related_urls', 
                         self.gf('jsonfield.fields.JSONField')(default='{}'))
 
         # Changing field 'Article.authorship'
         # db.execute('alter table compendia_article alter column authorship type json using (authorship::json)')
-        db.execute("ALTER TABLE %s ALTER COLUMN %s TYPE json USING %s::json",[u'compendia_article',u'authorship',u'authorship'])
+        db.execute("ALTER TABLE compendia_article ALTER COLUMN authorship TYPE json USING authorship::json")
+        
         db.alter_column(u'compendia_article', 'authorship', 
                         self.gf('jsonfield.fields.JSONField')(default='{}'))
 
@@ -193,11 +194,10 @@ class Migration(SchemaMigration):
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'public_name': ('django.db.models.fields.CharField', [], {'max_length': '150', 'blank': 'True'}),
-            'urls': ('json_field.fields.JSONField', [], {'default': "u'null'", 'blank': 'True'}),
+            'urls': ('json_field.fields.JSONField', [], {'default': '{}'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Permission']"}),
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         }
     }
 
     complete_apps = ['compendia']
-
