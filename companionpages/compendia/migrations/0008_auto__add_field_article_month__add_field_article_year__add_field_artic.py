@@ -50,20 +50,14 @@ class Migration(SchemaMigration):
 
         #Changing field 'Article.related_urls'
         #db.execute('alter table compendia_article alter column related_urls type json using (related_urls::json)')
-        db.execute(
-            'ALTER TABLE "compendia_article" '
-            'ALTER COLUMN "related_urls" TYPE json USING "related_urls"::json'
-            )
+        db.execute("ALTER TABLE %s ALTER COLUMN %s TYPE json USING %s::json",[u'compendia_article',u'related_urls',u'related_urls'])
 
         db.alter_column(u'compendia_article', 'related_urls', 
                         self.gf('jsonfield.fields.JSONField')(default='{}'))
 
         # Changing field 'Article.authorship'
         # db.execute('alter table compendia_article alter column authorship type json using (authorship::json)')
-        db.execute(
-            'ALTER TABLE "compendia_article" '
-            'ALTER COLUMN "authorship" TYPE json USING "authorship"::json'
-            )
+        db.execute("ALTER TABLE %s ALTER COLUMN %s TYPE json USING %s::json",[u'compendia_article',u'authorship',u'authorship'])
         db.alter_column(u'compendia_article', 'authorship', 
                         self.gf('jsonfield.fields.JSONField')(default='{}'))
 
