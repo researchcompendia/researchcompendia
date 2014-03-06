@@ -1,16 +1,16 @@
-Django==1.6.1
+Django==1.6.2
 
 # config helpers
 dj-database-url==0.2.2
 
 
 # api framework
-djangorestframework==2.3.10
+djangorestframework==2.3.13
 
 
 # task queuing
-celery==3.1.6
-django-celery==3.1.1
+celery==3.1.9
+django-celery==3.1.9
 pylibmc==1.2.3
 
 
@@ -18,7 +18,7 @@ pylibmc==1.2.3
 South==0.8.4
 django-storages==1.1.8
 # postgres
-psycopg2==2.5.1
+psycopg2==2.5.2
 # data models
 django-json-field==0.5.5
 -e git+https://github.com/bradjasper/django-jsonfield.git@68ee43497d44be7d76d7b21d32b3e0688dfaae84#egg=jsonfield
@@ -31,7 +31,7 @@ django-taggit==0.11.2
 
 
 # service interface for s3 and etc
-boto==2.20.0
+boto==2.26.1
 
 
 # search
@@ -45,23 +45,23 @@ django-avatar==2.0
 
 
 # views and forms
-django-braces==1.2.2
+django-braces==1.4.0
 -e git+https://github.com/maraujop/django-crispy-forms.git#egg=django-crispy-forms
 -e git+https://github.com/funkybob/django-flatblocks.git@45010a7e043849b1271b7e2c9866d2e62cc4c383#egg=django-flatblocks
 -e git://github.com/codersquid/django-extra-views.git@3f78aafb01decdba26d0d05cd5527a44e6d5e60a#egg=django_extra_views-dev
-django-floppyforms==1.1
+django-floppyforms==1.1.1
 django-vanilla-views==1.0.2
 # rendering
-Markdown==2.3.1
-Pillow==2.2.0
+Markdown==2.4.0
+Pillow==2.3.0
 # parsing
 beautifulsoup4==4.3.2
-lxml==3.2.4
+lxml==3.3.3
 django-markitup==2.1
 
 # mail and contacts
 -e git+https://github.com/zsiciarz/django-envelope.git@e85c86ed1c9c27d082f411c5d313d6cce43afa24#egg=django_envelope-dev
-django-honeypot==0.3.0
+django-honeypot==0.4.0
 django-mailgun==0.2.2
 
 
@@ -74,5 +74,4 @@ unicode-slugify==0.1.1
 dj-static==0.0.5
 #django-appconf==0.6
 #django-autocomplete-light==1.4.3
-django-autoslug==1.7.1
-envdir==0.6.1
+django-autoslug==1.7.2
