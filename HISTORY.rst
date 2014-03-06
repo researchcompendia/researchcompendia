@@ -3,72 +3,24 @@
 History
 -------
 
-1.0.1-b10 (2014-02-23)
+1.1.0 (2014-03-06)
 +++++++++++++++++++++
 
-* Side nav fix
-* Template tweaks
+New features and content
+########################
 
+* Users can log in with Github and Persona
+* Citations: compendia pages list citation information and users are reminded to cite code and data
+  when they go to download code or data. `#60 <https://github.com/researchcompendia/researchcompendia/issues/60>`_
+* Additional fields are auto-completed with the DOI auto-fill
+* Added a Resources page with information about reproducible science and research compendia
+* Compendia abstracts can use markdown
 
-1.0.1-b9 (2014-02-16)
-+++++++++++++++++++++
+Fixes
+#####
 
-* Github and persona logins
-
-
-1.0.1-b8 (2014-02-14)
-+++++++++++++++++++++
-
-* Adds fixtures for flatblocks for the text on the front page and the cite-me reminder.
-* Front page explanation is now editable in the admin
-* Fixes typos in faq
-
-
-1.0.1-b7 (2014-02-04)
-+++++++++++++++++++++
-
-* Added cite-me display and dialog for journals `#60 <https://github.com/researchcompendia/researchcompendia/issues/60>`_
-* Added additional fields for journals to the create and update compendia pages
-
-
-1.0.1-b6 (2014-01-17)
-++++++++++++++++++++++++
-
-* Added Resources page and navbar link
-
-
-1.0.1-b5 (2014-01-22)
-++++++++++++++++++++++++
-
-* Resources is now a flatpage
-
-
-1.0.1-b4 (2014-01-17)
-++++++++++++++++++++++++
-
-* Removing Resources link from nav, it was added by accident
-
-1.0.1-b3 (2014-01-16)
-++++++++++++++++++++++++
-
-* Allows markdown in compendia abstracts
-
-1.0.1-b2 (2014-01-15)
-++++++++++++++++++++++++
-
-* Minor but useful settings changes for logging
-* Added "dark" /resources url to serve as example for a mostly static page
-
-
-1.0.1-b1 (2014-01-07)
-++++++++++++++++++++++++
-
-* Minor change to add help text indicating file upload size limitation in creation form
-
-1.0.1-beta0 (2013-12-23)
-++++++++++++++++++++++++
-
-* Users can no longer select a different compendia owner
+* Citations show et. al. for papers with more than 5 authors `#161 <https://github.com/researchcompendia/researchcompendia/issues/161>`_
+* Styling fixes for side navigation
 
 
 1.0.0 (2013-12-18)

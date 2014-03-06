@@ -40,7 +40,7 @@ class Migration(SchemaMigration):
 
         # Adding field 'Article.bibjson'
         db.add_column(u'compendia_article', 'bibjson',
-                      self.gf('jsonfield.fields.JSONField')(default='', blank=True),
+                      self.gf('jsonfield.fields.JSONField')(default='{}'),
                       keep_default=False)
 
         # Adding field 'Article._manual_citation_rendered'
@@ -48,12 +48,17 @@ class Migration(SchemaMigration):
                       self.gf('django.db.models.fields.TextField')(default='', blank=True),
                       keep_default=False)
 
+        #Changing field 'Article.related_urls'
+        #db.execute("ALTER TABLE researchcompendia.compendia_article ALTER COLUMN related_urls TYPE json USING related_urls::json")
 
-        # Changing field 'Article.related_urls'
-        db.alter_column(u'compendia_article', 'related_urls', self.gf('jsonfield.fields.JSONField')())
+        db.alter_column(u'compendia_article', 'related_urls', 
+                        self.gf('jsonfield.fields.JSONField')(default='{}'))
 
         # Changing field 'Article.authorship'
-        db.alter_column(u'compendia_article', 'authorship', self.gf('jsonfield.fields.JSONField')())
+        #db.execute("ALTER TABLE compendia_article ALTER COLUMN authorship TYPE json USING authorship::json")
+        
+        db.alter_column(u'compendia_article', 'authorship', 
+                        self.gf('jsonfield.fields.JSONField')(default='{}'))
 
     def backwards(self, orm):
         # Deleting field 'Article.month'
@@ -109,8 +114,8 @@ class Migration(SchemaMigration):
             'article_file': ('django.db.models.fields.files.FileField', [], {'max_length': '100', 'blank': 'True'}),
             'article_url': ('django.db.models.fields.URLField', [], {'max_length': '2000', 'blank': 'True'}),
             'authors_text': ('django.db.models.fields.TextField', [], {'max_length': '500'}),
-            'authorship': ('jsonfield.fields.JSONField', [], {'blank': 'True'}),
-            'bibjson': ('jsonfield.fields.JSONField', [], {'blank': 'True'}),
+            'authorship': ('jsonfield.fields.JSONField', [], {'default': '{}'}),
+            'bibjson': ('jsonfield.fields.JSONField', [], {'default': '{}'}),
             'code_archive_file': ('django.db.models.fields.files.FileField', [], {'max_length': '100', 'blank': 'True'}),
             'code_data_abstract': ('markitup.fields.MarkupField', [], {'max_length': '5000', 'no_rendered_field': 'True', 'blank': 'True'}),
             'code_license': ('django.db.models.fields.CharField', [], {'max_length': '100', 'blank': 'True'}),
@@ -131,7 +136,7 @@ class Migration(SchemaMigration):
             'pages': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
             'paper_abstract': ('markitup.fields.MarkupField', [], {'max_length': '5000', 'no_rendered_field': 'True', 'blank': 'True'}),
             'primary_research_field': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
-            'related_urls': ('jsonfield.fields.JSONField', [], {'blank': 'True'}),
+            'related_urls': ('jsonfield.fields.JSONField', [], {'default': '{}'}),
             'secondary_research_field': ('django.db.models.fields.CharField', [], {'max_length': '300', 'blank': 'True'}),
             'site_owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['users.User']"}),
             'status': ('model_utils.fields.StatusField', [], {'default': "'draft'", 'max_length': '100', u'no_check_for_status': 'True'}),
@@ -187,7 +192,7 @@ class Migration(SchemaMigration):
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'public_name': ('django.db.models.fields.CharField', [], {'max_length': '150', 'blank': 'True'}),
-            'urls': ('json_field.fields.JSONField', [], {'default': "u'null'", 'blank': 'True'}),
+            'urls': ('json_field.fields.JSONField', [], {'default': '{}'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Permission']"}),
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
         }
