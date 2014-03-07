@@ -76,33 +76,51 @@
   </div>
 {% endif %}
 
+{% if article.article_file %}
+<a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> article</a>
+{% endif %}
+
+
+{% if article.verification_archive_file %}
+<button type="button" id="compendia_verification" onclick="verification(event);" data-loading-text="Verifying..."
+    class="btn btn-default"><i class="fa fa-cog"></i> Verify</button>
+<div id="compendia_verifications"></div>
+{% endif %}
+
 {% if article.paper_abstract %}
 <h2>Paper Abstract</h2>
 <p>{{ article.paper_abstract }}</p>
 {% endif %}
 
-{% if article.article_file %}
-<a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> article</a>
-{% endif %}
+
+<p>
+{% include "compendia/citation.html" %}
+</p>
 
 <p>
 {% if article.compendium_type %}
-</br><b>Compendium Type:</b>: {{ article.compendium_type}}</br>
+<b>Compendium Type</b>: {{ article.compendium_type}}</br>
 {% endif %}
 {% if article.content_license %}
-<b>Content License:</b>: {{ article.content_license }}</br>
+<b>Content License</b>: {{ article.content_license }}</br>
 {% endif %}
 {% if article.code_license %}
-<b>Code License:</b>: {{ article.code_license }}</br>
+<b>Code License</b>: {{ article.code_license }}</br>
 {% endif %}
 </p>
 
-{% include "compendia/citation.html" %}
+{% if article.admin_notes %}
+<h3>Administrator Notes</h3>
+<p>{{ article.admin_notes }}</p>
+{% endif %}
+
+{% include "compendia/verification.html" %}
 
 <h2>Page Owner</h2>
 {{ article.site_owner }}
 {% localtime on %}
 <p>created {{ article.created|date:"SHORT_DATE_FORMAT" }}</p>
+<p>modified {{ article.modified|date:"SHORT_DATE_FORMAT" }}</p>
 {% endlocaltime %}
 
 <p>
@@ -114,3 +132,53 @@
 
 {% endblock content %}
 
+{% block extrajs %}
+<script type="text/javascript">
+
+function verification(event) {
+  event.preventDefault();
+  var btn = $(this);
+  btn.button('loading');
+  $("#compendia_verifications").html(
+      "<div class='alert alert-info'>" +
+      "Verification request submitted with default parameters.<i class=\"fa fa-cog fa-spin\"></i>" +
+      "</div>");
+  $.ajax({
+      type: "POST",
+      url: "{% url 'verification' article.id %}",
+      data: {},
+      timeout: 6000, // 6 second timeout
+  })
+  .done(function (msg) {
+      var alert_message = msg.message ? msg.message : "Verification request complete.";
+      $("#compendia_verifications").html("<div class='alert alert-info'>" + alert_message + "</div>");
+      $("#compendia_verifications").append(
+      /*
+       * TODO cached results should get returned by the backend.
+       * This is faking it for now.
+       * eurg. and I apologize for this javascript mess.
+       */
+        {% if recent_verifications %}
+        {% with v=recent_verifications.0 %}
+          "<ul>" +
+          "<li>Verification run {{ v.id }}</li>" +
+          "<li><a href=\"{{ v.archive_file.url }}\">{{ v.archive_base_name }}</a></li>" +
+          "<li>verification files: {{ v.archive_info }}</li>" +
+          "<li>parameters: default parameters</li>" +
+          "</ul>"
+        {% endwith %} 
+        {% endif %}
+      );
+  })
+  .fail(function (msg) {
+      console.log("failed");
+      var error_message = msg.responseJSON.message ? msg.responseJSON.message : "A service exception occured and we could not finish verification results.";
+      $("#compendia_verifications").html("<div class='alert alert-danger'>" + error_message + "</div>");
+  })
+  .always(function (msg) {
+      console.log(msg);
+      btn.button('reset');
+  });
+};
+</script>
+{% endblock extrajs %}

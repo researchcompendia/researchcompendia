@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contributor, Article, TaggedArticle
+from .models import Contributor, Article, Verification, TaggedArticle
 from . import choices
 
 
@@ -44,6 +44,12 @@ class TaggedArticleAdmin(admin.ModelAdmin):
     actions = [make_taxonomic, make_folksonomic]
 
 
+class VerificationAdmin(admin.ModelAdmin):
+    date_heirarchy = ['created']
+    list_filter = ['status', 'created']
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Contributor, ContributorAdmin)
 admin.site.register(TaggedArticle, TaggedArticleAdmin)
+admin.site.register(Verification, VerificationAdmin)
