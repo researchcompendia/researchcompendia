@@ -3,10 +3,13 @@ import hashlib
 
 
 def upload_path(pathsegment, filename):
-    """ Constructs an upload path for a filename """
+    """ Constructs an upload path for a filename
+
+    returned path should be relative
+    """
 
     bucket_datetime = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-    return "/{segment}/{timehash}-{datetime}/{filename}".format(
+    return "{segment}/{timehash}-{datetime}/{filename}".format(
         segment=pathsegment,
         # introduce a little randomness in the bucket name
         # http://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
