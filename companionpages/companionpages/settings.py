@@ -84,6 +84,7 @@ AWS_ACCESS_KEY_ID = env.get('AWS_ACCESS_KEY_ID', '').strip("'")
 AWS_SECRET_ACCESS_KEY= env.get('AWS_SECRET_ACCESS_KEY', '').strip("'")
 AWS_HEADERS = {}
 DEFAULT_FILE_STORAGE = env.get('DEFAULT_FILE_STORAGE', 'django.core.files.storage.FileSystemStorage')
+FILE_UPLOAD_PERMISSIONS = 0644
 # allow collectstatic automatically put your static files in your bucket
 STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles.storage.StaticFilesStorage')
 
