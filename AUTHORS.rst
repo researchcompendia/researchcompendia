@@ -5,11 +5,12 @@ Credits
 Core Team
 ---------
 
-* Sheila Miguez <compendia@codersquid.com>
+* Sheila Miguez <sheila@researchcompendia.org>
 * Jennifer Seiler
 * Victoria Stodden
 
 Contributors
 ------------
 
-None yet. Why not be the first?
+* `@benmarwick <https://github.com/benmarwick>`_
+* You?
