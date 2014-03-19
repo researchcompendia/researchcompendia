@@ -1,3 +1,5 @@
+from collections import namedtuple
+import json
 from datetime import datetime
 import logging
 from django.conf import settings
@@ -20,6 +22,7 @@ class ArticleListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
         context['static_url'] = settings.STATIC_URL.rstrip('/')
+        context['media_url'] = settings.MEDIA_URL
         context['domain'] = Site.objects.get_current().domain
         context['now'] = datetime.now()
         return context
@@ -32,6 +35,9 @@ class ArticleListView(generic.ListView):
         return self.request.GET.get('paginate_by', self.paginate_by)
 
 
+ArchiveInfo = namedtuple('ArchiveInfo', ['id', 'file', 'size'])
+
+
 class ArticleDetailView(generic.DetailView):
     model = Article
     template_name = 'compendia/detail.html'
@@ -39,9 +45,21 @@ class ArticleDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
         context['static_url'] = settings.STATIC_URL.rstrip('/')
+        context['media_url'] = settings.MEDIA_URL
         context['domain'] = Site.objects.get_current().domain
         context['now'] = datetime.now()
+        verifications = self.object.verification_set.all()[:5]
+        context['recent_verifications'] = verifications
+        context['archive_info_list'] = self.verification_card_info(verifications)
         return context
+
+    def verification_card_info(self, verifications):
+        vlist = []
+        for v in verifications:
+            archive_info = json.loads(v.archive_info)
+            for info in archive_info.get('output_files', []):
+                vlist.append(ArchiveInfo(v.id, info.get('file', ''), size=info.get('size', 0)))
+        return vlist
 
 
 class ArticleCreateView(LoginRequiredMixin, FormMessagesMixin, generic.edit.CreateView):
