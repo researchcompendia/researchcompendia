@@ -68,7 +68,7 @@ class VerificationList(APIView):
                 'id': v.id,
                 'status': v.status,
                 'stdout': v.stdout,
-                'stdin': v.stdin,
+                'stderr': v.stderr,
                 'requestid': v.requestid,
                 'parameters': json.loads(v.parameters),
                 'archive_info': json.loads(v.archive_info),
