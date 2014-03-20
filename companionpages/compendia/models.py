@@ -105,7 +105,6 @@ class Article(StatusModel, TimeStampedModel):
                                               u'Markdown is allowed. (500 characters maximum)'))
     bibjson = jsonfield.JSONField(verbose_name=_(u'Citation in bibjson form'), default="{}")
 
-    #slug = AutoSlugField(populate_from='populate_slug')
     admin_notes = MarkupField(max_length=5000, blank=True, verbose_name=_(u'Administrator Notes'),
         help_text=_(u'Notes about the compendia. Markdown is allowed. (5000 characters maximum)'))
 
@@ -113,13 +112,10 @@ class Article(StatusModel, TimeStampedModel):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('compendia:detail', args=(self.id,))
-
-    """
-    def populate_slug(self):
-        datestr = self.created.strftime('%Y.%m')
-        return '%s.%s' % (datestr, idstr)
-    """
+        # yes, this is not ideal, but that's what they asked for
+        year_created = self.created.strftime('%Y')
+        return reverse('compendia:year_detail', args=(year_created, self.id,))
+        #return reverse('compendia:year_detail', args=(self.id,))
 
     class Meta(object):
         ordering = ['title']
