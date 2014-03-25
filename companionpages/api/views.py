@@ -100,7 +100,13 @@ class VerificationList(APIView):
         {"message": "used default parameters"}
         {"message": "Compendia does not exist"}
 
+        This message is a no-op.
+
         curl -v -X POST "http://hostname/api/v1/verification/2/"
+
+        This message triggers an actual run even though the parameter data is empty.
+
+        curl -v -X POST --data parameters="" "http://hostname/api/v1/verification/2/"
 
         """
         article = self.get_object(pk)
