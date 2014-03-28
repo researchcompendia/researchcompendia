@@ -90,6 +90,13 @@ STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+DISQUS_API_KEY = '2UlJ6AW0igge2eOgFD92rLjPiuvVTtHGqWrMR3wY3MaLPu9og1lHtbl0hb4s1qzZ'
+DISQUS_WEBSITE_SHORTNAME = 'researchcompendiaorg'
+ADDTHIS_PUBID = 'ra-5334d4381d265227'
+ADDTHIS_GA_TRACKING_ENABLED = True
+ADDTHIS_GA_TRACKER = 'UA-44934930-3'
+GA_TRACKING_CODE =  'UA-44934930-3'
+
 ########## AUTHENTICATION CONFIGURATION
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
@@ -250,6 +257,9 @@ THIRD_PARTY_APPS = (
     'south',
     'markitup',
     'flatblocks',
+    'disqus',
+    'autoslug',
+    'slugify',
 )
 
 # Apps specific for this project go here.
