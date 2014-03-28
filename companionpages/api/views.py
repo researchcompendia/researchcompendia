@@ -119,10 +119,19 @@ class VerificationList(APIView):
             return Response({"message": "Request was made with default parameters. Fetched cached results."},
                 status=status.HTTP_200_OK)
 
+        rawparams = request.POST['parameters']
+        try:
+            params = json.loads(rawparams)
+        except ValueError:
+            logger.error("parameters evil badness. invalid json. this validation step is throw away code")
+            return Response({"message": "Request was made with invalid json. Is 'parameters' valid json?"},
+                status=status.HTTP_400_BAD_REQUEST)
+
         request = {
             'id': 'messageidnotusedyet',
             'compendia_id': pk,
             'path_to_target': article.verification_archive_file.path,
+            'parameters': params,
         }
         try:
             results = verify.verify(request)

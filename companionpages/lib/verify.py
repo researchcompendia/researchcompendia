@@ -26,7 +26,7 @@ def verify(request):
         {
             id: request id
             path_to_target: string that is a path. we will a nicer representation that is storage agnostic
-            params: { parameter dictionary }
+            parameters: { parameter dictionary }
         }
 
     returns: reponse dictionary
