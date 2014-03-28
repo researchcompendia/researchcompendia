@@ -67,3 +67,10 @@ body {
 .span-fixed-sidebar {
 margin-left:100px;
 }
+
+#at4-follow.a4-follow, .at4-follow.at4-follow-24, .at-follow-btn, #at4-follow-label,.at4-follow {
+position: fixed !important;
+top: auto;
+bottom: 8px;
+right:5px;
+}

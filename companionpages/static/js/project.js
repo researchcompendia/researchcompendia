@@ -17,3 +17,4 @@ sidebarwidth = $("ul.nav").width()-90; //css('width');
 //$('.bs-sidebar').css('width', sidebarwidth);
 contentmargin = parseInt(sidebarwidth);
 $('.span-fixed-sidebar').css('marginLeft', contentmargin);
+

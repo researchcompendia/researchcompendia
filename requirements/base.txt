@@ -75,3 +75,5 @@ dj-static==0.0.5
 #django-appconf==0.6
 #django-autocomplete-light==1.4.3
 django-autoslug==1.7.2
+django-disqus
+#-e git+https://github.com/lettertwo/django-socialsharing.git#egg=django-socialsharing
