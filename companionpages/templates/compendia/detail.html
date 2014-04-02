@@ -76,9 +76,22 @@
   </div>
 {% endif %}
 
-{% if article.article_file %}
-<a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> article</a>
+{% if article.lecture_notes_archive_file %}
+<a class="btn btn-default" href="{{ article.lecture_notes_archive_file.url }}"><i class="fa fa-file-o"></i> Lectures</a>
 {% endif %}
+{% if article.homework_archive_file %}
+<a class="btn btn-default" href="{{ article.homework_archive_file.url }}"><i class="fa fa-file-o"></i> Assignments</a>
+{% endif %}
+{% if article.solution_archive_file %}
+<a class="btn btn-default" href="{{ article.solution_archive_file.url }}"><i class="fa fa-file-o"></i> Solutions</a>
+{% endif %}
+{% if article.article_file %}
+<a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> Article</a>
+{% endif %}
+{% if article.book_file %}
+<a class="btn btn-default" href="{{ article.book_file.url }}"><i class="fa fa-file-o"></i> Book</a>
+{% endif %}
+
 
 
 {% if article.verification_archive_file %}

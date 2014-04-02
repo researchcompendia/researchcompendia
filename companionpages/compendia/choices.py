@@ -176,6 +176,7 @@ ENTRY_TYPES = Choices(
     ('misc_methods_paper', _(u'Methods Paper')),
     ('misc_negative_results', _(u'Negative Results')),
     ('misc_public_tool', _(u'Public Tool')),
+    ('misc_course', _(u'Course')),
 )
 
 

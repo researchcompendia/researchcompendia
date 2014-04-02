@@ -77,8 +77,17 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'File containing an archive of the data. Please include a README in the '
                     u'archive according to site recommendations. Size limit for the form is 100MB. '
                     u'Please contact us for larger files.'))
+    lecture_notes_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Course Lectures'), help_text=_(u'File containing a an archive of course lecture notes.'))
+    homework_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Course Assignments'), help_text=_(u'File containing a an archive of course assignments.'))
+    solution_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Course Solutions'), help_text=_(u'File containing a an archive of course solutions.'))
+    book_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Book'))
     verification_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
         help_text=_(u'File containing a reviewer created archive that is used for verification.'))
+
     # deprecated, use article_tags
     tags = TaggableManager(related_name="deprecated_tags", blank=True, help_text=_(u'Deprecated. Use article tags.'))
     legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
