@@ -82,9 +82,13 @@
 {% if article.homework_archive_file %}
 <a class="btn btn-default" href="{{ article.homework_archive_file.url }}"><i class="fa fa-file-o"></i> Assignments</a>
 {% endif %}
+
+{% if 'can_change_compendium' in perms %}
 {% if article.solution_archive_file %}
 <a class="btn btn-default" href="{{ article.solution_archive_file.url }}"><i class="fa fa-file-o"></i> Solutions</a>
 {% endif %}
+{% endif %}
+
 {% if article.article_file %}
 <a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> Article</a>
 {% endif %}
