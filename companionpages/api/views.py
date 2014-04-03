@@ -114,19 +114,13 @@ class VerificationList(APIView):
         # this is a stub.  For the purpose of a small demo, we will kick off
         # some jobs via curl to populate some results, and then leave the
         # website to get the existing results.
-        if 'parameters' not in request.POST:
-            logger.debug("using default parameters %s", request.POST)
+        if 'parameters' not in request.DATA:
+            logger.debug("using default parameters %s", request.DATA)
+            logger.debug("request keys %s", request.DATA.keys())
             return Response({"message": "Request was made with default parameters. Fetched cached results."},
                 status=status.HTTP_200_OK)
 
-        rawparams = request.POST['parameters']
-        try:
-            params = json.loads(rawparams)
-        except ValueError:
-            logger.error("parameters evil badness. invalid json. this validation step is throw away code")
-            return Response({"message": "Request was made with invalid json. Is 'parameters' valid json?"},
-                status=status.HTTP_400_BAD_REQUEST)
-
+        params = request.DATA['parameters']
         request = {
             'id': 'messageidnotusedyet',
             'compendia_id': pk,

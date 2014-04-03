@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import json
 import logging
 from tempfile import mkdtemp
 from os import path, stat, walk, pardir
@@ -64,9 +65,14 @@ def verify(request):
         logger.debug(response)
         return response
 
-    # call main
+    if 'parameters' in request:
+        # requirements for compendia packaging are that the 'main' executable will use
+        # a default.json parmeters file if it exists. since the current requests has
+        # different parameters, we clobber the defaults
+        with open(path.join(rundir, 'default.json'), 'w') as fh:
+            json.dump(request['parameters'], fh)
+
     subprocess.call(['chmod', '755', main])
-    #chmod(main, 755) # executable permissions
     p = subprocess.Popen([main], cwd=rundir, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = p.communicate()
 
