@@ -18,6 +18,9 @@
 {% if article.number %}({{ article.number }}){% endif %}
 {% if article.pages %}{{ article.pages }}.{% endif %}&nbsp; &nbsp;
 {% if article.doi %}<a href="http://dx.doi.org/{{ article.doi }}">doi:{{ article.doi }}</a>.{% endif %}
-Retrieved {{ now|date:"SHORT_DATE_FORMAT" }} from <a href="{{ article.get_absolute_url }}">{{ domain }}{{ article.get_absolute_url }}</a>
+Retrieved {{ now|date:"SHORT_DATE_FORMAT" }} from <a href="{{ article.get_absolute_url }}">{{ domain }}{{ article.get_absolute_url }}</a></p>
+{% if article.code_doi %}Code DOI: <a href="http://dx.doi.org/{{ article.code_doi }}">doi:{{ article.code_doi }}</a>.<p>{% endif %}
+{% if article.data_doi %}Data DOI: <a href="http://dx.doi.org/{{ article.data_doi }}">doi:{{ article.code_doi }}</a>.<p>{% endif %}
+
 </p>
 {% endif %}

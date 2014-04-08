@@ -73,10 +73,14 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'File containing an archive of the code. Please include a README '
                     u'in the archive according to site recommendations. Size limit for the '
                     u'form is 100MB. Please contact us for larger files.'))
+    code_doi = models.CharField(max_length=2000, verbose_name=_(u'cDOI'), blank=True,
+        help_text=_(u'this will be the DOI for this code'))
     data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
         help_text=_(u'File containing an archive of the data. Please include a README in the '
                     u'archive according to site recommendations. Size limit for the form is 100MB. '
                     u'Please contact us for larger files.'))
+    data_doi = models.CharField(max_length=2000, verbose_name=_(u'dDOI'), blank=True,
+        help_text=_(u'this will be the DOI for this code'))
     lecture_notes_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
         verbose_name=_(u'Course Lectures'), help_text=_(u'File containing a an archive of course lecture notes.'))
     homework_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
