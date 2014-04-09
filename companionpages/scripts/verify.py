@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-import argparse, json
+import argparse
+import json
 from os.path import isfile
 import requests
 
@@ -17,24 +18,25 @@ This request results in this output:
 
 
 {
-  "message": "ok", 
-  "output_dir": "/tmp/compendiaSjNQzA/hellopizza/compendiaoutput", 
+  "message": "ok",
+  "output_dir": "/tmp/compendiaSjNQzA/hellopizza/compendiaoutput",
   "output_files": [
     {
-      "bytes": 101, 
-      "file": "pizza_order.json", 
+      "bytes": 101,
+      "file": "pizza_order.json",
       "size": "101B"
     }
-  ], 
-  "path_to_zipped_output": "/tmp/compendiaSjNQzA/hellopizza/compendiaoutput.zip", 
-  "requestid": "messageidnotusedyet", 
-  "status": 201, 
-  "stderr": "", 
-  "stdout": "{'attending': 33, 'pizzas': {'cheese': 3, 'meat': 3, 'vegan': 1, 'veg': 4}}\n\n    33 people will show up (guess)\n    3 cheese pizzas\n    3 meat pizzas\n    4 vegetarian pizzas\n    1 vegan pizzas\n    \n", 
-  "zipbytes": 199, 
+  ],
+  "path_to_zipped_output": "/tmp/compendiaSjNQzA/hellopizza/compendiaoutput.zip",
+  "requestid": "messageidnotusedyet",
+  "status": 201,
+  "stderr": "",
+  "stdout": "{'attending': 33, 'pizzas': {'cheese': 3, 'meat': 3, 'vegan': 1, 'veg': 4}}\n\n    33 people will show up (guess)\n    3 cheese pizzas\n    3 meat pizzas\n    4 vegetarian pizzas\n    1 vegan pizzas\n    \n",  # noqa
+  "zipbytes": 199,
   "zipsize": "199B"
 }
 """
+
 
 def verify(parameters, compendia, host='localhost:8000'):
     url = 'http://{}/api/v1/verification/{}/'.format(host, compendia)
