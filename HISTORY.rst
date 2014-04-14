@@ -3,10 +3,12 @@
 History
 -------
 
-1.1.1 (2014-03-16)
+1.2.0 (2014-04-14)
 ++++++++++++++++++
 
 * First pull request from an external contributor! `#168 <https://github.com/researchcompendia/researchcompendia/pull/168>`_ fixes two typos in the FAQ. Thanks `@benmarwick <https://github.com/benmarwick>`_.
+* First iteration with execution with some limited ability to do parameter passing, with execution history
+* DOI minting for data and code
 
 
 1.1.0 (2014-03-06)
