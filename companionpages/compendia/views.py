@@ -2,6 +2,8 @@ from datetime import datetime
 import logging
 from django.conf import settings
 from django.contrib.sites.models import Site
+from django.http import Http404
+from django.utils.translation import ugettext as _
 from django.views import generic
 
 from braces.views import FormMessagesMixin, LoginRequiredMixin
@@ -20,6 +22,7 @@ class ArticleListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
         context['static_url'] = settings.STATIC_URL.rstrip('/')
+        context['media_url'] = settings.MEDIA_URL
         context['domain'] = Site.objects.get_current().domain
         context['now'] = datetime.now()
         return context
@@ -39,9 +42,52 @@ class ArticleDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
         context['static_url'] = settings.STATIC_URL.rstrip('/')
+        context['media_url'] = settings.MEDIA_URL
         context['domain'] = Site.objects.get_current().domain
         context['now'] = datetime.now()
+        verifications = self.object.verification_set.all()[:5]
+        context['recent_verifications'] = verifications
         return context
+
+
+class ArticleYearView(ArticleDetailView):
+    year_url_kwarg = 'year'
+
+    def get_object(self, queryset=None):
+        """
+        Returns the object the view is displaying.
+        Raises a 404 if the `year` in the url does not match the created year of the object.
+
+        This requires a `pk` and `year` argument in the URLconf
+        """
+        if queryset is None:
+            queryset = self.get_queryset()
+
+        pk = self.kwargs.get(self.pk_url_kwarg, None)
+        year = self.kwargs.get(self.year_url_kwarg, None)
+
+        if pk is None or year is None:
+            raise AttributeError("%s must be called with an object pk and a year."
+                                 % self.__class__.__name__)
+
+        queryset = queryset.filter(pk=pk)
+        try:
+            article = queryset.get()
+        except queryset.model.DoesNotExist:
+            raise Http404(_("No %(verbose_name)s found matching the query") %
+                          {'verbose_name': queryset.model._meta.verbose_name})
+
+        # Next, check that the created year matches
+        year_created = article.created.strftime('%Y')
+        if year_created != year:
+            raise Http404(_("%(verbose_name)s %(pk)s not found in year %(year)s. Did you mean %(year_created)s?") % {
+                'pk': pk,
+                'verbose_name': queryset.model._meta.verbose_name,
+                'year': year,
+                'year_created': year_created,
+            })
+
+        return article
 
 
 class ArticleCreateView(LoginRequiredMixin, FormMessagesMixin, generic.edit.CreateView):

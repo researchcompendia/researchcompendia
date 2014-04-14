@@ -76,41 +76,174 @@
   </div>
 {% endif %}
 
+{% if article.lecture_notes_archive_file %}
+<a class="btn btn-default" href="{{ article.lecture_notes_archive_file.url }}"><i class="fa fa-file-o"></i> Lectures</a>
+{% endif %}
+{% if article.homework_archive_file %}
+<a class="btn btn-default" href="{{ article.homework_archive_file.url }}"><i class="fa fa-file-o"></i> Assignments</a>
+{% endif %}
+
+{% if 'can_change_compendium' in perms %}
+{% if article.solution_archive_file %}
+<a class="btn btn-default" href="{{ article.solution_archive_file.url }}"><i class="fa fa-file-o"></i> Solutions</a>
+{% endif %}
+{% endif %}
+
+{% if article.article_file %}
+<a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> Article</a>
+{% endif %}
+{% if article.book_file %}
+<a class="btn btn-default" href="{{ article.book_file.url }}"><i class="fa fa-file-o"></i> Book</a>
+{% endif %}
+
+
+
+{% if article.verification_archive_file %}
+<button type="button" id="compendia_verification" onclick="verification(event);" data-loading-text="Verifying..."
+    class="btn btn-default"><i class="fa fa-cog"></i> Verify</button>
+<div id="compendia_verifications"></div>
+{% endif %}
+
 {% if article.paper_abstract %}
 <h2>Paper Abstract</h2>
 <p>{{ article.paper_abstract }}</p>
 {% endif %}
 
-{% if article.article_file %}
-<a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> article</a>
-{% endif %}
+
+<p>
+{% include "compendia/citation.html" %}
+</p>
 
 <p>
 {% if article.compendium_type %}
-</br><b>Compendium Type:</b>: {{ article.compendium_type}}</br>
+<b>Compendium Type</b>: {{ article.compendium_type}}</br>
 {% endif %}
 {% if article.content_license %}
-<b>Content License:</b>: {{ article.content_license }}</br>
+<b>Content License</b>: {{ article.content_license }}</br>
 {% endif %}
 {% if article.code_license %}
-<b>Code License:</b>: {{ article.code_license }}</br>
+<b>Code License</b>: {{ article.code_license }}</br>
 {% endif %}
 </p>
 
-{% include "compendia/citation.html" %}
+{% if article.admin_notes %}
+<h3>Administrator Notes</h3>
+<p>{{ article.admin_notes }}</p>
+{% endif %}
+
+{% include "compendia/verification.html" %}
 
 <h2>Page Owner</h2>
 {{ article.site_owner }}
 {% localtime on %}
 <p>created {{ article.created|date:"SHORT_DATE_FORMAT" }}</p>
+<p>modified {{ article.modified|date:"SHORT_DATE_FORMAT" }}</p>
 {% endlocaltime %}
 
+{% load disqus_tags %}
+{% disqus_show_comments %}
+
+ <!--<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'researchcompendiaorg'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    -->
+    
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'researchcompendiaorg'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    
 <p>
 {% if article.legacy_id %}
 <a href="http://www.runshare.org/CompanionSite/site.do?siteId={{ article.legacy_id }}">rmc id</a>
 {% endif %}
 </p>
-
+<!-- AddThis Smart Layers BEGIN -->
+<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5334d4381d265227"></script>
+<script type="text/javascript">
+  addthis.layers({
+    'theme' : 'transparent',
+    'share' : {
+      'position' : 'right',
+      'numPreferredServices' : 6
+    }, 
+    'follow' : {
+      'services' : [
+        {'service': 'twitter', 'id': 'researchcompend', "offset":"{'bottom':'10px'}"}
+      ]
+    }   
+  });
+</script>
+<!-- AddThis Smart Layers END -->
 
 {% endblock content %}
 
+{% block extrajs %}
+<script type="text/javascript">
+
+function verification(event) {
+  event.preventDefault();
+  var btn = $(this);
+  btn.button('loading');
+  $("#compendia_verifications").html(
+      "<div class='alert alert-info'>" +
+      "Verification request submitted with default parameters.<i class=\"fa fa-cog fa-spin\"></i>" +
+      "</div>");
+  $.ajax({
+      type: "POST",
+      url: "{% url 'verification' article.id %}",
+      data: {},
+      timeout: 6000, // 6 second timeout
+  })
+  .done(function (msg) {
+      var alert_message = msg.message ? msg.message : "Verification request complete.";
+      $("#compendia_verifications").html("<div class='alert alert-info'>" + alert_message + "</div>");
+      $("#compendia_verifications").append(
+      /*
+       * TODO cached results should get returned by the backend.
+       * This is faking it for now.
+       * eurg. and I apologize for this javascript mess.
+       */
+        {% if recent_verifications %}
+        {% with v=recent_verifications.0 %}
+          "<ul>" +
+          "<li>Verification run {{ v.id }}</li>" +
+          "<li><a href=\"{{ v.archive_file.url }}\">{{ v.archive_base_name }}</a></li>" +
+          "<li>verification files: {{ v.archive_info }}</li>" +
+          "<li>parameters: default parameters</li>" +
+          "</ul>"
+        {% endwith %} 
+        {% endif %}
+      );
+  })
+  .fail(function (msg) {
+      console.log("failed");
+      var error_message = msg.responseJSON.message ? msg.responseJSON.message : "A service exception occured and we could not finish verification results.";
+      $("#compendia_verifications").html("<div class='alert alert-danger'>" + error_message + "</div>");
+  })
+  .always(function (msg) {
+      console.log(msg);
+      btn.button('reset');
+  });
+};
+</script>
+{% endblock extrajs %}

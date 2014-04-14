@@ -1,3 +1,4 @@
+import os
 import collections
 
 from django.core.urlresolvers import reverse
@@ -5,6 +6,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 import jsonfield
+from autoslug import AutoSlugField
 from markitup.fields import MarkupField
 from model_utils.models import StatusModel, TimeStampedModel
 from taggit.managers import TaggableManager
@@ -71,10 +73,25 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'File containing an archive of the code. Please include a README '
                     u'in the archive according to site recommendations. Size limit for the '
                     u'form is 100MB. Please contact us for larger files.'))
+    code_doi = models.CharField(max_length=2000, verbose_name=_(u'cDOI'), blank=True,
+        help_text=_(u'this will be the DOI for this code'))
     data_archive_file = models.FileField(blank=True, upload_to=upload_materials_callback,
         help_text=_(u'File containing an archive of the data. Please include a README in the '
                     u'archive according to site recommendations. Size limit for the form is 100MB. '
                     u'Please contact us for larger files.'))
+    data_doi = models.CharField(max_length=2000, verbose_name=_(u'dDOI'), blank=True,
+        help_text=_(u'this will be the DOI for this code'))
+    lecture_notes_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Course Lectures'), help_text=_(u'File containing a an archive of course lecture notes.'))
+    homework_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Course Assignments'), help_text=_(u'File containing a an archive of course assignments.'))
+    solution_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Course Solutions'), help_text=_(u'File containing a an archive of course solutions.'))
+    book_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Book'))
+    verification_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        help_text=_(u'File containing a reviewer created archive that is used for verification.'))
+
     # deprecated, use article_tags
     tags = TaggableManager(related_name="deprecated_tags", blank=True, help_text=_(u'Deprecated. Use article tags.'))
     legacy_id = models.IntegerField(blank=True, null=True, verbose_name=_(u'RunMyCode ID'), help_text=_(u'Only used for old RunMyCode pages'))
@@ -101,11 +118,17 @@ class Article(StatusModel, TimeStampedModel):
                                               u'Markdown is allowed. (500 characters maximum)'))
     bibjson = jsonfield.JSONField(verbose_name=_(u'Citation in bibjson form'), default="{}")
 
+    admin_notes = MarkupField(max_length=5000, blank=True, verbose_name=_(u'Administrator Notes'),
+        help_text=_(u'Notes about the compendia. Markdown is allowed. (5000 characters maximum)'))
+
     def __unicode__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('compendia:detail', args=(self.id,))
+        # yes, this is not ideal, but that's what they asked for
+        year_created = self.created.strftime('%Y')
+        return reverse('compendia:year_detail', args=(year_created, self.id,))
+        #return reverse('compendia:year_detail', args=(self.id,))
 
     class Meta(object):
         ordering = ['title']
@@ -128,3 +151,36 @@ class Contributor(TimeStampedModel):
         ordering = ['citation_order', 'user']
         verbose_name = _(u'contributor')
         verbose_name_plural = _(u'contributors')
+
+
+class Verification(StatusModel, TimeStampedModel):
+    def upload_callback(self, filename):
+        return upload_path('results', filename)
+
+    STATUS = choices.VERIFICATION_STATUS
+    article = models.ForeignKey(Article, verbose_name=_(u'Article'))
+    stdout = models.TextField(blank=True, verbose_name=_(u'Standard output'))
+    stderr = models.TextField(blank=True, verbose_name=_(u'Standard error'))
+    requestid = models.CharField(max_length=50, verbose_name=_(u'Request ID'), blank=True)
+    parameters = jsonfield.JSONField(verbose_name=_(u'Parameters'),
+        help_text=_(u'Parameters used during the verification, if the defaults were not used.'),
+        default="{}")
+    archive_info = jsonfield.JSONField(verbose_name=_(u'Archive information'), default="{}")
+    archive_file = models.FileField(blank=True, upload_to=upload_callback,
+       help_text=_(u'File containing an archive of the verification results.'))
+    slug = AutoSlugField(populate_from='populate_slug', unique_with='article')
+
+    def __unicode__(self):
+        return 'verification %s for %s' % (self.id, self.article)
+
+    def archive_base_name(self):
+        return os.path.basename(self.archive_file.name)
+
+    def populate_slug(self):
+        datestr = self.created.strftime('%Y.%m')
+        return '%s.%s' % (datestr, self.id)
+
+    class Meta(object):
+        ordering = ['-created']
+        verbose_name = _(u'verification')
+        verbose_name_plural = _(u'verifications')

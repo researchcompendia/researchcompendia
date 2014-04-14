@@ -2,7 +2,7 @@ language: python
 python:
   - "2.7"
 env:
-  - DJANGO=1.5
+  - DJANGO=1.6
 install:
   - pip install -r requirements/ci.txt --use-mirrors
 script:
@@ -15,7 +15,7 @@ notifications:
     on_success: change
   irc:
     channels:
-      - "chat.freenode.net#hackingscience"
+      - "chat.freenode.net#researchcompendia"
     on_success: change
     template:
-      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} Change view: %{compare_url} Build details: %{build_url}"
+      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} Build details: %{build_url}"

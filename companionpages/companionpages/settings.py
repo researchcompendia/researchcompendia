@@ -90,6 +90,13 @@ STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+DISQUS_API_KEY = env.get('DISQUS_API_KEY', 'none')
+DISQUS_WEBSITE_SHORTNAME = env.get('DISQUS_WEBSITE_SHORTNAME', 'researchcompendiaorg')
+ADDTHIS_PUBID = env.get('ADDTHIS_PUBID', 'ra-5334d4381d265227')
+ADDTHIS_GA_TRACKING_ENABLED = True if env.get('ADDTHIS_GA_TRACKING_ENABLED', True) == 'True' else False
+ADDTHIS_GA_TRACKER = env.get('ADDTHIS_GA_TRACKER', 'UA-44934930-3')
+GA_TRACKING_CODE = env.get('GA_TRACKING_CODE', 'UA-44934930-3')
+
 ########## AUTHENTICATION CONFIGURATION
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
@@ -151,18 +158,18 @@ STATIC_ROOT = env.get('STATIC_ROOT', normpath(join(PROJECT_ROOT, 'staticfiles'))
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 if STATICFILES_STORAGE == 'storages.backends.s3boto.S3BotoStorage':
-    STATIC_URL = '%s/static/' % S3_URL
+    STATIC_URL = env.get('STATIC_URL', '%s/static/' % S3_URL)
 else:
-    STATIC_URL = '/static/'
+    STATIC_URL = env.get('STATIC_URL', '/static/')
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 MEDIA_ROOT = env.get('MEDIA_ROOT', normpath(join(PROJECT_ROOT, 'media')))
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a trailing slash.
 #MEDIA_URL = '/media/'
 if DEFAULT_FILE_STORAGE == 'storages.backends.s3boto.S3BotoStorage':
-    MEDIA_URL = '%s/media/' % S3_URL
+    MEDIA_URL = env.get('MEDIA_URL', '%s/media/' % S3_URL)
 else:
-    MEDIA_URL = '/media/'
+    MEDIA_URL = env.get('MEDIA_URL', '/media/')
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -250,6 +257,9 @@ THIRD_PARTY_APPS = (
     'south',
     'markitup',
     'flatblocks',
+    'disqus',
+    'autoslug',
+    'slugify',
 )
 
 # Apps specific for this project go here.

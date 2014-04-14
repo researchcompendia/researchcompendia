@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from model_utils.choices import Choices
 
 STATUS = Choices('draft', 'active')
+VERIFICATION_STATUS = Choices('unknown', 'verified', 'unverified')
 
 TAG_TYPES = Choices('folksonomic', 'taxonomic')
 
@@ -175,6 +176,7 @@ ENTRY_TYPES = Choices(
     ('misc_methods_paper', _(u'Methods Paper')),
     ('misc_negative_results', _(u'Negative Results')),
     ('misc_public_tool', _(u'Public Tool')),
+    ('misc_course', _(u'Course')),
 )
 
 
