@@ -4,7 +4,7 @@
 Sphinx==1.2.2
 #sphinxcontrib-blockdiag
 #sphinxcontrib-seqdiag
--e git+https://bitbucket.org/codersquid/sphinxcontrib-seqdiag-dir.git
+-e git+https://bitbucket.org/codersquid/sphinxcontrib-seqdiag-dir.git#egg=sphinxcontrib-seqdiag
 #sphinxcontrib-actdiag
 coverage==3.7.1
 django-debug-toolbar==1.0.1
