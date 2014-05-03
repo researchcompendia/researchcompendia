@@ -2,6 +2,12 @@
 from django.utils.translation import ugettext_lazy as _
 from model_utils.choices import Choices
 
+"""
+This module defines categories of information used when working with compendia.
+Once a value is added here, it should never change.  Add values sparingly.
+
+"""
+
 STATUS = Choices('draft', 'active')
 VERIFICATION_STATUS = Choices('unknown', 'verified', 'unverified')
 
