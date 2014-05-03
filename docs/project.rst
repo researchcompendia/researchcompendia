@@ -176,29 +176,6 @@ and our django app archives the result files.
 * It requires manual work for creating verification packages, and this will be confusing to users.
 * etc.
 
-Current sequence 
-
-.. seqdiag::
-
-   seqdiag {
-
-     // Do not show activity line
-     activation = none;
-
-     // Change note color
-     default_note_color = lightblue;
-
-     Client -> API [label = "POST /api/v1/verification/1"];
-               API -> API [note = "accesses filesystem, network, ORM"]
-               API -> lib.verify [label = "{ 'path_to_target': <path>,\n'parameters': {},\n'id': 'xyz' }"]
-                      lib.verify -> subprocess [label = "popen"];
-                                    subprocess -> subprocess [note = "runs verification package\naccesses filesystem, network"];
-                      lib.verify <- subprocess;
-               API <- lib.verify;
-               API -> API [note = "accesses filesystem, network, ORM"];
-     Client <- API;
-   }
-
 .. _future:
 
 """"""""""""

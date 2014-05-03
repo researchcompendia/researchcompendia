@@ -43,7 +43,8 @@ import companionpages
 extensions = [
     #'sphinx.ext.autodoc',
     'sphinx.ext.viewcode', 
-    'sphinxcontrib.seqdiag',
+    # TODO: writethedocs is not finding seqdiag, needs debugging
+    #'sphinxcontrib.seqdiag',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
