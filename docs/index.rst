@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    readme
+   project
    contributing
    developmentsetup
    deployment
@@ -22,5 +23,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
