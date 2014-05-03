@@ -2,6 +2,10 @@
 
 # documentation, testing and debuging packages
 Sphinx==1.2.2
+#sphinxcontrib-blockdiag
+#sphinxcontrib-seqdiag
+-e git+https://bitbucket.org/codersquid/sphinxcontrib-seqdiag-dir.git
+#sphinxcontrib-actdiag
 coverage==3.7.1
 django-debug-toolbar==1.0.1
 django-discover-runner==1.0
