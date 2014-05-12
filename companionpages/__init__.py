@@ -3,4 +3,4 @@
 
 __author__ = 'Research Compendia Contributors'
 __email__ = 'contact@researchcompendia.org'
-__version__ = '1.2.0'
+__version__ = '1.2.1'
