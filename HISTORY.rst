@@ -3,6 +3,19 @@
 History
 -------
 
+1.2.1 (2014-05-12)
+
+New Features and content
+########################
+
+* Facetted search based on primary research field and compendium type `#184 <https://github.com/researchcompendia/researchcompendia/pull/184>`_
+* Started `Project Structure <https://github.com/researchcompendia/researchcompendia/blob/develop/docs/project.rst>`_ docs
+
+Fixes
+#####
+
+* User detail page broken due to old url pattern `#182 <https://github.com/researchcompendia/researchcompendia/issues/182>`_
+
 1.2.0 (2014-04-14)
 ++++++++++++++++++
 
