@@ -5,12 +5,36 @@
 
 {% block content %}
 
-<h2>Search</h2>
-
 <form method="get" action=".">
-    {{ form|crispy }}
+  {{ form|crispy }}
 
-  {% if query %}
+{% if query %}
+
+  <!-- begin faceting -->
+  <div class="row">
+
+  <div class="col-md-4">
+    {% if facets.fields.primary_research_field %}
+      <h3>Primary Research Field</h3>
+      <ul>
+      {% for primary_research_field in facets.fields.primary_research_field|slice:":5" %}
+      <li><a href="{{ request.get_full_path }}&amp;selected_facets=primary_research_field_exact:{{ primary_research_field.0|urlencode }}">{{ primary_research_field.0 }}</a> {{ primary_research_field.1 }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% if facets.fields.compendium_type %}
+      <h3>Compendium Type</h3>
+      <ul>
+      {% for compendium_type in facets.fields.compendium_type|slice:":5" %}
+      <li><a href="{{ request.get_full_path }}&amp;selected_facets=compendium_type_exact:{{ compendium_type.0|urlencode }}">{{ compendium_type.0 }}</a> {{ compendium_type.1 }}</li>
+      {% endfor %}
+  </ul>
+    {% endif %}
+  </div>
+
+
+
+  <div class="col-md-8">
     <h3>Results</h3>
 
     {% if page.has_previous or page.has_next %}
@@ -62,11 +86,14 @@
       </div>
     {% endif %}
 
-  {% else %}
-    show example queries here
-  {% endif %}
+  </div> <!-- /col-md-9 -->
+
+{% else %}
+
+{% endif %} <!-- if query -->
+
+</div> <!-- /row -->
 
 </form>
-
 
 {% endblock content %}
