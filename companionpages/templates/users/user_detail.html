@@ -35,7 +35,7 @@
       <div class="list-group">
       {% for contributor in object.contributor_set.all %}</li>
       {% if forloop.first %}<h3>Contributor</h3>{% endif %}
-        <a class="list-group-item" href="{% url 'compendia:detail' contributor.article.id %}">
+        <a class="list-group-item" href="{% url 'compendia:pk_detail' contributor.article.id %}">
           <i class="fa fa-book"></i> {{ contributor.article.title }}
         </a>
       {% endfor %}
@@ -43,7 +43,7 @@
       <div class="list-group">
       {% for article in object.article_set.all %}</li>
         {% if forloop.first %}<h3>Site Owner</h3>{% endif %}
-        <a class="list-group-item" href="{% url 'compendia:detail' article.id %}">
+        <a class="list-group-item" href="{% url 'compendia:pk_detail' article.id %}">
             <i class="fa fa-book"></i> {{ article.title }}
         </a>
       {% endfor %}
