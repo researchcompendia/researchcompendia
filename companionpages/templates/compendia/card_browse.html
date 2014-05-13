@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a href="{% url 'compendia:pk_detail' compendium.pk %}">
+        {{ compendium.title }}
+    </a>
+  </div>
+  <div class="panel-body">
+    <p>{{ compendium.journal }}</p>
+    <p>{{ compendium.authors_text|truncatewords_html:100 }}</p>
+    {% autoescape off %}
+    <p>{{ compendium.code_data_abstract|truncatewords_html:100 }}</p>
+    {% endautoescape %}
+    <p><a class="btn btn-primary" href="{% url 'compendia:pk_detail' compendium.pk %}"><i class="fa fa-book"></i> Details</a></p>
+  </div>
+</div>

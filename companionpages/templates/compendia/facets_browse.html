@@ -1,0 +1,15 @@
+{% if facets.fields.compendium_type %}
+<p>compendia types:
+{% for field, count in facets.fields.compendium_type|slice:":5" %}
+<a href="{% url 'compendia:browse' field|urlencode %}">{{ field }}</a>({{ count }})
+{% endfor %}
+</p>
+{% endif %}
+{% if facets.fields.primary_research_field %}
+<p>
+research fields:
+{% for field, count in facets.fields.primary_research_field|slice:":5" %}
+<a href="{% url 'compendia:browse' field|urlencode %}">{{ field }}</a>({{ count }})
+{% endfor %}
+</p>
+{% endif %}

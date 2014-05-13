@@ -7,6 +7,7 @@ from django.utils.translation import ugettext as _
 from django.views import generic
 
 from braces.views import FormMessagesMixin, LoginRequiredMixin
+from haystack.query import SearchQuerySet
 
 from .models import Article
 from .forms import ArticleForm, ArticleUpdateForm
@@ -14,13 +15,45 @@ from .forms import ArticleForm, ArticleUpdateForm
 logger = logging.getLogger('researchcompendia.compendia')
 
 
+class ArticleBrowseView(generic.base.TemplateView):
+    template_name = 'compendia/browse.html'
+    sqs = SearchQuerySet().facet('compendium_type').facet('primary_research_field')
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleBrowseView, self).get_context_data(**kwargs)
+        context['searchqueryset'] = self.sqs
+        context['facets'] = self.sqs.facet_counts()
+        context['result_groups'] = self.make_facet_groups(self.sqs)
+        return context
+
+    def make_facet_groups(self, sqs):
+        counts = sqs.facet_counts()
+        fields = counts.get('fields', {})
+        type_counts = fields.get('compendium_type', [])
+        facetgroups = []
+        for compendium_type, count in type_counts:
+            if compendium_type == '':
+                continue
+            items = self.sqs.filter(compendium_type=compendium_type).values(
+                'pk',
+                'title',
+                'authors_text',
+                'code_data_abstract',
+                'journal',
+            )
+            facetgroups.append([compendium_type, [item for item in items][:5]])
+        return facetgroups
+
+
 class ArticleListView(generic.ListView):
     model = Article
     template_name = 'compendia/index.html'
     paginate_by = 25
+    sqs = SearchQuerySet().facet('compendium_type').facet('primary_research_field')
 
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
+        context['facets'] = self.sqs.facet_counts()
         context['static_url'] = settings.STATIC_URL.rstrip('/')
         context['media_url'] = settings.MEDIA_URL
         context['domain'] = Site.objects.get_current().domain
@@ -33,6 +66,13 @@ class ArticleListView(generic.ListView):
     def get_paginate_by(self, queryset):
         """ Paginate by specified value in querystring, or use default class property value.  """
         return self.request.GET.get('paginate_by', self.paginate_by)
+
+
+class ArticleTypeListView(ArticleListView):
+
+    def get_queryset(self):
+        compendium_type = self.kwargs.get('compendium_type', None)
+        return Article.objects.filter(status__iexact=Article.STATUS.active).filter(compendium_type=compendium_type)
 
 
 class ArticleDetailView(generic.DetailView):
