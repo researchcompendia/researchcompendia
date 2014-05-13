@@ -10,32 +10,9 @@
 
 {% if query %}
 
-  <!-- begin faceting -->
-  <div class="row">
+  {% include "compendia/facets.html" %}
 
-  <div class="col-md-4">
-    {% if facets.fields.primary_research_field %}
-      <h3>Primary Research Field</h3>
-      <ul>
-      {% for primary_research_field in facets.fields.primary_research_field|slice:":5" %}
-      <li><a href="{{ request.get_full_path }}&amp;selected_facets=primary_research_field_exact:{{ primary_research_field.0|urlencode }}">{{ primary_research_field.0 }}</a> {{ primary_research_field.1 }}</li>
-      {% endfor %}
-      </ul>
-    {% endif %}
-    {% if facets.fields.compendium_type %}
-      <h3>Compendium Type</h3>
-      <ul>
-      {% for compendium_type in facets.fields.compendium_type|slice:":5" %}
-      <li><a href="{{ request.get_full_path }}&amp;selected_facets=compendium_type_exact:{{ compendium_type.0|urlencode }}">{{ compendium_type.0 }}</a> {{ compendium_type.1 }}</li>
-      {% endfor %}
-  </ul>
-    {% endif %}
-  </div>
-
-
-
-  <div class="col-md-8">
-    <h3>Results</h3>
+  <h3>Results</h3>
 
     {% if page.has_previous or page.has_next %}
     <p>{{ page.start_index }} through {{ page.end_index }} of {{ paginator.count }} results</p>
@@ -50,25 +27,17 @@
 
 
     {% for result in page.object_list %}
+
       <div class="panel panel-default">
         <div class="panel-heading">
           <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
         </div>
         <div class="panel-body">
-          <p>{% for collaborator in result.object.collaborators.all %}
-            {{ collaborator }} {% if not forloop.last %}, {% endif %}
-            {% endfor %}
-          </p>
           <p>{{ result.object.journal }}</p>
+          <p>{{ result.object.authors_text|truncatewords:100 }}</p>
           <p>{{ result.object.code_data_abstract|truncatewords:100 }}</p>
 
           <a class="btn btn-primary" href="{{ result.object.get_absolute_url }}"><i class="fa fa-book"></i> Details</a>
-          {% if result.object.code_archive_file %}
-            <a class="btn btn-primary" href="{{ static_url }}{{ result.object.code_archive_file}}"><i class="fa fa-download"></i> Code</a>
-          {% endif %}
-          {% if result.object.data_archive_file %}
-            <a class="btn btn-primary" href="{{ static_url }}{{ result.object.data_archive_file}}"><i class="fa fa-download"></i> Data</a>
-          {% endif %}
         </div> <!-- panel body -->
       </div> <!-- panel -->
 
@@ -86,13 +55,7 @@
       </div>
     {% endif %}
 
-  </div> <!-- /col-md-9 -->
-
-{% else %}
-
 {% endif %} <!-- if query -->
-
-</div> <!-- /row -->
 
 </form>
 
