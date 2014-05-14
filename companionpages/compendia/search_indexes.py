@@ -6,6 +6,7 @@ from models import Article
 class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     authors_text = indexes.CharField(model_attr='authors_text')
+    journal = indexes.CharField(model_attr='journal')
     title = indexes.CharField(model_attr='title')
     code_data_abstract = indexes.CharField(model_attr='code_data_abstract')
     compendium_type = indexes.CharField(model_attr='compendium_type', faceted=True)

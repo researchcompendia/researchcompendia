@@ -116,13 +116,19 @@
 
 <p>
 {% if article.compendium_type %}
-<b>Compendium Type</b>: {{ article.compendium_type}}</br>
+<b>Compendium Type</b>: {{ article.get_compendium_type_display }}</br>
+{% endif %}
+{% if article.primary_research_field %}
+<b>Primary Research Field</b>: {{ article.get_primary_research_field_display }}</br>
+{% endif %}
+{% if article.secondary_research_field %}
+<b>Secondary Research Field</b>: {{ article.get_secondary_research_field_display }}</br>
 {% endif %}
 {% if article.content_license %}
-<b>Content License</b>: {{ article.content_license }}</br>
+<b>Content License</b>: {{ article.get_content_license_display }}</br>
 {% endif %}
 {% if article.code_license %}
-<b>Code License</b>: {{ article.code_license }}</br>
+<b>Code License</b>: {{ article.get_code_license_display }}</br>
 {% endif %}
 </p>
 

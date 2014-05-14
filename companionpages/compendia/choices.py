@@ -110,6 +110,7 @@ RESEARCH_FIELDS = Choices(
     ("urban_spatial_regional_economics", _(u"Urban, Spatial, and Regional Economics")),
     ("valuation", _(u"Valuation")),
 )
+RESEARCH_FIELD_LOOKUP = dict(RESEARCH_FIELDS)
 
 
 MATERIAL_TYPES = Choices(
@@ -183,7 +184,12 @@ ENTRY_TYPES = Choices(
     ('misc_negative_results', _(u'Negative Results')),
     ('misc_public_tool', _(u'Public Tool')),
     ('misc_course', _(u'Course')),
+    ('misc_lecture_notes', _(u'Lecture Notes')),
+    ('misc_dataset', _(u'Data')),
+    ('misc_software', _(u'Software')),
+    ('misc_problem_sets', _(u'Problem Sets')),
 )
+ENTRY_TYPE_LOOKUP = dict(ENTRY_TYPES)
 
 
 # http://schema.datacite.org/meta/kernel-3/metadata.xsd

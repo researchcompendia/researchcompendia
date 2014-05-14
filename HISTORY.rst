@@ -3,6 +3,10 @@
 History
 -------
 
+1.3.0-b1 (2014-05-12)
+
+* Style changes for faceted searching and browsing
+
 1.2.1 (2014-05-12)
 
 New Features and content

@@ -1,0 +1,13 @@
+{% if facets.fields.compendium_type %}
+compendia types:
+{% for field, count in facets.fields.compendium_type|slice:":5" %}
+<a href="{{ request.get_full_path }}&amp;selected_facets=compendium_type_exact:{{ field|urlencode }}">{{ field }}</a>({{ count }})</li>
+{% endfor %}
+{% endif %}
+
+{% if facets.fields.primary_research_field %}
+research fields:
+{% for field, count in facets.fields.primary_research_field|slice:":5" %}
+<a href="{{ request.get_full_path }}&amp;selected_facets=primary_research_field:{{ field|urlencode }}">{{ field }}</a>({{ count }})</li>
+{% endfor %}
+{% endif %}
