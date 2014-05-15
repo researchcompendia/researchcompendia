@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load home_tags %}
 {% load tz %}
 
 {% block content %}
@@ -9,7 +10,7 @@
 
 {% if result_groups %}
 {% for compendium_type, compendium_type_results in result_groups %}
-<h3>{{ compendium_type }}</h3>
+<h3>{{ compendium_type_lookup|lookup:compendium_type }}</h3>
   {% for compendium in compendium_type_results %}
     {% include "compendia/card_browse.html" %}
   {% endfor %}

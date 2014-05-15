@@ -4,7 +4,7 @@ from model_utils.choices import Choices
 
 """
 This module defines categories of information used when working with compendia.
-Once a value is added here, it should never change.  Add values sparingly.
+Once a value is added here, keys should never change.  Add new entries sparingly.
 
 """
 
@@ -164,17 +164,17 @@ CODE_LICENSES = Choices(
 
 # http://www.openoffice.org/bibliographic/bibtex-defs.html
 ENTRY_TYPES = Choices(
-    ('article', _(u'Journal or Magazine article')),
+    ('article', _(u'Journal or Magazine Article')),
     ('book', _(u'Book')),
     ('booklet', _(u'Booklet')),
-    ('inbook', _(u'Book chapter or section')),
+    ('inbook', _(u'Book Chapter or Section')),
     ('incollection', _(u'Book collection')),
-    ('inproceedings', _(u'Conference proceedings article')),
+    ('inproceedings', _(u'Conference Proceedings Article')),
     ('manual', _(u'Technical Documentation')),
-    ('mastersthesis', _(u'Master’s thesis')),
+    ('mastersthesis', _(u'Master’s Thesis')),
     ('misc', _(u'Misc')),
-    ('phdthesis', _(u'PhD thesis')),
-    ('proceedings', _(u'Conference proceedings')),
+    ('phdthesis', _(u'PhD Thesis')),
+    ('proceedings', _(u'Conference Proceedings')),
     ('techreport', _(u'Technical Report')),
     ('unpublished', _(u'Unpublished Document')),
     # non-bibtex classifications

@@ -8,11 +8,24 @@ from django.views import generic
 
 from braces.views import FormMessagesMixin, LoginRequiredMixin
 from haystack.query import SearchQuerySet
+from haystack.views import FacetedSearchView
 
 from .models import Article
 from .forms import ArticleForm, ArticleUpdateForm
+from . import choices
 
 logger = logging.getLogger('researchcompendia.compendia')
+
+
+class ArticleFacetedSearchView(FacetedSearchView):
+    def __init__(self, *args, **kwargs):
+        super(ArticleFacetedSearchView, self).__init__(*args, **kwargs)
+
+    def extra_context(self):
+        extra = super(ArticleFacetedSearchView, self).extra_context()
+        extra['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
+        extra['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
+        return extra
 
 
 class ArticleBrowseView(generic.base.TemplateView):
@@ -24,6 +37,8 @@ class ArticleBrowseView(generic.base.TemplateView):
         context['searchqueryset'] = self.sqs
         context['facets'] = self.sqs.facet_counts()
         context['result_groups'] = self.make_facet_groups(self.sqs)
+        context['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
+        context['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
         return context
 
     def make_facet_groups(self, sqs):
