@@ -73,6 +73,8 @@ class ArticleListView(generic.ListView):
         context['media_url'] = settings.MEDIA_URL
         context['domain'] = Site.objects.get_current().domain
         context['now'] = datetime.now()
+        context['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
+        context['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
         return context
 
     def get_queryset(self):
@@ -102,6 +104,8 @@ class ArticleDetailView(generic.DetailView):
         context['now'] = datetime.now()
         verifications = self.object.verification_set.all()[:5]
         context['recent_verifications'] = verifications
+        context['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
+        context['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
         return context
 
 
