@@ -52,7 +52,7 @@ Resources
 * Technical Documentation: http://tyler.readthedocs.org/en/latest/
 * Issue tracker: https://github.com/researchcompendia/researchcompendia/issues
 * Wiki: https://github.com/researchcompendia/researchcompendia/wiki
-* IRC: #researchcompendia on freenode.net https://kiwiirc.com/client/irc.freenode.net/?nick=rcguest|?#researchcompendia
+* IRC: `#researchcompendia <https://kiwiirc.com/client/irc.freenode.net/?nick=rcguest|?#researchcompendia>`_
 
 Development Environments
 ++++++++++++++++++++++++
