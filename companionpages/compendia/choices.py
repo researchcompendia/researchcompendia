@@ -184,10 +184,10 @@ ENTRY_TYPES = Choices(
     ('misc_negative_results', _(u'Negative Results')),
     ('misc_public_tool', _(u'Public Tool')),
     ('misc_course', _(u'Course')),
-    ('misc_lecture_notes', _(u'Lecture Notes')),
+    ('misc_lecture_notes', _(u'Lecture Note')),
     ('misc_dataset', _(u'Data')),
     ('misc_software', _(u'Software')),
-    ('misc_problem_sets', _(u'Problem Sets')),
+    ('misc_problem_sets', _(u'Problem Set')),
 )
 ENTRY_TYPE_LOOKUP = dict(ENTRY_TYPES)
 
