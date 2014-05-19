@@ -27,6 +27,7 @@ class ArticleFacetedSearchView(FacetedSearchView):
         extra['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
         return extra
 
+
 class TableOfContentsView(generic.ListView):
     model = TableOfContentsOption
     template_name = 'asa.html'

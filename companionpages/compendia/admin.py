@@ -54,5 +54,5 @@ admin.site.register(Contributor, ContributorAdmin)
 admin.site.register(TaggedArticle, TaggedArticleAdmin)
 admin.site.register(Verification, VerificationAdmin)
 admin.site.register(TableOfContentsOption,
-    list_display = ['compendium_type'],
+    list_display=['compendium_type'],
 )
