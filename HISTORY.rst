@@ -3,11 +3,28 @@
 History
 -------
 
+1.3.0
++++++
+
+1.3.0-b2 (2014-05-19)
+#####################
+
+* This adds a sample Table of Contents view for the ASA Commons with the a list
+  of results based on the request from the ASA group. Results cards for this type
+  of browsing won't have abstract information. At the moment, they do not want 
+  facets on the top level Table of Contents view. We can refine this in future iterations.
+* With new browsing types of pages the pagination logic was getting repeated a
+  lot so it has been factored out in to a separate template for DRY and also so
+  that we have consistent pagination style.
+* This adds a microformat to our header for rel-vcs as specified by https://joeyh.name/rfc/rel-vcs/
+
 1.3.0-b1 (2014-05-12)
+#####################
 
 * Style changes for faceted searching and browsing
 
 1.2.1 (2014-05-12)
+++++++++++++++++++
 
 New Features and content
 ########################
