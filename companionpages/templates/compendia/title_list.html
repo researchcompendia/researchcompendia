@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load tz %}
+
+{% block content %}
+
+{% if object_list %}
+
+{% include "compendia/pagination.html" %}
+
+<ul>
+{% for obj in object_list %}
+  <li>
+    <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a>
+    {% include "compendia/citation.html" with article=obj %}
+  </li>
+{% endfor %}
+</ul>
+
+{% include "compendia/pagination.html" %}
+
+{% else %}
+
+<p>No Research Compendia of this type. Create one.</p>
+
+  <form action="{% url 'compendia:create' %}" method="get">
+    <button type='submit' class='btn btn-primary'>Create Research Compendium</button>
+  </form>
+
+{% endif %}
+
+{% endblock content %}

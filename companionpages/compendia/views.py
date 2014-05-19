@@ -10,7 +10,7 @@ from braces.views import FormMessagesMixin, LoginRequiredMixin
 from haystack.query import SearchQuerySet
 from haystack.views import FacetedSearchView
 
-from .models import Article
+from .models import Article, TableOfContentsOption
 from .forms import ArticleForm, ArticleUpdateForm
 from . import choices
 
@@ -26,6 +26,10 @@ class ArticleFacetedSearchView(FacetedSearchView):
         extra['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
         extra['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
         return extra
+
+class TableOfContentsView(generic.ListView):
+    model = TableOfContentsOption
+    template_name = 'asa.html'
 
 
 class ArticleBrowseView(generic.base.TemplateView):
@@ -86,6 +90,7 @@ class ArticleListView(generic.ListView):
 
 
 class ArticleTypeListView(ArticleListView):
+    template_name = 'compendia/title_list.html'
 
     def get_queryset(self):
         compendium_type = self.kwargs.get('compendium_type', None)

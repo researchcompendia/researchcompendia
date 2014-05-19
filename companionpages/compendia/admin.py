@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contributor, Article, Verification, TaggedArticle
+from .models import Contributor, Article, Verification, TaggedArticle, TableOfContentsOption
 from . import choices
 
 
@@ -53,3 +53,6 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Contributor, ContributorAdmin)
 admin.site.register(TaggedArticle, TaggedArticleAdmin)
 admin.site.register(Verification, VerificationAdmin)
+admin.site.register(TableOfContentsOption,
+    list_display = ['compendium_type'],
+)
