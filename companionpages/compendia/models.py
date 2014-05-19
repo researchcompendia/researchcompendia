@@ -184,3 +184,17 @@ class Verification(StatusModel, TimeStampedModel):
         ordering = ['-created']
         verbose_name = _(u'verification')
         verbose_name_plural = _(u'verifications')
+
+
+class TableOfContentsOption(models.Model):
+    compendium_type = models.CharField(max_length=100, choices=choices.ENTRY_TYPES, default='misc', unique=True)
+    description = MarkupField(max_length=500, blank=True, verbose_name=_(u'Description'),
+        help_text=_(u'Write an optional descrption to appear with the Table of Contents entry.'
+                    u'Markdown is allowed. (500 characters maximum)'))
+
+    def __unicode__(self):
+        return self.compendium_type
+
+    class Meta(object):
+        verbose_name = _(u'Table of Contents Option')
+        verbose_name_plural = _(u'Table of Contents Options')

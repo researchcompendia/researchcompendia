@@ -8,11 +8,29 @@ from django.views import generic
 
 from braces.views import FormMessagesMixin, LoginRequiredMixin
 from haystack.query import SearchQuerySet
+from haystack.views import FacetedSearchView
 
-from .models import Article
+from .models import Article, TableOfContentsOption
 from .forms import ArticleForm, ArticleUpdateForm
+from . import choices
 
 logger = logging.getLogger('researchcompendia.compendia')
+
+
+class ArticleFacetedSearchView(FacetedSearchView):
+    def __init__(self, *args, **kwargs):
+        super(ArticleFacetedSearchView, self).__init__(*args, **kwargs)
+
+    def extra_context(self):
+        extra = super(ArticleFacetedSearchView, self).extra_context()
+        extra['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
+        extra['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
+        return extra
+
+
+class TableOfContentsView(generic.ListView):
+    model = TableOfContentsOption
+    template_name = 'asa.html'
 
 
 class ArticleBrowseView(generic.base.TemplateView):
@@ -24,6 +42,8 @@ class ArticleBrowseView(generic.base.TemplateView):
         context['searchqueryset'] = self.sqs
         context['facets'] = self.sqs.facet_counts()
         context['result_groups'] = self.make_facet_groups(self.sqs)
+        context['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
+        context['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
         return context
 
     def make_facet_groups(self, sqs):
@@ -58,6 +78,8 @@ class ArticleListView(generic.ListView):
         context['media_url'] = settings.MEDIA_URL
         context['domain'] = Site.objects.get_current().domain
         context['now'] = datetime.now()
+        context['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
+        context['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
         return context
 
     def get_queryset(self):
@@ -69,6 +91,7 @@ class ArticleListView(generic.ListView):
 
 
 class ArticleTypeListView(ArticleListView):
+    template_name = 'compendia/title_list.html'
 
     def get_queryset(self):
         compendium_type = self.kwargs.get('compendium_type', None)
@@ -87,6 +110,8 @@ class ArticleDetailView(generic.DetailView):
         context['now'] = datetime.now()
         verifications = self.object.verification_set.all()[:5]
         context['recent_verifications'] = verifications
+        context['compendium_type_lookup'] = choices.ENTRY_TYPE_LOOKUP
+        context['research_field_lookup'] = choices.RESEARCH_FIELD_LOOKUP
         return context
 
 

@@ -51,13 +51,13 @@ Resources
 * Free software: `MIT License <http://opensource.org/licenses/MIT>`_
 * Technical Documentation: http://tyler.readthedocs.org/en/latest/
 * Issue tracker: https://github.com/researchcompendia/researchcompendia/issues
-* Issue kanban: https://huboard.com/researchcompendia/researchcompendia
 * Wiki: https://github.com/researchcompendia/researchcompendia/wiki
-* IRC: #hackingscience on freenode.net
+* IRC: `#researchcompendia <https://kiwiirc.com/client/irc.freenode.net/?nick=rcguest|?#researchcompendia>`_
 
 Development Environments
 ++++++++++++++++++++++++
 * http://researchcompendia.org
+* http://labs.researchcompendia.org
 
 
 Acknowledgements

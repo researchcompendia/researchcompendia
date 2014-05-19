@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load home_tags %}
+{% load flatblock_tags %}
+
+{% block title %}ASA Commons{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+{% flatblock "asa.info" %}
+
+<ul>
+{% for option in object_list %}
+<li>
+<a href="{% url 'compendia:browse' option.compendium_type|urlencode %}">{{ option.get_compendium_type_display }}</a>
+</li>
+{% endfor %}
+</ul>
+
+
+</div> <!-- row -->
+{% endblock content %}
