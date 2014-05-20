@@ -49,7 +49,7 @@ Resources
 ---------
 
 * Free software: `MIT License <http://opensource.org/licenses/MIT>`_
-* Technical Documentation: http://tyler.readthedocs.org/en/latest/
+* Technical Documentation: http://researchcompendia.readthedocs.org
 * Issue tracker: https://github.com/researchcompendia/researchcompendia/issues
 * Wiki: https://github.com/researchcompendia/researchcompendia/wiki
 * IRC: `#researchcompendia <https://kiwiirc.com/client/irc.freenode.net/?nick=rcguest|?#researchcompendia>`_
