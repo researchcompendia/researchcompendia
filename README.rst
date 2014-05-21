@@ -4,6 +4,12 @@ ResearchCompendia
 
 .. image:: https://travis-ci.org/researchcompendia/researchcompendia.png?branch=master
         :target: https://travis-ci.org/researchcompendia/researchcompendia
+        :alt: Build Status
+
+.. image:: https://requires.io/github/researchcompendia/researchcompendia/requirements.png?branch=develop
+        :target: https://requires.io/github/researchcompendia/researchcompendia/requirements/?branch=develop
+        :alt: Requirements Status
+
 
 A proof of concept for a research compendia webapp.
 
