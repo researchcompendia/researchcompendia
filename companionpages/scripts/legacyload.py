@@ -5,6 +5,7 @@ import json
 import os
 from collections import defaultdict
 
+# flake8: noqa
 
 """
 This reads a results json file that was created by the

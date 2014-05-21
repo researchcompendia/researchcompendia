@@ -80,7 +80,7 @@ def query(pid, doi_param, timeout=1.0):
             'noredirect': True,
             'id': doi,
             'format': 'unixsd', },
-            #timeout=timeout
+            # timeout=timeout
         )
     except requests.exceptions.RequestException:
         logger.warning('crossref requests exception', exc_info=True)
@@ -205,7 +205,7 @@ def parse_person(contributor):
         person['orcid'] = contributor.ORCID.text
     if contributor.affiliation is not None:
         person['affiliation'] = contributor.affiliation.text
-    #TODO if 'contributor_role' in contributor.attrs:
+    # TODO if 'contributor_role' in contributor.attrs:
     #   we could see about making our model have roles rather than coder, author.
     #   it makes more sense.
     return person

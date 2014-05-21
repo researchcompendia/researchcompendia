@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-#from django.views.generic import TemplateView
+# from django.views.generic import TemplateView
 
 from haystack.query import SearchQuerySet
 
@@ -18,9 +18,9 @@ urlpatterns = patterns(
     url(r'^avatar/', include('avatar.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^compendia/', include('compendia.urls', namespace="compendia")),
-    #url(r'^search/', include('haystack.urls')),
+    # url(r'^search/', include('haystack.urls')),
     url(r'^markitup/', include('markitup.urls')),
-    #url(r'^asa/', TemplateView.as_view(template_name='asa.html'), name='asa_portal'),
+    # url(r'^asa/', TemplateView.as_view(template_name='asa.html'), name='asa_portal'),
     # don't ask some urls got listed in a grant with this url scheme. it can never break.
     url(r'^2013-11/(?P<pk>\d+)/$', ArticleDetailView.as_view(), name='bitterlegacy'),
     url(r'^', include('home.urls', namespace="home")),
