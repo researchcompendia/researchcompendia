@@ -93,9 +93,16 @@ it will generate a SECRET_KEY for you.
   STATIC_ROOT                        normpath(join(PROJECT_ROOT, 'staticfiles'))
   STATIC_URL                         if using the s3boto storages then '%s/static/' % S3_URL, otherwise /static/
   =================================  ===========================================================================
-  
-Setting up the Database
------------------------
+ 
+There are a couple of places where settings are hard-coded in to templates. These need to be fixed. Meanwhile,
+you will need to change or remove the google analytics and addthis pubid codes.
+
+* Our google analytics tracking code is hardcoded in templates/base.html.
+* Our addthis pubid is hardcoded in templates/compendia/detail.html.
+
+
+Preparing the Database
+----------------------
 
 Set up the database by running::
 
