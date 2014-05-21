@@ -63,9 +63,6 @@ it will generate a SECRET_KEY for you.
   =================================  ===========================================================================
   Environment Variable               Default Setting
   =================================  ===========================================================================
-  ADDTHIS_GA_TRACKER                 ''
-  ADDTHIS_GA_TRACKING_ENABLED        False
-  ADDTHIS_PUBID                      ''
   ADMINS                             compendia@example.com
   AWS_ACCESS_KEY_ID                  ''
   AWS_SECRET_ACCESS_KEY              ''
@@ -85,7 +82,6 @@ it will generate a SECRET_KEY for you.
   DISQUS_WEBSITE_SHORTNAME           researchcompendiaorg
   BONSAI_URL                         http://127.0.0.1:9200
   EMAIL_BACKEND                      django.core.mail.backends.console.EmailBackend
-  GA_TRACKING_CODE                   ''
   MAILGUN_ACCESS_KEY                 ''
   MAILGUN_SERVER_NAME                ''
   MEDIA_ROOT                         normpath(join(PROJECT_ROOT, 'media'))
