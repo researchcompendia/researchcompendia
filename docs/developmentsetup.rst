@@ -115,38 +115,17 @@ Trying out Vagrant
 
 .. Note:: This section is for developers who have experience with Vagrant and Fabric
 
-Vagrant is not completely supported yet, but if you would like to try out
-what I've done so far, check out the `researchcompendia-deployment <https://github.com/researchcompendia/researchcompendia-deploymentrepo>`_ and run `vagrant up`. This will
-pull down a debian wheezy VM from puppetlabs if you don't already have it
-and launch the VM::
+If you want to use Vagrant clone the `researchcompendia-deployment
+<https://github.com/researchcompendia/researchcompendia-deployment>`_ repo. It
+contains fabric files and a Vagrantfile that pulls down a debian wheezy VM from
+vagrantcound::
 
+    $ git clone https://github.com/researchcompendia/researchcompendia-deployment.git
+    $ cd researchcompendia-deployment
     $ vagrant up
-    Bringing machine 'default' up with 'virtualbox' provider...
-    [default] Clearing any previously set forwarded ports...
-    [default] Creating shared folders metadata...
-    [default] Clearing any previously set network interfaces...
-    [default] Preparing network interfaces based on configuration...
-    [default] Forwarding ports...
-    [default] -- 22 => 2222 (adapter 1)
-    [default] -- 80 => 8000 (adapter 1)
-    [default] Booting VM...
-    [default] Waiting for machine to boot. This may take a few minutes...
-    [default] Machine booted and ready!
-    [default] Mounting shared folders...
-    [default] -- /vagrant
+    $ fab vagrant provision
 
-Once the VM is running, you can login::
+Provision is not idempotent, so running it twice will probably fail in interesting ways.
+If you want to start over need to run `vagrant destroy` first.
 
-    $ vagrant ssh
-    Linux debian-70rc1-x64-vbox4210 3.2.0-4-amd64 #1 SMP Debian 3.2.35-2 x86_64
-
-    The programs included with the Debian GNU/Linux system are free software;
-    the exact distribution terms for each program are described in the
-    individual files in /usr/share/doc/*/copyright.
-
-    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-    permitted by applicable law.
-    Last login: Sun Dec 15 20:20:08 2013 from 10.0.2.2
-
-Read through the fabfile.py script and take a look at the `provision` task. This task
-provisions a box to install all the dependencies and prepares a box for site deployment.
+Provision will set up the vagrant box in the same way that a production box is set up.

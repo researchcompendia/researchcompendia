@@ -4,6 +4,12 @@ ResearchCompendia
 
 .. image:: https://travis-ci.org/researchcompendia/researchcompendia.png?branch=master
         :target: https://travis-ci.org/researchcompendia/researchcompendia
+        :alt: Build Status
+
+.. image:: https://requires.io/github/researchcompendia/researchcompendia/requirements.png?branch=develop
+        :target: https://requires.io/github/researchcompendia/researchcompendia/requirements/?branch=develop
+        :alt: Requirements Status
+
 
 A proof of concept for a research compendia webapp.
 
@@ -49,7 +55,7 @@ Resources
 ---------
 
 * Free software: `MIT License <http://opensource.org/licenses/MIT>`_
-* Technical Documentation: http://tyler.readthedocs.org/en/latest/
+* Technical Documentation: http://researchcompendia.readthedocs.org
 * Issue tracker: https://github.com/researchcompendia/researchcompendia/issues
 * Wiki: https://github.com/researchcompendia/researchcompendia/wiki
 * IRC: `#researchcompendia <https://kiwiirc.com/client/irc.freenode.net/?nick=rcguest|?#researchcompendia>`_

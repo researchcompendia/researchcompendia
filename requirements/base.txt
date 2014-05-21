@@ -1,4 +1,4 @@
-Django==1.6.2
+Django==1.6.5
 
 # config helpers
 dj-database-url==0.2.2
@@ -53,10 +53,10 @@ django-floppyforms==1.1.1
 django-vanilla-views==1.0.2
 # rendering
 Markdown==2.4.0
-Pillow==2.3.0
+Pillow==2.4.0
 # parsing
 beautifulsoup4==4.3.2
-lxml==3.3.3
+lxml==3.3.5
 django-markitup==2.1
 
 # mail and contacts

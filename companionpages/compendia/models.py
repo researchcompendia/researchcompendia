@@ -128,7 +128,7 @@ class Article(StatusModel, TimeStampedModel):
         # yes, this is not ideal, but that's what they asked for
         year_created = self.created.strftime('%Y')
         return reverse('compendia:year_detail', args=(year_created, self.id,))
-        #return reverse('compendia:year_detail', args=(self.id,))
+        # return reverse('compendia:year_detail', args=(self.id,))
 
     class Meta(object):
         ordering = ['title']
