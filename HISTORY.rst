@@ -6,6 +6,12 @@ History
 1.3.0
 +++++
 
+1.3.0-b3 (2014-05-21)
+#####################
+
+* Updates requirements to upgrade from insecure versions
+
+
 1.3.0-b2 (2014-05-19)
 #####################
 
