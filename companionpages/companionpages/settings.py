@@ -23,7 +23,7 @@ REMOTE_DEBUG = True if env.get('REMOTE_DEBUG', False) == 'True' else False
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-ADMINS = [(admin.split('@')[0], admin) for admin in env.get('ADMINS', 'compendia@starkravingsane.org').split(',')]
+ADMINS = [(admin.split('@')[0], admin) for admin in env.get('ADMINS', 'compendia@example.com').split(',')]
 MANAGERS = ADMINS
 
 # dj_database_url will pull from the DATABASE_URL environment variable
@@ -58,7 +58,7 @@ USE_TZ = True
 EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 
 # django-envelope contact page settings
-DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'compendia@codersquid.com')
+DEFAULT_FROM_EMAIL = env.get('DEFAULT_FROM_EMAIL', 'compendia@example.com')
 ENVELOPE_CONTACT_CHOICES = (
     ('',    u"Choose"),
     (10,    u"A question regarding the website"),
@@ -76,7 +76,7 @@ CROSSREF_PID = env.get('CROSSREF_PID', '')
 
 
 # s3 amazon static file storage settings
-AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'starkravingsanermccompanion')
+AWS_STORAGE_BUCKET_NAME = env.get('AWS_STORAGE_BUCKET_NAME', 'compendiaexamplebucket')
 S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 # WORKAROUND
 # I'm using strip("'") because heroku is inserting single quotes in heroku config settings
@@ -91,11 +91,11 @@ STATICFILES_STORAGE = env.get('STATICFILES_STORAGE', 'django.contrib.staticfiles
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 DISQUS_API_KEY = env.get('DISQUS_API_KEY', 'none')
-DISQUS_WEBSITE_SHORTNAME = env.get('DISQUS_WEBSITE_SHORTNAME', 'researchcompendiaorg')
-ADDTHIS_PUBID = env.get('ADDTHIS_PUBID', 'ra-5334d4381d265227')
-ADDTHIS_GA_TRACKING_ENABLED = True if env.get('ADDTHIS_GA_TRACKING_ENABLED', True) == 'True' else False
-ADDTHIS_GA_TRACKER = env.get('ADDTHIS_GA_TRACKER', 'UA-44934930-3')
-GA_TRACKING_CODE = env.get('GA_TRACKING_CODE', 'UA-44934930-3')
+DISQUS_WEBSITE_SHORTNAME = env.get('DISQUS_WEBSITE_SHORTNAME', '')
+ADDTHIS_PUBID = env.get('ADDTHIS_PUBID', '')
+ADDTHIS_GA_TRACKING_ENABLED = True if env.get('ADDTHIS_GA_TRACKING_ENABLED', False) == 'True' else False
+ADDTHIS_GA_TRACKER = env.get('ADDTHIS_GA_TRACKER', '')
+GA_TRACKING_CODE = env.get('GA_TRACKING_CODE', '')
 
 ########## AUTHENTICATION CONFIGURATION
 AUTHENTICATION_BACKENDS = (
