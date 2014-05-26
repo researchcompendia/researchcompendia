@@ -185,7 +185,7 @@ ENTRY_TYPES = Choices(
     ('misc_public_tool', _(u'Public Tool')),
     ('misc_course', _(u'Course')),
     ('misc_lecture_notes', _(u'Lecture Note')),
-    ('misc_dataset', _(u'Data')),
+    ('misc_dataset', _(u'Dataset')),
     ('misc_software', _(u'Software')),
     ('misc_problem_sets', _(u'Problem Set')),
     ('misc_gov_reports', _(u'Government Report')),
