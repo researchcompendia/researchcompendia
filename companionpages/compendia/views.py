@@ -90,7 +90,12 @@ class ArticleListView(generic.ListView):
         return context
 
     def get_queryset(self):
-        return Article.objects.filter(status__iexact=Article.STATUS.active)
+        articles = Article.objects.filter(status__iexact=Article.STATUS.active)
+        if 'compendium_type' in self.request.GET:
+            articles = articles.filter(compendium_type=self.request.GET['compendium_type'])
+        if 'primary_research_field' in self.request.GET:
+            articles = articles.filter(primary_research_field=self.request.GET['primary_research_field'])
+        return articles
 
     def get_paginate_by(self, queryset):
         """ Paginate by specified value in querystring, or use default class property value.  """
