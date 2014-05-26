@@ -7,17 +7,17 @@
 {% block content %}
 
 <div class="row">
+  <div class="jumbotron rc-jumbotron">
+    {% flatblock "asa.info" %}
+  </div>
+</div>
 
-{% flatblock "asa.info" %}
+<div class="row">
+  <ul class="nav nav-stacked">
+  {% for entry in object_list %}
+  <li><a href="{% url 'compendia:browse' entry.slug %}">{{ entry.entry_text }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
 
-<ul>
-{% for option in object_list %}
-<li>
-<a href="{% url 'compendia:browse' option.compendium_type|urlencode %}">{{ option.get_compendium_type_display }}</a>
-</li>
-{% endfor %}
-</ul>
-
-
-</div> <!-- row -->
 {% endblock content %}
