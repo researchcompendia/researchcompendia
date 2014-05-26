@@ -10,7 +10,7 @@ from braces.views import FormMessagesMixin, LoginRequiredMixin
 from haystack.query import SearchQuerySet
 from haystack.views import FacetedSearchView
 
-from .models import Article, TableOfContentsOption
+from .models import Article, TableOfContentsEntry
 from .forms import ArticleForm, ArticleUpdateForm
 from . import choices
 
@@ -29,8 +29,15 @@ class ArticleFacetedSearchView(FacetedSearchView):
 
 
 class TableOfContentsView(generic.ListView):
-    model = TableOfContentsOption
+    model = TableOfContentsEntry
     template_name = 'asa.html'
+    sqs = SearchQuerySet().facet('compendium_type')
+
+    def get_context_data(self, **kwargs):
+        context = super(TableOfContentsView, self).get_context_data(**kwargs)
+        context['searchqueryset'] = self.sqs
+        context['facets'] = self.sqs.facet_counts()
+        return context
 
 
 class ArticleBrowseView(generic.base.TemplateView):
@@ -92,10 +99,14 @@ class ArticleListView(generic.ListView):
 
 class ArticleTypeListView(ArticleListView):
     template_name = 'compendia/title_list.html'
+    sqs = SearchQuerySet().facet('primary_research_field')
 
     def get_queryset(self):
-        compendium_type = self.kwargs.get('compendium_type', None)
-        return Article.objects.filter(status__iexact=Article.STATUS.active).filter(compendium_type=compendium_type)
+        slug = self.kwargs.get('slug', None)
+        toc = TableOfContentsEntry.objects.get(slug=slug)
+        entry_types = toc.entrytype_set.all()
+        compendium_types = [e.compendium_type for e in entry_types]
+        return Article.objects.filter(status__iexact=Article.STATUS.active).filter(compendium_type__in=compendium_types)
 
 
 class ArticleDetailView(generic.DetailView):
