@@ -6,6 +6,13 @@ History
 1.3.0
 +++++
 
+1.3.0-b4 (2014-05-26)
+#####################
+
+* changes how Table of Contents is created and viewed
+* Style changes on Table of Contents page. 
+
+
 1.3.0-b3 (2014-05-21)
 #####################
 

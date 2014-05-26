@@ -186,6 +186,33 @@ class Verification(StatusModel, TimeStampedModel):
         verbose_name_plural = _(u'verifications')
 
 
+class TableOfContentsEntry(models.Model):
+    entry_text = models.CharField(max_length=100, help_text=_(u'The text that appears in the table of contents'))
+    entry_order = models.IntegerField(help_text=_(u'Order this entry appears in the table of contents'), unique=True)
+    description = models.TextField(max_length=500, blank=True, verbose_name=_(u'Description'),
+        help_text=_(u'Write an optional descrption to appear with this Table of Contents entry.'
+                    u'(500 characters maximum)'))
+    slug = AutoSlugField(populate_from='entry_text', editable=True, unique=True)
+
+    def __unicode__(self):
+        return self.entry_text
+
+    class Meta(object):
+        ordering = ['entry_order']
+        verbose_name = _(u'Table of Contents Entry')
+        verbose_name_plural = _(u'Table of Contents Entries')
+
+
+class EntryType(models.Model):
+    compendium_type = models.CharField(max_length=100, choices=choices.ENTRY_TYPES, default='misc', unique=True)
+    table_of_content = models.ForeignKey(TableOfContentsEntry,
+        help_text=_(u'The table of content entry that this compendium type belongs to'))
+
+    def __unicode__(self):
+        return self.compendium_type
+
+
+# TODO this will be removed. it was just a thought experiment
 class TableOfContentsOption(models.Model):
     compendium_type = models.CharField(max_length=100, choices=choices.ENTRY_TYPES, default='misc', unique=True)
     description = MarkupField(max_length=500, blank=True, verbose_name=_(u'Description'),

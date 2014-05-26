@@ -4,6 +4,11 @@
 Getting Started with Development
 ================================
 
+.. Note:: If you have just started, this may seem confusing, and that is okay.
+   No one starts out understanding how to do all of this. Additionally, anything that is
+   confusing is a bug in our docs. Please open an issue to let us know where we
+   need to improve things.
+
 Ready to contribute code? Here's how to set up `ResearchCompendia` for local
 development.
 
@@ -31,18 +36,73 @@ Installing Dependencies
    <http://virtualenvwrapper.readthedocs.org/en/latest/>`_ if you have it is
    installed. It is convenient, though not required.
 
-2. Get help from someone to set up the environment variables for running
-   locally. Once you have the environment varialbes set up, you are ready to
+2. Set up environment variables. Once you have the environment varialbes set up, you are ready to
    set up the database.
 
 3. We use Postgres as our database backend. We haven't written docs to
    walk though setting up Postgres yet. If you are unfamiliar with this
    process, you could consider using sqlite locally event thought our
-   preferences is to use postgres in all environments.
-   
+   preferences is to use postgres in all environments. If you'd like to use
+   sqlite, set up your DATABASE_URL environment variable to have a path to 
+   a file name that will hold your database. for example::
 
-Setting up the Database
------------------------
+     'sqlite:////path/to/my/site/root/researchcompendia.db'
+
+
+Setting up the Environment
+--------------------------
+
+These are the environment variables that are used in the site settings listed along with their defaults.
+For any default that doesn't apply to you, make an environment variable with your preferred setting.
+
+You are required to create SECRET_KEY environment variable.
+
+If you use fabric to provision a vagrant box,
+it will generate a SECRET_KEY for you.
+
+  =================================  ===========================================================================
+  Environment Variable               Default Setting
+  =================================  ===========================================================================
+  ADMINS                             compendia@example.com
+  AWS_ACCESS_KEY_ID                  ''
+  AWS_SECRET_ACCESS_KEY              ''
+  AWS_STORAGE_BUCKET_NAME            compendiaexamplebucket
+  DATABASE_URL                       postgres://:5432/researchcompendia
+  DJANGO_BROKER_URL                  hamqp://guest:guest@localhost:5672//
+  DJANGO_CELERY_DISABLE_RATE_LIMITS  True
+  DJANGO_CELERY_RESULT_BACKEND       cache+memcached://127.0.0.1:11211/
+  DJANGO_CELERY_RESULT_SERIALIZER    json
+  DJANGO_CELERY_TASK_SERIALIZER      json
+  DJANGO_CELERY_TIMEZONE             US/Central
+  CROSSREF_PID                       ''
+  DEBUG                              True
+  DEFAULT_FILE_STORAGE               django.core.files.storage.FileSystemStorage
+  DEFAULT_FROM_EMAIL                 compendia@example.com
+  DISQUS_API_KEY                     'none'
+  DISQUS_WEBSITE_SHORTNAME           researchcompendiaorg
+  BONSAI_URL                         http://127.0.0.1:9200
+  EMAIL_BACKEND                      django.core.mail.backends.console.EmailBackend
+  MAILGUN_ACCESS_KEY                 ''
+  MAILGUN_SERVER_NAME                ''
+  MEDIA_ROOT                         normpath(join(PROJECT_ROOT, 'media'))
+  MEDIA_URL                          if using the s3boto storages then '%s/media/' % S3_URL, otherwise /media/
+  REMOTE_DEBUG                       False
+  SECRET_KEY                         no default. will blow up if not set
+  SITE_ID                            1
+  STATICFILES_STORAGE                django.contrib.staticfiles.storage.StaticFilesStorage
+  STATIC_ROOT                        normpath(join(PROJECT_ROOT, 'staticfiles'))
+  STATIC_URL                         if using the s3boto storages then '%s/static/' % S3_URL, otherwise /static/
+  =================================  ===========================================================================
+ 
+There are a couple of places where settings are hard-coded in to templates. These need to be fixed. Meanwhile,
+you will need to change or remove the google analytics and addthis pubid codes.
+
+* Our google analytics tracking code is hardcoded in templates/base.html.
+* Our addthis pubid is hardcoded in templates/compendia/detail.html.
+
+
+Preparing the Database
+----------------------
 
 Set up the database by running::
 

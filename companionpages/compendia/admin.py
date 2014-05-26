@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contributor, Article, Verification, TaggedArticle, TableOfContentsOption
+from .models import Contributor, Article, Verification, TaggedArticle, TableOfContentsEntry, EntryType
 from . import choices
 
 
@@ -49,10 +49,17 @@ class VerificationAdmin(admin.ModelAdmin):
     list_filter = ['status', 'created']
 
 
+class EntryTypeInline(admin.StackedInline):
+    model = EntryType
+
+
+class TableOfContentsEntryAdmin(admin.ModelAdmin):
+    inlines = [EntryTypeInline]
+    list_display = ['entry_text', 'slug', 'entry_order']
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Contributor, ContributorAdmin)
 admin.site.register(TaggedArticle, TaggedArticleAdmin)
 admin.site.register(Verification, VerificationAdmin)
-admin.site.register(TableOfContentsOption,
-    list_display=['compendium_type'],
-)
+admin.site.register(TableOfContentsEntry, TableOfContentsEntryAdmin)
