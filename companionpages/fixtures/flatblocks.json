@@ -16,5 +16,14 @@
         },
         "model": "flatblocks.flatblock",
         "pk": 2
+    },
+    {
+        "fields": {
+            "content": "This is a Table of Contents demo.",
+            "header": "",
+            "slug": "asa.info"
+        },
+        "model": "flatblocks.flatblock",
+        "pk": 4
     }
 ]
