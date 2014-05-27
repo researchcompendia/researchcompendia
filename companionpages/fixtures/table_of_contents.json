@@ -1,0 +1,176 @@
+[
+    {
+        "fields": {
+            "description": "",
+            "entry_order": 10,
+            "entry_text": "Books",
+            "slug": "books"
+        },
+        "model": "compendia.tableofcontentsentry",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "description": "",
+            "entry_order": 5,
+            "entry_text": "Papers",
+            "slug": "papers"
+        },
+        "model": "compendia.tableofcontentsentry",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "description": "",
+            "entry_order": 15,
+            "entry_text": "Course Materials",
+            "slug": "course-materials"
+        },
+        "model": "compendia.tableofcontentsentry",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "description": "",
+            "entry_order": 20,
+            "entry_text": "Problem Sets",
+            "slug": "problem-sets"
+        },
+        "model": "compendia.tableofcontentsentry",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "description": "",
+            "entry_order": 30,
+            "entry_text": "Data",
+            "slug": "datasets"
+        },
+        "model": "compendia.tableofcontentsentry",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "description": "",
+            "entry_order": 40,
+            "entry_text": "Software",
+            "slug": "software"
+        },
+        "model": "compendia.tableofcontentsentry",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "description": "",
+            "entry_order": 70,
+            "entry_text": "Graphics",
+            "slug": "graphics"
+        },
+        "model": "compendia.tableofcontentsentry",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "compendium_type": "book",
+            "table_of_content": 1
+        },
+        "model": "compendia.entrytype",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "compendium_type": "inbook",
+            "table_of_content": 1
+        },
+        "model": "compendia.entrytype",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "compendium_type": "incollection",
+            "table_of_content": 1
+        },
+        "model": "compendia.entrytype",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "compendium_type": "article",
+            "table_of_content": 2
+        },
+        "model": "compendia.entrytype",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "compendium_type": "published_paper",
+            "table_of_content": 2
+        },
+        "model": "compendia.entrytype",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "compendium_type": "techreport",
+            "table_of_content": 2
+        },
+        "model": "compendia.entrytype",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "compendium_type": "working_paper",
+            "table_of_content": 2
+        },
+        "model": "compendia.entrytype",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "compendium_type": "misc_methods_paper",
+            "table_of_content": 2
+        },
+        "model": "compendia.entrytype",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "compendium_type": "misc_course",
+            "table_of_content": 3
+        },
+        "model": "compendia.entrytype",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "compendium_type": "misc_problem_sets",
+            "table_of_content": 4
+        },
+        "model": "compendia.entrytype",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "compendium_type": "misc_dataset",
+            "table_of_content": 5
+        },
+        "model": "compendia.entrytype",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "compendium_type": "misc_software",
+            "table_of_content": 6
+        },
+        "model": "compendia.entrytype",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "compendium_type": "misc_images",
+            "table_of_content": 7
+        },
+        "model": "compendia.entrytype",
+        "pk": 14
+    }
+]
