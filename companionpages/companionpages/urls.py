@@ -1,7 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.contrib.admin.views.decorators import staff_member_required
 # from django.views.generic import TemplateView
 
+from flatblocks.views import edit
 from haystack.query import SearchQuerySet
 
 from compendia.views import ArticleDetailView
@@ -20,6 +22,8 @@ urlpatterns = patterns(
     url(r'^compendia/', include('compendia.urls', namespace="compendia")),
     # url(r'^search/', include('haystack.urls')),
     url(r'^markitup/', include('markitup.urls')),
+    # TODO I'd like a flatblocks edit view that can take a slug
+    url(r'^flatblocks/(?P<pk>\d+)/edit/$', staff_member_required(edit), name='flatblocks-edit'),
     # url(r'^asa/', TemplateView.as_view(template_name='asa.html'), name='asa_portal'),
     # don't ask some urls got listed in a grant with this url scheme. it can never break.
     url(r'^2013-11/(?P<pk>\d+)/$', ArticleDetailView.as_view(), name='bitterlegacy'),
