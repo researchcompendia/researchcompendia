@@ -2,8 +2,33 @@ from django import forms
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+from haystack.forms import FacetedSearchForm
+from haystack.query import SQ
 
 from .models import Article
+from . import choices
+
+
+class ArticleFacetedSearchForm(FacetedSearchForm):
+    compendium_type = forms.MultipleChoiceField(required=False, choices=choices.ENTRY_TYPES)
+    primary_research_field = forms.MultipleChoiceField(required=False, choices=choices.RESEARCH_FIELDS)
+
+    def __init__(self, *args, **kwargs):
+        super(ArticleFacetedSearchForm, self).__init__(*args, **kwargs)
+        self.query_dict = args[0]
+        self.compendium_types = self.query_dict.getlist('compendium_type')
+        self.research_fields = self.query_dict.getlist('primary_research_field')
+
+    def search(self):
+        sqs = super(ArticleFacetedSearchForm, self).search()
+
+        sq = SQ()
+        for compendium_type in self.compendium_types:
+            sq.add(SQ(compendium_type=compendium_type), SQ.OR)
+        for research_field in self.research_fields:
+            sq.add(SQ(primary_research_field=research_field), SQ.OR)
+
+        return sqs.filter(sq)
 
 
 class ArticleUpdateForm(forms.ModelForm):

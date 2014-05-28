@@ -10,6 +10,6 @@ compendia types:
 {% if facets.fields.primary_research_field %}
 research fields:
 {% for field, count in facets.fields.primary_research_field|slice:":5" %}
-<a href="{{ request.get_full_path }}&amp;selected_facets=primary_research_field:{{ field|urlencode }}">{{ research_field_lookup|lookup:field }}</a>({{ count }})</li>
+<a href="{{ request.get_full_path }}&amp;selected_facets=primary_research_field_exact:{{ field|urlencode }}">{{ research_field_lookup|lookup:field }}</a>({{ count }})</li>
 {% endfor %}
 {% endif %}

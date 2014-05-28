@@ -11,15 +11,17 @@ from haystack.query import SearchQuerySet
 from haystack.views import FacetedSearchView
 
 from .models import Article, TableOfContentsEntry
-from .forms import ArticleForm, ArticleUpdateForm
+from .forms import ArticleForm, ArticleUpdateForm, ArticleFacetedSearchForm
 from . import choices
 
 logger = logging.getLogger('researchcompendia.compendia')
 
 
 class ArticleFacetedSearchView(FacetedSearchView):
+
     def __init__(self, *args, **kwargs):
         super(ArticleFacetedSearchView, self).__init__(*args, **kwargs)
+        self.form_class = ArticleFacetedSearchForm
 
     def extra_context(self):
         extra = super(ArticleFacetedSearchView, self).extra_context()
