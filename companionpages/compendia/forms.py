@@ -1,3 +1,5 @@
+import logging
+
 from django import forms
 
 from crispy_forms.helper import FormHelper
@@ -7,6 +9,8 @@ from haystack.query import SQ
 
 from .models import Article
 from . import choices
+
+logger = logging.getLogger('researchcompendia.compendia')
 
 
 class ArticleFacetedSearchForm(FacetedSearchForm):
@@ -18,17 +22,21 @@ class ArticleFacetedSearchForm(FacetedSearchForm):
         self.query_dict = args[0]
         self.compendium_types = self.query_dict.getlist('compendium_type')
         self.research_fields = self.query_dict.getlist('primary_research_field')
+        logger.debug('compendium_types %s', self.compendium_types)
+        logger.debug('research_fields %s', self.research_fields)
 
     def search(self):
         sqs = super(ArticleFacetedSearchForm, self).search()
 
-        sq = SQ()
-        for compendium_type in self.compendium_types:
-            sq.add(SQ(compendium_type=compendium_type), SQ.OR)
-        for research_field in self.research_fields:
-            sq.add(SQ(primary_research_field=research_field), SQ.OR)
-
-        return sqs.filter(sq)
+        if len(self.compendium_types) > 0 or len(self.research_fields) > 0:
+            sq = SQ()
+            for compendium_type in self.compendium_types:
+                sq.add(SQ(compendium_type=compendium_type), SQ.OR)
+            for research_field in self.research_fields:
+                sq.add(SQ(primary_research_field=research_field), SQ.OR)
+            return sqs.filter(sq)
+        # otherwise just pass through
+        return sqs
 
 
 class ArticleUpdateForm(forms.ModelForm):
