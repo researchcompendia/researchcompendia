@@ -6,11 +6,10 @@
 {% block content %}
 
 <form method="get" action=".">
+
   {{ form|crispy }}
 
 {% if query %}
-
-  {% include "compendia/facets.html" %}
 
   <h3>Results</h3>
 
@@ -59,4 +58,4 @@
 
 </form>
 
-{% endblock content %}
+{% endblock %}
