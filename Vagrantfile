@@ -5,9 +5,10 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "debian-70rc1-x64-vbox4210"
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/debian-70rc1-x64-vbox4210.box"
-  config.vm.network :forwarded_port, guest: 8000, host: 8000
+  config.vm.box = "chef/debian-7.4"
+  config.vm.network "forwarded_port", guest: 80, host: 8000
+  # If true, then any SSH connections made will enable agent forwarding.
+  # Default value: false
   config.ssh.forward_agent = true
-  config.vm.provision :shell, :path => "bootstrap.sh"
+  #config.vm.provision :shell, :path => "bootstrap.sh"
 end
