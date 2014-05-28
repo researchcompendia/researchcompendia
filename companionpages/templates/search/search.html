@@ -22,6 +22,8 @@
         {% if page.has_next %}
         <a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
       </div>
+    {% else %}
+    <p>{{ paginator.count }} results</p>
     {% endif %}
 
 
