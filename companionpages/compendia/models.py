@@ -81,6 +81,20 @@ class Article(StatusModel, TimeStampedModel):
                     u'Please contact us for larger files.'))
     data_doi = models.CharField(max_length=2000, verbose_name=_(u'dDOI'), blank=True,
         help_text=_(u'this will be the DOI for this code'))
+
+    # The below FileFields were last minute hacks to allow for demos with customized
+    # buttons and descriptions for someone. At some point we shouldn't add more columns to this
+    # table and rather have a separate table to represent an item that belongs to an Article.
+
+    # The class might have columns like so:
+    # FK to Article
+    # identifier_type, for examplemple, 'doi', 'issn'
+    # resource_type, for example, 'audovisual', 'dataset', software', 'service'
+    # uri_scheme, for example, 'http', 'file', 'ftp', 'git'???
+    # domain, for example, 'en.wikipedia.org'
+    #
+    # storage mechanism, file storage, cloud storage, ...
+
     lecture_notes_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
         verbose_name=_(u'Course Lectures'), help_text=_(u'File containing a an archive of course lecture notes.'))
     homework_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
@@ -91,6 +105,8 @@ class Article(StatusModel, TimeStampedModel):
         verbose_name=_(u'Book'))
     verification_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
         help_text=_(u'File containing a reviewer created archive that is used for verification.'))
+    image_archive_file = models.FileField(blank=True, null=True, upload_to=upload_materials_callback,
+        verbose_name=_(u'Image(s)'))
 
     # deprecated, use article_tags
     tags = TaggableManager(related_name="deprecated_tags", blank=True, help_text=_(u'Deprecated. Use article tags.'))
@@ -102,6 +118,7 @@ class Article(StatusModel, TimeStampedModel):
 
     # HACK, in the interest of getting a slice of something out quickly i'm adding non-repeating fields
     # from bibtex for journals rather than using the bibjson field for everything/bibjson formatter stuff. a TODO
+
     month = models.CharField(max_length=500, blank=True,
         help_text=_(u'The month of publication (or, if unpublished, the month of creation)'))
     year = models.CharField(max_length=500, blank=True,
@@ -116,6 +133,19 @@ class Article(StatusModel, TimeStampedModel):
     manual_citation = MarkupField(max_length=500, blank=True, verbose_name=_(u'Manual Citation'),
                                   help_text=_(u'Citation created by ResearchCompendia site admins.'
                                               u'Markdown is allowed. (500 characters maximum)'))
+
+    # Thoughts
+    # There are so many different approaches towards storing citation information with an item,
+    # and this deserves some discussion. I added this jsonfield as a potential stopgap measure
+    # for UI stuff -- the idea was to shove bibliographic information in to a dictionary that
+    # could get displayed on the front end according to whatever citation style a user prefers.
+    #
+    # ultimately, I don't know what you'd want here. You might want to have bibliographic information
+    # stored in a graph, you might want to do something less complicated, you may want to create
+    # a CitationMixin so that we pull out citation logic in to a mixin class that can be
+    # inherited by any class that wants to be citable.
+    #
+    # Before stomping over things, take a look at the existing work out there on this topic.
     bibjson = jsonfield.JSONField(verbose_name=_(u'Citation in bibjson form'), default="{}")
 
     admin_notes = MarkupField(max_length=5000, blank=True, verbose_name=_(u'Administrator Notes'),
@@ -137,6 +167,9 @@ class Article(StatusModel, TimeStampedModel):
 
 
 class Contributor(TimeStampedModel):
+    # This class never ended up getting used.
+    # I wanted to have a way to link ResearchCompendia users to an Article
+    # rather than just linking to the page creator.
     user = models.ForeignKey(User, verbose_name=(u'Contributing User'))
     article = models.ForeignKey(Article, verbose_name=_(u'Article'))
     role = models.CharField(max_length=50, choices=choices.CONTRIBUTOR_ROLES,
