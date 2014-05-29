@@ -3,7 +3,9 @@
 {% if facets.fields.compendium_type %}
 <p>compendia types:
 {% for field, count in facets.fields.compendium_type|slice:":5" %}
+{% if field %}
 <a href="{% url 'compendia:list' %}?compendium_type={{ field|urlencode }}">{{ compendium_type_lookup|lookup:field }}</a>({{ count }})
+{% endif %}
 {% endfor %}
 </p>
 {% endif %}
@@ -11,7 +13,9 @@
 <p>
 research fields:
 {% for field, count in facets.fields.primary_research_field|slice:":5" %}
+{% if field %}
 <a href="{% url 'compendia:list' %}?primary_research_field={{ field|urlencode }}">{{ research_field_lookup|lookup:field }}</a>({{ count }})
+{% endif %}
 {% endfor %}
 </p>
 {% endif %}

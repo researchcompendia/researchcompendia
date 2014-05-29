@@ -49,6 +49,7 @@ class Article(StatusModel, TimeStampedModel):
         help_text=_(u'Please title your compendium. Does not have to match the title of the paper.'))
     paper_abstract = MarkupField(max_length=5000, blank=True, verbose_name=_(u'Paper Abstract'),
         help_text=_(u'Please share the abstract of the paper. Markdown is allowed. (5000 characters maximum) (Optional)'))
+    description_header = models.CharField(max_length=100, verbose_name=_(u'Description heading'), default="Code and Data Abstract")
     code_data_abstract = MarkupField(max_length=5000, blank=True, verbose_name=_(u'Code and Data Abstract'),
         help_text=_(u'Please write an abstract for the code and data. Does not need to match paper abstract.'
                     u'Markdown is allowed. (5000 characters maximum)'))
