@@ -22,7 +22,7 @@
   {% endif %}
 {% endfor %}
 
-<h2>Code and Data Abstract</h2>
+<h2>{{ article.description_header }}</h2>
 <p>{{ article.code_data_abstract }}</p>
 
 {% if article.code_archive_file %}
@@ -93,8 +93,12 @@
 <a class="btn btn-default" href="{{ article.article_file.url }}"><i class="fa fa-file-o"></i> Article</a>
 {% endif %}
 {% if article.book_file %}
-<a class="btn btn-default" href="{{ article.book_file.url }}"><i class="fa fa-file-o"></i> Book</a>
+<a class="btn btn-default" href="{{ article.book_file.url }}"><i class="fa fa-book-o"></i> Book</a>
 {% endif %}
+{% if article.image_archive_file %}
+<a class="btn btn-default" href="{{ article.image_archive_file.url }}"><i class="fa fa-picture-o"></i> Images</a>
+{% endif %}
+
 
 
 

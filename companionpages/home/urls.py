@@ -13,4 +13,5 @@ urlpatterns = patterns(
     url(r'^faq/', views.FaqView.as_view(), name='faq'),
     url(r'^contact/', ContactView.as_view(template_name='contact.html'), name='contact'),
     url(r'^developers/', ContactView.as_view(template_name='developers.html'), name='developers'),
+    url(r'^demos/', ContactView.as_view(template_name='demos.html'), name='demos'),
 )

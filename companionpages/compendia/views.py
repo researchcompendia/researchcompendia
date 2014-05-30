@@ -2,6 +2,7 @@ from datetime import datetime
 import logging
 from django.conf import settings
 from django.contrib.sites.models import Site
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 from django.utils.translation import ugettext as _
 from django.views import generic
@@ -11,15 +12,17 @@ from haystack.query import SearchQuerySet
 from haystack.views import FacetedSearchView
 
 from .models import Article, TableOfContentsEntry
-from .forms import ArticleForm, ArticleUpdateForm
+from .forms import ArticleForm, ArticleUpdateForm, ArticleFacetedSearchForm
 from . import choices
 
 logger = logging.getLogger('researchcompendia.compendia')
 
 
 class ArticleFacetedSearchView(FacetedSearchView):
+
     def __init__(self, *args, **kwargs):
         super(ArticleFacetedSearchView, self).__init__(*args, **kwargs)
+        self.form_class = ArticleFacetedSearchForm
 
     def extra_context(self):
         extra = super(ArticleFacetedSearchView, self).extra_context()
@@ -32,6 +35,7 @@ class TableOfContentsView(generic.ListView):
     model = TableOfContentsEntry
     template_name = 'asa.html'
     sqs = SearchQuerySet().facet('compendium_type')
+    allow_empty = False
 
     def get_context_data(self, **kwargs):
         context = super(TableOfContentsView, self).get_context_data(**kwargs)
@@ -77,6 +81,7 @@ class ArticleListView(generic.ListView):
     template_name = 'compendia/index.html'
     paginate_by = 25
     sqs = SearchQuerySet().facet('compendium_type').facet('primary_research_field')
+    allow_empty = False
 
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
@@ -108,10 +113,22 @@ class ArticleTypeListView(ArticleListView):
 
     def get_queryset(self):
         slug = self.kwargs.get('slug', None)
-        toc = TableOfContentsEntry.objects.get(slug=slug)
+        try:
+            toc = TableOfContentsEntry.objects.get(slug=slug)
+        except ObjectDoesNotExist:
+            raise Http404(_("No %(verbose_name)s found matching that matches the query") %
+                          {'verbose_name': TableOfContentsEntry._meta.verbose_name})
+
         entry_types = toc.entrytype_set.all()
+        if not entry_types.exists():
+            raise Http404(_("This %(verbose_name)s has no entry type categories.")
+                        % {'verbose_name': TableOfContentsEntry._meta.verbose_name})
+
         compendium_types = [e.compendium_type for e in entry_types]
-        return Article.objects.filter(status__iexact=Article.STATUS.active).filter(compendium_type__in=compendium_types)
+        articles = Article.objects.filter(status__iexact=Article.STATUS.active).filter(compendium_type__in=compendium_types)
+        if not articles.exists():
+            raise Http404(_("No items found."))
+        return articles
 
 
 class ArticleDetailView(generic.DetailView):

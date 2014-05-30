@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load home_tags %}
+{% load flatblock_tags %}
+
+{% block title %}Demos{% endblock %}
+
+{% block content %}
+
+<div class="row">
+<div class="jumbotron rc-jumbotron">
+  <a href="{% url 'home:contact' %}">Contact</a> us about demos.
+</div>
+</div>
+
+<div class="row">
+  {% flatblock "demos.info" %}
+</div>
+
+{% endblock content %}

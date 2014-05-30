@@ -188,6 +188,7 @@ ENTRY_TYPES = Choices(
     ('misc_software', _(u'Software')),
     ('misc_problem_sets', _(u'Problem Sets')),
     ('misc_gov_reports', _(u'Government Reports')),
+    ('misc_images', _(u'Images')),
 )
 ENTRY_TYPE_LOOKUP = dict(ENTRY_TYPES)
 

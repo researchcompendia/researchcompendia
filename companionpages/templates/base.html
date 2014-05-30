@@ -24,7 +24,10 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-</script>
+  </script>
+
+  {% block extra_header %}
+  {% endblock extra_header %}
   <!-- Le styles -->
 
   <!--
@@ -144,6 +147,7 @@
       <li><a href="{% url 'terms' %}" class="navbar-link">Terms of Use</a></li>
       <li><a href="{% url 'home:partners' %}" class="navbar-link">Partners</a></li>
       <li><a href="{% url 'home:developers' %}" class="navbar-link">Developers</a></li>
+      <li><a href="{% url 'home:demos' %}" class="navbar-link">Demos</a></li>
     </ul>
   </div>
 </nav>

@@ -46,8 +46,19 @@ django-avatar==2.0
 
 # views and forms
 django-braces==1.4.0
+# Once they start pushing package updates to pip we can pin to a pip version.
+# for change details see
+# see https://github.com/maraujop/django-crispy-forms/compare/1.4.0...dev
 -e git+https://github.com/maraujop/django-crispy-forms.git#egg=django-crispy-forms
+# using funkybob's repo since the pip maintainer's repo has a comment that they are no
+# longer maintaining the package.
+# for change details see
+# https://github.com/funkybob/django-flatblocks/compare/v0.8.0...master
+# Once they start pushing package updates to pip we can pin to a pip version.
 -e git+https://github.com/funkybob/django-flatblocks.git@45010a7e043849b1271b7e2c9866d2e62cc4c383#egg=django-flatblocks
+# forked this because I wanted to use tomchristie's branch rather than the pip maintainer's branch
+# Once they accept tomchristie's changes and 
+# Once they start pushing package updates to pip we can pin to a pip version.
 -e git://github.com/codersquid/django-extra-views.git@3f78aafb01decdba26d0d05cd5527a44e6d5e60a#egg=django_extra_views-dev
 django-floppyforms==1.1.1
 django-vanilla-views==1.0.2
@@ -60,6 +71,9 @@ lxml==3.3.5
 django-markitup==2.1
 
 # mail and contacts
+# Once they start pushing package updates to pip we can pin to a pip version.
+# for change details see
+# https://github.com/zsiciarz/django-envelope/compare/0.7.0...master
 -e git+https://github.com/zsiciarz/django-envelope.git@e85c86ed1c9c27d082f411c5d313d6cce43afa24#egg=django_envelope-dev
 django-honeypot==0.4.0
 django-mailgun==0.2.2
