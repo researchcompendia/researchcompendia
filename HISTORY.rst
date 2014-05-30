@@ -6,41 +6,19 @@ History
 1.3.0
 +++++
 
-1.3.0-b5 (2014-05-26)
-#####################
+* Adds a Demos page where we can list ongoing demos. Currently we have a Table of Contents
+  demo and some executability demos.
+* The demo Table of Contents demo allows for an admin to generate a table of contents based on
+  entries that categorize compendia types. The current demo shows a result card style with no
+  stripped down informationc ompared to the main site result card style.
+* Adds facets based on compendium type and primary research fields. These are stackable in the url, but
+  the UI only drills down via links for now.
+* Upgrades insecure requirements. Started tracking requirements via the https://requires.io service.
+* Adds microformat to our header for rel-vcs as specified by https://joeyh.name/rfc/rel-vcs/
+* template refactoring -- pulled out some browse, facet, and pagination code in to separate files to be
+  included in other templates. DRY
+* minor style changes
 
-* fixes faceted browse on main site
-
-
-1.3.0-b4 (2014-05-26)
-#####################
-
-* changes how Table of Contents is created and viewed
-* Style changes on Table of Contents page. 
-
-
-1.3.0-b3 (2014-05-21)
-#####################
-
-* Updates requirements to upgrade from insecure versions
-
-
-1.3.0-b2 (2014-05-19)
-#####################
-
-* This adds a sample Table of Contents view for the ASA Commons with the a list
-  of results based on the request from the ASA group. Results cards for this type
-  of browsing won't have abstract information. At the moment, they do not want 
-  facets on the top level Table of Contents view. We can refine this in future iterations.
-* With new browsing types of pages the pagination logic was getting repeated a
-  lot so it has been factored out in to a separate template for DRY and also so
-  that we have consistent pagination style.
-* This adds a microformat to our header for rel-vcs as specified by https://joeyh.name/rfc/rel-vcs/
-
-1.3.0-b1 (2014-05-12)
-#####################
-
-* Style changes for faceted searching and browsing
 
 1.2.1 (2014-05-12)
 ++++++++++++++++++
