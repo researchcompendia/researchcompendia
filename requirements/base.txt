@@ -21,7 +21,9 @@ django-storages==1.1.8
 psycopg2==2.5.2
 # data models
 django-json-field==0.5.5
--e git+https://github.com/bradjasper/django-jsonfield.git@68ee43497d44be7d76d7b21d32b3e0688dfaae84#egg=jsonfield
+# use the postgresql branch that removes native support for json fields
+# see https://github.com/bradjasper/django-jsonfield/issues/68#issuecomment-44219854
+-e git+https://github.com/bradjasper/django-jsonfield.git@postgresql#egg=jsonfield
 django-model-utils==1.5.0
 
 
