@@ -1,6 +1,7 @@
 import logging
 
 from django import forms
+from django.http import QueryDict
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -20,8 +21,10 @@ class ArticleFacetedSearchForm(FacetedSearchForm):
     def __init__(self, *args, **kwargs):
         super(ArticleFacetedSearchForm, self).__init__(*args, **kwargs)
         self.query_dict = args[0]
-        self.compendium_types = self.query_dict.getlist('compendium_type')
-        self.research_fields = self.query_dict.getlist('primary_research_field')
+        if self.query_dict is None:
+            self.query_dict = QueryDict({})
+        self.compendium_types = self.query_dict.getlist('compendium_type', [])
+        self.research_fields = self.query_dict.getlist('primary_research_field', [])
         logger.debug('compendium_types %s', self.compendium_types)
         logger.debug('research_fields %s', self.research_fields)
 
