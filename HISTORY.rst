@@ -3,6 +3,12 @@
 History
 -------
 
+1.3.1 (2014-06-03)
+++++++++++++++++++
+
+* Fixes `#196 <https://github.com/researchcompendia/researchcompendia/issues/196>`_, /search/ without query parameters caused a 500.
+
+
 1.3.0
 +++++
 
